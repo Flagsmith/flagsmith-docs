@@ -1,2 +1,8 @@
 site_name: Bullet Train
 theme: readthedocs
+site_url: https://docs.bullet-train.io/
+repo_url: https://github.com/SolidStateGroup/Bullet-Train-Docs
+
+pages:
+    - Overview: index.md
+    - Installation: installation.md
