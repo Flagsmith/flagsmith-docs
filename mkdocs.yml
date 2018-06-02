@@ -6,6 +6,7 @@ repo_url: https://github.com/SolidStateGroup/Bullet-Train-Docs
 pages:
   - Overview: index.md
   - Installation: installation.md
-  - Clients:
+  - Clients: 
+    - 'Overview' : 'clients/overview.md'
     - 'Javascript': 'clients/javascript.md'
     - 'Java': 'clients/java.md'
