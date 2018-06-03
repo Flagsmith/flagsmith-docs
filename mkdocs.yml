@@ -1,4 +1,4 @@
-site_name: Bullet Train
+site_name: Bullet Train Docs
 theme: readthedocs
 site_url: https://docs.bullet-train.io/
 repo_url: https://github.com/SolidStateGroup/Bullet-Train-Docs
@@ -6,7 +6,9 @@ repo_url: https://github.com/SolidStateGroup/Bullet-Train-Docs
 pages:
   - Overview: index.md
   - Installation: installation.md
+  - Hosted Service: hosted-service.md
   - Clients: 
     - 'Overview' : 'clients/overview.md'
-    - 'Javascript': 'clients/javascript.md'
+    - 'Javascript/React': 'clients/javascript.md'
     - 'Java': 'clients/java.md'
+    - 'Node': 'clients/node.md'

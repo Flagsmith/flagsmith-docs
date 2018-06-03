@@ -15,3 +15,11 @@ The source code can be found at [this GitHub project](https://github.com/SolidSt
 ## Front End Website
 
 The source code can be found at [this GitHub project](https://github.com/SolidStateGroup/Bullet-Train-Frontend). 
+
+## Client Libraries
+
+Once you are setup with the front and back end, you can integrate our client libraries with your apps. 
+
+* [Javascript and React/React Native](clients/javascript.md) 
+* [NodeJS](clients/node.md) 
+* [Java](clients/java.md) 
