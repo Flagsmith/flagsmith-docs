@@ -6,10 +6,8 @@ google_analytics: ['UA-120237963-2', 'bullet-train.io']
 
 pages:
   - Overview: index.md
-  - Installation: installation.md
   - Hosted Service: hosted-service.md
   - Clients: 
-    - 'Overview' : 'clients/overview.md'
-    - 'Javascript/React': 'clients/javascript.md'
+    - 'Javascript/React Native': 'clients/javascript.md'
     - 'Java': 'clients/java.md'
     - 'Node': 'clients/node.md'

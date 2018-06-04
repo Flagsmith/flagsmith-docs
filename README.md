@@ -4,6 +4,9 @@ This is the documentation repository for the [Docs](https://docs.bullet-train.io
 
 Built with [MKDocs](https://www.mkdocs.org/).
 
+## Pre requesites
+[pip](https://pip.pypa.io/)
+
 ## Local Development
 
 ```
