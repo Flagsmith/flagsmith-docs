@@ -31,7 +31,7 @@ Once you are setup with the front and back end, you can integrate our client lib
 Rather than just a flag that can be turned on / off, features within Bullet Train are pieces of functionality that have an enabled state as well as a configurable value. This allows you to use Bullet Train in the following ways.
 
 - Showing and hiding features in your application. E.g. Instant messaging within an application
-- Configuring values used within your application remotely. E.g. The number of powerups a user might have in a game/
+- Configuring values used within your application remotely. E.g. The number of power-ups a user might have in a game/
 - Configuring environment variables. E.g. Setting the database URL for your API.
 
 Features are created on a per project basis but edited per environment and can then be overridden on a per user basis. 
@@ -54,8 +54,8 @@ Users are a particular registration for one of your Project's environments, feat
  
 Users are created from your client SDKs, generally you'd make a call to identify as user whenever they are logged into your website or whenever your API receives a request that requires checking for features.    
 
-## Segments
+## Segments (**Coming soon**)
 
-**Coming soon** Segments are a way to define a group of users by traits such as number of times logged in, device, location or any number of custom defined traits.
+Segments are a way to define a group of users by traits such as number of times logged in, device, location or any number of custom defined traits.
  
  Similarly to individual users, you will be able to override environment defaults for features. For example showing certain features for a "power user" segment.
