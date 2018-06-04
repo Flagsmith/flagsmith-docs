@@ -5,10 +5,8 @@ repo_url: https://github.com/SolidStateGroup/Bullet-Train-Docs
 google_analytics: ['UA-120237963-2', 'bullet-train.io']
 
 pages:
-  - Overview: index.md
-  - Getting Started: 
-    - 'Installation': 'gettingstarted/installation.md'
-    - 'Hosted Service': 'gettingstarted/hosted-service.md'
+  - Overview and Install: index.md
+  - Hosted Service: 'hosted-service.md'
   - Usage: 
     - 'Managing Features': 'usage/managing-features.md'
   - Clients: 

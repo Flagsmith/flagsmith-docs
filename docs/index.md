@@ -1,22 +1,22 @@
-# Welcome to Bullet Train
-
 Bullet Train lets you manage features across web, mobile and server side applications.
 
 The application consist of 3 components:
 
-1. The Server-Side REST API.
-2. The Front End Administration Web Interface.
+1. The [Server-Side REST API](https://github.com/SolidStateGroup/Bullet-Train-API).
+2. The [Front End Administration Web Interface](https://github.com/SolidStateGroup/Bullet-Train-Frontend).
 3. Client Libraries.
 
 To get up and running, you can either use [https://bullet-train.io/](https://bullet-train.io/) for 1 and 2 above, or you can self host the API and Front End. This guide will get you set up self-hosting 1 and 2. Once you have these components up and running, you can add the client libraries to your apps and start managing your features remotely. 
 
+# Installation
+
 ## Server Side API
 
-The source code can be found at [this GitHub project](https://github.com/SolidStateGroup/Bullet-Train-API). 
+The source code and installation instructions can be found at [the GitHub project](https://github.com/SolidStateGroup/Bullet-Train-API). 
 
 ## Front End Website
 
-The source code can be found at [this GitHub project](https://github.com/SolidStateGroup/Bullet-Train-Frontend). 
+The source code and installation instructions can be found at [the GitHub project](https://github.com/SolidStateGroup/Bullet-Train-Frontend). 
 
 ## Client Libraries
 
