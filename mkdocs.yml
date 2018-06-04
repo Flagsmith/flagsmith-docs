@@ -8,7 +8,7 @@ pages:
   - Overview and Install: index.md
   - Hosted Service: 'hosted-service.md'
   - Managing Features: 'managing-features.md'
-  - Clients: 
+  - Client Libraries: 
     - 'Javascript/React Native': 'clients/javascript.md'
     - 'Node': 'clients/node.md'
     - 'Java': 'clients/java.md'

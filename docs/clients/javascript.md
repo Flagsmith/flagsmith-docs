@@ -1,3 +1,5 @@
+This library can be used with pure Javascript, React and React Native projects. The source code for the client is available on [Github](https://github.com/SolidStateGroup/bullet-train-js-client).
+
 ## Installation
 
 **NPM**
