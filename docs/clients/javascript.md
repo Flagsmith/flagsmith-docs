@@ -1,5 +1,10 @@
 This library can be used with pure Javascript, React and React Native projects. The source code for the client is available on [Github](https://github.com/SolidStateGroup/bullet-train-js-client).
 
+Example applications for Web and React Native can be found here:
+
+- [Web example](https://github.com/SolidStateGroup/bullet-train-js-client/tree/master/bullet-train-client/example)
+- [React Native example](https://github.com/SolidStateGroup/bullet-train-js-client/tree/master/react-native-bullet-train/example)
+
 ## Installation
 
 **NPM**
@@ -26,10 +31,6 @@ for example the Development or Production environment. You can find your environ
  
 <img src="/images/api-key.png"/>
  
-Example applications for Web and React Native can be found here:
- - [Web example](https://github.com/SolidStateGroup/bullet-train-js-client/tree/master/bullet-train-client/example)
- - [React Native example](https://github.com/SolidStateGroup/bullet-train-js-client/tree/master/react-native-bullet-train/example)
-
 **Example: Initialising the SDK**
 
 ```javascript
