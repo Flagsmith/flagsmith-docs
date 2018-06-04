@@ -8,7 +8,7 @@ The application consist of 3 components:
 2. The [Front End Administration Web Interface](https://github.com/SolidStateGroup/Bullet-Train-Frontend).
 3. Client Libraries.
 
-To get up and running, you can either use [https://bullet-train.io/](https://bullet-train.io/) for 1 and 2 above, or you can self host the API and Front End. This guide will get you set up self-hosting 1 and 2. Once you have these components up and running, you can add the client libraries to your apps and start managing your features remotely. 
+To get up and running, you can either use [https://bullet-train.io/](https://bullet-train.io/) for 1 and 2 above, or you can self host the API and Front End. Once you have these components up and running, you can add the client libraries to your apps and start managing your features remotely. 
 
 # Installation
 
@@ -55,12 +55,12 @@ Environments are a way to separate the configuration of your features. For examp
 
 ## Users
 
-Users are a particular registration for one of your Project's environments, features can be overridden from your environment defaults. For example, joe@yourwebsite.com would be a different user in your development environment to the one in production.
+Users are a particular registration for one of your Project's environments. Registering users within the client application allows you to manage features for individual users. User features can be overridden from your environment defaults. For example, joe@yourwebsite.com would be a different user in your development environment to the one in production, and they can have different features enabled for each environment.
  
-Users are created from your client SDKs, generally you'd make a call to identify as user whenever they are logged into your website or whenever your API receives a request that requires checking for features.    
+Users are created from your client SDKs, generally you'd make a call to identify a user with a unique string/id whenever they are logged into your website or whenever your API receives a request that requires checking for features.    
 
 ## Segments (**Coming soon**)
 
 Segments are a way to define a group of users by traits such as number of times logged in, device, location or any number of custom defined traits.
  
- Similarly to individual users, you will be able to override environment defaults for features. For example showing certain features for a "power user" segment.
+Similarly to individual users, you will be able to override environment defaults for features. For example showing certain features for a "power user" segment.
