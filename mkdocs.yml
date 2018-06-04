@@ -2,6 +2,7 @@ site_name: Bullet Train Docs
 theme: readthedocs
 site_url: https://docs.bullet-train.io/
 repo_url: https://github.com/SolidStateGroup/Bullet-Train-Docs
+google_analytics: ['UA-120237963-1', 'bullet-train.io']
 
 pages:
   - Overview: index.md
