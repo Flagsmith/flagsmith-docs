@@ -11,5 +11,8 @@ pages:
     - 'Hosted Service': 'gettingstarted/hosted-service.md'
   - Clients: 
     - 'Javascript/React Native': 'clients/javascript.md'
-    - 'Java': 'clients/java.md'
     - 'Node': 'clients/node.md'
+    - 'Java': 'clients/java.md'
+    - 'Python': 'clients/python.md'
+    - 'Ruby': 'clients/ruby.md'
+    - '.Net': 'clients/dotnet.md'
