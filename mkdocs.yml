@@ -9,6 +9,8 @@ pages:
   - Getting Started: 
     - 'Installation': 'gettingstarted/installation.md'
     - 'Hosted Service': 'gettingstarted/hosted-service.md'
+  - Usage: 
+    - 'Managing Features': 'usage/managing-features.md'
   - Clients: 
     - 'Javascript/React Native': 'clients/javascript.md'
     - 'Node': 'clients/node.md'
