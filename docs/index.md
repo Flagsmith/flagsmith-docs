@@ -22,9 +22,12 @@ The source code can be found at [this GitHub project](https://github.com/SolidSt
 
 Once you are setup with the front and back end, you can integrate our client libraries with your apps. 
 
-* [Javascript and React/React Native](clients/javascript.md) 
-* [NodeJS](clients/node.md) 
-* [Java](clients/java.md) 
+* [Javascript and React/React Native](/clients/javascript.md) 
+* [NodeJS](/clients/node.md) 
+* [Java](/clients/java.md) 
+* [Python](/clients/python.md) 
+* [Ruby](/clients/ruby.md) 
+* [.Net](/clients/dotnet.md) 
 
 ## Features
 
