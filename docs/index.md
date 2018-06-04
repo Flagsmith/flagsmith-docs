@@ -33,8 +33,8 @@ Once you are setup with the front and back end, you can integrate our client lib
 
 Rather than just a flag that can be turned on / off, features within Bullet Train are pieces of functionality that have an enabled state as well as a configurable value. This allows you to use Bullet Train in the following ways.
 
-- Showing and hiding features in your application. E.g. Instant messaging within an application
-- Configuring values used within your application remotely. E.g. The number of power-ups a user might have in a game/
+- Showing and hiding features in your application. E.g. Instant messaging within an application.
+- Configuring values used within your application remotely. E.g. The number of power-ups a user might have in a game.
 - Configuring environment variables. E.g. Setting the database URL for your API.
 
 Features are created on a per project basis but edited per environment and can then be overridden on a per user basis. 
