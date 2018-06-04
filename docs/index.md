@@ -1,6 +1,8 @@
 # Welcome to Bullet Train
 
-Bullet Train consist of 3 components:
+Bullet Train lets you manage features across web, mobile and server side applications.
+
+The application consist of 3 components:
 
 1. The Server-Side REST API.
 2. The Front End Administration Web Interface.
@@ -23,11 +25,6 @@ Once you are setup with the front and back end, you can integrate our client lib
 * [Javascript and React/React Native](clients/javascript.md) 
 * [NodeJS](clients/node.md) 
 * [Java](clients/java.md) 
-
-
-# Concepts
-
-Bullet Train lets you manage features across web, mobile and server side applications.
 
 ## Features
 
