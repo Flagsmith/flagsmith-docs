@@ -24,7 +24,7 @@ Environments are a way to separate the configuration of your features. For examp
 
 Users are a particular registration for one of your Project's environments. Registering users within the client application allows you to manage features for individual users. User features can be overridden from your environment defaults. For example, joe@yourwebsite.com would be a different user in your development environment to the one in production, and they can have different features enabled for each environment.
  
-Users are created from your client SDKs, generally you'd make a call to identify a user with a unique string/id whenever they are logged into your website or whenever your API receives a request that requires checking for features.    
+Users are created within Bullet Train automatically when they are identified from your client SDKs. Generally you'd make a call to identify a user with a unique string/id whenever they log into your website or whenever your API receives a request that requires checking for features.   
 
 ## Segments (**Coming soon**)
 
