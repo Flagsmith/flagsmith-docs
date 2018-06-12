@@ -1,4 +1,4 @@
-The SDK clients for NodeJS [https://bullet-train.io/](https://www.bullet-train.io/). Bullet Train allows you to manage feature flags and remote config across multiple projects, environments and organisations.
+This library can be used with server-side NodeJS projects. The source code for the client is available on [Github](https://github.com/SolidStateGroup/bullet-train-nodejs-client).
 
 ## Getting Started
 

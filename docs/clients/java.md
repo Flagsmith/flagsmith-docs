@@ -1,7 +1,4 @@
-# Bullet Train SDK for Java
-> Bullet Train allows you to manage feature flags and remote config across multiple projects, environments and organisations.
-
-The SDK for Android and Java applications for [https://bullet-train.io/](https://bullet-train.io/).
+This library can be used with server-side Java and Android applications. The source code for the client is available on [Github](https://github.com/SolidStateGroup/bullet-train-java-client).
 
 ## Getting Started
 
