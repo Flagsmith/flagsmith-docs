@@ -4,35 +4,22 @@ This library can be used with server-side Java and Android applications. The sou
 
 ## Quick Setup
 
-Before adding maven dependency to your local environment please follow these instruction first:
-
-- download source code from github
-```ssh
-git clone git@github.com:SolidStateGroup/bullet-train-java-client.git
-cd bullet-train-java-client
-```
-
-- run mvn command to install jar into your local maven repository
-```ssh
-mvn clean install -DskipTests
-```
-
-Now you can use below steps to add client to your project.
+The client library is available from the Central Maven Repository and can be added to your project by many tools:
 
 ### Maven
 
 Add following dependencies to your project in `pom.xml`
 ```xml
 <dependency>
-  <groupId>com.ssg</groupId>
+  <groupId>com.solidstategroup</groupId>
   <artifactId>bullet-train-client</artifactId>
-  <version>1.0</version>
+  <version>1.1</version>
 </dependency>
 ```
 
 ### Gradle
 ```groovy
-implementation 'com.ssg:bullet-train-client:1.0'
+implementation 'com.solidstategroup:bullet-train-client:1.1'
 ```
 
 ## Usage
@@ -102,4 +89,5 @@ If you encounter a bug or feature request we would like to hear about it. Before
 
 ## Get in touch
 
-If you have any questions about our projects you can email <a href="mailto:bullettrain@solidstategroup.com">bullettrain@solidstategroup.com</a>.
+If you have any questions about our projects you can email <a href="mailto:projects@solidstategroup.com">projects@solidstategroup.com</a>.
+
