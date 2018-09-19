@@ -51,12 +51,11 @@ if (featureEnabled) {
 To get configuration value for feature flag:
 
 ```java
-boolean featureEnabled = bulletClient.hasFeatureFlag("my_test_feature");
-if (featureEnabled) {
-    String myRemoteConfig = bulletClient.getFeatureFlagValue("my_test_feature");
-    // run the code for to execute enabled feature
+String myRemoteConfig = bulletClient.getFeatureFlagValue("my_test_feature");
+if (myRemoteConfig != null) {    
+    // run the code to use remote config value
 } else {
-    // run the code if feature switched off
+    // run the code without remote config
 }
 ```
 
@@ -76,6 +75,15 @@ if (featureEnabled) {
     // run the code for to execute enabled feature for given user
 } else {
     // run the code if feature switched off
+}
+```
+To get configuration value for feature flag for given user context:
+```java
+String myRemoteConfig = bulletClient.getFeatureFlagValue("my_test_feature", user);
+if (myRemoteConfig != null) {    
+    // run the code to use remote config value
+} else {
+    // run the code without remote config
 }
 ```
 
