@@ -1,9 +1,13 @@
-This library can be used with pure Javascript, React and React Native projects. The source code for the client is available on [Github](https://github.com/SolidStateGroup/bullet-train-js-client).
+This library can be used with pure Javascript, React (and all other popular frameworks/libraries) and React Native projects. The source code for the client is available on [Github](https://github.com/SolidStateGroup/bullet-train-js-client).
 
 Example applications for Web and React Native can be found here:
 
 - [Web example](https://github.com/SolidStateGroup/bullet-train-js-client/tree/master/bullet-train-client/example)
 - [React Native example](https://github.com/SolidStateGroup/bullet-train-js-client/tree/master/react-native-bullet-train/example)
+
+Examples applications for many popular JS frameworks such as React, Vue and Angular can be found here:
+
+- [JS framework examples](https://github.com/SolidStateGroup/bullet-train-examples)
 
 ## Installation
 
@@ -28,9 +32,9 @@ npm i react-native-bullet-train --save
 
 The SDK is initialised against a single environment within a project on [https://bullet-train.io](https://bullet-train.io),
 for example the Development or Production environment. You can find your environment key in the Environment settings page.
- 
+
 <img src="/images/api-key.png"/>
- 
+
 **Example: Initialising the SDK**
 
 ```javascript
@@ -39,22 +43,22 @@ import bulletTrain from "bullet-train-client or react-native-bullet-train"; //Ad
 bulletTrain.init({
 	environmentID:"<YOUR_ENVIRONMENT_KEY>",
 	onChange: (oldFlags,params)=>{ //Occurs whenever flags are changed
-	
+
 		const {isFromServer} = params; //determines if the update came from the server or local cached storage
-		
+
 		//Check for a feature
 		if (bulletTrain.hasFeature("myCoolFeature")){
 			myCoolFeature();
 		}
-		
-		
+
+
 		//Or, use the value of a feature
 		const bannerSize = bulletTrain.getValue("bannerSize");
-		
+
 		//Check whether value has changed
 		const bannerSizeOld = oldFlags["bannerSize"] && oldFlags["bannerSize"].value;
 		if (bannerSize !== bannerSizeOld) {
-		
+
 		}
 
 	}
@@ -83,22 +87,22 @@ bulletTrain.identify("bullet_train_sample_user",{traits}); //This will create a 
 bulletTrain.init({
 	environmentID: "QjgYur4LQTwe5HpvbvhpzK",
 		onChange: (oldFlags,params)=>{ //Occurs whenever flags are changed
-	
+
 		const {isFromServer} = params; //determines if the update came from the server or local cached storage
-		
+
 		//Check for a feature
 		if (bulletTrain.hasFeature("myPowerUserFeature")){
 			myPowerUserFeature();
 		}
-		
-		
+
+
 		//Or, use the value of a feature
 		const myPowerUserFeature = bulletTrain.getValue("myPowerUserFeature");
-		
+
 		//Check whether value has changed
 		const myPowerUserFeatureOld = oldFlags["myPowerUserFeature"] && oldFlags["myPowerUserFeature"].value;
 		if (myPowerUserFeature !== myPowerUserFeatureOld) {
-		
+
 		}
 
 	}
@@ -119,7 +123,7 @@ bulletTrain.init({
 
 **Available Functions**
 
-| Property        | Description |         
+| Property        | Description |
 | ------------- |:-------------:|
 | ```init```     | Initialise the sdk against a particular environment
 | ```hasFeature(key)```     | Get the value of a particular feature e.g. ```bulletTrain.hasFeature("powerUserFeature") // true```

@@ -1,6 +1,6 @@
 # Overview
 
-[Bullet Train](https://bullet-train.io/) lets you manage features across web, mobile and server side applications. Bullet Train is 100% Open Source. Host yourself or let us take care of the hosting. 
+[Bullet Train](https://bullet-train.io/) lets you manage features across web, mobile and server side applications. Bullet Train is 100% Open Source. Host yourself or let us take care of the hosting.
 
 The application consist of 3 components:
 
@@ -14,7 +14,7 @@ To get up and running, you can either use [https://bullet-train.io/](https://bul
 
 ### Server Side API
 
-The source code and installation instructions can be found at [the GitHub project](https://github.com/SolidStateGroup/Bullet-Train-API). 
+The source code and installation instructions can be found at [the GitHub project](https://github.com/SolidStateGroup/Bullet-Train-API).
 
 ### Front End Website
 
@@ -24,12 +24,18 @@ The source code and installation instructions can be found at [the GitHub projec
 
 Once you are setup with the front and back end, you can integrate our client libraries with your apps.
 
-* [Javascript and React/React Native](/clients/javascript.md)
-* [NodeJS](/clients/node.md)
-* [Java](/clients/java.md)
-* [Python](/clients/python.md)
-* [Ruby](/clients/ruby.md)
-* [.Net](/clients/dotnet.md)
+* [Javascript and React/React Native](/clients/javascript)
+* [NodeJS](/clients/node)
+* [Java](/clients/java)
+* [Python](/clients/python)
+* [Ruby](/clients/ruby)
+* [.Net](/clients/dotnet)
+
+## Javascript framework examples
+
+Examples applications for popular JS frameswork can be found here:
+
+- [JS framework examples](https://github.com/SolidStateGroup/bullet-train-examples)
 
 ## What Next
 
