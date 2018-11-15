@@ -21,3 +21,9 @@ Deploy to GitHub pages with
 ```
 mkdocs gh-deploy
 ```
+
+## Useful links
+[Website](https://bullet-train.io)
+[Documentation](https://docs.bullet-train.io/)
+[Code Examples](https://github.com/SolidStateGroup/bullet-train-docs)
+[Youtube Tutorials](https://www.youtube.com/channel/UCki7GZrOdZZcsV9rAIRchCw)
