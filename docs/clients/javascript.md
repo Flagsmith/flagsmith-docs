@@ -67,7 +67,7 @@ bulletTrain.init({
 
 ## Identifying users
 
-Identifying users allows you to target specific users from the Bullet Train dashboard. You can call this before or after you initialise the project, calling it after will re-fetch features from the API.
+Identifying users allows you to target specific users from the Bullet Train dashboard and configure features and traits. You can call this before or after you initialise the project, calling it after will re-fetch features from the API.
 
 User features can be managed by navigating to users on [https://bullet-train.io](https://bullet-train.io) for your desired project.
  <img src="/images/user-features.png"/>
