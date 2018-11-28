@@ -81,7 +81,8 @@ import bulletTrain from 'bullet-train-client';
 Can be called both before or after you're done initialising the project.
 Calling identify before will prevent flags being fetched twice.
 */
-bulletTrain.identify("bullet_train_sample_user",{traits}); //This will create a user in the dashboard if they don't already exist
+bulletTrain.identify("bullet_train_sample_user"}); //This will create a user in the dashboard if they don't already exist
+bulletTrain.setTrait("favourite_colour","blue"); //This will create a user in the dashboard if they don't already exist
 
 //Standard project initialisation
 bulletTrain.init({
@@ -94,7 +95,11 @@ bulletTrain.init({
 		if (bulletTrain.hasFeature("myPowerUserFeature")){
 			myPowerUserFeature();
 		}
-
+		
+		//Check for a trait
+		if (!bulletTrain.getTrait("accepted_cookie_policy")){
+			showCookiePolicy();
+		}
 
 		//Or, use the value of a feature
 		const myPowerUserFeature = bulletTrain.getValue("myPowerUserFeature");
