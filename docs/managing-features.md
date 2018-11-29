@@ -20,14 +20,14 @@ Projects contain one or more environments that share a single set of features an
 
 Environments are a way to separate the configuration of your features. For example, your project's Development and Staging environments might have a feature configured as on while it is turned off in your Production environment. A project can have any number of environments. 
 
-## Users
+## Identities
 
-Users are a particular registration for one of your Project's environments. Registering users within the client application allows you to manage features for individual users. User features can be overridden from your environment defaults. For example, joe@yourwebsite.com would be a different user in your development environment to the one in production, and they can have different features enabled for each environment.
- 
-Users are created within Bullet Train automatically when they are identified from your client SDKs. Generally you'd make a call to identify a user with a unique string/id whenever they log into your website or whenever your API receives a request that requires checking for features.   
+Identities are a particular registration for one of your Project's environments. Registering identities within the client application allows you to manage features for individual users. Identity features can be overridden from your environment defaults. For example, joe@yourwebsite.com would be a different identity in your development environment to the one in production, and they can have different features enabled for each environment.
+
+For more info see the [Identities](/managing-identities). 
 
 ## Segments (**Coming soon**)
 
 Segments are a way to define a group of users by traits such as number of times logged in, device, location or any number of custom defined traits.
- 
+
 Similarly to individual users, you will be able to override environment defaults for features. For example showing certain features for a "power user" segment.
