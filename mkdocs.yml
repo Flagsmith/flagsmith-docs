@@ -9,6 +9,7 @@ pages:
   - Hosted Service: 'hosted-service.md'
   - Managing Features: 'managing-features.md'
   - Managing Identities: 'managing-identities.md'
+  - Managing Segments: 'managing-segments.md'
   - Client Libraries: 
     - 'Javascript/React Native': 'clients/javascript.md'
     - 'Node': 'clients/node.md'
