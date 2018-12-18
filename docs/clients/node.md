@@ -8,7 +8,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### VIA npm
 ```npm i bullet-train-nodejs --save```
-	
+
 ## Usage
 **Retrieving feature flags for your project**
 
@@ -17,33 +17,31 @@ These instructions will get you a copy of the project up and running on your loc
 var bulletTrain = require("bullet-train-nodejs");
 
 bulletTrain.init({
-	environmentID:"<YOUR_ENVIRONMENT_KEY>"
-	}
+	environmentID: "<YOUR_ENVIRONMENT_KEY>"
 });
-
 
 bulletTrain.hasFeature("header", '<My User Id>')
-.then((featureEnabled) => {
-	if (featureEnabled) {
-		//Show my awesome cool new feature to this one user
-	}
-});
+	.then((featureEnabled) => {
+		if (featureEnabled) {
+			//Show my awesome cool new feature to this one user
+		}
+	});
 bulletTrain.hasFeature("header")
-.then((featureEnabled) => {
-	if (featureEnabled) {
-		//Show my awesome cool new feature to the world
-	}
-});
+	.then((featureEnabled) => {
+		if (featureEnabled) {
+			//Show my awesome cool new feature to the world
+		}
+	});
 
 bulletTrain.getValue("header", '<My User Id')
-.then((value) => {
-	//Show some unique value to this user
-});
+	.then((value) => {
+		//Show some unique value to this user
+	});
 
 bulletTrain.getValue("header")
-.then((value) => {
-	//Show a value to the world
-});
+	.then((value) => {
+		//Show a value to the world
+	});
 ```
 **Available Options**
 
@@ -56,15 +54,18 @@ bulletTrain.getValue("header")
 
 **Available Functions**
 
-| Property        | Description |         
+| Property        | Description |
 | ------------- |:-------------:|
 | ```init```     | Initialise the sdk against a particular environment
 | ```hasFeature(key)```     | Get the value of a particular feature e.g. ```bulletTrain.hasFeature("powerUserFeature") // true```
 | ```hasFeature(key, userId)```     | Get the value of a particular feature for a user e.g. ```bulletTrain.hasFeature("powerUserFeature", 1234) // true```
 | ```getValue(key)```     | Get the value of a particular feature e.g. ```bulletTrain.getValue("font_size") // 10```
-| ```getValue(keym userId)```     | Get the value of a particular feature for a specificed user e.g. ```bulletTrain.getValue("font_size", 1234) // 15```
-| ```getFlags()```     | Trigger a manual fetch of the environment features, if a user is identified it will fetch their features
-| ```getFlagsForUser(1234)```     | Trigger a manual fetch of the environment features with a given user id
+| ```getValue(key, userId)```     | Get the value of a particular feature for a specificed user e.g. ```bulletTrain.getValue("font_size", 1234) // 15```
+| ```getFlags()```     | Trigger a manual fetch of the environment features
+| ```getFlagsForUser(userId)```     | Trigger a manual fetch of the environment features for a given user id
+| ```getUserIdentity(userId)```     | Trigger a manual fetch of both the environment features and users' traits for a given user id
+| ```getTrait(userId, key)```     | Trigger a manual fetch of a specific trait for a given user id
+| ```setTrait(userId, key, value)```     | Set a specific trait for a given user id
 
 
 **Identifying users**
@@ -79,7 +80,7 @@ Please read [CONTRIBUTING.md](https://gist.github.com/kyle-ssg/c36a03aebe492e45c
 
 ## Getting Help
 
-If you encounter a bug or feature request we would like to hear about it. Before you submit an issue please search existing issues in order to prevent duplicates. 
+If you encounter a bug or feature request we would like to hear about it. Before you submit an issue please search existing issues in order to prevent duplicates.
 
 ## Get in touch
 
