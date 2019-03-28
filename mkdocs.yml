@@ -17,3 +17,4 @@ pages:
     - 'Python': 'clients/python.md'
     - 'Ruby': 'clients/ruby.md'
     - '.Net': 'clients/dotnet.md'
+    - 'REST': 'clients/rest.md'
