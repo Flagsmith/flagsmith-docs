@@ -1,6 +1,6 @@
 # Direct API Access
 
-You can access the API directly with tools like [curl](https://curl.haxx.se/) or[httpie](https://httpie.org/), or with clients for languages that we do not currently have SDKs for.
+You can access the API directly with tools like [curl](https://curl.haxx.se/) or [httpie](https://httpie.org/), or with clients for languages that we do not currently have SDKs for.
 
 ## API Explorer
 
