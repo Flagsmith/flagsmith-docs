@@ -13,13 +13,13 @@ Add following dependencies to your project in `pom.xml`
 <dependency>
   <groupId>com.solidstategroup</groupId>
   <artifactId>bullet-train-client</artifactId>
-  <version>1.1</version>
+  <version>1.3</version>
 </dependency>
 ```
 
 ### Gradle
 ```groovy
-implementation 'com.solidstategroup:bullet-train-client:1.1'
+implementation 'com.solidstategroup:bullet-train-client:1.3'
 ```
 
 ## Usage
