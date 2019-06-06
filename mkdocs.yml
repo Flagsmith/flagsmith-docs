@@ -4,6 +4,9 @@ site_url: https://docs.bullet-train.io/
 repo_url: https://github.com/SolidStateGroup/Bullet-Train-Docs
 google_analytics: ['UA-120237963-2', 'bullet-train.io']
 
+markdown_extensions:
+  - admonition
+
 pages:
   - Overview and Install: index.md
   - Hosted Service: 'hosted-service.md'
