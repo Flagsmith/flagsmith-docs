@@ -25,6 +25,7 @@ The source code and installation instructions can be found at [the GitHub projec
 Once you are setup with the front and back end, you can integrate our client libraries with your apps.
 
 * [Javascript and React/React Native](/clients/javascript)
+* [iOS](/clients/ios)
 * [NodeJS](/clients/node)
 * [Java](/clients/java)
 * [Python](/clients/python)
