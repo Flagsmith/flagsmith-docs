@@ -13,7 +13,9 @@ You create a new Segment, call it ```Beta Users```, and define a single rule:
 
 - ```email_address``` contains ```@bullet-train.io```
 
-For all the Feature Flags that relate to Beta features, you can associate this ```Beta Users``` segment with each Flag, and set the Flag value to ```true``` for that Segment.
+Once the Segment has been defined, you can then associate that Segment with Features. 
+
+For all the Feature Flags that relate to Beta features, you can associate this ```Beta Users``` segment with each Flag, and set the Flag value to ```true``` for that Segment. To do this, edit the Feature Flag and select the segment in the 'Segment Overrides' drop down.
 
 At this point, all users who log in with an email address that contains ```@bullet-train.io``` will have all Beta features enabled.
 
