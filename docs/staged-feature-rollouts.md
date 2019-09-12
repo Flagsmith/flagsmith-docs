@@ -8,7 +8,7 @@ This method can increase your confidence in rolling out a new feature. If there 
 
 ## Creating Staged Rollouts
 
-You can achieve staged rollouts by creating a [Segment](/managing-segments) and include a rule defined with the "% Split" condition. Specifying a "% Split" value between 1 and 100 then defines what percentage of your user base are included within this Segment.
+You can achieve staged rollouts by creating a [Segment](/managing-segments) and adding a rule defined with the "% Split" condition. Specifying a "% Split" value between 1 and 100 then defines what percentage of your user base are included within this Segment.
 
 Once you have created the Segment, you can then go ahead and connect it up to a Feature Flag as per regular [Segments](/managing-segments).
 
