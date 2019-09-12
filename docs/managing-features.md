@@ -26,7 +26,7 @@ Identities are a particular registration for one of your Project's environments.
 
 For more info see the [Identities](/managing-identities).
 
-## Segments (**Beta**)
+## Segments
 
 Segments are a way to define a group of users by traits such as number of times logged in, device, location or any number of custom defined traits.
 

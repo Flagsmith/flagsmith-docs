@@ -1,8 +1,5 @@
 # Segments
 
-!!! tip
-    Segments are currently in Beta. If you want to be included in the Beta test, get in touch.
-
 Segments allow you to group your users based on a set of rules, and then control Feature Flags and Remote Config for those groups. You can create a Segment and then override a Feature Flag state or Remote Config value for that segment of users.
 
 ## Example - Beta Users
