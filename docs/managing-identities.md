@@ -6,7 +6,7 @@ Identity features can be overridden from your environment defaults. For example,
 
 ## Identity Feature Flags
 
-By default, Identities receive the default flags for their environment. The main use for identities is to be able to override flags and configs on a per-identity basis. You can do this by navigating to the Users page, finding the user and modifying their flags. 
+By default, Identities receive the default flags for their environment. The main use for identities is to be able to override flags and configs on a per-identity basis. You can do this by navigating to the Users page, finding the user and modifying their flags.
 
 ## Identity Traits
 
@@ -21,4 +21,4 @@ Traits are stored natively as either numbers, strings or booleans.
 
 ## Traits powering Segments
 
-When the Segments feature is built, you will be able to specify segments based on Identity Traits.
+Traits can be used within your application, but they also be used to power [Segments](/managing-segments). 
