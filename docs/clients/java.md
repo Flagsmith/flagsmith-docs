@@ -1,3 +1,5 @@
+# Java Client
+
 This library can be used with server-side Java and Android applications. The source code for the client is available on [Github](https://github.com/SolidStateGroup/bullet-train-java-client).
 
 ## Getting Started
@@ -9,6 +11,7 @@ The client library is available from the Central Maven Repository and can be add
 ### Maven
 
 Add following dependencies to your project in `pom.xml`
+
 ```xml
 <dependency>
   <groupId>com.solidstategroup</groupId>
@@ -18,14 +21,12 @@ Add following dependencies to your project in `pom.xml`
 ```
 
 ### Gradle
+
 ```groovy
 implementation 'com.solidstategroup:bullet-train-client:1.3'
 ```
 
 ## Usage
-**Retrieving feature flags for your project**
-
-**For full documentation visit [https://bullet-train.io/documentation](https://www.bullet-train.io/documentation)**
 
 Sign Up and create account at [https://bullet-train.io/](https://www.bullet-train.io/)
 
@@ -59,7 +60,7 @@ if (myRemoteConfig != null) {
 }
 ```
 
-**Identifying users**
+### Identifying users
 
 Identifying users allows you to target specific users from the [Bullet Train dashboard](https://www.bullet-train.io/).
 
@@ -77,10 +78,12 @@ if (featureEnabled) {
     // run the code if feature switched off
 }
 ```
+
 To get configuration value for feature flag for given user context:
+
 ```java
 String myRemoteConfig = bulletClient.getFeatureFlagValue("my_test_feature", user);
-if (myRemoteConfig != null) {    
+if (myRemoteConfig != null) {
     // run the code to use remote config value
 } else {
     // run the code without remote config
@@ -93,9 +96,4 @@ Please read [CONTRIBUTING.md](https://gist.github.com/kyle-ssg/c36a03aebe492e45c
 
 ## Getting Help
 
-If you encounter a bug or feature request we would like to hear about it. Before you submit an issue please search existing issues in order to prevent duplicates. 
-
-## Get in touch
-
-If you have any questions about our projects you can email <a href="mailto:projects@solidstategroup.com">projects@solidstategroup.com</a>.
-
+If you encounter a bug or feature request we would like to hear about it. Before you submit an issue please search existing issues in order to prevent duplicates.
