@@ -21,4 +21,4 @@ Traits are stored natively as either numbers, strings or booleans.
 
 ## Traits powering Segments
 
-Traits can be used within your application, but they also be used to power [Segments](/managing-segments). 
+Traits can be used within your application, but they also be used to power [Segments](/managing-segments).

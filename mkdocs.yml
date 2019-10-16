@@ -14,6 +14,7 @@ pages:
   - Managing Identities: 'managing-identities.md'
   - Managing Segments: 'managing-segments.md'
   - Staged Feature Rollouts: 'staged-feature-rollouts.md'
+  - System Administration: 'system-administration.md'
   - Audit Logs: 'audit-logs.md'
   - Client Libraries: 
     - 'Javascript/React Native': 'clients/javascript.md'
