@@ -17,3 +17,6 @@ In order to perform an A/B Test, we need to complete the following steps:
 5. Send a message to the Analytics platform, adding the name/value pair of "Paypal Checkout Enabled" and the value of the flag.
 6. Deploy your app and watch the data come in.
 
+## Example
+
+We made [a repo](https://github.com/SolidStateGroup/bullet-train-js-client/tree/master/examples/ab-testing) with a [JSFiddle](https://jsfiddle.net/vw0af7zq/) that demonstrates an A/B Test using Javascript. 
