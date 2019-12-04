@@ -1,6 +1,6 @@
 # Java Client
 
-This library can be used with server-side Java and Android applications. The source code for the client is available on [Github](https://github.com/SolidStateGroup/bullet-train-java-client).
+This library can be used with server-side Java and Android applications. The source code for the client is available on [Github](https://github.com/BulletTrainHQ/bullet-train-java-client).
 
 ## Getting Started
 

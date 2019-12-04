@@ -1,13 +1,13 @@
-This library can be used with pure Javascript, React (and all other popular frameworks/libraries) and React Native projects. The source code for the client is available on [Github](https://github.com/SolidStateGroup/bullet-train-js-client).
+This library can be used with pure Javascript, React (and all other popular frameworks/libraries) and React Native projects. The source code for the client is available on [Github](https://github.com/BulletTrainHQ/bullet-train-js-client).
 
 Example applications for Web and React Native can be found here:
 
-- [Web example](https://github.com/SolidStateGroup/bullet-train-js-client/tree/master/bullet-train-client/example)
-- [React Native example](https://github.com/SolidStateGroup/bullet-train-js-client/tree/master/react-native-bullet-train/example)
+- [Web example](https://github.com/BulletTrainHQ/bullet-train-js-client/tree/master/bullet-train-client/example)
+- [React Native example](https://github.com/BulletTrainHQ/bullet-train-js-client/tree/master/react-native-bullet-train/example)
 
 Examples applications for many popular JS frameworks such as React, Vue and Angular can be found here:
 
-- [JS framework examples](https://github.com/SolidStateGroup/bullet-train-examples)
+- [JS framework examples](https://github.com/BulletTrainHQ/bullet-train-examples)
 
 ## Installation
 

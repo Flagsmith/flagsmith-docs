@@ -28,6 +28,6 @@ mkdocs gh-deploy
 
 [Documentation](https://docs.bullet-train.io/)
 
-[Code Examples](https://github.com/SolidStateGroup/bullet-train-docs)
+[Code Examples](https://github.com/BulletTrainHQ/bullet-train-docs)
 
 [Youtube Tutorials](https://www.youtube.com/channel/UCki7GZrOdZZcsV9rAIRchCw)

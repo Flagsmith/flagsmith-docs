@@ -4,8 +4,8 @@
 
 The application consist of 3 components:
 
-1. The [Server-Side REST API](https://github.com/SolidStateGroup/Bullet-Train-API).
-2. The [Front End Administration Web Interface](https://github.com/SolidStateGroup/Bullet-Train-Frontend).
+1. The [Server-Side REST API](https://github.com/BulletTrainHQ/Bullet-Train-API).
+2. The [Front End Administration Web Interface](https://github.com/BulletTrainHQ/Bullet-Train-Frontend).
 3. Client Libraries.
 
 To get up and running, you can either use [https://bullet-train.io/](https://bullet-train.io/) for 1 and 2 above, or you can self host the API and Front End. Once you have these components up and running, you can add the client libraries to your apps and start managing your features remotely.
@@ -14,11 +14,11 @@ To get up and running, you can either use [https://bullet-train.io/](https://bul
 
 ### Server Side API
 
-The source code and installation instructions can be found at [the GitHub project](https://github.com/SolidStateGroup/Bullet-Train-API).
+The source code and installation instructions can be found at [the GitHub project](https://github.com/BulletTrainHQ/Bullet-Train-API).
 
 ### Front End Website
 
-The source code and installation instructions can be found at [the GitHub project](https://github.com/SolidStateGroup/Bullet-Train-Frontend).
+The source code and installation instructions can be found at [the GitHub project](https://github.com/BulletTrainHQ/Bullet-Train-Frontend).
 
 ## Client Libraries
 
@@ -36,7 +36,7 @@ Once you are setup with the front and back end, you can integrate our client lib
 
 Examples applications for popular JS frameswork can be found here:
 
-- [JS framework examples](https://github.com/SolidStateGroup/bullet-train-examples)
+- [JS framework examples](https://github.com/BulletTrainHQ/bullet-train-examples)
 
 ## What Next
 
