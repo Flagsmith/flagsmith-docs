@@ -42,6 +42,21 @@ Each event generates an HTTP POST with the following body payload to each of the
 }
 ```
 
+## Full API Access
+
+The client SDK libraries are designed solely for end client use, and do not have an interface to the full Bullet Train API. However, you can easily access the full API by generating a login token and sending that with your API requests. To generate a login token, send an HTTP POST to [https://api.bullet-train.io/auth/login](https://api.bullet-train.io/auth/login) with the following JSON payload:
+
+```bash
+curl -X "POST" "https://api.bullet-train.io/v1/auth/login/" \
+     -H 'Content-Type: application/json; charset=utf-8' \
+     -d $'{
+  "username": "<admin username>",
+  "password": "<admin password>"
+}'
+```
+
+This will generate a token (that does not expire) which you can then use with subsequent API calls. You can pass this token in the HTTP header with `Token <token>`
+
 ## Permissions and User Roles
 
 There are currently 2 different role type available when managing the application.
