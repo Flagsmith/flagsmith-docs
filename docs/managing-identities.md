@@ -1,3 +1,5 @@
+description: Manage user traits and properties independently of your application.
+
 # Identities
 
 Identities are created within Bullet Train automatically the first time they are identified from your client SDKs. Generally you'd make a call to identify a user with a unique string/id whenever they log into your app/site.

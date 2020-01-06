@@ -1,3 +1,5 @@
+description: Group your users based on a set of rules, and then control Feature Flags and Remote Config for those groups.
+
 # Segments
 
 Segments allow you to group your users based on a set of rules, and then control Feature Flags and Remote Config for those groups. You can create a Segment and then override a Feature Flag state or Remote Config value for that segment of users.

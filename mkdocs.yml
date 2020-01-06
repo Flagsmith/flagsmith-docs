@@ -1,13 +1,14 @@
 site_name: Bullet Train Docs
-theme: readthedocs
+theme: material
 site_url: https://docs.bullet-train.io/
 repo_url: https://github.com/BulletTrainHQ/Bullet-Train-Docs
 google_analytics: ['UA-120237963-2', 'bullet-train.io']
 
 markdown_extensions:
   - admonition
+  - meta
 
-pages:
+nav:
   - Overview and Install: index.md
   - Hosted Service: 'hosted-service.md'
   - Managing Features: 'managing-features.md'

@@ -1,3 +1,5 @@
+description: Learn how to manage feature flags across web, mobile and server side applications. Bullet Train is 100% Open Source.
+
 # Overview
 
 [Bullet Train](https://bullet-train.io/) lets you manage features across web, mobile and server side applications. Bullet Train is 100% Open Source. Host yourself or let us take care of the hosting.

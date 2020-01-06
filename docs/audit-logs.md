@@ -1,3 +1,5 @@
+description: Every action taken within the Bullet Train adminstration application is tracked and logged.
+
 # Audit Logs
 
 Every action taken within the Bullet Train adminstration application is tracked and logged.

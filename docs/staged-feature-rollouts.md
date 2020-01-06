@@ -1,3 +1,5 @@
+description: Staged Feature Rollouts allow you to test a new feature with a small subset of your user base.
+
 # Staged Feature Rollouts
 
 ## What are Staged Feature Rollouts

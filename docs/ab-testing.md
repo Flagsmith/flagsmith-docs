@@ -1,3 +1,5 @@
+description: Perform A/B tests quickly and easily with Bullet Train, the Feature Flagging platform.
+
 # A/B Testing
 
 A/B testing enables you to expirement with design and functionality variants of your application. The data generated will allow you to make modifications to your app, safe in the knowledge that it will have a net postive effect.

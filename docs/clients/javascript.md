@@ -1,3 +1,5 @@
+description: Manage your Feature Flags and Remote Config in your Javascript applications.
+
 This library can be used with pure Javascript, React (and all other popular frameworks/libraries) and React Native projects. The source code for the client is available on [Github](https://github.com/BulletTrainHQ/bullet-train-js-client).
 
 Example applications for Web and React Native can be found here:

@@ -1,3 +1,5 @@
+description: Manage your Feature Flags and Remote Config in your .Net applications.
+
 This SDK can be used for .NET Core, .NET Framework, Mono, Xamarin and Universal Windows Platform applications. The source code for the client is available on [Github](https://github.com/BulletTrainHQ/bullet-train-dotnet-client).
 
 ## Getting Started

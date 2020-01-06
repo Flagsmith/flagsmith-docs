@@ -1,3 +1,5 @@
+description: Feature Flags are a development methodology that allow you to ship code and features before they are finished.
+
 # Feature Flags
 
 Feature Flags are a development methodology that allow you to ship code and features before they are finished. This greatly benefits Continuous Integration and Continuous Deployment (CI/CD). The typical workflow for this is as follows.
