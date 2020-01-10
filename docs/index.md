@@ -16,29 +16,31 @@ To get up and running, you can either use [https://bullet-train.io/](https://bul
 
 ### Server Side API
 
-The source code and installation instructions can be found at [the GitHub project](https://github.com/BulletTrainHQ/Bullet-Train-API).
+The source code and installation instructions can be found at [the GitHub project](https://github.com/BulletTrainHQ/Bullet-Train-API). The API is written in Python and is based on Django and the Django Rest Framework.
 
 ### Front End Website
 
-The source code and installation instructions can be found at [the GitHub project](https://github.com/BulletTrainHQ/Bullet-Train-Frontend).
+The source code and installation instructions can be found at [the GitHub project](https://github.com/BulletTrainHQ/Bullet-Train-Frontend). The Front End Website is written in React/Javascript and requires NodeJS.
 
 ## Client Libraries
 
-Once you are setup with the front and back end, you can integrate our client libraries with your apps.
+Once you are setup with the front and back end, you can integrate our client libraries within your apps.
 
 * [Javascript and React/React Native](/clients/javascript)
-* [iOS](/clients/ios)
 * [NodeJS](/clients/node)
+* [Android](/clients/android)
+* [iOS](/clients/ios)
 * [Java](/clients/java)
 * [Python](/clients/python)
 * [Ruby](/clients/ruby)
 * [.Net](/clients/dotnet)
+* [REST](/clients/rest)
 
 ## Javascript framework examples
 
 Examples applications for popular JS frameswork can be found here:
 
-- [JS framework examples](https://github.com/BulletTrainHQ/bullet-train-examples)
+* [JS framework examples](https://github.com/BulletTrainHQ/bullet-train-examples)
 
 ## What Next
 
