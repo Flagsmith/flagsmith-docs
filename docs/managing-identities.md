@@ -21,6 +21,9 @@ Generally if they are lower-value pieces of information about your user, it migh
 
 Traits are stored natively as either numbers, strings or booleans.
 
+<img src="/images/identity-details.png"/>
+
+
 ## Traits powering Segments
 
 Traits can be used within your application, but they also be used to power [Segments](/managing-segments).

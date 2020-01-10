@@ -12,10 +12,12 @@ This method can increase your confidence in rolling out a new feature. If there 
 
 You can achieve staged rollouts by creating a [Segment](/managing-segments) and adding a rule defined with the "% Split" condition. Specifying a "% Split" value between 1 and 100 then defines what percentage of your user base are included within this Segment.
 
+<img src="/images/percent-rollout.png"/>
+
 Once you have created the Segment, you can then go ahead and connect it up to a Feature Flag as per regular [Segments](/managing-segments).
 
 Note that you can include the "% Split" rule alongside other Segment rules if you wish.
 
 ## How does it work
 
-Every Identity/Segment combination ID is hashed, and a floating point value between 0.0 and 1.0 is generated from the hash. This value is then evaluated against the "% Split" rule.
+Every Identity/Segment combination is combined and then hashed, and a floating point value between 0.0 and 1.0 is generated from this hash. This value is then evaluated against the "% Split" rule.

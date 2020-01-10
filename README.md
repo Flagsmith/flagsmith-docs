@@ -9,16 +9,16 @@ Built with [MKDocs](https://www.mkdocs.org/).
 
 ## Local Development
 
-```
-pip install mkdocs
+``` bash
+pip install mkdocs mkdocs-material
 mkdocs serve
 ```
 
 ## Deploy
 
-Deploy to GitHub pages with 
+Deploy to GitHub pages with
 
-```
+``` bash
 mkdocs gh-deploy
 ```
 
