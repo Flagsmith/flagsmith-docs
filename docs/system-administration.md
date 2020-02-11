@@ -4,7 +4,11 @@ description: Manage additional aspects of your Bullet Train platform.
 
 ## Web Hooks
 
-You can use the Web Hooks to send events from Bullet Train into your own infrastructure. Currently the following events will generate a Web Hook action:
+You can use the Web Hooks to send events from Bullet Train into your own infrastructure. Web Hooks are managed at an Environment level, and can be configured in the Environment settings page. 
+
+<img src="/images/add-webhook.png"/>
+
+Currently the following events will generate a Web Hook action:
 
 - Creating Flags
 - Updating Flag state (both Flags and Remote Config)
