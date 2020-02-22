@@ -6,15 +6,15 @@ Bullet Train provides fine-grained permissions to help larger teams manage acces
 
 Permissions are assigned to individual team members or to groups. 
 
-# Groups
+## Groups
 
 Groups are a convenient way to manage permissions for multiple team members. Groups can contain any number of team members. You can create groups with the Organisation Settings page. 
 
-# Organisations
+## Organisations
 
 Team members can be defined as Organisation Administrators. This is effectively a super-user role, and gives full read/write access to every Project, Environment, Flag, Remote Config and Segment within that organisation.
 
-# Projects
+## Projects
 
 Team Members and Groups can be given individual roles at a Project level. 
 
@@ -27,7 +27,7 @@ Team Members and Groups can be given individual roles at a Project level.
 | Delete Feature | Can remove an existing Feature / Remote Config entirely from the Project | 
 | Edit Feature | Can modify existing Feature / Remote Config | 
 
-# Environments
+## Environments
 
 Team Members and Groups can be given individual roles at an Environment level. 
 
