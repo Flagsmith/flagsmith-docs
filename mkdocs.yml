@@ -21,6 +21,7 @@ nav:
   - Managing Segments: 'managing-segments.md'
   - Staged Feature Rollouts: 'staged-feature-rollouts.md'
   - A/B Testing: 'ab-testing.md'
+  - Permissions: 'permissions.md'
   - System Administration: 'system-administration.md'
   - Audit Logs: 'audit-logs.md'
   - Client Libraries: 
