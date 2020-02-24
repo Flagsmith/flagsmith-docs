@@ -23,29 +23,29 @@ Each event generates an HTTP POST with the following body payload to each of the
 ```json
 {
     "data": {
-        "changed_by": "Admin User",
-        "new_state": {
-            "enabled": true,
-            "environment": 33,
-            "feature": {
-                "created_date": "2019-12-11T15:47:26.959385Z",
-                "default_enabled": true,
-                "description": null,
-                "id": 33,
-                "initial_value": null,
-                "name": "your_feature_name",
-                "project": 33,
-                "type": "FLAG"
-            },
-            "feature_segment": null,
-            "feature_state_value": null,
-            "id": 33,
-            "identity": 58234,
-            "identity_identifier": "user@domain.com"
+        "author": {
+            "email": "ben@bullet-train.io",
+            "first_name": "Ben",
+            "id": 8,
+            "last_name": "Rometsch"
         },
-        "timestamp": "2019-12-11T15:47:26.973Z"
+        "created_date": "2020-02-24T11:18:28.809498Z",
+        "environment": {
+            "api_key": "AF6tmkbBLywFXChJ7dTyCo",
+            "id": 14,
+            "name": "Development",
+            "project": 7
+        },
+        "log": "Flag state / Remote Config value updated for feature: power_user",
+        "project": {
+            "id": 7,
+            "name": "This is great",
+            "organisation": 7
+        },
+        "related_object_id": 37,
+        "related_object_type": "FEATURE_STATE"
     },
-    "event_type": "FLAG_UPDATED"
+    "event_type": "AUDIT_LOG_CREATED"
 }
 ```
 
