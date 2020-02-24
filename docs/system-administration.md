@@ -4,7 +4,7 @@ description: Manage additional aspects of your Bullet Train platform.
 
 ## Web Hooks
 
-You can use the Web Hooks to send events from Bullet Train into your own infrastructure. Web Hooks are managed at an Environment level, and can be configured in the Environment settings page. 
+You can use the Web Hooks to send events from Bullet Train into your own infrastructure. Web Hooks are managed at an Environment level, and can be configured in the Environment settings page.
 
 <img src="/images/add-webhook.png"/>
 
@@ -46,6 +46,31 @@ Each event generates an HTTP POST with the following body payload to each of the
         "timestamp": "2019-12-11T15:47:26.973Z"
     },
     "event_type": "FLAG_UPDATED"
+}
+```
+
+## Audit Log Webhooks
+
+You can use Audit Log Webhooks to stream your Organisation's Audit Log into your own infrastructure. This can be useful for compliance or to reference against local CI/CD infrastructure.
+
+```json
+{
+  "created_date": "2020-02-23T17:30:57.006318Z",
+  "log": "New Flag / Remote Config created: my_feature",
+  "author": {
+    "id": 3,
+    "email": "user@domain.com",
+    "first_name": "Kyle",
+    "last_name": "Johnson"
+  },
+  "environment": null,
+  "project": {
+    "id": 6,
+    "name": "Project name",
+    "organisation": 1
+  },
+  "related_object_id": 6,
+  "related_object_type": "FEATURE"
 }
 ```
 
