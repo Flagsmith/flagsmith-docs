@@ -25,7 +25,6 @@ Team Members and Groups can be given individual roles at a Project level.
 | Create Environment | Can create new Environments within the Project |
 | Create Feature | Can create a new Feature / Remote Config  | 
 | Delete Feature | Can remove an existing Feature / Remote Config entirely from the Project | 
-| Edit Feature | Can modify existing Feature / Remote Config | 
 
 ## Environments
 
