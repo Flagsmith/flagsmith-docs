@@ -1,3 +1,5 @@
+description: Manage your Feature Flags and Remote Config in your REST APIs.
+
 # Direct API Access
 
 You can access the API directly with tools like [curl](https://curl.haxx.se/) or [httpie](https://httpie.org/), or with clients for languages that we do not currently have SDKs for.

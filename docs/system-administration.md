@@ -1,8 +1,14 @@
+description: Manage additional aspects of your Bullet Train platform.
+
 # System Administration
 
 ## Web Hooks
 
-You can use the Web Hooks to send events from Bullet Train into your own infrastructure. Currently the following events will generate a Web Hook action:
+You can use the Web Hooks to send events from Bullet Train into your own infrastructure. Web Hooks are managed at an Environment level, and can be configured in the Environment settings page.
+
+<img src="/images/add-webhook.png"/>
+
+Currently the following events will generate a Web Hook action:
 
 - Creating Flags
 - Updating Flag state (both Flags and Remote Config)
@@ -17,29 +23,54 @@ Each event generates an HTTP POST with the following body payload to each of the
 ```json
 {
     "data": {
-        "changed_by": "Admin User",
-        "new_state": {
-            "enabled": true,
-            "environment": 33,
-            "feature": {
-                "created_date": "2019-12-11T15:47:26.959385Z",
-                "default_enabled": true,
-                "description": null,
-                "id": 33,
-                "initial_value": null,
-                "name": "your_feature_name",
-                "project": 33,
-                "type": "FLAG"
-            },
-            "feature_segment": null,
-            "feature_state_value": null,
-            "id": 33,
-            "identity": 58234,
-            "identity_identifier": "user@domain.com"
+        "author": {
+            "email": "ben@bullet-train.io",
+            "first_name": "Ben",
+            "id": 8,
+            "last_name": "Rometsch"
         },
-        "timestamp": "2019-12-11T15:47:26.973Z"
+        "created_date": "2020-02-24T11:18:28.809498Z",
+        "environment": {
+            "api_key": "AF6tmkbBLywFXChJ7dTyCo",
+            "id": 14,
+            "name": "Development",
+            "project": 7
+        },
+        "log": "Flag state / Remote Config value updated for feature: power_user",
+        "project": {
+            "id": 7,
+            "name": "This is great",
+            "organisation": 7
+        },
+        "related_object_id": 37,
+        "related_object_type": "FEATURE_STATE"
     },
-    "event_type": "FLAG_UPDATED"
+    "event_type": "AUDIT_LOG_CREATED"
+}
+```
+
+## Audit Log Webhooks
+
+You can use Audit Log Webhooks to stream your Organisation's Audit Log into your own infrastructure. This can be useful for compliance or to reference against local CI/CD infrastructure.
+
+```json
+{
+  "created_date": "2020-02-23T17:30:57.006318Z",
+  "log": "New Flag / Remote Config created: my_feature",
+  "author": {
+    "id": 3,
+    "email": "user@domain.com",
+    "first_name": "Kyle",
+    "last_name": "Johnson"
+  },
+  "environment": null,
+  "project": {
+    "id": 6,
+    "name": "Project name",
+    "organisation": 1
+  },
+  "related_object_id": 6,
+  "related_object_type": "FEATURE"
 }
 ```
 
@@ -57,17 +88,3 @@ curl -X "POST" "https://api.bullet-train.io/v1/auth/login/" \
 ```
 
 This will generate a token (that does not expire) which you can then use with subsequent API calls. You can pass this token in the HTTP header with `Token <token>`
-
-## Permissions and User Roles
-
-There are currently 2 different role type available when managing the application.
-
-We will be rolling out fine grained user permissions in a future release.
-
-### Admin Role
-
-The Admin Role can perform all actions within the application, including the management of users who have access to the Bullet Train administrative console.
-
-### Standard User
-
-The Standard User can perform all actions within the application, but they *cannot* manage users within the Bullet Train administrative console.

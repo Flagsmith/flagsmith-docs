@@ -1,3 +1,5 @@
+description: Manage user traits and properties independently of your application.
+
 # Identities
 
 Identities are created within Bullet Train automatically the first time they are identified from your client SDKs. Generally you'd make a call to identify a user with a unique string/id whenever they log into your app/site.
@@ -18,6 +20,9 @@ You can also use Bullet Train to store 'Traits' against identities. Traits are s
 Generally if they are lower-value pieces of information about your user, it might be simpler/easier to store them in Bullet Train rather than in your core application.
 
 Traits are stored natively as either numbers, strings or booleans.
+
+<img src="/images/identity-details.png"/>
+
 
 ## Traits powering Segments
 

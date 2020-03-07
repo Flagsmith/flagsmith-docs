@@ -1,13 +1,19 @@
 site_name: Bullet Train Docs
-theme: readthedocs
+
+theme: 
+  name: material
+  logo: 'images/logo.png'
+  favicon: 'images/favicon.ico'
+
 site_url: https://docs.bullet-train.io/
 repo_url: https://github.com/BulletTrainHQ/Bullet-Train-Docs
 google_analytics: ['UA-120237963-2', 'bullet-train.io']
 
 markdown_extensions:
   - admonition
+  - meta
 
-pages:
+nav:
   - Overview and Install: index.md
   - Hosted Service: 'hosted-service.md'
   - Managing Features: 'managing-features.md'
@@ -15,6 +21,7 @@ pages:
   - Managing Segments: 'managing-segments.md'
   - Staged Feature Rollouts: 'staged-feature-rollouts.md'
   - A/B Testing: 'ab-testing.md'
+  - Permissions: 'permissions.md'
   - System Administration: 'system-administration.md'
   - Audit Logs: 'audit-logs.md'
   - Client Libraries: 
