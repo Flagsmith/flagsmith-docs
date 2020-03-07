@@ -21,31 +21,50 @@ A typical use case for Web Hooks is if you want to cache flag state locally with
 Each event generates an HTTP POST with the following body payload to each of the Web Hooks defined within that Environment:
 
 ```json
-{
-    "data": {
-        "author": {
-            "email": "ben@bullet-train.io",
-            "first_name": "Ben",
-            "id": 8,
-            "last_name": "Rometsch"
-        },
-        "created_date": "2020-02-24T11:18:28.809498Z",
-        "environment": {
-            "api_key": "AF6tmkbBLywFXChJ7dTyCo",
-            "id": 14,
-            "name": "Development",
-            "project": 7
-        },
-        "log": "Flag state / Remote Config value updated for feature: power_user",
-        "project": {
-            "id": 7,
-            "name": "This is great",
-            "organisation": 7
-        },
-        "related_object_id": 37,
-        "related_object_type": "FEATURE_STATE"
+ {
+  "data": {
+    "changed_by": "Some User",
+    "new_state": {
+      "enabled": true,
+      "environment": 23,
+      "feature": {
+        "created_date": "2020-02-25T22:11:16.355547Z",
+        "default_enabled": false,
+        "description": null,
+        "id": 2411,
+        "initial_value": "blue",
+        "name": "feature_name",
+        "project": 12,
+        "type": "FLAG|CONFIG"
+      },
+      "feature_segment": null,
+      "feature_state_value": null,
+      "id": 10430,
+      "identity": null,
+      "identity_identifier": null
     },
-    "event_type": "AUDIT_LOG_CREATED"
+    "previous_state": {
+    "enabled": false,
+      "environment": 23,
+      "feature": {
+        "created_date": "2020-02-25T22:11:16.355547Z",
+        "default_enabled": false,
+        "description": null,
+        "id": 2411,
+        "initial_value": "red",
+        "name": "feature_name",
+        "project": 12,
+        "type": "FLAG|CONFIG"
+      },
+      "feature_segment": null,
+      "feature_state_value": null,
+      "id": 10430,
+      "identity": null,
+      "identity_identifier": null
+    },
+    "timestamp": "2020-03-07T13:59:07.040Z"
+  },
+  "event_type": "FLAG_UPDATED"
 }
 ```
 
