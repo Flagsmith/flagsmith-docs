@@ -36,6 +36,10 @@ Once you are setup with the front and back end, you can integrate our client lib
 * [.Net](/clients/dotnet)
 * [REST](/clients/rest)
 
+## Integration Approaches
+
+We've put together some [tips and ideas](integration-approaches.md) on how to best integrate into your applications. 
+
 ## Javascript framework examples
 
 Examples applications for popular JS frameswork can be found here:
