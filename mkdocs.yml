@@ -4,6 +4,8 @@ theme:
   name: material
   logo: 'images/logo.png'
   favicon: 'images/favicon.ico'
+  font:
+    text: 'Source Sans Pro'
 
 site_url: https://docs.bullet-train.io/
 repo_url: https://github.com/BulletTrainHQ/Bullet-Train-Docs
