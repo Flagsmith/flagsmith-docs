@@ -125,10 +125,12 @@ bulletTrain.init({
 | ```environmentID```     | Defines which project environment you wish to get flags for. *example ACME Project - Staging.* | **YES** | null
 | ```onChange```     | Your callback function for when the flags are retrieved ``` (flags,{isFromServer:true/false})=>{...} ``` | **YES** | null
 | ```onError```     | Callback function on failure to retrieve flags. ``` (error)=>{...} ``` | | null
+| ```AsyncStorage```     | Needed for cacheFlags option, used to tell the library what implementation of AsyncStorage your app uses, i.e. ReactNative.AsyncStorage vs @react-native-community/async-storage. | | null
 | ```cacheFlags```     | Any time flags are retrieved they will be cached, flags and identities will then be retrieved from local storage before hitting the API ``` | | null
 | ```enableLogs```     | Enables logging for key bullet train events ``` | | null
-| ```preventFetch```     | Use this if you want to prevent fetching on init(), e.g. if you want to do some initialisation or call identify. | | false
-| ```api```     | Use this property to define where you're getting feature flags from, e.g. if you're self hosting. | | https://api.bullet-train.io/api/v1/
+| ```defaultFlags```     | Allows you define default features, these will all be overridden on first retrieval of features. | | null
+| ```preventFetch```     | If you want to disable fetching flags and call getFlags later. | | false
+| ```api```     | Use this property to define where you're getting feature flags from, e.g. if you're self hosting. | | https://featureflagger.3qqe.flynnhub.com/api/
 
 **Available Functions**
 
@@ -139,6 +141,7 @@ bulletTrain.init({
 | ```getValue(key)```     | Get the value of a particular feature e.g. ```bulletTrain.getValue("font_size") // 10```
 | ```getTrait(key)```     | Once used with an identified user you can get the value of any trait that is set for them e.g. ```bulletTrain.getTrait("accepted_cookie_policy")```
 | ```setTrait(key, value)```     | Once used with an identified user you can set the value of any trait relevant to them e.g. ```bulletTrain.setTrait("accepted_cookie_policy", true)```
+| ```setTraits(object)```     | Set multiple traits e.g. ```bulletTrain.setTraits({foo:"bar",numericProp:1,boolProp:true})```. Setting a value of null for a trait will remove that trait.
 | ```incrementTrait(key, value)```     | You can also increment/decrement a particular trait them e.g. ```bulletTrain.incrementTrait("click_count", 1)```
 | ```startListening(ticks=1000)```     | Poll the api for changes every x milliseconds
 | ```stopListening()```     | Stop polling the api
@@ -146,3 +149,8 @@ bulletTrain.init({
 | ```identify(userId)```     | Identify as a user, this will create a user for your environment in the dashboard if they don't exist, it will also trigger a call to ```getFlags()```
 | ```logout()```     | Stop identifying as a user, this will trigger a call to ```getFlags()```
 
+## Notes on initialisation
+
+``identify``, ``setTrait`` and ``setTraits`` all trigger calls to ``getFlags``, which in turn hits the get flags endpoint. This is due to identities and traits affecting flags that are returned.
+ 
+However, you can avoid these extra calls to get flags if you call these finctions before  ``bulletTrain.init``. 
