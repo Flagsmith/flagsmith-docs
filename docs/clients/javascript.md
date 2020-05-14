@@ -13,20 +13,21 @@ Examples applications for many popular JS frameworks such as React, Vue and Angu
 
 ## Installation
 
-**NPM**
+### NPM
 
-```
+```bash
 npm i bullet-train-client --save
 ```
 
-**Via JavaScript CDN**
+### Via JavaScript CDN
 
-```
+```html
 <script src="https://cdn.jsdelivr.net/npm/bullet-train-client/lib/index.js"></script>
 ```
 
-**NPM for React Native**
-```
+### NPM for React Native
+
+```bash
 npm i react-native-bullet-train --save
 ```
 
@@ -37,34 +38,34 @@ for example the Development or Production environment. You can find your environ
 
 <img src="/images/api-key.png"/>
 
-**Example: Initialising the SDK**
+### Example: Initialising the SDK
 
 ```javascript
 import bulletTrain from "bullet-train-client or react-native-bullet-train"; //Add this line if you're using bulletTrain via npm
 
 bulletTrain.init({
-	environmentID:"<YOUR_ENVIRONMENT_KEY>",
-	cacheFlags: true,
-	onChange: (oldFlags,params)=>{ //Occurs whenever flags are changed
+    environmentID:"<YOUR_ENVIRONMENT_KEY>",
+    cacheFlags: true,
+    onChange: (oldFlags,params)=>{ //Occurs whenever flags are changed
 
-		const {isFromServer} = params; //determines if the update came from the server or local cached storage
+        const {isFromServer} = params; //determines if the update came from the server or local cached storage
 
-		//Check for a feature
-		if (bulletTrain.hasFeature("myCoolFeature")){
-			myCoolFeature();
-		}
+        //Check for a feature
+        if (bulletTrain.hasFeature("myCoolFeature")){
+            myCoolFeature();
+        }
 
 
-		//Or, use the value of a feature
-		const bannerSize = bulletTrain.getValue("bannerSize");
+        //Or, use the value of a feature
+        const bannerSize = bulletTrain.getValue("bannerSize");
 
-		//Check whether value has changed
-		const bannerSizeOld = oldFlags["bannerSize"] && oldFlags["bannerSize"].value;
-		if (bannerSize !== bannerSizeOld) {
+        //Check whether value has changed
+        const bannerSizeOld = oldFlags["bannerSize"] && oldFlags["bannerSize"].value;
+        if (bannerSize !== bannerSizeOld) {
 
-		}
+        }
 
-	}
+    }
 });
 ```
 
@@ -75,9 +76,9 @@ Identifying users allows you to target specific users from the Bullet Train dash
 User features can be managed by navigating to users on [https://bullet-train.io](https://bullet-train.io) for your desired project.
  <img src="/images/user-features.png"/>
 
-**Example: Initialising the SDK and identifying as a user**
+### Example: Initialising the SDK and identifying as a user
 
-```
+```javascript
 import bulletTrain from 'bullet-train-client';
 
 /*
@@ -89,36 +90,37 @@ bulletTrain.setTrait("favourite_colour","blue"); //This save the trait against t
 
 //Standard project initialisation
 bulletTrain.init({
-	environmentID: "QjgYur4LQTwe5HpvbvhpzK",
-		onChange: (oldFlags,params)=>{ //Occurs whenever flags are changed
+    environmentID: "QjgYur4LQTwe5HpvbvhpzK",
+        onChange: (oldFlags,params)=>{ //Occurs whenever flags are changed
 
-		const {isFromServer} = params; //determines if the update came from the server or local cached storage
+        const {isFromServer} = params; //determines if the update came from the server or local cached storage
 
-		//Check for a feature
-		if (bulletTrain.hasFeature("myPowerUserFeature")){
-			myPowerUserFeature();
-		}
-		
-		//Check for a trait
-		if (!bulletTrain.getTrait("accepted_cookie_policy")){
-			showCookiePolicy();
-		}
+        //Check for a feature
+        if (bulletTrain.hasFeature("myPowerUserFeature")){
+            myPowerUserFeature();
+        }
 
-		//Or, use the value of a feature
-		const myPowerUserFeature = bulletTrain.getValue("myPowerUserFeature");
+        //Check for a trait
+        if (!bulletTrain.getTrait("accepted_cookie_policy")){
+            showCookiePolicy();
+        }
 
-		//Check whether value has changed
-		const myPowerUserFeatureOld = oldFlags["myPowerUserFeature"] && oldFlags["myPowerUserFeature"].value;
-		if (myPowerUserFeature !== myPowerUserFeatureOld) {
+        //Or, use the value of a feature
+        const myPowerUserFeature = bulletTrain.getValue("myPowerUserFeature");
 
-		}
+        //Check whether value has changed
+        const myPowerUserFeatureOld = oldFlags["myPowerUserFeature"] && oldFlags["myPowerUserFeature"].value;
+        if (myPowerUserFeature !== myPowerUserFeatureOld) {
 
-	}
+        }
+
+    }
 })
 ```
+
 ## API Reference
 
-**Initialisation options**
+### Initialisation options
 
 | Property        | Description           | Required  | Default Value  |
 | ------------- |:-------------:| -----:| -----:|
@@ -132,13 +134,13 @@ bulletTrain.init({
 | ```preventFetch```     | If you want to disable fetching flags and call getFlags later. | | false
 | ```api```     | Use this property to define where you're getting feature flags from, e.g. if you're self hosting. | | https://featureflagger.3qqe.flynnhub.com/api/
 
-**Available Functions**
+### Available Functions
 
 | Property        | Description |
 | ------------- |:-------------:|
 | ```init```     | Initialise the sdk against a particular environment
-| ```hasFeature(key)```     | Get the value of a particular feature e.g. ```bulletTrain.hasFeature("powerUserFeature") // true```
-| ```getValue(key)```     | Get the value of a particular feature e.g. ```bulletTrain.getValue("font_size") // 10```
+| ```hasFeature(key)```     | Get the boolean value of a particular *Feature Flag* e.g. ```bulletTrain.hasFeature("powerUserFeature") // true```
+| ```getValue(key)```     | Get the value of a particular *Remote Config Value* e.g. ```bulletTrain.getValue("font_size") // 10```
 | ```getTrait(key)```     | Once used with an identified user you can get the value of any trait that is set for them e.g. ```bulletTrain.getTrait("accepted_cookie_policy")```
 | ```setTrait(key, value)```     | Once used with an identified user you can set the value of any trait relevant to them e.g. ```bulletTrain.setTrait("accepted_cookie_policy", true)```
 | ```setTraits(object)```     | Set multiple traits e.g. ```bulletTrain.setTraits({foo:"bar",numericProp:1,boolProp:true})```. Setting a value of null for a trait will remove that trait.
@@ -152,5 +154,5 @@ bulletTrain.init({
 ## Notes on initialisation
 
 ``identify``, ``setTrait`` and ``setTraits`` all trigger calls to ``getFlags``, which in turn hits the get flags endpoint. This is due to identities and traits affecting flags that are returned.
- 
-However, you can avoid these extra calls to get flags if you call these functions before  ``bulletTrain.init``. 
+
+However, you can avoid these extra calls to get flags if you call these functions before  ``bulletTrain.init``.
