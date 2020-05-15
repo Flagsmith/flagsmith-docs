@@ -2,13 +2,17 @@ description: Manage user traits and properties independently of your application
 
 # Identities
 
-Identities are created within Bullet Train automatically the first time they are identified from your client SDKs. Generally you'd make a call to identify a user with a unique string/id whenever they log into your app/site.
+Feature flags are great, but they can be a very blunt tool, only allowing you to enable or disable flags across your entire user base. In order to target users more precisely, and to be able to perform [staged feature rollouts](staged-feature-rollouts.md), you need to *Identify your Users*.
 
-Identity features can be overridden from your environment defaults. For example, joe@yourwebsite.com would be a different identity in your development environment to the one in production, and they can have different features enabled for each environment.
+Identities are created within Bullet Train automatically the first time they are identified from your client SDKs. Generally you'd make a call to identify a user with a unique string/id whenever they log into your app/site. The SDK will then send an API message to the Bullet Train API, with the relevant Identity information.
+
+Once you have uniquely identified a user, you can then override features for that user from your environment defaults. For example, you've pushed a feature into production, but the relevant feature flag is still hiding that feature to all of your users. You can now override that flag for your own user, and test that feature. Once you are happy with everything, you can roll that feature out to all of your users by enabling the flag itself.
+
+ Identities are specific and indivdual for each Environment within your project. For example, joe@yourwebsite.com would be a different identity in your development environment to the one in production, and they can have different features enabled for each environment.
 
 ## Identity Feature Flags
 
-By default, Identities receive the default flags for their environment. The main use for identities is to be able to override flags and configs on a per-identity basis. You can do this by navigating to the Users page, finding the user and modifying their flags.
+By default, Identities receive the default flags for their environment. The main use-case for identities is to be able to override flags and configs on a per-identity basis. You can do this by navigating to the Users page, finding the User and modifying their Flags.
 
 ## Identity Traits
 
@@ -22,7 +26,6 @@ Generally if they are lower-value pieces of information about your user, it migh
 Traits are stored natively as either numbers, strings or booleans.
 
 <img src="/images/identity-details.png"/>
-
 
 ## Traits powering Segments
 
