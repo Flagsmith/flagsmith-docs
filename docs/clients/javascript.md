@@ -132,7 +132,7 @@ bulletTrain.init({
 | ```enableLogs```     | Enables logging for key bullet train events ``` | | null
 | ```defaultFlags```     | Allows you define default features, these will all be overridden on first retrieval of features. | | null
 | ```preventFetch```     | If you want to disable fetching flags and call getFlags later. | | false
-| ```api```     | Use this property to define where you're getting feature flags from, e.g. if you're self hosting. | | https://featureflagger.3qqe.flynnhub.com/api/
+| ```api```     | Use this property to define where you're getting feature flags from, e.g. if you're self hosting. | | https://api.bullet-train.io/api/v1/
 
 ### Available Functions
 
