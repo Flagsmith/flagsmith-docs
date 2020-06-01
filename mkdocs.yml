@@ -38,5 +38,7 @@ nav:
     - Ruby: 'clients/ruby.md'
     - .Net: 'clients/dotnet.md'
     - REST: 'clients/rest.md'
-  - Contributing:  'contributing.md'
+  - Open Source / Self Hosting:
+    - Releases:  'releases.md'
+    - Contributing:  'contributing.md'
   
