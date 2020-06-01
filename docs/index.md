@@ -14,6 +14,8 @@ To get up and running, you can either use [https://bullet-train.io/](https://bul
 
 ## Installation
 
+More information can be found on the [Self Hosted Page](/self-hosting).
+
 ### Server Side API
 
 The source code and installation instructions can be found at [the GitHub project](https://github.com/BulletTrainHQ/Bullet-Train-API). The API is written in Python and is based on Django and the Django Rest Framework.

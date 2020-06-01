@@ -40,5 +40,6 @@ nav:
     - REST: 'clients/rest.md'
   - Open Source / Self Hosting:
     - Releases:  'releases.md'
+    - Self Hosting:  'self-hosting.md'
     - Contributing:  'contributing.md'
   
