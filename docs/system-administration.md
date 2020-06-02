@@ -10,9 +10,9 @@ You can use the Web Hooks to send events from Bullet Train into your own infrast
 
 Currently the following events will generate a Web Hook action:
 
-- Creating Flags
-- Updating Flag state (both Flags and Remote Config)
-- Deleting Flags
+- Creating Flags (Sent as event_type FLAG_UPDATED)
+- Updating Flag state for both Flags and Remote Config (Sent as event_type FLAG_UPDATED)
+- Deleting Flags (Sent as event_type FLAG_UPDATED)
 
 You can define any number of Web Hook endpoints per Environment. Web Hooks can be managed from the Environment settings page.
 

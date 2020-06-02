@@ -2,12 +2,12 @@ description: Bullet Train Releases
 
 # Releases
 
-## v2.0
+## v2.1
 
 Released **28th May 2020**
 
-[Front End Release](https://github.com/BulletTrainHQ/bullet-train-frontend/releases/tag/2.0)
-[API Release](https://github.com/BulletTrainHQ/bullet-train-api/releases/tag/v2.0.0)
+[Front End](https://github.com/BulletTrainHQ/bullet-train-frontend/releases/tag/2.1.0) / 
+[API](https://github.com/BulletTrainHQ/bullet-train-api/releases/tag/v2.1.0)
 
 - Google OAuth2 integration
 - 2 Factor authentication

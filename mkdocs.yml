@@ -19,14 +19,16 @@ extra_javascript:
   - javascripts/extra.js
 
 nav:
-  - Overview and Install: index.md
+  - Overview: 'index.md'
+  - Releases:  'releases.md'
   - Hosted Service: 'hosted-service.md'
-  - Managing Features: 'managing-features.md'
-  - Managing Identities: 'managing-identities.md'
-  - Managing Segments: 'managing-segments.md'
-  - Staged Feature Rollouts: 'staged-feature-rollouts.md'
-  - A/B Testing: 'ab-testing.md'
-  - Integration Approaches: 'integration-approaches.md'
+  - Using Bullet Train:
+    - Managing Features: 'managing-features.md'
+    - Managing Identities: 'managing-identities.md'
+    - Managing Segments: 'managing-segments.md'
+    - Staged Feature Rollouts: 'staged-feature-rollouts.md'
+    - A/B Testing: 'ab-testing.md'
+    - Integration Approaches: 'integration-approaches.md'
   - System Administration: 
     - Overview: 'system-administration.md'
     - Permissions: 'permissions.md'
@@ -42,7 +44,6 @@ nav:
     - .Net: 'clients/dotnet.md'
     - REST: 'clients/rest.md'
   - Open Source / Self Hosting:
-    - Releases:  'releases.md'
     - Self Hosting:  'self-hosting.md'
     - Contributing:  'contributing.md'
   

@@ -6,4 +6,6 @@ If you would rather skip the hosting and jump straight to integrating Bullet Tra
 
 We have [paid plans with pricing to suit both startups and enterprise customers alike](https://bullet-train.io/pricing).
 
+We are hosted in a fully redundant architecture within AWS, and [really care about our uptime](https://status.bullet-train.io/).
+
 If you want to discuss hosting options, [please get in touch](mailto:support@bullet-train.io).
