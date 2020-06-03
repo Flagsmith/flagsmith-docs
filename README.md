@@ -11,8 +11,9 @@ Built with [MKDocs](https://www.mkdocs.org/).
 ## Local Development
 
 ``` bash
-pip install mkdocs mkdocs-material
-mkdocs serve
+pip install pipenv
+pipenv install
+pipenv run mkdocs serve
 ```
 
 ## Deploy
