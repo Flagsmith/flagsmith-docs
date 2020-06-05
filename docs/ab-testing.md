@@ -21,4 +21,19 @@ In order to perform an A/B Test, we need to complete the following steps:
 
 ## Example
 
-We made [a repo](https://github.com/BulletTrainHQ/bullet-train-js-client/tree/master/examples/ab-testing) with a [JSFiddle](https://jsfiddle.net/vw0af7zq/) that demonstrates an A/B Test using Javascript. 
+We made [a repo](https://github.com/BulletTrainHQ/bullet-train-js-client/tree/master/examples/ab-testing) with a [JSFiddle](https://jsfiddle.net/vw0af7zq/) that demonstrates an A/B Test using Javascript.
+
+## Anonymous/Unknown Identities
+
+To do A/B testing you need to use Segments, and to use Segments you need to Identify your users. What if you want to run an A/B test in an area of your application where you dont know who your users are? For example on the homepage of your website? In this instance, you need to generate *GUID* values for your users.
+
+A *GUID* value is just a random string that has an extremely high likelihood of being unique. There's more info about generating GUID values [on Stack Overflow](https://stackoverflow.com/a/2117523).
+
+The general flow would be like this:
+
+1. An new browser visits your website homepage for the first time.
+2. You see that this is an anonymous user, so you generate a random *GUID* for that user and assign it to them.
+3. You send that GUID along with an Identify call to Bullet Train. This will then segment that visitor.
+4. You cookie the browser and store the GUID. That way, if the browser returns to your page, they will still be in the same segment.
+
+These techniques will be slightly different depending on what platform you are developing for, but the general concept will remain the same.
