@@ -14,6 +14,7 @@ google_analytics: ['UA-120237963-2', 'bullet-train.io']
 markdown_extensions:
   - admonition
   - meta
+  - codehilite
 
 extra_javascript:
   - javascripts/extra.js
