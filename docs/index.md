@@ -28,15 +28,15 @@ The source code and installation instructions can be found at [the GitHub projec
 
 Once you are setup with the front and back end, you can integrate our client libraries within your apps.
 
-* [Javascript and React/React Native](/clients/javascript)
-* [NodeJS](/clients/node)
-* [Android](/clients/android)
-* [iOS](/clients/ios)
-* [Java](/clients/java)
-* [Python](/clients/python)
-* [Ruby](/clients/ruby)
-* [.Net](/clients/dotnet)
-* [REST](/clients/rest)
+* [Javascript and React/React Native](/clients/javascript/)
+* [NodeJS](/clients/node/)
+* [Android](/clients/android/)
+* [iOS](/clients/ios/)
+* [Java](/clients/java/)
+* [Python](/clients/python/)
+* [Ruby](/clients/ruby/)
+* [.Net](/clients/dotnet/)
+* [REST](/clients/rest/)
 
 ## Integration Approaches
 
@@ -44,7 +44,7 @@ We've put together some [tips and ideas](integration-approaches.md) on how to be
 
 ## Javascript framework examples
 
-Examples applications for popular JS frameswork can be found here:
+Examples applications for popular JS frameworks can be found here:
 
 * [JS framework examples](https://github.com/BulletTrainHQ/bullet-train-examples)
 
