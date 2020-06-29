@@ -45,6 +45,7 @@ nav:
     - .Net: 'clients/dotnet.md'
     - REST: 'clients/rest.md'
   - Open Source / Self Hosting:
+    - Architecture:  'architecture.md'
     - Self Hosting:  'self-hosting.md'
     - Contributing:  'contributing.md'
   
