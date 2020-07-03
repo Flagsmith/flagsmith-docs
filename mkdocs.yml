@@ -33,6 +33,7 @@ nav:
   - System Administration: 
     - Overview: 'system-administration.md'
     - Permissions: 'permissions.md'
+    - API: 'api.md'
     - Audit Logs: 'audit-logs.md'
   - SDK Client Libraries: 
     - Javascript/React Native: 'clients/javascript.md'
