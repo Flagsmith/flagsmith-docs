@@ -1,6 +1,22 @@
 description: Bullet Train Releases
 
+# Upcoming Features
+
+- Organise and group Features with Tags
+- Redis caching
+- DataDog integration
+- Amplitude integration
+- Native float values for Traits
+
 # Releases
+
+## v2.2
+
+Released **12th June 2020**
+
+- Redesigned the left hand navigation area
+- You can now filter the audit log per flag
+- You can jump to a flags audit log from the main features page
 
 ## v2.1
 
