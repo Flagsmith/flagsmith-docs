@@ -4,6 +4,8 @@ description: Group your users based on a set of rules, and then control Feature 
 
 Segments allow you to group your users based on a set of rules, and then control Feature Flags and Remote Config for those groups. You can create a Segment and then override a Feature Flag state or Remote Config value for that segment of users.
 
+Segments for Flags and Config are overridden at the Environment level, meaning that different Environments can define their own Segment overrides.
+
 ## Example - Beta Users
 
 Let's say that you want all your team to automatically be defined as ```Beta Users```. Right now, all your logged in users are [identified](/managing-identities/) with their email address along with some other [traits](/managing-identities/#identity-traits).
@@ -27,7 +29,7 @@ Let's say that you then partner with another company who need access to all Beta
 - ```email_address``` contains ```@bullet-train.io```
 - ```email_address``` contains ```@solidstategroup.com```
 
-Now all users who log in with a ```@solidstategroup.com``` email address are automatically included in beta features. 
+Now all users who log in with a ```@solidstategroup.com``` email address are automatically included in beta features.
 
 ## Feature Flag and Remote Config Precedence
 
@@ -37,7 +39,7 @@ Feature Flag states and Remote Config values can be defined in 3 different place
 2. The Segment associated with the Flag/Config
 3. Overridden at an Identity level
 
-For example, a Feature Flag ```Show Paypal Checkout``` could be set to ```false``` on the Flag itself, ```true``` in the Beta Users segment, and then overridden as ```false``` for a specific Identity. 
+For example, a Feature Flag ```Show Paypal Checkout``` could be set to ```false``` on the Flag itself, ```true``` in the Beta Users segment, and then overridden as ```false``` for a specific Identity.
 
 In order to deal with this situation, there is an order of priority:
 

@@ -14,6 +14,7 @@ description: Bullet Train Releases
 
 Released **12th June 2020**
 
+- Flags that are defined with Segment overrides are now based on an Environment level, as opposed to a Project level. So you can now define Segment overrides differently between Environments
 - Redesigned the left hand navigation area
 - You can now filter the audit log per flag
 - You can jump to a flags audit log from the main features page
