@@ -16,11 +16,11 @@ pod 'BulletTrainClient', '~> 1.0'
 
 ## Usage
 
-#### Sign Up
+### Sign Up
 
 Sign up at [Bullet Train](https://bullet-train.io/) and create a project. Take a note of the API key which you will need to configure your app.
 
-#### Initialization
+### Initialization
 
 Within your application delegate (usually *AppDelegate.swift*) add:
 
@@ -35,6 +35,7 @@ BulletTrain.shared.apiKey = "<YOUR_API_KEY>"
 // The rest of your launch method code
 }
 ```
+
 Now you are all set to retrieve feature flags from your project. For example to list and print all flags: 
 
 ```swift
@@ -51,6 +52,7 @@ BulletTrain.shared.getFeatureFlags() { (result) in
     }
 }
 ```
+
 To retrieve a feature value by its name:
 
 ```swift
@@ -63,6 +65,7 @@ BulletTrain.shared.getFeatureValue(withID: "test_feature2", forIdentity: nil) { 
     }
 }
 ```
+
 These methods can also specify a particular identity to retrieve the values for a user registration. See [Identities](https://docs.bullet-train.io/managing-identities/) , using the **forIdentity** parameter.
 
 To retrieve a trait for a particular identity (see [Traits](https://docs.bullet-train.io/managing-identities/#identity-traits)):
