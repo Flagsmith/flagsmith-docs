@@ -4,6 +4,7 @@ theme:
   name: material
   logo: 'images/logo.png'
   favicon: 'images/favicon.ico'
+  custom_dir: overrides
   font:
     text: 'Source Sans Pro'
 
