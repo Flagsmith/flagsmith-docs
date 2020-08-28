@@ -85,7 +85,7 @@ import bulletTrain from 'bullet-train-client';
 Can be called both before or after you're done initialising the project.
 Calling identify before will prevent flags being fetched twice.
 */
-bulletTrain.identify("bullet_train_sample_user"}); //This will create a user in the dashboard if they don't already exist
+bulletTrain.identify("bullet_train_sample_user"); //This will create a user in the dashboard if they don't already exist
 bulletTrain.setTrait("favourite_colour","blue"); //This save the trait against the user, it can be queried with bulletTrain.getTrait 
 
 //Standard project initialisation
