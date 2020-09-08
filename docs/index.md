@@ -32,6 +32,7 @@ Once you are setup with the front and back end, you can integrate our client lib
 * [NodeJS](/clients/node/)
 * [Android](/clients/android/)
 * [iOS](/clients/ios/)
+* [Flutter](/clients/flutter/)
 * [Java](/clients/java/)
 * [Python](/clients/python/)
 * [Ruby](/clients/ruby/)
