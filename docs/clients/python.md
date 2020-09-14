@@ -2,6 +2,8 @@ description: Manage your Feature Flags and Remote Config in your Python applicat
 
 This library can be used with server-side Python projects. The source code for the client is available on [Github](https://github.com/BulletTrainHQ/bullet-train-python-client).
 
+The source code for the client is available on [Github](https://github.com/BulletTrainHQ/bullet-train-python-client).
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See running in production for notes on how to deploy the project on a live system.

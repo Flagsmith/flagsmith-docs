@@ -46,6 +46,7 @@ nav:
     - Python: 'clients/python.md'
     - Ruby: 'clients/ruby.md'
     - .Net: 'clients/dotnet.md'
+    - Go: 'clients/go.md'
     - PHP: 'clients/php.md'
     - REST: 'clients/rest.md'
   - Open Source / Self Hosting:

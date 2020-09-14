@@ -1,7 +1,10 @@
 description: Manage your Feature Flags and Remote Config in your Ruby applications.
 
 # Bullet Train Client
+
 The SDK clients for Ruby [https://bullet-train.io/](https://www.bullet-train.io/). Bullet Train allows you to manage feature flags and remote config across multiple projects, environments and organisations.
+
+The source code for the client is available on [Github](https://github.com/BulletTrainHQ/bullet-train-ruby-client).
 
 ## Getting Started
 

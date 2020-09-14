@@ -37,6 +37,7 @@ Once you are setup with the front and back end, you can integrate our client lib
 * [Python](/clients/python/)
 * [Ruby](/clients/ruby/)
 * [.Net](/clients/dotnet/)
+* [Go](/clients/go/)
 * [PHP](/clients/php/)
 * [REST](/clients/rest/)
 
