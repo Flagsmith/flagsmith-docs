@@ -49,7 +49,7 @@ We've put together some [tips and ideas](integration-approaches.md) on how to be
 
 Examples applications for popular JS frameworks can be found here:
 
-* [JS framework examples](https://github.com/BulletTrainHQ/bullet-train-examples)
+* [JS framework examples](https://github.com/BulletTrainHQ/bullet-train-js-client/tree/master/examples)
 
 ## What Next
 
