@@ -57,7 +57,7 @@ if err != nil {
 }
 ```
 
-More examples can be found in the [Tests](client_test.go)
+More examples can be found in the [Tests](https://github.com/BulletTrainHQ/bullet-train-go-client/blob/master/client_test.go)
 
 ## Override default configuration
 

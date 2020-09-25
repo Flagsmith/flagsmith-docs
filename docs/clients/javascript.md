@@ -2,14 +2,9 @@ description: Manage your Feature Flags and Remote Config in your Javascript appl
 
 This library can be used with pure Javascript, React (and all other popular frameworks/libraries) and React Native projects. The source code for the client is available on [Github](https://github.com/BulletTrainHQ/bullet-train-js-client).
 
-Example applications for Web and React Native can be found here:
+Example applications for a variety of Javascript frameworks such as React, Vue and Angular, as well as React Native, can be found here:
 
-- [Web example](https://github.com/BulletTrainHQ/bullet-train-js-client/tree/master/bullet-train-client/example)
-- [React Native example](https://github.com/BulletTrainHQ/bullet-train-js-client/tree/master/react-native-bullet-train/example)
-
-Examples applications for many popular JS frameworks such as React, Vue and Angular can be found here:
-
-- [JS framework examples](https://github.com/BulletTrainHQ/bullet-train-examples)
+- [Bullet Train Framework Examples](https://github.com/BulletTrainHQ/bullet-train-js-client/tree/master/examples)
 
 ## Installation
 
