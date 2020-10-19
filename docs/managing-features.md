@@ -2,58 +2,30 @@ description: Feature Flags are a development methodology that allow you to ship 
 
 # Feature Flags
 
-Feature Flags are a development methodology that allow you to ship code and features before they are finished. This greatly benefits Continuous Integration and Continuous Deployment (CI/CD). The typical workflow for this is as follows.
-
-1. You are about to start work on a new feature. Lets imaging you are going to implement a sharing button with your application.
-2. Create a new Feature Flag in Bullet Train, calling it "sharing_button". Set it to enabled on your development environment, and disabled on your production environment.
-3. Start working on the feature. Whenever you write code that shows the button within the UI, wrap it in a conditional statement, testing against the value of the flag "sharing button". Only show the button if the flag is set to True.
-4. Because your button only shows when the "sharing_button" flag is set to True, you are safe to commit your code as you work on the feature. Your code will be live within the production platform, but the functionality is hidden behind the flag.
-5. Once you are happy with your Feature, you can enable the "sharing_button" for other members of your team and with Beta testers.
-6. If everything is working as intended, simply flip the "sharing_button" flag to True for everyone in your production environment, and your feature is rolled out.
-
-If you want to learn more about Feature Flags, [Flickr wrote the seminal blog post on it in 2009.](https://code.flickr.net/2009/12/02/flipping-out/)
-
 Flags within Bullet Train can be defined either as a boolean value, or as a String of text. This allows you to use Bullet Train in the multiple ways.
 
 - Showing and hiding features in your application. E.g. A sharing button within an application.
 - Configuring values used within your application remotely. E.g. The number of power-ups a user might have in a game.
 - Configuring environment variables. E.g. Setting the database URL for your API.
 
-Features are created on a per project basis but edited per environment and can then be overridden on a per user basis.
+Features are created on a per project basis but edited per environment and can then be overridden on a per user or segment basis.
 
-## Organisations
+## Boolean Flags
 
-Organisations are a way for you and other team members to manage projects and their features. Users can be members of multiple organisations.
+You can create a new feature flag by going to the Flags page and hitting the Create Feature button.
 
-## Projects
+Flags default to On (true) or Off (false)
 
-Projects contain one or more environments that share a single set of features and one or more environments. Organisations can have any number of projects.
+<img src="/images/create-feature.png" width="75%"/>
 
-## Environments
+## Remote Config Values
 
-Environments are a way to separate the configuration of your features. For example, your project's Development and Staging environments might have a feature configured as on while it is turned off in your Production environment. A project can have any number of environments.
+You can also store and override String and numerical (int and float) values. Simply create a Remote Config item.
 
-## Identities
+<img src="/images/create-remote-config.png" width="75%"/>
 
-Identities are a particular user registration for one of your Project's environments. Registering identities within the client application allows you to manage features for individual users. Identity features can be overridden from your environment defaults. For example, joe@yourwebsite.com would be a different identity in your development environment to the one in production, and they can have different features enabled for each environment.
+## Features List
 
-For more info see [Identities](/managing-identities).
+You can toggle feature boolean values or override Remote Config values on a per-Environment basis. 
 
-## Traits
-
-You can store any number of Traits against an Identity. Traits are simple name:value pairs that can store any type of data. Some examples of traits that you might store against an Identity might be:
-
-- The number of times the user has logged in.
-- If they have accepted the application terms and conditions.
-- Their preference for application theme.
-- If they have performed certain actions within your application.
-
-For more info see [Traits](/managing-identities/#identity-traits).
-
-## Segments
-
-Segments are a way to define a group of users by traits such as number of times logged in, device, location or any number of custom defined traits.
-
-Similarly to individual users, you will be able to override environment defaults for features. For example showing certain features for a "power user" segment.
-
-For more info see [Segments](/managing-segments).
+<img src="/images/features-list.png" width="100%"/>

@@ -54,3 +54,13 @@ This approach depends on whether your application has an ability to persist data
 5. Asynchronously call the Bullet Train API to retrieve the up-to-date Flags.
 
 The official [Javascript Client](/clients/javascript/) offers optional caching built in to the SDK.
+
+## Caching Flags on a Server
+
+When running the Bullet Train SDK within a Server envionment, it is difficult for the SDK to ascertain what sort of caching infrastructure is available to it. For this reason, caching flags in a Server Environment needs to be integrated by hand. However, it's pretty simple!
+
+1. When a server starts up, get the Flags from the Bullet Train API. They will now be in memory within the server runtime.
+2. If you have caching infrastructure available (for example, memcache, redis etc), you can then store the flags for that environment within your caching infrastrcture.
+3. You can set up a [Web Hook](/system-administration/#web-hooks) within Bullet Train that sends flag change events to your server infrastructure.
+4. Write an API endpoint within your infrastructure that receives flag change events and stores then in your local cache.
+5. You can now rely on your local cache to get up to date flags.

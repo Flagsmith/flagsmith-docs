@@ -25,6 +25,7 @@ nav:
   - Releases:  'releases.md'
   - Hosted Service: 'hosted-service.md'
   - Using Bullet Train:
+    - Overview: 'overview.md'
     - Managing Features: 'managing-features.md'
     - Managing Identities: 'managing-identities.md'
     - Managing Segments: 'managing-segments.md'
