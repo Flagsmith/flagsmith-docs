@@ -48,6 +48,7 @@ nav:
     - Ruby: 'clients/ruby.md'
     - .Net: 'clients/dotnet.md'
     - Go: 'clients/go.md'
+    - Rust: 'clients/rust.md'
     - PHP: 'clients/php.md'
     - REST: 'clients/rest.md'
   - Open Source / Self Hosting:
