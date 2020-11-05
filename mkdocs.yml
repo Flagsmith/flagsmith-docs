@@ -37,6 +37,9 @@ nav:
     - Permissions: 'permissions.md'
     - API: 'api.md'
     - Audit Logs: 'audit-logs.md'
+  - Integrations:
+    - Amplitude: 'integrations/amplitude.md'
+    - Datadog: 'integrations/datadog.md'
   - SDK Client Libraries: 
     - Javascript/React Native: 'clients/javascript.md'
     - Node: 'clients/node.md'
