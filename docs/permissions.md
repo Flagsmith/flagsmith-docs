@@ -2,7 +2,7 @@ description: Team member and group permissions.
 
 # Permissions
 
-Bullet Train provides fine-grained permissions to help larger teams manage access and roles across projects and environments.
+Flagsmith provides fine-grained permissions to help larger teams manage access and roles across projects and environments.
 
 Permissions are assigned to individual team members or to groups.
 

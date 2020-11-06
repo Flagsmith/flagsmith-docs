@@ -43,7 +43,7 @@ value = bt.get_value("header")
 | Property        | Description           | Required  | Default Value  |
 | ----- |:-------------| -----:| -----:|
 | ```environment_id```     | Defines which project environment you wish to get flags for. *example ACME Project - Staging.* | **YES** | None
-| ```api```     | Use this property to define where you're getting feature flags from, e.g. if you're self hosting. |  **NO** | https://api.bullet-train.io/api/
+| ```api```     | Use this property to define where you're getting feature flags from, e.g. if you're self hosting. |  **NO** | https://api.flagsmith.com/api/
 
 ### Available Functions
 
@@ -61,7 +61,7 @@ value = bt.get_value("header")
 
 ### Identifying users
 
-Identifying users allows you to target specific users from the [Bullet Train dashboard](https://www.bullet-train.io/).
+Identifying users allows you to target specific users from the [Flagsmith dashboard](https://www.flagsmith.com/).
 You can include an optional user identifier as part of the `has_feature` and `get_value` methods to retrieve unique user flags and variables.
 
 ### Flags data structure
@@ -71,7 +71,7 @@ You can include an optional user identifier as part of the `has_feature` and `ge
 | id | Internal id of feature state | Integer |
 | enabled | Whether feature is enabled or not | Boolean |
 | environment | Internal ID of environment | Integer | 
-| feature_state_value | Value of the feature | Any - determined based on data input on [bullet-train.io](https://bullet-train.io). |
+| feature_state_value | Value of the feature | Any - determined based on data input on [flagsmith.com](https://flagsmith.com). |
 | feature | Feature object - see below for details | Object |
 
 ### Feature data structure
@@ -96,4 +96,4 @@ If you encounter a bug or feature request we would like to hear about it. Before
 
 ## Get in touch
 
-If you have any questions about our projects you can email [support@bullet-train.io](mailto:support@bullet-train.io).
+If you have any questions about our projects you can email [support@flagsmith.com](mailto:support@flagsmith.com).

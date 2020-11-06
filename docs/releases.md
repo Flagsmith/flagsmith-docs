@@ -1,4 +1,4 @@
-description: Bullet Train Releases
+description: Flagsmith Releases
 
 # Upcoming Features
 
@@ -36,7 +36,7 @@ Released **28th May 2020**
 
 Released **19th December 2019**
 
-- Removed Bullet Train homepage from Front End App
+- Removed Flagsmith homepage from Front End App
 - Added Webhooks
 
 ## v1.9

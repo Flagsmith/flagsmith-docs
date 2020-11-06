@@ -2,7 +2,7 @@ description: Feature Flags are a development methodology that allow you to ship 
 
 # Feature Flags
 
-Flags within Bullet Train can be defined either as a boolean value, or as a String of text. This allows you to use Bullet Train in the multiple ways.
+Flags within Flagsmith can be defined either as a boolean value, or as a String of text. This allows you to use Flagsmith in the multiple ways.
 
 - Showing and hiding features in your application. E.g. A sharing button within an application.
 - Configuring values used within your application remotely. E.g. The number of power-ups a user might have in a game.

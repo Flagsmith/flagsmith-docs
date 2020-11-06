@@ -1,8 +1,8 @@
-description: Learn how to manage feature flags across web, mobile and server side applications. Bullet Train is 100% Open Source.
+description: Learn how to manage feature flags across web, mobile and server side applications. Flagsmith is 100% Open Source.
 
 # Overview
 
-[Bullet Train](https://bullet-train.io/) lets you manage features across web, mobile and server side applications. Bullet Train is 100% Open Source. Host yourself or let us take care of the hosting.
+[Flagsmith](https://flagsmith.com/) lets you manage features across web, mobile and server side applications. Flagsmith is 100% Open Source. Host yourself or let us take care of the hosting.
 
 The application consist of 3 components:
 
@@ -10,7 +10,7 @@ The application consist of 3 components:
 2. The [Front End Administration Web Interface](https://github.com/BulletTrainHQ/Bullet-Train-Frontend).
 3. Client Libraries.
 
-To get up and running, you can either use [https://bullet-train.io/](https://bullet-train.io/) for 1 and 2 above, or you can self host the API and Front End. Once you have these components up and running, you can add the client libraries to your apps and start managing your features remotely.
+To get up and running, you can either use [https://flagsmith.com/](https://flagsmith.com/) for 1 and 2 above, or you can self host the API and Front End. Once you have these components up and running, you can add the client libraries to your apps and start managing your features remotely.
 
 ## Installation
 

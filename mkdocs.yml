@@ -1,4 +1,4 @@
-site_name: Bullet Train Docs
+site_name: Flagsmith Docs
 
 theme: 
   name: material
@@ -8,9 +8,9 @@ theme:
   font:
     text: 'Source Sans Pro'
 
-site_url: https://docs.bullet-train.io/
+site_url: https://docs.flagsmith.com/
 repo_url: https://github.com/BulletTrainHQ/Bullet-Train-Docs
-google_analytics: ['UA-120237963-2', 'bullet-train.io']
+google_analytics: ['UA-120237963-2', 'flagsmith.com']
 
 markdown_extensions:
   - admonition
@@ -24,7 +24,7 @@ nav:
   - Overview: 'index.md'
   - Releases:  'releases.md'
   - Hosted Service: 'hosted-service.md'
-  - Using Bullet Train:
+  - Using Flagsmith:
     - Overview: 'overview.md'
     - Managing Features: 'managing-features.md'
     - Managing Identities: 'managing-identities.md'

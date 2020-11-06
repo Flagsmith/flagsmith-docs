@@ -1,7 +1,7 @@
 description: Manage your Feature Flags and Remote Config in your PHP applications.
 
-# Bullet Train Client
-The SDK client for PHP [https://bullet-train.io/](https://www.bullet-train.io/). Bullet Train allows you to manage feature flags and remote config across multiple projects, environments and organisations.
+# Flagsmith Client
+The SDK client for PHP [https://flagsmith.com/](https://www.flagsmith.com/). Flagsmith allows you to manage feature flags and remote config across multiple projects, environments and organisations.
 
 The source code for the client is available on [Github](https://github.com/BulletTrainHQ/bullet-train-php-client).
 
@@ -11,7 +11,7 @@ The source code for the client is available on [Github](https://github.com/Bulle
 
 ## Usage
 
-Retrieving feature flags for your project. For full documentation visit [https://docs.bullet-train.io](https://docs.bullet-train.io).
+Retrieving feature flags for your project. For full documentation visit [https://docs.flagsmith.com](https://docs.flagsmith.com).
 
 ```php
 use BulletTrain\BulletTrain;
@@ -52,4 +52,4 @@ If you encounter a bug or feature request we would like to hear about it. Before
 
 ## Get in touch
 
-If you have any questions about our projects you can email [support@bullet-train.io](mailto:support@bullet-train.io).
+If you have any questions about our projects you can email [support@flagsmith.com](mailto:support@flagsmith.com).

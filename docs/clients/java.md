@@ -28,7 +28,7 @@ implementation 'com.solidstategroup:bullet-train-client:1.5'
 
 ## Usage
 
-Sign Up and create account at [https://bullet-train.io/](https://www.bullet-train.io/)
+Sign Up and create account at [https://flagsmith.com/](https://www.flagsmith.com/)
 
 In your application initialise BulletTrain client with your API key
 
@@ -62,7 +62,7 @@ if (myRemoteConfig != null) {
 
 ### Identifying users
 
-Identifying users allows you to target specific users from the [Bullet Train dashboard](https://www.bullet-train.io/).
+Identifying users allows you to target specific users from the [Flagsmith dashboard](https://www.flagsmith.com/).
 
 To check if feature exist for given user context:
 
@@ -172,4 +172,4 @@ If you encounter a bug or feature request we would like to hear about it. Before
 
 ## Get in touch
 
-If you have any questions about our projects you can email [support@bullet-train.io](mailto:support@bullet-train.io).
+If you have any questions about our projects you can email [support@flagsmith.com](mailto:support@flagsmith.com).

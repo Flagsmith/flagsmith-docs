@@ -1,8 +1,8 @@
 description: Manage your Feature Flags and Remote Config in your Ruby applications.
 
-# Bullet Train Client
+# Flagsmith Client
 
-The SDK clients for Ruby [https://bullet-train.io/](https://www.bullet-train.io/). Bullet Train allows you to manage feature flags and remote config across multiple projects, environments and organisations.
+The SDK clients for Ruby [https://flagsmith.com/](https://www.flagsmith.com/). Flagsmith allows you to manage feature flags and remote config across multiple projects, environments and organisations.
 
 The source code for the client is available on [Github](https://github.com/BulletTrainHQ/bullet-train-ruby-client).
 
@@ -18,7 +18,7 @@ These instructions will get you a copy of the project up and running on your loc
 ## Usage
 **Retrieving feature flags for your project**
 
-**For full documentation visit [https://docs.bullet-train.io](https://docs.bullet-train.io)**
+**For full documentation visit [https://docs.flagsmith.com](https://docs.flagsmith.com)**
 ```ruby
 require "bullet-train-ruby-client"
 
@@ -58,7 +58,7 @@ end
 
 **Identifying users**
 
-Identifying users allows you to target specific users from the [Bullet Train dashboard](https://www.bullet-train.io/).
+Identifying users allows you to target specific users from the [Flagsmith dashboard](https://www.flagsmith.com/).
 You can include an optional user identifier as part of the `hasFeature` and `getValue` methods to retrieve unique user flags and variables.
 
 ## Contributing
@@ -71,4 +71,4 @@ If you encounter a bug or feature request we would like to hear about it. Before
 
 ## Get in touch
 
-If you have any questions about our projects you can email [support@bullet-train.io](mailto:support@bullet-train.io).
+If you have any questions about our projects you can email [support@flagsmith.com](mailto:support@flagsmith.com).
