@@ -25,10 +25,6 @@ from bullet_train import BulletTrain;
 
 bt = BulletTrain(environment_id="<YOUR_ENVIRONMENT_KEY>")
 
-if bt.has_feature("header", '<My User Id>'):
-  if bt.feature_enabled("header"):
-    # Show my awesome cool new feature to the world
-
 if bt.has_feature("header"):
   if bt.feature_enabled("header"):
     # Show my awesome cool new feature to the world
