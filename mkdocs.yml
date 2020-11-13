@@ -9,7 +9,7 @@ theme:
     text: 'Source Sans Pro'
 
 site_url: https://docs.flagsmith.com/
-repo_url: https://github.com/BulletTrainHQ/Bullet-Train-Docs
+repo_url: https://github.com/Flagsmith/flagsmith-docs
 google_analytics: ['UA-120237963-2', 'flagsmith.com']
 
 markdown_extensions:
