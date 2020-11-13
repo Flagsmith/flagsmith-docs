@@ -1,10 +1,10 @@
-description: Manage additional aspects of your Bullet Train platform.
+description: Manage additional aspects of your Flagsmith platform.
 
 # System Administration
 
 ## Web Hooks
 
-You can use the Web Hooks to send events from Bullet Train into your own infrastructure. Web Hooks are managed at an Environment level, and can be configured in the Environment settings page.
+You can use the Web Hooks to send events from Flagsmith into your own infrastructure. Web Hooks are managed at an Environment level, and can be configured in the Environment settings page.
 
 <img src="/images/add-webhook.png"/>
 
@@ -95,15 +95,14 @@ You can use Audit Log Webhooks to stream your Organisation's Audit Log into your
 
 ## Full API Access
 
-The client SDK libraries are designed solely for end client use, and do not have an interface to the full Bullet Train API. However, you can easily access the full API by generating a login token and sending that with your API requests. To generate a login token, send an HTTP POST to [https://api.bullet-train.io/auth/login](https://api.bullet-train.io/auth/login) with the following JSON payload:
+The client SDK libraries are designed solely for end client use, and do not have an interface to the full Flagsmith API. However, you can easily access the full API by generating an Admin API Token and passing that in your requests.
+
+### Generating an Admin API token for your Environment
+
+You can generate Admin API tokens on a per Environment basis, from the Environment Settings page. Only Organisation Administrators can generate or view Admin API tokens. Once you have generated a token, you can use them by passing in the header `HTTP_X_API_KEY: <Admin API Key>`
 
 ```bash
-curl -X "POST" "https://api.bullet-train.io/v1/auth/login/" \
-     -H 'Content-Type: application/json; charset=utf-8' \
-     -d $'{
-  "username": "<admin username>",
-  "password": "<admin password>"
-}'
+curl -X "GET" "https://api.flagsmith.com/v1/environments/" \
+     -H 'HTTP_X_API_KEY: <Admin API Key>' \
+  }'
 ```
-
-This will generate a token (that does not expire) which you can then use with subsequent API calls. You can pass this token in the HTTP header with `Token <token>`

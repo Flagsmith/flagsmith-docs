@@ -8,7 +8,7 @@ This library can be used with iOS and Mac applications. The source code for the 
 
 ### CocoaPods
 
-[CocoaPods](https://cocoapods.org) is a dependency manager for Cocoa projects. For usage and installation instructions, visit their website. To integrate Bullet Train into your Xcode project using CocoaPods, specify it in your `Podfile`:
+[CocoaPods](https://cocoapods.org) is a dependency manager for Cocoa projects. For usage and installation instructions, visit their website. To integrate Flagsmith into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
 ```ruby
 pod 'BulletTrainClient', '~> 1.0'
@@ -18,7 +18,7 @@ pod 'BulletTrainClient', '~> 1.0'
 
 ### Sign Up
 
-Sign up at [Bullet Train](https://bullet-train.io/) and create a project. Take a note of the API key which you will need to configure your app.
+Sign up at [Flagsmith](https://flagsmith.com/) and create a project. Take a note of the API key which you will need to configure your app.
 
 ### Initialization
 
@@ -75,9 +75,9 @@ BulletTrain.shared.getFeatureValue(withID: "test_feature2", forIdentity: nil) { 
 }
 ```
 
-These methods can also specify a particular identity to retrieve the values for a user registration. See [Identities](https://docs.bullet-train.io/managing-identities/) , using the **forIdentity** parameter.
+These methods can also specify a particular identity to retrieve the values for a user registration. See [Identities](https://docs.flagsmith.com/managing-identities/) , using the **forIdentity** parameter.
 
-To retrieve a trait for a particular identity (see [Traits](https://docs.bullet-train.io/managing-identities/#identity-traits)):
+To retrieve a trait for a particular identity (see [Traits](https://docs.flagsmith.com/managing-identities/#identity-traits)):
 
 ```swift
 BulletTrain.shared.getTraits(forIdentity: "test_user@test.com") {(result) in
@@ -104,4 +104,4 @@ If you encounter a bug or feature request we would like to hear about it. Before
 
 ## Get in touch
 
-If you have any questions about our projects you can email [support@bullet-train.io](mailto:support@bullet-train.io).
+If you have any questions about our projects you can email [support@flagsmith.com](mailto:support@flagsmith.com).

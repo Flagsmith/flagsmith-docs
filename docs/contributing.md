@@ -4,7 +4,7 @@ We're always looking to improve this project, open source contribution is encour
 
 ## Pull Requests
 
-The Bullet Train team will be monitoring for pull requests. When we get one, a member of team will test the work against our internal uses and sign off on the changes. From here, we'll either merge the pull request or provide feedback suggesting the next steps.
+The Flagsmith team will be monitoring for pull requests. When we get one, a member of team will test the work against our internal uses and sign off on the changes. From here, we'll either merge the pull request or provide feedback suggesting the next steps.
 
 ### A couple things to keep in mind
 

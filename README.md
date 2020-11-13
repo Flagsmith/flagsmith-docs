@@ -1,6 +1,6 @@
-# Bullet Train Documentation
+# Flagsmith Documentation
 
-This is the documentation repository for the [Docs](https://docs.bullet-train.io/) of [Bullet Train](https://bullet-train.io/). The site is currently hosted on [https://zeit.co/](https://zeit.co/).
+This is the documentation repository for the [Docs](https://docs.flagsmith.com/) of [Flagsmith](https://flagsmith.com/). The site is currently hosted on [https://zeit.co/](https://zeit.co/).
 
 Built with [MKDocs](https://www.mkdocs.org/).
 
@@ -26,9 +26,9 @@ mkdocs build
 
 ## Useful links
 
-[Website](https://bullet-train.io)
+[Website](https://flagsmith.com)
 
-[Documentation](https://docs.bullet-train.io/)
+[Documentation](https://docs.flagsmith.com/)
 
 [Code Examples](https://github.com/BulletTrainHQ/bullet-train-docs)
 

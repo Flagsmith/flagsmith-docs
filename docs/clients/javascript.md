@@ -4,7 +4,7 @@ This library can be used with pure Javascript, React (and all other popular fram
 
 Example applications for a variety of Javascript frameworks such as React, Vue and Angular, as well as React Native, can be found here:
 
-- [Bullet Train Framework Examples](https://github.com/BulletTrainHQ/bullet-train-js-client/tree/master/examples)
+- [Flagsmith Framework Examples](https://github.com/BulletTrainHQ/bullet-train-js-client/tree/master/examples)
 
 ## Installation
 
@@ -28,7 +28,7 @@ npm i react-native-bullet-train --save
 
 ## Basic Usage
 
-The SDK is initialised against a single environment within a project on [https://bullet-train.io](https://bullet-train.io),
+The SDK is initialised against a single environment within a project on [https://flagsmith.com](https://flagsmith.com),
 for example the Development or Production environment. You can find your environment key in the Environment settings page.
 
 <img src="/images/api-key.png"/>
@@ -66,9 +66,9 @@ bulletTrain.init({
 
 ## Identifying users
 
-Identifying users allows you to target specific users from the Bullet Train dashboard and configure features and traits. You can call this before or after you initialise the project, calling it after will re-fetch features from the API.
+Identifying users allows you to target specific users from the Flagsmith dashboard and configure features and traits. You can call this before or after you initialise the project, calling it after will re-fetch features from the API.
 
-User features can be managed by navigating to users on [https://bullet-train.io](https://bullet-train.io) for your desired project.
+User features can be managed by navigating to users on [https://flagsmith.com](https://flagsmith.com) for your desired project.
  <img src="/images/user-features.png"/>
 
 ### Example: Initialising the SDK and identifying as a user
@@ -124,10 +124,10 @@ bulletTrain.init({
 | ```onError```     | Callback function on failure to retrieve flags. ``` (error)=>{...} ``` | | null
 | ```AsyncStorage```     | Needed for cacheFlags option, used to tell the library what implementation of AsyncStorage your app uses, i.e. ReactNative.AsyncStorage vs @react-native-community/async-storage. | | null
 | ```cacheFlags```     | Any time flags are retrieved they will be cached, flags and identities will then be retrieved from local storage before hitting the API ``` | | null
-| ```enableLogs```     | Enables logging for key bullet train events ``` | | null
+| ```enableLogs```     | Enables logging for key Flagsmith events ``` | | null
 | ```defaultFlags```     | Allows you define default features, these will all be overridden on first retrieval of features. | | null
 | ```preventFetch```     | If you want to disable fetching flags and call getFlags later. | | false
-| ```api```     | Use this property to define where you're getting feature flags from, e.g. if you're self hosting. | | https://api.bullet-train.io/api/v1/
+| ```api```     | Use this property to define where you're getting feature flags from, e.g. if you're self hosting. | | https://api.flagsmith.com/api/v1/
 
 ### Available Functions
 
@@ -162,4 +162,4 @@ If you encounter a bug or feature request we would like to hear about it. Before
 
 ## Get in touch
 
-If you have any questions about our projects you can email [support@bullet-train.io](mailto:support@bullet-train.io).
+If you have any questions about our projects you can email [support@flagsmith.com](mailto:support@flagsmith.com).

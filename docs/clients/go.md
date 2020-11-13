@@ -1,8 +1,8 @@
 description: Manage your Feature Flags and Remote Config in your PHP applications.
 
-# Bullet Train Client
+# Flagsmith Client
 
-The SDK client for Go [https://bullet-train.io/](https://www.bullet-train.io/). Bullet Train allows you to manage feature flags and remote config across multiple projects, environments and organisations.
+The SDK client for Go [https://flagsmith.com/](https://www.flagsmith.com/). Flagsmith allows you to manage feature flags and remote config across multiple projects, environments and organisations.
 
 The source code for the client is available on [Github](https://github.com/BulletTrainHQ/bullet-train-go-client).
 
@@ -22,9 +22,9 @@ import (
 
 ### Retrieving feature flags for your project
 
-For full documentation visit [https://docs.bullet-train.io](https://docs.bullet-train.io)
+For full documentation visit [https://docs.flagsmith.com](https://docs.flagsmith.com)
 
-Sign Up and create account at [https://bullet-train.io/](https://www.bullet-train.io/)
+Sign Up and create account at [https://flagsmith.com/](https://www.flagsmith.com/)
 
 In your application initialise the BulletTrain client with your API key
 
@@ -77,4 +77,4 @@ If you encounter a bug or feature request we would like to hear about it. Before
 
 ## Get in touch
 
-If you have any questions about our projects you can email <a href="mailto:support@bullet-train.io">support@bullet-train.io</a>.
+If you have any questions about our projects you can email <a href="mailto:support@flagsmith.com">support@flagsmith.com</a>.

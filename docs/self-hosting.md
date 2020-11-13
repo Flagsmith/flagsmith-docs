@@ -1,12 +1,12 @@
-description: Self hosting Bullet Train.
+description: Self hosting Flagsmith.
 
 # Self Hosting
 
-You are free to self host the entire Bullet Train Platform. The easiest way to do this is via Docker.
+You are free to self host the entire Flagsmith Platform. The easiest way to do this is via Docker.
 
 ## Docker
 
-You can get a local instance of the entire platform up and running using [Bullet Train in Docker](https://github.com/BulletTrainHQ/bullet-train-docker).
+You can get a local instance of the entire platform up and running using [Flagsmith in Docker](https://github.com/BulletTrainHQ/bullet-train-docker).
 
 ```bash
 git clone https://github.com/BulletTrainHQ/bullet-train-docker.git

@@ -12,16 +12,16 @@ The client library is available from NuGet and can be added to your project by m
 
 **Retrieving feature flags for your project**
 
-**For full documentation visit [https://docs.bullet-train.io](https://docs.bullet-train.io)**
+**For full documentation visit [https://docs.flagsmith.com](https://docs.flagsmith.com)**
 
-Sign Up and create account at [https://bullet-train.io/](https://www.bullet-train.io/)
+Sign Up and create account at [https://flagsmith.com/](https://www.flagsmith.com/)
 
-In your application initialise the Bullet Train client once with your environment API key and API URL.
+In your application initialise the Flagsmith client once with your environment API key and API URL.
 
 ```c#
 BulletTrainConfiguration configuration = new BulletTrainConfiguration()
 {
-    ApiUrl = "https://api.bullet-train.io/api/v1/",
+    ApiUrl = "https://api.flagsmith.com/api/v1/",
     EnvironmentKey = "env-key-goes-here"
 };
 
@@ -54,7 +54,7 @@ if (myRemoteConfig != null) {
 
 **Identifying users**
 
-Identifying users allows you to target specific users from the [Bullet Train dashboard](https://www.bullet-train.io/).
+Identifying users allows you to target specific users from the [Flagsmith dashboard](https://www.flagsmith.com/).
 
 To check if a feature exists and is enabled for a specific user:
 
@@ -141,4 +141,4 @@ If you encounter a bug or feature request we would like to hear about it. Before
 
 ## Get in touch
 
-If you have any questions about our projects you can email [support@bullet-train.io](mailto:support@bullet-train.io).
+If you have any questions about our projects you can email [support@flagsmith.com](mailto:support@flagsmith.com).
