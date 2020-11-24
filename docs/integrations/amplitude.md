@@ -2,6 +2,8 @@ description: Integrate Flagsmith with Datadog
 
 # Amplitude Integration
 
+<img src="/images/integrations/amplitude/amplitude-logo.svg"/>
+
 !!! note
     This feature is currently in beta. Please contact us if you are interested in joining the beta!
 

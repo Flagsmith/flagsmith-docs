@@ -40,6 +40,8 @@ nav:
   - Integrations:
     - Amplitude: 'integrations/amplitude.md'
     - Datadog: 'integrations/datadog.md'
+    - New Relic: 'integrations/newrelic.md'
+    - Segment: 'integrations/segment.md'
     - Slack: 'integrations/slack.md'
   - SDK Client Libraries: 
     - Javascript/React Native: 'clients/javascript.md'
