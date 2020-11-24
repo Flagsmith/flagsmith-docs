@@ -2,6 +2,8 @@ description: Learn how to manage feature flags across web, mobile and server sid
 
 # Overview
 
+<img src="/images/banner-logo-dark.png" />
+
 [Flagsmith](https://flagsmith.com/) lets you manage features across web, mobile and server side applications. Flagsmith is 100% Open Source. Host yourself or let us take care of the hosting.
 
 The application consist of 3 components:
