@@ -23,7 +23,7 @@ curl 'https://api.flagsmith.com/api/v1/flags/' -H 'x-environment-key: <ENVIRONME
 
 ## Private Endpoints
 
-You can also do things like create new flags, environments, toggle flags or indeed anything that is possible from the adminstrative front end via the API.
+You can also do things like create new flags, environments, toggle flags or indeed anything that is possible from the administrative front end via the API.
 
 To authenticate, get a token by logging in with an account credentials:
 
