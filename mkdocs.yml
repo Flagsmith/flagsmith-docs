@@ -44,6 +44,7 @@ nav:
     - Segment: 'integrations/segment.md'
     - Slack: 'integrations/slack.md'
   - SDK Client Libraries: 
+    - REST: 'clients/rest.md'
     - Javascript/React Native: 'clients/javascript.md'
     - Node: 'clients/node.md'
     - Android: 'clients/android.md'
@@ -56,7 +57,6 @@ nav:
     - Go: 'clients/go.md'
     - Rust: 'clients/rust.md'
     - PHP: 'clients/php.md'
-    - REST: 'clients/rest.md'
   - Open Source / Self Hosting:
     - Architecture:  'architecture.md'
     - Self Hosting:  'self-hosting.md'
