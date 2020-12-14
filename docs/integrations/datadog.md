@@ -6,6 +6,8 @@ description: Integrate Flagsmith with Datadog
 
 You can integrate Flagsmith with Datadog. Send flag change events from Flagsmith into your Datadog event stream.
 
+## Integration Setup
+
 <img src="/images/integrations/datadog/datadog-3.png"/>
 
 1. Log into Datadog and go to Integrations > API
