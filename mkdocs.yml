@@ -4,6 +4,8 @@ theme:
   name: material
   logo: 'images/logo.png'
   favicon: 'images/favicon.ico'
+  icon:
+    repo: fontawesome/brands/github
   custom_dir: overrides
   font:
     text: 'Source Sans Pro'
@@ -16,6 +18,7 @@ theme:
 site_url: https://docs.flagsmith.com/
 repo_url: https://github.com/flagsmith/flagsmith-api
 google_analytics: ['UA-120237963-2', 'flagsmith.com']
+edit_uri: ""
 
 markdown_extensions:
   - admonition
@@ -23,6 +26,7 @@ markdown_extensions:
   - codehilite
 
 nav:
+  - Flagsmith.com: 'https://www.flagsmith.com/'
   - Overview: 'index.md'
   - Releases:  'releases.md'
   - Hosted Service: 'hosted-service.md'
@@ -63,6 +67,5 @@ nav:
     - Architecture:  'architecture.md'
     - Self Hosting:  'self-hosting.md'
     - Contributing:  'contributing.md'
-  - Flagsmith.com: 'https://www.flagsmith.com/'
   - Log In: 'https://app.flagsmith.com/'
   
