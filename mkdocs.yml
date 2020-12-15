@@ -14,7 +14,7 @@ theme:
     - navigation.sections
 
 site_url: https://docs.flagsmith.com/
-repo_url: https://github.com/Flagsmith/flagsmith-docs
+repo_url: https://github.com/flagsmith/flagsmith-api
 google_analytics: ['UA-120237963-2', 'flagsmith.com']
 
 markdown_extensions:
