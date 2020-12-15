@@ -10,6 +10,7 @@ theme:
   features:
     - navigation.instant
     - navigation.tabs
+    - navigation.tabs.sticky
     - navigation.sections
 
 site_url: https://docs.flagsmith.com/
