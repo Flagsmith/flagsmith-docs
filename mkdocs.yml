@@ -7,6 +7,10 @@ theme:
   custom_dir: overrides
   font:
     text: 'Source Sans Pro'
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - navigation.sections
 
 site_url: https://docs.flagsmith.com/
 repo_url: https://github.com/Flagsmith/flagsmith-docs
@@ -17,14 +21,11 @@ markdown_extensions:
   - meta
   - codehilite
 
-extra_javascript:
-  - javascripts/extra.js
-
 nav:
   - Overview: 'index.md'
   - Releases:  'releases.md'
   - Hosted Service: 'hosted-service.md'
-  - Using Flagsmith:
+  - Developer Guide:
     - Overview: 'overview.md'
     - Managing Features: 'managing-features.md'
     - Managing Identities: 'managing-identities.md'
@@ -32,7 +33,7 @@ nav:
     - Staged Feature Rollouts: 'staged-feature-rollouts.md'
     - A/B Testing: 'ab-testing.md'
     - Integration Approaches: 'integration-approaches.md'
-  - System Administration: 
+  - Administrator Guide: 
     - Overview: 'system-administration.md'
     - Permissions: 'permissions.md'
     - API: 'api.md'
@@ -43,7 +44,7 @@ nav:
     - New Relic: 'integrations/newrelic.md'
     - Segment: 'integrations/segment.md'
     - Slack: 'integrations/slack.md'
-  - SDK Client Libraries: 
+  - SDKs: 
     - REST: 'clients/rest.md'
     - Javascript/React Native: 'clients/javascript.md'
     - Node: 'clients/node.md'
@@ -57,8 +58,10 @@ nav:
     - Go: 'clients/go.md'
     - Rust: 'clients/rust.md'
     - PHP: 'clients/php.md'
-  - Open Source / Self Hosting:
+  - Self Hosting:
     - Architecture:  'architecture.md'
     - Self Hosting:  'self-hosting.md'
     - Contributing:  'contributing.md'
+  - Flagsmith.com: 'https://www.flagsmith.com/'
+  - Log In: 'https://app.flagsmith.com/'
   
