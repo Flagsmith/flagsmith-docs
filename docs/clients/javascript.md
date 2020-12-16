@@ -81,7 +81,6 @@ Can be called both before or after you're done initialising the project.
 Calling identify before will prevent flags being fetched twice.
 */
 bulletTrain.identify("bullet_train_sample_user"); //This will create a user in the dashboard if they don't already exist
-bulletTrain.setTrait("favourite_colour","blue"); //This save the trait against the user, it can be queried with bulletTrain.getTrait 
 
 //Standard project initialisation
 bulletTrain.init({
@@ -89,6 +88,9 @@ bulletTrain.init({
         onChange: (oldFlags,params)=>{ //Occurs whenever flags are changed
 
         const {isFromServer} = params; //determines if the update came from the server or local cached storage
+
+        //Set a trait against the Identity
+        bulletTrain.setTrait("favourite_colour","blue"); //This save the trait against the user, it can be queried with bulletTrain.getTrait 
 
         //Check for a feature
         if (bulletTrain.hasFeature("myPowerUserFeature")){
