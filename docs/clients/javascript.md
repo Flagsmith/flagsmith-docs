@@ -42,14 +42,12 @@ bulletTrain.init({
     environmentID:"<YOUR_ENVIRONMENT_KEY>",
     cacheFlags: true,
     onChange: (oldFlags,params)=>{ //Occurs whenever flags are changed
-
         const {isFromServer} = params; //determines if the update came from the server or local cached storage
 
         //Check for a feature
         if (bulletTrain.hasFeature("myCoolFeature")){
             myCoolFeature();
         }
-
 
         //Or, use the value of a feature
         const bannerSize = bulletTrain.getValue("bannerSize");
@@ -59,7 +57,6 @@ bulletTrain.init({
         if (bannerSize !== bannerSizeOld) {
 
         }
-
     }
 });
 ```
