@@ -13,53 +13,52 @@ These instructions will get you a copy of the project up and running on your loc
 ## Installing
 
 ### VIA gem
-```gem install bullet-train-client```
+```gem install flagsmith```
 	
 ## Usage
 **Retrieving feature flags for your project**
 
 **For full documentation visit [https://docs.flagsmith.com](https://docs.flagsmith.com)**
 ```ruby
-require "bullet-train-ruby-client"
+require "flagsmith"
 
-bt = BulletTrain.new(<<Your API KEY>>")
+flagsmith = Flagsmith.new("<<Your API KEY>>")
 
-if bt.getValue("font_size")
+if flagsmith.get_value("font_size")
   #    Do something awesome with the font size
 end
 
-if bt.hasFeature("does_not_exist")
+if flagsmith.feature_enabled?("does_not_exist")
   #do something
 else
   #do nothing, or something else
 end
-
 ```
+
 **Available Options**
 
-| Property        | Description           | Required  | Default Value  |
-| ------------- |:-------------:| -----:| -----:|
-| ```environmentID```     | Defines which project environment you wish to get flags for. *example ACME Project - Staging.* | **YES** | null
-| ```onError```     | Callback function on failure to retrieve flags. ``` (error)=>{...} ``` |  **NO** | null
-| ```defaultFlags```     | Defines the default flags if there are any | **NO** | null
-| ```api```     | Use this property to define where you're getting feature flags from, e.g. if you're self hosting. |  **NO** | https://bullet-train-api.dokku1.solidstategroup.com/api/v1/
+| Property  |                                            Description                                            | Required |                     Default Value |   Environment Key |
+| --------- | :-----------------------------------------------------------------------------------------------: | -------: | --------------------------------: | ----------------: |
+| `api_key` |  Defines which project environment you wish to get flags for. _example ACME Project - Staging._   |  **YES** |                              null | FLAGSMITH_API_KEY |
+| `url`     | Use this property to define where you're getting feature flags from, e.g. if you're self hosting. |   **NO** | https://api.flagsmith.com/api/v1/ |     FLAGSMITH_URL |
 
 **Available Functions**
 
-| Property        | Description |         
-| ------------- |:-------------:|
-| ```init```     | Initialise the sdk against a particular environment
-| ```hasFeature(key)```     | Get the value of a particular feature e.g. ```bulletTrain.hasFeature("powerUserFeature") // true```
-| ```hasFeature(key, userId)```     | Get the value of a particular feature for a user e.g. ```bulletTrain.hasFeature("powerUserFeature", 1234) // true```
-| ```getValue(key)```     | Get the value of a particular feature e.g. ```bulletTrain.getValue("font_size") // 10```
-| ```getValue(keym userId)```     | Get the value of a particular feature for a specificed user e.g. ```bulletTrain.getValue("font_size", 1234) // 15```
-| ```getFlags()```     | Trigger a manual fetch of the environment features, if a user is identified it will fetch their features
-| ```getFlagsForUser(1234)```     | Trigger a manual fetch of the environment features with a given user id
+| Property                                          |                                                     Description                                                      |
+| ------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------: |
+| `init`                                            |                                 Initialize the sdk against a particular environment                                  |
+| `feature_enabled?(key)`                           |         Get the value of a particular feature e.g. `flagsmith.feature_enabled?("powerUserFeature") // true`          |
+| `feature_enabled?(key, user_id, default = false)` | Get the value of a particular feature for a user e.g. `flagsmith.feature_enabled?("powerUserFeature", 1234) // true` |
+| `get_value(key)`                                  |                 Get the value of a particular feature e.g. `flagsmith.get_value("font_size") // 10`                  |
+| `get_value(key, user_id, default = nil)`          |    Get the value of a particular feature for a specified user e.g. `flagsmith.get_value("font_size", 1234) // 15`    |
+| `get_flags()`                                     |       Trigger a manual fetch of the environment features, if a user is identified it will fetch their features       |
+| `get_flags(user_id)`                              |                       Trigger a manual fetch of the environment features with a given user id                        |
+| `set_trait(user_id, trait, value)`                |                                    Set the value of a trait for the given user id                                    |
 
-**Identifying users**
+**Identifying Users**
 
 Identifying users allows you to target specific users from the [Flagsmith dashboard](https://www.flagsmith.com/).
-You can include an optional user identifier as part of the `hasFeature` and `getValue` methods to retrieve unique user flags and variables.
+You can include an optional user identifier as part of the `feature_enabled?` and `get_value` methods to retrieve unique user flags and variables.
 
 ## Contributing
 
