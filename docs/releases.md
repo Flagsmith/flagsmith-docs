@@ -1,14 +1,67 @@
 description: Flagsmith Releases
 
-# Upcoming Features
-
-- Organise and group Features with Tags
-- Redis caching
-- DataDog integration
-- Amplitude integration
-- Native float values for Traits
-
 # Releases
+
+## v2.4
+
+Relased **7 Dec 2020**
+
+This release is the first under our new brand, Flagsmith.
+
+The rebrand comes with no breaking changes, mainly just a refactor to urls and wording, however we have built several new features and bug fixes since our last release:
+
+- If your api is using influx, we now show usage data in a graph format
+![image](https://user-images.githubusercontent.com/8608314/101258233-16227880-3719-11eb-86c0-738c43d2ec0f.png)
+- New look and feel
+- Ability to bulk enable / disable all segment overrides and user overrides for a flag
+![image](https://user-images.githubusercontent.com/8608314/101258463-87aef680-371a-11eb-9e98-35c976612962.png)
+- Sensible page size for the users page
+- Improved E2E stability
+- Integration page, this page is almost fully managed by remote config. It will allow users t enhance Flagsmith with your favourite tools. We currently support data dog and will shortly support amplitude.
+![image](https://user-images.githubusercontent.com/8608314/101258436-6ea64580-371a-11eb-8afe-3626eb36bbbe.png)
+
+The remote config to use this is as follows:
+
+```json
+integrations:
+
+["data_dog"]
+```
+
+```json
+integration_data
+{
+    "perEnvironment": false,
+    "image": "https://xyz",
+    "fields": [
+      {
+        "key": "base_url",
+        "label": "Base URL"
+      },
+      {
+        "key": "api_key",
+        "label": "API Key"
+      }
+    ],
+    "tags": [
+      "logging"
+    ],
+    "title": "Data dog",
+    "description": "Sends events to Data dog for when flags are created, updated and removed. Logs are tagged with the environment they came from e.g. production."
+}
+```
+
+## v2.3
+
+Released **9 Nov 2020**
+
+We've added a bunch of new features and bug fixes.
+
+- You can now tag flags with user-defined tags. You can use these tags to manage flags and organise them. 
+- Beta release of both [Data Dog](https://docs.bullet-train.io/integrations/datadog/) and [Amplitude](https://docs.bullet-train.io/integrations/amplitude/) integrations.
+- You can now set multiple traits in a single call
+- For a given feature, show which Identities have it individually overridden
+- When viewing an Identity, show the segments and test whether the identity is a member of each segment
 
 ## v2.2
 

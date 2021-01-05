@@ -27,10 +27,16 @@ markdown_extensions:
 
 nav:
   - Flagsmith.com: 'https://www.flagsmith.com/'
-  - Overview: 'index.md'
-  - Releases:  'releases.md'
-  - Hosted Service: 'hosted-service.md'
-  - Developer Guide:
+  - Overview: 
+    - Overview: 'index.md'
+    - Contributing:  'contributing.md'
+  - Releases: 
+    - Releases: 'releases.md'
+  - Hosting: 
+    - Hosted Service: 'hosted-service.md'
+    - Self Hosting: 'self-hosting.md'
+    - Architecture: 'architecture.md'
+  - User Guide:
     - Overview: 'overview.md'
     - Managing Features: 'managing-features.md'
     - Managing Identities: 'managing-identities.md'
@@ -38,17 +44,11 @@ nav:
     - Staged Feature Rollouts: 'staged-feature-rollouts.md'
     - A/B Testing: 'ab-testing.md'
     - Integration Approaches: 'integration-approaches.md'
-  - Administrator Guide: 
+  - Admin Guide: 
     - Overview: 'system-administration.md'
     - Permissions: 'permissions.md'
     - API: 'api.md'
     - Audit Logs: 'audit-logs.md'
-  - Integrations:
-    - Amplitude: 'integrations/amplitude.md'
-    - Datadog: 'integrations/datadog.md'
-    - New Relic: 'integrations/newrelic.md'
-    - Segment: 'integrations/segment.md'
-    - Slack: 'integrations/slack.md'
   - SDKs: 
     - REST: 'clients/rest.md'
     - Javascript/React Native: 'clients/javascript.md'
@@ -63,9 +63,13 @@ nav:
     - Go: 'clients/go.md'
     - Rust: 'clients/rust.md'
     - PHP: 'clients/php.md'
-  - Self Hosting:
-    - Architecture:  'architecture.md'
-    - Self Hosting:  'self-hosting.md'
-    - Contributing:  'contributing.md'
+  - Integrations:
+    - Amplitude: 'integrations/amplitude.md'
+    - Datadog: 'integrations/datadog.md'
+    - New Relic: 'integrations/newrelic.md'
+    - Segment: 'integrations/segment.md'
+    - Slack: 'integrations/slack.md'
+  - Enterprise Edition:
+    - Overview: 'enterprise/overview.md'
   - Log In: 'https://app.flagsmith.com/'
   
