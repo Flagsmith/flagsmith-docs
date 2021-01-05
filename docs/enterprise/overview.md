@@ -8,10 +8,14 @@ The Flagsmith platform is made up of 4 main components:
 
 - The Flagsmith REST API
 - The Flagsmith administration front end (a React-based web application)
-- A SQL Database (currently we support Postgres and Oracle)
+- A SQL Database (currently we support Postgres)
 - A time-series database (currently we support InfluxDB 2.0)
 
-All of these components are open source, but the API is also provided as an "Enterprise Edition" which has additional features and capabilities. In order to deploy an Enterprise Edition version you can 
+All of these components are open source, but the API is also provided as an "Enterprise Edition" which has additional features and capabilities:
+
+- Roll Based Access Controls
+- SAML authentication
+- Additional Database Engines (Oracle, SQL Server and MySQL)
 
 ## Deployment Options
 
@@ -22,7 +26,7 @@ We currently support the following infrastructure platforms:
 - Amazon Web Services (AWS) - via [Amazon ECS](https://aws.amazon.com/ecs/?whats-new-cards.sort-by=item.additionalFields.postDateTime&whats-new-cards.sort-order=desc)
 - Google Cloud Platform (GCP) - via [AppEngine](https://cloud.google.com/appengine)
 
-If you require additional deployment options, please contact us. 
+If you require additional deployment options, please contact us.
 
 ## Orchestration
 
@@ -32,17 +36,17 @@ We currently have the following orchestration options:
 - [Terraform](https://www.terraform.io/) scripts for AWS and GCP deployments
 - [Helm Charts](https://helm.sh/) for Kubernetes deployments
 
-Please contact us for the relevant source code for these projects. 
+Please contact us for the relevant source code for these projects.
 
 ## Docker Image Repository
 
-The Flagsmith API Enterprise Edition is hosted within AWS ECR. To access the Docker images in this repository you will need an AWS IAM access key and secret. Please contact us for these credentials. 
+The Flagsmith API Enterprise Edition is hosted within AWS ECR. To access the Docker images in this repository you will need an AWS IAM access key and secret. Please contact us for these credentials.
 
 The base ECR image repository URL is `084060095745.dkr.ecr.eu-west-2.amazonaws.com`.
 
 ### Requirements
 
-You must install the [AWS cli](https://aws.amazon.com/cli/) and the docker command line tools. 
+You must install the [AWS cli](https://aws.amazon.com/cli/) and the docker command line tools.
 
 ### Pulling the Docker images
 
