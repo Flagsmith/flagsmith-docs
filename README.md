@@ -1,32 +1,34 @@
-# Bullet Train Documentation
+# Flagsmith Documentation
 
-This is the documentation repository for the [Docs](https://docs.bullet-train.io/) of [Bullet Train](https://bullet-train.io/). 
+This is the documentation repository for the [Docs](https://docs.flagsmith.com/) of [Flagsmith](https://flagsmith.com/). The site is currently hosted on [https://zeit.co/](https://zeit.co/).
 
 Built with [MKDocs](https://www.mkdocs.org/).
 
 ## Pre requesites
+
 [pip](https://pip.pypa.io/)
 
 ## Local Development
 
 ``` bash
-pip install mkdocs mkdocs-material
-mkdocs serve
+pip install pipenv
+pipenv install
+pipenv run mkdocs serve
 ```
 
 ## Deploy
 
-Deploy to GitHub pages with
+Deployments to Zeit happen automatically if configured on the Zeit side. You can build a local static version of the site with
 
 ``` bash
-mkdocs gh-deploy
+mkdocs build
 ```
 
 ## Useful links
 
-[Website](https://bullet-train.io)
+[Website](https://flagsmith.com)
 
-[Documentation](https://docs.bullet-train.io/)
+[Documentation](https://docs.flagsmith.com/)
 
 [Code Examples](https://github.com/BulletTrainHQ/bullet-train-docs)
 

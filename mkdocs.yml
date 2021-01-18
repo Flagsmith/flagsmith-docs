@@ -1,36 +1,75 @@
-site_name: Bullet Train Docs
+site_name: Flagsmith Docs. Feature Flags and Remote Config.
 
 theme: 
   name: material
   logo: 'images/logo.png'
   favicon: 'images/favicon.ico'
+  icon:
+    repo: fontawesome/brands/github
+  custom_dir: overrides
+  font:
+    text: 'Source Sans Pro'
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
 
-site_url: https://docs.bullet-train.io/
-repo_url: https://github.com/BulletTrainHQ/Bullet-Train-Docs
-google_analytics: ['UA-120237963-2', 'bullet-train.io']
+site_url: https://docs.flagsmith.com/
+repo_url: https://github.com/flagsmith/flagsmith-api
+google_analytics: ['UA-120237963-2', 'flagsmith.com']
+edit_uri: ""
 
 markdown_extensions:
   - admonition
   - meta
+  - codehilite
 
 nav:
-  - Overview and Install: index.md
-  - Hosted Service: 'hosted-service.md'
-  - Managing Features: 'managing-features.md'
-  - Managing Identities: 'managing-identities.md'
-  - Managing Segments: 'managing-segments.md'
-  - Staged Feature Rollouts: 'staged-feature-rollouts.md'
-  - A/B Testing: 'ab-testing.md'
-  - Permissions: 'permissions.md'
-  - System Administration: 'system-administration.md'
-  - Audit Logs: 'audit-logs.md'
-  - Client Libraries: 
-    - 'Javascript/React Native': 'clients/javascript.md'
-    - 'Node': 'clients/node.md'
-    - 'Android': 'clients/android.md'
-    - 'iOS': 'clients/ios.md'
-    - 'Java': 'clients/java.md'
-    - 'Python': 'clients/python.md'
-    - 'Ruby': 'clients/ruby.md'
-    - '.Net': 'clients/dotnet.md'
-    - 'REST': 'clients/rest.md'
+  - Flagsmith.com: 'https://www.flagsmith.com/'
+  - Overview: 
+    - Overview: 'index.md'
+    - Contributing:  'contributing.md'
+  - Releases: 
+    - Releases: 'releases.md'
+  - Hosting: 
+    - Hosted Service: 'hosted-service.md'
+    - Self Hosting: 'self-hosting.md'
+    - Architecture: 'architecture.md'
+  - User Guide:
+    - Overview: 'overview.md'
+    - Managing Features: 'managing-features.md'
+    - Managing Identities: 'managing-identities.md'
+    - Managing Segments: 'managing-segments.md'
+    - Staged Feature Rollouts: 'staged-feature-rollouts.md'
+    - A/B Testing: 'ab-testing.md'
+    - Integration Approaches: 'integration-approaches.md'
+  - Admin Guide: 
+    - Overview: 'system-administration.md'
+    - Permissions: 'permissions.md'
+    - API: 'api.md'
+    - Audit Logs: 'audit-logs.md'
+  - SDKs: 
+    - REST: 'clients/rest.md'
+    - Javascript/React Native: 'clients/javascript.md'
+    - Node: 'clients/node.md'
+    - Android: 'clients/android.md'
+    - iOS: 'clients/ios.md'
+    - Flutter: 'clients/flutter.md'
+    - Java: 'clients/java.md'
+    - Python: 'clients/python.md'
+    - Ruby: 'clients/ruby.md'
+    - .Net: 'clients/dotnet.md'
+    - Go: 'clients/go.md'
+    - Rust: 'clients/rust.md'
+    - PHP: 'clients/php.md'
+  - Integrations:
+    - Amplitude: 'integrations/amplitude.md'
+    - Datadog: 'integrations/datadog.md'
+    - New Relic: 'integrations/newrelic.md'
+    - Segment: 'integrations/segment.md'
+    - Slack: 'integrations/slack.md'
+  - Enterprise Edition:
+    - Overview: 'enterprise/overview.md'
+  - Log In: 'https://app.flagsmith.com/'
+  
