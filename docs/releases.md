@@ -76,7 +76,7 @@ Released **12th June 2020**
 
 Released **28th May 2020**
 
-[Front End](https://github.com/BulletTrainHQ/bullet-train-frontend/releases/tag/v2.1.0) / [API](https://github.com/BulletTrainHQ/bullet-train-api/releases/tag/v2.1.0)
+[Front End](https://github.com/flagsmith/bullet-train-frontend/releases/tag/v2.1.0) / [API](https://github.com/flagsmith/bullet-train-api/releases/tag/v2.1.0)
 
 - Google OAuth2 integration
 - 2 Factor authentication

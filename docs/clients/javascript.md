@@ -1,10 +1,10 @@
 description: Manage your Feature Flags and Remote Config in your Javascript applications.
 
-This library can be used with pure Javascript, React (and all other popular frameworks/libraries) and React Native projects. The source code for the client is available on [Github](https://github.com/BulletTrainHQ/bullet-train-js-client).
+This library can be used with pure Javascript, React (and all other popular frameworks/libraries) and React Native projects. The source code for the client is available on [Github](https://github.com/flagsmith/flagsmith-js-client).
 
 Example applications for a variety of Javascript frameworks such as React, Vue and Angular, as well as React Native, can be found here:
 
-- [Flagsmith Framework Examples](https://github.com/BulletTrainHQ/bullet-train-js-client/tree/master/examples)
+- [Flagsmith Framework Examples](https://github.com/flagsmith/flagsmith-js-client/tree/master/examples)
 
 ## Installation
 

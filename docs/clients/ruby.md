@@ -4,7 +4,7 @@ description: Manage your Feature Flags and Remote Config in your Ruby applicatio
 
 The SDK clients for Ruby [https://flagsmith.com/](https://www.flagsmith.com/). Flagsmith allows you to manage feature flags and remote config across multiple projects, environments and organisations.
 
-The source code for the client is available on [Github](https://github.com/BulletTrainHQ/bullet-train-ruby-client).
+The source code for the client is available on [Github](https://github.com/flagsmith/flagsmith-ruby-client).
 
 ## Getting Started
 

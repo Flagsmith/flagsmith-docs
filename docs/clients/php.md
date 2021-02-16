@@ -3,7 +3,7 @@ description: Manage your Feature Flags and Remote Config in your PHP application
 # Flagsmith Client
 The SDK client for PHP [https://flagsmith.com/](https://www.flagsmith.com/). Flagsmith allows you to manage feature flags and remote config across multiple projects, environments and organisations.
 
-The source code for the client is available on [Github](https://github.com/BulletTrainHQ/bullet-train-php-client).
+The source code for the client is available on [Github](https://github.com/flagsmith/flagsmith-php-client).
 
 ## Installing VIA composer
 

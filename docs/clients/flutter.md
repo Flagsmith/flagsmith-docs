@@ -1,6 +1,6 @@
 description: Manage your Feature Flags and Remote Config in your .Net applications.
 
-This SDK can be used for Flutter applications. The source code for the client is available on [Github](https://github.com/BulletTrainHQ/bullet-train-flutter-client).
+This SDK can be used for Flutter applications. The source code for the client is available on [Github](https://github.com/flagsmith/flagsmith-flutter-client).
 
 ## Getting Started
 

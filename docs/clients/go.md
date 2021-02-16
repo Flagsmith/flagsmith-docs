@@ -4,17 +4,17 @@ description: Manage your Feature Flags and Remote Config in your PHP application
 
 The SDK client for Go [https://flagsmith.com/](https://www.flagsmith.com/). Flagsmith allows you to manage feature flags and remote config across multiple projects, environments and organisations.
 
-The source code for the client is available on [Github](https://github.com/BulletTrainHQ/bullet-train-go-client).
+The source code for the client is available on [Github](https://github.com/flagsmith/flagsmith-go-client).
 
 ## Getting Started
 
 ```bash
-go get github.com/BulletTrainHQ/bullet-train-go-client
+go get github.com/flagsmith/flagsmith-go-client
 ```
 
 ```go
 import (
-  "github.com/BulletTrainHQ/bullet-train-go-client"
+  "github.com/flagsmith/flagsmith-go-client"
 )
 ```
 
@@ -57,7 +57,7 @@ if err != nil {
 }
 ```
 
-More examples can be found in the [Tests](https://github.com/BulletTrainHQ/bullet-train-go-client/blob/master/client_test.go)
+More examples can be found in the [Tests](https://github.com/flagsmith/bullet-train-go-client/blob/master/client_test.go)
 
 ## Override default configuration
 

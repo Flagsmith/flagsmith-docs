@@ -1,6 +1,6 @@
 description: Manage your Feature Flags and Remote Config in your NodeJS applications.
 
-This library can be used with server-side NodeJS projects. The source code for the client is available on [Github](https://github.com/BulletTrainHQ/bullet-train-nodejs-client).
+This library can be used with server-side NodeJS projects. The source code for the client is available on [Github](https://github.com/flagsmith/flagsmith-nodejs-client).
 
 ## Getting Started
 

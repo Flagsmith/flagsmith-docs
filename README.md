@@ -30,6 +30,6 @@ mkdocs build
 
 [Documentation](https://docs.flagsmith.com/)
 
-[Code Examples](https://github.com/BulletTrainHQ/bullet-train-docs)
+[Code Examples](https://github.com/flagsmith/flagsmith-docs)
 
 [Youtube Tutorials](https://www.youtube.com/channel/UCki7GZrOdZZcsV9rAIRchCw)

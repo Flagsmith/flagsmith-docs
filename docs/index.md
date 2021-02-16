@@ -6,8 +6,8 @@ description: Learn how to manage feature flags across web, mobile and server sid
 
 The application consist of 3 components:
 
-1. The [Server-Side REST API](https://github.com/BulletTrainHQ/Bullet-Train-API).
-2. The [Front End Administration Web Interface](https://github.com/BulletTrainHQ/Bullet-Train-Frontend).
+1. The [Server-Side REST API](https://github.com/flagsmith/flagsmith-api).
+2. The [Front End Administration Web Interface](https://github.com/flagsmith/flagsmith-frontend).
 3. Client Libraries.
 
 To get up and running, you can either use [https://flagsmith.com/](https://flagsmith.com/) for 1 and 2 above, or you can self host the API and Front End. Once you have these components up and running, you can add the client libraries to your apps and start managing your features remotely.
@@ -18,11 +18,11 @@ More information can be found on the [Self Hosted Page](/self-hosting).
 
 ### Server Side API
 
-The source code and installation instructions can be found at [the GitHub project](https://github.com/BulletTrainHQ/Bullet-Train-API). The API is written in Python and is based on Django and the Django Rest Framework.
+The source code and installation instructions can be found at [the GitHub project](https://github.com/flagsmith/flagsmith-api). The API is written in Python and is based on Django and the Django Rest Framework.
 
 ### Front End Website
 
-The source code and installation instructions can be found at [the GitHub project](https://github.com/BulletTrainHQ/Bullet-Train-Frontend). The Front End Website is written in React/Javascript and requires NodeJS.
+The source code and installation instructions can be found at [the GitHub project](https://github.com/flagsmith/flagsmith-frontend). The Front End Website is written in React/Javascript and requires NodeJS.
 
 ## Client Libraries
 
@@ -50,7 +50,7 @@ We've put together some [tips and ideas](integration-approaches.md) on how to be
 
 Examples applications for popular JS frameworks can be found here:
 
-* [JS framework examples](https://github.com/BulletTrainHQ/bullet-train-js-client/tree/master/examples)
+* [JS framework examples](https://github.com/flagsmith/flagsmith-js-client/tree/master/examples)
 
 ## What Next
 

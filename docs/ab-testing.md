@@ -21,7 +21,7 @@ In order to perform an A/B Test, we need to complete the following steps:
 
 ## Example
 
-We made [a repo](https://github.com/BulletTrainHQ/bullet-train-js-client/tree/master/examples/ab-testing) with a [JSFiddle](https://jsfiddle.net/vw0af7zq/) that demonstrates an A/B Test using Javascript.
+We made [a repo](https://github.com/flagsmith/flagsmith-js-client/tree/master/examples/ab-testing) with a [JSFiddle](https://jsfiddle.net/vw0af7zq/) that demonstrates an A/B Test using Javascript.
 
 ## Anonymous/Unknown Identities
 

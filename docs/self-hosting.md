@@ -6,10 +6,10 @@ You are free to self host the entire Flagsmith Platform. The easiest way to do t
 
 ## Docker
 
-You can get a local instance of the entire platform up and running using [Flagsmith in Docker](https://github.com/BulletTrainHQ/bullet-train-docker).
+You can get a local instance of the entire platform up and running using [Flagsmith in Docker](https://github.com/flagsmith/bullet-train-docker).
 
 ```bash
-git clone https://github.com/BulletTrainHQ/bullet-train-docker.git
+git clone https://github.com/flagsmith/bullet-train-docker.git
 cd bullet-train-docker
 docker-compose up
 ```
@@ -36,8 +36,8 @@ If you want a more configurable environment, you can manually install both the F
 
 ### Server Side API
 
-The source code and installation instructions can be found at [the GitHub project](https://github.com/BulletTrainHQ/Bullet-Train-API). The API is written in Python and is based on Django and the Django Rest Framework. The Server side API relies on a Postgres SQL installation to store its data, and a Redis installation as a cache.
+The source code and installation instructions can be found at [the GitHub project](https://github.com/flagsmith/Bullet-Train-API). The API is written in Python and is based on Django and the Django Rest Framework. The Server side API relies on a Postgres SQL installation to store its data, and a Redis installation as a cache.
 
 ### Front End Website
 
-The source code and installation instructions can be found at [the GitHub project](https://github.com/BulletTrainHQ/Bullet-Train-Frontend). The Front End Website is written in React/Javascript and requires NodeJS.
+The source code and installation instructions can be found at [the GitHub project](https://github.com/flagsmith/Bullet-Train-Frontend). The Front End Website is written in React/Javascript and requires NodeJS.
