@@ -12,8 +12,6 @@ The client library is available from NuGet and can be added to your project by m
 
 **Retrieving feature flags for your project**
 
-**For full documentation visit [https://docs.flagsmith.com](https://docs.flagsmith.com)**
-
 Sign Up and create account at [https://flagsmith.com/](https://www.flagsmith.com/)
 
 In your application initialise the Flagsmith client once with your environment API key and API URL.
@@ -130,15 +128,3 @@ if (userIdentity != null) {
   // Run the code to use user identity i.e. userIdentity.flags or userIdentity.traits
 }
 ```
-
-## Contributing
-
-Please read [Contributing](/contributing) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Getting Help
-
-If you encounter a bug or feature request we would like to hear about it. Before you submit an issue please search existing issues in order to prevent duplicates.
-
-## Get in touch
-
-If you have any questions about our projects you can email [support@flagsmith.com](mailto:support@flagsmith.com).

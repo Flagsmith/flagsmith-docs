@@ -150,15 +150,3 @@ flagsmith.init({
 ``identify``, ``setTrait`` and ``setTraits`` all trigger calls to ``getFlags``, which in turn hits the get flags endpoint. This is due to identities and traits affecting flags that are returned.
 
 However, you can avoid these extra calls to get flags if you call these functions before  ``flagsmith.init``.
-
-## Contributing
-
-Please read [Contributing](/contributing) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Getting Help
-
-If you encounter a bug or feature request we would like to hear about it. Before you submit an issue please search existing issues in order to prevent duplicates.
-
-## Get in touch
-
-If you have any questions about our projects you can email [support@flagsmith.com](mailto:support@flagsmith.com).

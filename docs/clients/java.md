@@ -4,6 +4,8 @@ description: Manage your Feature Flags and Remote Config in your Java applicatio
 
 This library can be used with server-side Java and Android applications. The source code for the client is available on [Github](https://github.com/flagsmith/flagsmith-java-client).
 
+## Getting Started
+
 ## Quick Setup
 
 The client library is available from the Central Maven Repository and can be added to your project by many tools:
@@ -14,49 +16,53 @@ Add following dependencies to your project in `pom.xml`
 
 ```xml
 <dependency>
-  <groupId>com.solidstategroup</groupId>
-  <artifactId>bullet-train-client</artifactId>
-  <version>1.5</version>
+  <groupId>com.flagsmith</groupId>
+  <artifactId>flagsmith-java-client</artifactId>
+  <version>2.3</version>
 </dependency>
 ```
 
 ### Gradle
 
 ```groovy
-implementation 'com.solidstategroup:bullet-train-client:1.5'
+implementation 'com.flagsmith:flagsmith-java-client:2.3'
 ```
 
 ## Usage
 
-Sign Up and create account at [https://flagsmith.com/](https://www.flagsmith.com/)
+### Retrieving feature flags for your project
 
-In your application initialise BulletTrain client with your API key
+**For full documentation visit [https://docs.flagsmith.com/](https://docs.flagsmith.com/)**
 
-```java
-BulletTrainClient bulletClient = BulletTrainClient.newBuilder()
+Sign Up and create an account at [https://www.flagsmith.com/](https://www.flagsmith.com/)
+
+In your application initialise the Flagsmith client with your API key:
+
+```Java
+FlagsmithClient flagsmithClient = FlagsmithClient.newBuilder()
                 .setApiKey("YOUR_ENV_API_KEY")
                 .build();
 ```
 
-To check if feature flag exist and enabled:
+To check if a feature flag exists and is enabled:
 
-```java
-boolean featureEnabled = bulletClient.hasFeatureFlag("my_test_feature");
+```Java
+boolean featureEnabled = flagsmithClient.hasFeatureFlag("my_test_feature");
 if (featureEnabled) {
-    // run the code to execute enabled feature
+    // run the code that executes the enabled feature
 } else {
-    // run the code if feature switched off
+    // run the code that doesn't include the feature
 }
 ```
 
-To get configuration value for feature flag:
+To get configuration value for a feature flag:
 
-```java
-String myRemoteConfig = bulletClient.getFeatureFlagValue("my_test_feature");
-if (myRemoteConfig != null) {
-    // run the code to use remote config value
+```Java
+String myRemoteConfig = flagsmithClient.getFeatureFlagValue("my_test_feature");
+if (myRemoteConfig != null) {    
+    // run the code that uses the remote config value
 } else {
-    // run the code without remote config
+    // run the code that doesn't depend on the remote config value
 }
 ```
 
@@ -64,95 +70,111 @@ if (myRemoteConfig != null) {
 
 Identifying users allows you to target specific users from the [Flagsmith dashboard](https://www.flagsmith.com/).
 
-To check if feature exist for given user context:
+To check if feature exists for given a user context:
 
-```java
+```Java
 User user = new User();
-user.setIdentifier("bullet_train_sample_user");
-boolean featureEnabled = bulletClient.hasFeatureFlag("my_test_feature", user);
+user.setIdentifier("flagsmith_sample_user");
+boolean featureEnabled = flagsmithClient.hasFeatureFlag("my_test_feature", user);
 if (featureEnabled) {
-    // run the code to execute enabled feature for given user
+    // run the code that executes the enabled feature for a given user
 } else {
-    // run the code when feature switched off
+    // run the code that doesn't include the feature
 }
 ```
 
-To get configuration value for feature flag for given user context:
+To get the configuration value of a feature flag for a given user context:
 
-```java
-String myRemoteConfig = bulletClient.getFeatureFlagValue("my_test_feature", user);
-if (myRemoteConfig != null) {
-    // run the code to use remote config value
+```Java
+String myRemoteConfig = flagsmithClient.getFeatureFlagValue("my_test_feature", user);
+if (myRemoteConfig != null) {    
+    // run the code that uses the remote config value
 } else {
-    // run the code without remote config
+    // run the code tbat doesn't depend on the remote config value
 }
 ```
 
-To get user traits for given user context:
+To get user traits for a given user context:
 
-```java
-List<Trait> userTraits = bulletClient.getTraits(user)
-if (userTraits != null && userTraits) {
-    // run the code to use user traits
+```Java
+List<Trait> userTraits = flagsmithClient.getTraits(user)
+if (userTraits != null && userTraits) {    
+    // run the code that expects the user traits
 } else {
-    // run the code without user traits
+    // run the code that doesn't depend on user traits
 }
 ```
 
-To get user trait for given user context and specific key:
+To get a user trait for a given user context and specific key:
 
-```java
-Trait userTrait = bulletClient.getTrait(user, "cookies_key");
-if (userTrait != null) {
-    // run the code to use user trait
+```Java
+Trait userTrait = flagsmithClient.getTrait(user, "cookies_key");
+if (userTrait != null) {    
+    // run the code that uses the user trait
 } else {
-    // run the code without user trait
+    // run the code that doesn't depend on the user trait
 }
 ```
 
-Or get user traits for given user context and specific keys:
+Or get the user traits for a given user context and specific keys:
 
-```java
- List<Trait> userTraits = bulletClient.getTraits(user, "cookies_key", "other_trait");
-if (userTraits != null) {
-    // run the code to use user traits
+```Java
+List<Trait> userTraits = flagsmithClient.getTraits(user, "cookies_key", "other_trait");
+if (userTraits != null) {    
+    // run the code that uses the user traits
 } else {
-    // run the code without user traits
+    // run the code doesn't depend on user traits
 }
 ```
 
-To update value for user traits for given user context and specific keys:
+To update the value for user traits for a given user context and specific keys:
 
-```java
- Trait userTrait = bulletClient.getTrait(user, "cookies_key");
-if (userTrait != null) {
-    // update value for user trait
+```Java
+Trait userTrait = flagsmithClient.getTrait(user, "cookies_key");
+if (userTrait != null) {    
+    // update the value for a user trait
     userTrait.setValue("new value");
-    Trait updated = bulletClient.updateTrait(user, userTrait);
+    Trait updated = flagsmithClient.updateTrait(user, userTrait);
 } else {
-    // run the code without user trait
+    // run the code that doesn't depend on the user trait
 }
+```
+
+### Flags and Traits
+
+Or get flags and traits for a user in a single call:
+
+```Java
+FlagsAndTraits userFlagsAndTraits = flagsmithClient.getUserFlagsAndTraits(user);
+// get traits
+List<Trait> traits = flagsmithClient.getTraits(userFlagsAndTraits, "cookies_key");
+// or get a flag value
+String featureFlagValue = flagsmithClient.getFeatureFlagValue("font_size", userFlagsAndTraits);
+// or get flag enabled
+boolean enabled = flagsmithClient.hasFeatureFlag("hero", userFlagsAndTraits);
+
+// see above examples on how to evaluate flags and traits
 ```
 
 ## Override default configuration
 
-By default, client is using default configuration. You can override configuration as follows:
+By default, the client uses a default configuration. You can override the configuration as follows:
 
-override just API uri with your own one
+Override just the default API URI with your own:
 
-```java
-BulletTrainClient bulletClient = BulletTrainClient.newBuilder()
+```Java
+FlagsmithClient flagsmithClient = FlagsmithClient.newBuilder()
                 .setApiKey("YOUR_ENV_API_KEY")
                 .withApiUrl("http://yoururl.com")
                 .build();
 ```
 
-override full configuration with your own
+Override the full configuration with your own
 
-```java
-BulletTrainClient bulletClient  = BulletTrainClient.newBuilder()
+```Java
+FlagsmithClient flagsmithClient = FlagsmithClient.newBuilder()
             .setApiKey("YOUR_ENV_API_KEY")
-            .withConfiguration(BulletTrainConfig.newBuilder()
+            .withConfiguration(FlagsmithConfig.newBuilder()
                     .baseURI("http://yoururl.com")
                     .connectTimeout(200)
                     .writeTimeout(5000)
@@ -162,14 +184,35 @@ BulletTrainClient bulletClient  = BulletTrainClient.newBuilder()
 
 ```
 
-## Contributing
+Logging is disabled by default. If you would like to enable it then call `.enableLogging()` on the client builder:
 
-Please read [Contributing](/contributing) for details on our code of conduct, and the process for submitting pull requests to us.
+```java
+FlagsmithClient flagsmithClient = FlagsmithClient.newBuilder()
+                // other configuration as shown above
+                .enableLogging()
+                .build();
+```
 
-## Getting Help
+Flagsmith uses [SLF4J](http://www.slf4j.org) and we only implement its API.
+If your project does not already have SLF4J, then include an implementation, i.e.:
 
-If you encounter a bug or feature request we would like to hear about it. Before you submit an issue please search existing issues in order to prevent duplicates.
+```xml
+<dependency>
+    <groupId>org.slf4j</groupId>
+    <artifactId>slf4j-simple</artifactId>
+    <version>${slf4j.version}</version>
+</dependency>
+```
 
-## Get in touch
+adding custom headers to all HTTP calls:
 
-If you have any questions about our projects you can email [support@flagsmith.com](mailto:support@flagsmith.com).
+```java
+final HashMap<String, String> customHeaders = new HashMap(){{
+    put("x-custom-header", "value1");
+    put("x-my-key", "value2");
+}};
+FlagsmithClient flagsmithClient = FlagsmithClient.newBuilder()
+    // other configuration as shown above
+    .withCustomHttpHeaders(customHeaders)
+    .build();
+```

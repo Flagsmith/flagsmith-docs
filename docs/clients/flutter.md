@@ -142,11 +142,3 @@ var bulletClient = BulletTrainClient(
           sendTimeout: 500,
       ), apiKey: 'YOUR_ENV_API_KEY');
 ```
-
-## Getting Help
-
-If you encounter a bug or feature request we would like to hear about it. Before you submit an issue please search existing issues in order to prevent duplicates.
-
-## Get in touch
-
-If you have any questions about our projects you can email [support@flagsmith.com](mailto:support@flagsmith.com).

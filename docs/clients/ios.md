@@ -93,15 +93,3 @@ BulletTrain.shared.getTraits(forIdentity: "test_user@test.com") {(result) in
     }
 }
 ```
-
-## Contributing
-
-Please read [Contributing](/contributing) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Getting Help
-
-If you encounter a bug or feature request we would like to hear about it. Before you submit an issue please search existing issues in order to prevent duplicates.
-
-## Get in touch
-
-If you have any questions about our projects you can email [support@flagsmith.com](mailto:support@flagsmith.com).

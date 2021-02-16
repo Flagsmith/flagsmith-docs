@@ -41,15 +41,3 @@ foreach ($flags as &$value) {
 | ```getValue(key, userId)```     | Get the value of a particular feature for a specificed user e.g. ```bulletTrain.getValue("font_size", 1234) // 15```
 | ```setTrait(userId, key, value)```     | Sets a trait for a particular user e.g. ```bulletTrain.setTrait(1234, "accepted_cookie_policy", true)```
 | ```getTraits(userId)```     | Gets all the traits for the Identity
-
-## Contributing
-
-Please read [Contributing](/contributing) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Getting Help
-
-If you encounter a bug or feature request we would like to hear about it. Before you submit an issue please search existing issues in order to prevent duplicates.
-
-## Get in touch
-
-If you have any questions about our projects you can email [support@flagsmith.com](mailto:support@flagsmith.com).

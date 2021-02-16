@@ -30,6 +30,9 @@ if bt.has_feature("header"):
 value = bt.get_value("header", '<My User Id>')
 
 value = bt.get_value("header")
+
+bt.set_trait("accept-cookies", "true", "ben@bullet-train.io"))
+bt.get_trait("accept-cookies", "ben@bullet-train.io"))
 ```
 
 ### Available Options
@@ -37,7 +40,7 @@ value = bt.get_value("header")
 | Property        | Description           | Required  | Default Value  |
 | ----- |:-------------| -----:| -----:|
 | ```environment_id```     | Defines which project environment you wish to get flags for. *example ACME Project - Staging.* | **YES** | None
-| ```api```     | Use this property to define where you're getting feature flags from, e.g. if you're self hosting. |  **NO** | https://api.flagsmith.com/api/
+| ```api```     | Use this property to define where you're getting feature flags from, e.g. if you're self hosting. |  **NO** | https://api.bullet-train.io/api/
 
 ### Available Functions
 
@@ -55,7 +58,7 @@ value = bt.get_value("header")
 
 ### Identifying users
 
-Identifying users allows you to target specific users from the [Flagsmith dashboard](https://www.flagsmith.com/).
+Identifying users allows you to target specific users from the [Bullet Train dashboard](https://www.bullet-train.io/).
 You can include an optional user identifier as part of the `has_feature` and `get_value` methods to retrieve unique user flags and variables.
 
 ### Flags data structure
@@ -65,7 +68,7 @@ You can include an optional user identifier as part of the `has_feature` and `ge
 | id | Internal id of feature state | Integer |
 | enabled | Whether feature is enabled or not | Boolean |
 | environment | Internal ID of environment | Integer | 
-| feature_state_value | Value of the feature | Any - determined based on data input on [flagsmith.com](https://flagsmith.com). |
+| feature_state_value | Value of the feature | Any - determined based on data input on [bullet-train.io](https://bullet-train.io). |
 | feature | Feature object - see below for details | Object |
 
 ### Feature data structure
@@ -79,15 +82,3 @@ You can include an optional user identifier as part of the `has_feature` and `ge
 | created_date | Date feature was created | Datetime |
 | inital_value | The initial / default value set for all feature states on creation | String |
 | project | Internal ID of the associated project | Integer |  
-
-## Contributing
-
-Please read [Contributing](/contributing) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Getting Help
-
-If you encounter a bug or feature request we would like to hear about it. Before you submit an issue please search existing issues in order to prevent duplicates.
-
-## Get in touch
-
-If you have any questions about our projects you can email [support@flagsmith.com](mailto:support@flagsmith.com).
