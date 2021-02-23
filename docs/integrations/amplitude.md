@@ -4,9 +4,6 @@ description: Integrate Flagsmith with Datadog
 
 <img src="/images/integrations/amplitude/amplitude-logo.svg"/>
 
-!!! note
-    This feature is currently in beta. Please contact us if you are interested in joining the beta!
-
 You can integrate Flagsmith with Amplitude. You can automate AB tests by connecting the Flagsmith platform with Amplitude. The process is as follows:
 
 ## Integration Setup
