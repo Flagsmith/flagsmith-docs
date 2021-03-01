@@ -1,8 +1,8 @@
-description: Manage your Feature Flags and Remote Config in your Java applications.
+description: Manage your Feature Flags and Remote Config in your Java/Kotlin applications.
 
-# Java Client
+# Java/Kotlin Client
 
-This library can be used with server-side Java and Android applications. The source code for the client is available on [Github](https://github.com/flagsmith/flagsmith-java-client).
+This library can be used with server-side Java, Kotlin and Android applications. The source code for the client is available on [Github](https://github.com/flagsmith/flagsmith-java-client).
 
 ## Getting Started
 

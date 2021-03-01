@@ -56,7 +56,7 @@ nav:
     - Android: 'clients/android.md'
     - iOS: 'clients/ios.md'
     - Flutter: 'clients/flutter.md'
-    - Java: 'clients/java.md'
+    - Java/Kotlin: 'clients/java.md'
     - Python: 'clients/python.md'
     - Ruby: 'clients/ruby.md'
     - .Net: 'clients/dotnet.md'
