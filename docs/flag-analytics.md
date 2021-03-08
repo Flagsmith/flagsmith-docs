@@ -2,6 +2,9 @@ description: Get analytics on your Feature Flag SDK evaluations.
 
 # Feature Flag Analytics
 
+!!! note
+    This feature is currently in beta. Please contact us if you are interested in joining the beta!
+
 Flag Analytics allow you to track how often individual Flags are evaluated within the Flagsmith SDK.
 
 To view Analytics for a particular flag, browse to the relevant environment and click on a single flag to edit that flag.
