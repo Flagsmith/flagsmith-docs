@@ -42,6 +42,7 @@ nav:
     - Managing Identities: 'managing-identities.md'
     - Managing Segments: 'managing-segments.md'
     - Staged Feature Rollouts: 'staged-feature-rollouts.md'
+    - Flag Analytics : 'flag-analytics.md'
     - A/B Testing: 'ab-testing.md'
     - Integration Approaches: 'integration-approaches.md'
   - Admin Guide: 
