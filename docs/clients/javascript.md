@@ -189,10 +189,14 @@ On change calls back with information telling you what has changed, you can use 
 
 If the ``cacheFlags`` is set to true on ``init``, the SDK will cache flag evaluations in local async storage. Upon reloading the browser, an onChange event will be fired immediately with the local storage flags. The flow for this is as follows
 
-1 - ``init`` is called
-2 - if ``cacheFlags`` is enabled, local storage checks for any stored flags and traits.
-3 - if flags have been found in local storage, ``onChange`` is triggered with the stored flags.
-4 - at the same time, fresh flags will be retrieved which will result in another ``onChange`` callback.
-5 - whenever flags have been retrieved local storage will be updated.
+1. ``init`` is called
+
+2. if ``cacheFlags`` is enabled, local storage checks for any stored flags and traits.
+
+3. if flags have been found in local storage, ``onChange`` is triggered with the stored flags.
+
+4. at the same time, fresh flags will be retrieved which will result in another ``onChange`` callback.
+
+5. whenever flags have been retrieved local storage will be updated.
 
 By default, these flags will be persisted indefinitely, you can clear this by removing ``"BULLET_TRAIN_DB"`` from ``localStorage``.
