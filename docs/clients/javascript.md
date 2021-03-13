@@ -146,8 +146,53 @@ flagsmith.init({
 | ```identify(userId)```     | Identify as a user, this will create a user for your environment in the dashboard if they don't exist, it will also trigger a call to ```getFlags()```, resolves a promise when the flags are updated.
 | ```logout()```     | Stop identifying as a user, this will trigger a call to ```getFlags()```
 
-## Notes on initialisation
+## FAQs
 
-``identify``, ``setTrait`` and ``setTraits`` all trigger calls to ``getFlags``, which in turn hits the get flags endpoint. This is due to identities and traits affecting flags that are returned.
+**How do I call ``identify``, ``setTraits`` etc alongside ``init``?**
 
-However, you can avoid these extra calls to get flags if you call these functions before  ``flagsmith.init``.
+- ``init`` should be called once in your application, we recommend you call ``init`` before any other flagsmith call.  
+-  ``init`` retrieves flags by default, you can turn this off with the ``preventFetch`` option to ``init``. This is useful for when you know you're identifying a user straight after.
+
+**When does onChange callback?**
+
+``onChange`` calls when flags are fetched this can be a result of:
+
+    - init
+    - setTrait
+	- incrementTrait
+    - getFlags
+    - identify
+    - flags evaluated by local storage
+
+Using onChange is best used in combination with your application's state management e.g. onChange triggering an action to re-evaluate flags with ``hasFeature`` and ``getValue``.
+
+However, if this does not fit in with your development pattern, all the above flagsmith functions return a promise that resolves when fresh flags have been retrieved.
+
+For example by doing the following:
+
+```
+    await flagsmith.setTrait("age",21)
+    const hasFeature = flagsmith.hasFeature("my_feature")
+```
+
+On change calls back with information telling you what has changed, you can use this to prevent any unnecessary re-renders.
+
+```
+    onChange(this.oldFlags, {
+        isFromServer: true, // flags have come from the server or local storage
+        flagsChanged: deepEqualsCheck(oldFlags,newFlags),
+        traitsChanged: deepEqualsCheck(oldFlags,newFlags),
+    });
+```
+
+**How does caching flags work?**
+
+If the ``cacheFlags`` is set to true on ``init``, the SDK will cache flag evaluations in local async storage. Upon reloading the browser, an onChange event will be fired immediately with the local storage flags. The flow for this is as follows
+
+1 - ``init`` is called
+2 - if ``cacheFlags`` is enabled, local storage checks for any stored flags and traits.
+3 - if flags have been found in local storage, ``onChange`` is triggered with the stored flags.
+4 - at the same time, fresh flags will be retrieved which will result in another ``onChange`` callback.
+5 - whenever flags have been retrieved local storage will be updated.
+
+By default, these flags will be persisted indefinitely, you can clear this by removing ``"BULLET_TRAIN_DB"`` from ``localStorage``.
