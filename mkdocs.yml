@@ -23,7 +23,8 @@ edit_uri: ""
 markdown_extensions:
   - admonition
   - meta
-  - codehilite
+  - pymdownx.highlight
+  - pymdownx.superfences
 
 nav:
   - Flagsmith.com: 'https://www.flagsmith.com/'
