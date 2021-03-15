@@ -18,14 +18,14 @@ Add following dependencies to your project in `pom.xml`
 <dependency>
   <groupId>com.flagsmith</groupId>
   <artifactId>flagsmith-java-client</artifactId>
-  <version>2.3</version>
+  <version>2.5</version>
 </dependency>
 ```
 
 ### Gradle
 
 ```groovy
-implementation 'com.flagsmith:flagsmith-java-client:2.3'
+implementation 'com.flagsmith:flagsmith-java-client:2.5'
 ```
 
 ## Usage
