@@ -70,6 +70,7 @@ nav:
     - Datadog: 'integrations/datadog.md'
     - New Relic: 'integrations/newrelic.md'
     - Segment: 'integrations/segment.md'
+    - AppDynamics: 'integrations/appdynamics.md'
     - Slack: 'integrations/slack.md'
   - Enterprise Edition:
     - Overview: 'enterprise/overview.md'
