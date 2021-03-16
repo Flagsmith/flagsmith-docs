@@ -25,6 +25,7 @@ We currently support the following infrastructure platforms:
 - Redhat OpenShift
 - Amazon Web Services (AWS) - via [Amazon ECS](https://aws.amazon.com/ecs/?whats-new-cards.sort-by=item.additionalFields.postDateTime&whats-new-cards.sort-order=desc)
 - Google Cloud Platform (GCP) - via [AppEngine](https://cloud.google.com/appengine)
+- Azure - via [Container Instances](https://azure.microsoft.com/en-gb/services/container-instances/)
 
 If you require additional deployment options, please contact us.
 
@@ -35,6 +36,7 @@ We currently have the following orchestration options:
 - [Pulumi](https://www.pulumi.com/) scripts for AWS deployments
 - [Terraform](https://www.terraform.io/) scripts for AWS and GCP deployments
 - [Helm Charts](https://helm.sh/) for Kubernetes deployments
+- [Kubernetes Operator](https://operatorhub.io/operator/flagsmith) for Kubernetes Operator deployments
 
 Please contact us for the relevant source code for these projects.
 
@@ -78,13 +80,13 @@ Env Var: **API_URL**
 Value example: http://localhost:8888/api/v1
 Description: The URL of the API Backend
 
-Variable: **FLAGSMITH_CLIENT_API**
+Env Var: **FLAGSMITH_CLIENT_API**
 Value example: http://localhost:8888/api/v1
 Description: This is where the features for the front end themselves are pulled from. Create a project within your backend and refer to flag names [here](https://gist.github.com/kyle-ssg/55f3b869c28bdd13c02c6688bc76c67f).
- 
+
 Env Var: **FLAGSMITH**
 Value example: 4vfqhypYjcPoGGu8ByrBaj
-Description: The `environment id` for the `FLAGSMITH_CLIENT_API` project above. 
+Description: The `environment id` for the `FLAGSMITH_CLIENT_API` project above.
 
 ### Backend Environment Variables
 
