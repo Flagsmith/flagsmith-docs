@@ -19,6 +19,22 @@ The API can also optionally make use of the following 3rd party services:
 * GitHub - oAuth provider
 * Google - oAuth provider
 
+## API Telemetry
+
+Flagsmith collects information about self hosted installations. This helps us understand how the platform is being used. This data is *never* shared outside of the organisation, and is anonymous by design. You can opt out of sending this telemetry on startup by setting the `TELEMETRY_DISABLED` environment variable to any value.
+
+We collect the following data on startup and then once every 8 hours per API server instance:
+
+* Total number of Organisations
+* Total number of Projects
+* Total number of Environments
+* Total number of Features
+* Total number of Segments
+* Total number of Users
+* DEBUG django variable
+* ENV django variable
+* API server external IP address
+
 ## Running Flagsmith on Flagsmith
 
 Flagsmith uses Flagsmith to control features on the front end dashboard. If you are self hosting the platform, you will sometimes see features greyed out. If you are using your own Flagsmith environment then you will need to have a replica of our flags in order to control access to those features.
