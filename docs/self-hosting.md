@@ -2,17 +2,7 @@ description: Self hosting Flagsmith.
 
 # Self Hosting
 
-You are free to self host the entire Flagsmith Platform. The easiest way to do this is via Docker.
-
-## Docker
-
-You can get a local instance of the entire platform up and running using [Flagsmith in Docker](https://github.com/flagsmith/bullet-train-docker).
-
-```bash
-git clone https://github.com/flagsmith/bullet-train-docker.git
-cd bullet-train-docker
-docker-compose up
-```
+You are free to self host the entire Flagsmith Platform. The easiest way to do this is via [Docker](/docker).
 
 ## Dependencies
 

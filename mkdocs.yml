@@ -36,6 +36,7 @@ nav:
   - Hosting: 
     - Hosted Service: 'hosted-service.md'
     - Self Hosting: 'self-hosting.md'
+    - Docker: 'docker.md'
     - Architecture: 'architecture.md'
   - User Guide:
     - Overview: 'overview.md'
