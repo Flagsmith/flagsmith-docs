@@ -71,6 +71,7 @@ nav:
     - AppDynamics: 'integrations/appdynamics.md'
     - Datadog: 'integrations/datadog.md'
     - Heap Analytics: 'integrations/heap.md'
+    - Mixpanel: 'integrations/mixpanel.md'
     - New Relic: 'integrations/newrelic.md'
     - Segment: 'integrations/segment.md'
     - Slack: 'integrations/slack.md'
