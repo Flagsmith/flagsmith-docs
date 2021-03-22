@@ -37,20 +37,20 @@ We collect the following data on startup and then once every 8 hours per API ser
 
 ## Running Flagsmith on Flagsmith
 
-Flagsmith uses Flagsmith to control features on the front end dashboard. If you are self hosting the platform, you will sometimes see features greyed out. If you are using your own Flagsmith environment then you will need to have a replica of our flags in order to control access to those features.
+Flagsmith uses Flagsmith to control features on the front end dashboard. If you are self hosting the platform, you will sometimes see features greyed out, or you may want to disable specific features, e.g. logging in via Google and Github. If you are using your own Flagsmith environment then you will need to have a replica of our flags in order to control access to those features.
 
-To do this:
+To do this,firstly create a new project within your self-hosted Flagsmith application. This is the project that we will use to control the features of the self-hosted Flagsmith instance. We will then point the self hosted front end dashboard at this Flagsmith project in order to control what features show for your self hosted Flagsmith instance.
 
-Firstly, create a new project in Flagsmith. This is the project that we will use to control the features of the Flagsmith instance.
+Once you have createed the project, you need to set the following [Front End](https://github.com/Flagsmith/flagsmith-frontend) environment variables in order to configure this:
 
-You will need to set the following [Front End](https://github.com/Flagsmith/flagsmith-frontend) environment variables in order to configure this:
+* `FLAGSMITH`
+  * The flagsmith environment key we use to manage features - Flagsmith runs on Flagsmith. This will be the API key for the project you created as instructed above.
+* `FLAGSMITH_CLIENT_API`
+  * The API URL which the Flagsmith front end dashboard should communicate with. This will most likely be the domain name of the Flagsmith API you are self hosting: Flagsmith runs on Flagsmith. E.g. For our SaaS hosted platform, the variable is `https://api.flagsmith.com/api/v1/`. For example, if you were running everything locally using the standard [docker-compose setup](https://github.com/Flagsmith/flagsmith-docker), you would use `http://localhost:8000/api/v1/`
+  
+Once you have set this up, you should see the Flagsmith front end requesting its own flags from the API (you can look in your browser developer console to see this). You can now start creating flags and overriding the default behaviours of the platform. For example, if you wanted to disable Google OAuth authentication, you would create a flag called `oauth_google` and disable it.
 
-```bash
-FLAGSMITH: The flagsmith environment key we use to manage features - Flagsmith runs on Flagsmith. This will be the API key for the project you created as instructed above. 
-FLAGSMITH_CLIENT_API: The api which the flagsmith client should communicate with. This will most likely be the domain name of the Flagsmith API you are self hosting: Flagsmith runs on Flagsmith. E.g. https://api.flagsmith.com/api/v1/.
-```
-
-A list of the flags and remote config we're currently using in production can be found below.
+The list of the flags and remote config we're currently using in production is below:
 
 ```json
 [
@@ -129,8 +129,6 @@ A list of the flags and remote config we're currently using in production can be
   }
 ]
 ```
-
-
 
 ## Manual Installation
 
