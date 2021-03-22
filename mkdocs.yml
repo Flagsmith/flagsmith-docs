@@ -33,11 +33,6 @@ nav:
     - Contributing:  'contributing.md'
   - Releases: 
     - Releases: 'releases.md'
-  - Hosting: 
-    - Hosted Service: 'hosted-service.md'
-    - Self Hosting: 'self-hosting.md'
-    - Docker: 'docker.md'
-    - Architecture: 'architecture.md'
   - User Guide:
     - Overview: 'overview.md'
     - Managing Features: 'managing-features.md'
@@ -48,9 +43,14 @@ nav:
     - A/B Testing: 'ab-testing.md'
     - Integration Approaches: 'integration-approaches.md'
   - Admin Guide: 
-    - Overview: 'system-administration.md'
-    - Permissions: 'permissions.md'
+    - Hosting: 
+      - Hosted Service: 'hosted-service.md'
+      - Self Hosting: 'self-hosting.md'
+      - Docker: 'docker.md'
+      - Architecture: 'architecture.md'
     - API: 'api.md'
+    - Web Hooks: 'system-administration.md'
+    - Permissions: 'permissions.md'
     - Audit Logs: 'audit-logs.md'
   - SDKs: 
     - REST: 'clients/rest.md'

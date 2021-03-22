@@ -92,17 +92,3 @@ You can use Audit Log Webhooks to stream your Organisation's Audit Log into your
   "related_object_type": "FEATURE"
 }
 ```
-
-## Full API Access
-
-The client SDK libraries are designed solely for end client use, and do not have an interface to the full Flagsmith API. However, you can easily access the full API by generating an Admin API Token and passing that in your requests.
-
-### Generating an Admin API token for your Environment
-
-You can generate Admin API tokens on a per Environment basis, from the Environment Settings page. Only Organisation Administrators can generate or view Admin API tokens. Once you have generated a token, you can use them by passing in the header `HTTP_X_API_KEY: <Admin API Key>`
-
-```bash
-curl -X "GET" "https://api.flagsmith.com/v1/environments/" \
-     -H 'HTTP_X_API_KEY: <Admin API Key>' \
-  }'
-```
