@@ -39,11 +39,15 @@ We collect the following data on startup and then once every 8 hours per API ser
 
 Flagsmith uses Flagsmith to control features on the front end dashboard. If you are self hosting the platform, you will sometimes see features greyed out. If you are using your own Flagsmith environment then you will need to have a replica of our flags in order to control access to those features.
 
+To do this:
+
+Firstly, create a new project in Flagsmith. This is the project that we will use to control the features of the Flagsmith instance.
+
 You will need to set the following [Front End](https://github.com/Flagsmith/flagsmith-frontend) environment variables in order to configure this:
 
 ```bash
-FLAGSMITH: The flagsmith environment key we use to manage features - Flagsmith runs on Flagsmith.
-FLAGSMITH_CLIENT_API: The api which the flagsmith client should communicate with. Flagsmith runs on flagsmith. E.g. https://api.flagsmith.com/api/v1/.
+FLAGSMITH: The flagsmith environment key we use to manage features - Flagsmith runs on Flagsmith. This will be the API key for the project you created as instructed above. 
+FLAGSMITH_CLIENT_API: The api which the flagsmith client should communicate with. This will most likely be the domain name of the Flagsmith API you are self hosting: Flagsmith runs on Flagsmith. E.g. https://api.flagsmith.com/api/v1/.
 ```
 
 A list of the flags and remote config we're currently using in production can be found below.
