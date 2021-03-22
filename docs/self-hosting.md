@@ -41,7 +41,7 @@ Flagsmith uses Flagsmith to control features on the front end dashboard. If you 
 
 To do this,firstly create a new project within your self-hosted Flagsmith application. This is the project that we will use to control the features of the self-hosted Flagsmith instance. We will then point the self hosted front end dashboard at this Flagsmith project in order to control what features show for your self hosted Flagsmith instance.
 
-Once you have createed the project, you need to set the following [Front End](https://github.com/Flagsmith/flagsmith-frontend) environment variables in order to configure this:
+Once you have created the project, you need to set the following [Front End](https://github.com/Flagsmith/flagsmith-frontend) environment variables in order to configure this:
 
 * `FLAGSMITH`
   * The flagsmith environment key we use to manage features - Flagsmith runs on Flagsmith. This will be the API key for the project you created as instructed above.
