@@ -2,18 +2,22 @@ description: Feature Flags are a development methodology that allow you to ship 
 
 # Feature Flags
 
-Flags within Flagsmith are:
+Flags within Flagsmith are a combination of:
 
-* A Boolean value
-* Optionally, a String of text.
+* A Boolean value - the `Flag State`
+* A String of text - the `Flag Value`
 
-This allows you to use Flagsmith in the multiple ways.
+You are free to use either the `Flag State`, or the `Flag Value` or a combination of both `Flag State` and `Flag Value` within the one flag.
 
-* Showing and hiding features in your application. E.g. A sharing button within an application.
-* Configuring values used within your application remotely. E.g. The number of power-ups a user might have in a game.
-* Configuring environment variables. E.g. Setting the database URL for your API.
+Features are *created per Project* but *edited and overridden per environment*. They can also be overridden on a [per Identity](/managing-identities/) or [per Segment](/managing-segments/) basis.
 
-Features are *created per Project* but *edited per environment* and can then be overridden on a per user or segment basis.
+This allows you to use Flagsmith in the multiple ways:
+
+* Showing and hiding features in your application. E.g. Controlling a new User Interface element within your application using the boolean `Flag State`
+* Configuring environment variables/keys in your application. E.g. Setting the database URL for your API using the String `Flag Value`, or setting the Google Analytics API key in your front end.
+* Configuring String values used within your application remotely. E.g. You might want to define different colour schemes for your application banner depending on the Environment.
+
+If you provide a `Flag Value` to a flag, this will always be included and returned within the [Flagsmith SDKS](/clients/rest/) and API, regardless of the boolean `Flag State`.
 
 ## Feature Flags and Remote Config
 
