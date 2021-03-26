@@ -18,14 +18,14 @@ Add following dependencies to your project in `pom.xml`
 <dependency>
   <groupId>com.flagsmith</groupId>
   <artifactId>flagsmith-java-client</artifactId>
-  <version>2.5</version>
+  <version>2.6</version>
 </dependency>
 ```
 
 ### Gradle
 
 ```groovy
-implementation 'com.flagsmith:flagsmith-java-client:2.5'
+implementation 'com.flagsmith:flagsmith-java-client:2.6'
 ```
 
 ## Usage
@@ -184,6 +184,8 @@ FlagsmithClient flagsmithClient = FlagsmithClient.newBuilder()
 
 ```
 
+### Logging
+
 Logging is disabled by default. If you would like to enable it then call `.enableLogging()` on the client builder:
 
 ```java
@@ -204,6 +206,8 @@ If your project does not already have SLF4J, then include an implementation, i.e
 </dependency>
 ```
 
+### Custom HTTP Headers
+
 adding custom headers to all HTTP calls:
 
 ```java
@@ -215,4 +219,65 @@ FlagsmithClient flagsmithClient = FlagsmithClient.newBuilder()
     // other configuration as shown above
     .withCustomHttpHeaders(customHeaders)
     .build();
+```
+
+### In-Memory Caching
+
+If you would like to use in-memory caching, you will need to enable it (it is disabled by default).
+The main advantage of using in-memory caching is that you can reduce the number of HTTP calls performed to fetch flags.
+
+Flagsmith uses [Caffeine](https://github.com/ben-manes/caffeine), a high performance, near optimal caching library.
+
+If you enable caching on the Flagsmith client without setting any values (as shown below), the following default
+values will be set for you:
+
+- maxSize(10)
+- expireAfterWrite(5, TimeUnit.MINUTES)
+
+```java
+// use in-memory caching with Flagsmith defaults as described above
+final FlagsmithClient flagsmithClient = FlagsmithClient.newBuilder()
+                .setApiKey("YOUR_ENV_API_KEY")
+                .withConfiguration(FlagsmithConfig
+                        .newBuilder()
+                        .baseURI("http://yoururl.com")
+                        .build())
+                .withCache(FlagsmithCacheConfig
+                        .newBuilder()
+                        .build())
+                .build();
+```
+
+If you would like to change the default settings, you can overwrite them by using the available builder methods:
+
+```java
+// use in-memory caching with custom configuration
+final FlagsmithClient flagsmithClient = FlagsmithClient.newBuilder()
+                .setApiKey("YOUR_ENV_API_KEY")
+                .withConfiguration(FlagsmithConfig
+                        .newBuilder()
+                        .baseURI("http://yoururl.com")
+                        .build())
+                .withCache(FlagsmithCacheConfig
+                        .newBuilder()
+                        .maxSize(100)
+                        .expireAfterWrite(10, TimeUnit.MINUTES)
+                        .recordStats()
+                        .build())
+                .build();
+```
+
+If you would like to manipulate the cache:
+
+```java
+// this will return null if caching is disabled
+final FlagsmithCache cache = flagsmithClient.getCache();
+// you can now discard a single or all entries in the cache
+cache.invalidate("user-identifier");
+// or
+cache.invalidateAll();
+// get stats (if you have enabled them in the cache configuration, otherwise all values will be zero)
+final CacheStats stats = cache.stats();
+// check if flags for a user identifier are cached
+final FlagsAndTraits flags = cache.getIfPresent("user-identifier");
 ```
