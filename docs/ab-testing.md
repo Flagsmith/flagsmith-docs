@@ -4,20 +4,32 @@ description: Perform A/B tests quickly and easily with Flagsmith, the Feature Fl
 
 A/B testing enables you to expirement with design and functionality variants of your application. The data generated will allow you to make modifications to your app, safe in the knowledge that it will have a net postive effect.
 
-You can use Flagsmith to perform A/B Testing. Using a combination of [Flagsmith Segments](/managing-segments) and a 3rd party analytics tool like [Google Analytics](https://analytics.google.com/) or [Mixpanel](https://mixpanel.com/), you can generate the relevant data to perform the A/B test.
+You can use Flagsmith to perform A/B Tests. Using a combination of [Multivariate Flags](/managing-features/) and a 3rd party analytics tool like [Amplitude](https://amplitude.com/) or [Mixpanel](https://mixpanel.com/), you can easily perform complex A/B tests that will help improve your product.
+
+Running AB tests require two main components: a bucketing engine and an analytics platform. The bucketing engine is used to put users into a particular AB testing bucket. These buckets will control the specific user experience that is being tested. The analytics platform will receive a stream of event data derived from the behaviour of the user. Combining these two concepts allows you to deliver seamless AB test.
 
 ## Overview
 
 For this example, lets assume we have an app that currently accepts Credit Card payments only. We have a hunch that we are losing out on potential customers that would like to pay with Paypal. We're going to test whether adding Paypal to the payment options increases our checkout rate.
 
-In order to perform an A/B Test, we need to complete the following steps:
+We have a lot of users on our platform, so we dont want to run this test against our entire user-base. We want 90% of our users to be excluded from the test. Then for our test, 5% of our users will see the new Paypal button, and the remaining 5% will be the control. So we will have 3 buckets:
 
-1. Create a new Feature Flag that will control whether the user sees the Paypal Button or not. We'll call this flag "Paypal Checkout Enabled".
-2. Create a new Segment, called "Paypal Checkout Enabled", with 1 Rule: Include users with a % Split figure of 50.
-3. In our app, we want to [Identify](/managing-identities/) each user before they start the checkout process. All Flagsmith Segments need us to Identify the user, so we can uniquely identify them.
-4. When we get to the checkout page, check the state of the "Paypal Checkout Enabled" flag for that user. If it is enabled, show the Paypal payment button.
-5. Send a message to the Analytics platform, adding the name/value pair of "Paypal Checkout Enabled" and the value of the flag.
-6. Deploy your app and watch the data come in.
+1. Excluded Users
+2. Paypal Test Button Users
+3. Control Users
+
+In order to perform the A/B Test, we need to complete the following steps:
+
+1. Create a new Multivariate Feature Flag that will control which of the 3 buckets the user is put into. We'll call this flag "Paypal Checkout Test". We will provide 3 variate options:
+  
+    1. Excluded (90% of users)
+    2. Paypal Button (5% of users)
+    3. Control (5% of users)
+
+2. In our app, we want to [Identify](/managing-identities/) each user before they start the checkout process. All Flagsmith Multivariate flags need us to Identify the user, so we can bucket them in a reproducable manner.
+3. When we get to the checkout page, check the state of the "Paypal Checkout Test" flag for that user. If it is option 2, show the Paypal payment button.
+4. Send an event message to the Analytics platform, adding the name/value pair of "Paypal Checkout Enabled" and the value of the flag.
+5. Deploy your app, enable the flag and watch the data come in.
 
 ## Example
 
