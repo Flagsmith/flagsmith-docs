@@ -15,11 +15,9 @@ dependencies:
 
 ### Retrieving feature flags for your project
 
-**For full documentation visit [https://docs.flagsmith.com/](https://docs.flagsmith.com/)**
-
 Sign Up and create an account at [https://flagsmith.com/](https://flagsmith.com/)
 
-In your application, initialise the BulletTrain client with your API key:
+In your application, initialise the Flagsmith client with your API key:
 
 ```dart
 final flagsmithClient = FlagsmithClient(
