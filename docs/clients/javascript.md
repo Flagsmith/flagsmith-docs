@@ -40,7 +40,9 @@ import flagsmith from "flagsmith or react-native-flagsmith"; //Add this line if 
 
 flagsmith.init({
     environmentID:"<YOUR_ENVIRONMENT_KEY>",
-    cacheFlags: true,
+    // api:"http://localhost:8000/api/v1/" set this if you are self hosting, and point it to your API 
+    cacheFlags: true, // stores flags in localStorage cache
+    enableAnalytics: true, // See https://docs.flagsmith.com/flag-analytics/ for more info
     onChange: (oldFlags,params)=>{ //Occurs whenever flags are changed
         const {isFromServer} = params; //determines if the update came from the server or local cached storage
 
