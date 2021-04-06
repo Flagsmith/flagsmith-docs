@@ -22,3 +22,19 @@ Once the integration has been set up, you can start segmenting your Mixpanel ide
 ## Integration Notes
 
 You have to identify users on both platforms in the same way. The Flagsmith `Identity ID` must be the same as the Mixpanel `identity`.
+
+## How It Works Under The Hood
+
+Every time an `Identity` requests their flags from the Flagsmith API, Flagsmith will send a `POST` to `https://api.mixpanel.com/engage#profile-set` with the followong JSON payload:
+
+```json
+{
+    "$token": "<YOUR_MIXPANEL_PROJECT_TOKEN>",
+    "$distinct_id": "<FLAGSMITH_IDENTITY_ID>",
+    "$set": {
+          "<FLAG_1_ID>": "<FLAG_1_STATE>",
+          "<FLAG_2_ID>": "<FLAG_2_STATE>",
+          "...": "..."
+    }
+}
+```
