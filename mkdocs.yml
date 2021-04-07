@@ -67,6 +67,7 @@ nav:
     - Rust: 'clients/rust.md'
     - PHP: 'clients/php.md'
   - Integrations:
+    - Overview: 'integrations/overview.md'
     - Amplitude: 'integrations/amplitude.md'
     - AppDynamics: 'integrations/appdynamics.md'
     - Datadog: 'integrations/datadog.md'

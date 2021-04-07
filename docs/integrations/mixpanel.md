@@ -4,9 +4,6 @@ description: Integrate Flagsmith with Mixpanel
 
 <img src="/images/integrations/mixpanel/mixpanel-logo.svg"/>
 
-!!! note
-    This feature is currently in beta. Please contact us if you are interested in joining the beta!
-
 You can integrate Flagsmith with Mixpanel. The integration automatically sends the flag states for identified users into Mixpanel for cohort analysis, A/B testing and more. The process is as follows:
 
 ## Integration Setup

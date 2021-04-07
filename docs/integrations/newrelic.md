@@ -1,4 +1,4 @@
-description: Integrate Flagsmith with Datadog
+description: Integrate Flagsmith with New Relic
 
 # New Relic Integration
 
