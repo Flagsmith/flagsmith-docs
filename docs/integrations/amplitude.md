@@ -1,4 +1,4 @@
-description: Integrate Flagsmith with Datadog
+description: Integrate Flagsmith with Amplitude
 
 # Amplitude Integration
 

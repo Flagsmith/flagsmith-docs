@@ -4,9 +4,6 @@ description: Integrate Flagsmith with Heap Analytics
 
 <img src="/images/integrations/heap/heap-logo.svg"/>
 
-!!! note
-    This feature is currently in beta. Please contact us if you are interested in joining the beta!
-
 You can integrate Flagsmith with Heap Analytics. The integration automatically sends the flag states for identified users into Heap for cohort analysis, A/B testing and more. The process is as follows:
 
 ## Integration Setup
