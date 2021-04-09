@@ -96,7 +96,7 @@ The versions of the `flagsmith-api-ee` track the versions of our Open Source ver
 
 [https://github.com/Flagsmith/flagsmith-api/tags](https://github.com/Flagsmith/flagsmith-api/tags)
 
-### AppDynamics
+## AppDynamics
 
 The application supports the use of AppDynamics for monitoring purposes. In order to set up AppDynamics
 for your environment follow the steps below:
@@ -109,7 +109,7 @@ for your environment follow the steps below:
    information. Make a copy of this information and place it in a file. *Note*: there is a bug in the
    AppDynamics wizard that sets the value `ssl = (on)` which needs to be changed to `ssl = on`
 
-#### Running with docker
+### Running with docker
 
 When running with traditional Docker you can use the code snippet below to inject the required
 information for running App Dynamics
@@ -123,7 +123,7 @@ Replacing the values for:
 - ***{image_name}***: the tagged name of the docker image you are using
 - ***{config_file_path}***: the absolute path of the appdynamics.cfg file on your system
 
-#### Running with docker-compose
+### Running with docker-compose
 
 When running with the `docker-compose.yml` file provided ensure the `APP_DYNAMICS` environment
 variable is set to `on` as seen below:
@@ -154,7 +154,7 @@ This image can then be run locally using the docker-compose `up` command as seen
 docker-compose -f docker-compose.yml up
 ```
 
-#### Additional settings
+### Additional settings
 
 If you need additional AppDynamics setup options you can find the other environment variables you
 can set [here](https://docs.appdynamics.com/display/PRO21/Python+Agent+Settings).
