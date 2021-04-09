@@ -2,6 +2,34 @@ description: Flagsmith Releases
 
 # Releases
 
+## v2.6
+
+Released **9 Apr 2021**
+
+- Combine Feature Flags and Remote Config
+- Dark mode
+- Formatter for remote config supporting xml, json, toml and yaml
+- Fix Segment override incorrect date
+- Add sorting to identity feature list
+- Enable SDK analytics based on FLAGSMITH_ANALYTICS env var
+- Configurable butterbar
+- Show segment descriptions
+- New integrations
+    - Mixpanel
+    - Heap Analytics
+    - New Relic
+
+Breaking changes:
+
+- Segment overrides use new API
+
+## v2.5
+
+Released **20 Jan 2021**
+
+- Add invite via link functionality
+- More third party integrations
+
 ## v2.4
 
 Relased **7 Dec 2020**
