@@ -9,38 +9,38 @@ These instructions will get you a copy of the project up and running on your loc
 ## Installing
 
 ### VIA npm
-```npm i bullet-train-nodejs --save```
+```npm i flagsmith-nodejs --save```
 
 ## Usage
 **Retrieving feature flags for your project**
 
 **For full documentation visit [https://docs.flagsmith.com](https://docs.flagsmith.com)**
 ```javascript
-var bulletTrain = require("bullet-train-nodejs");
+const flagsmith = require("flagsmith-nodejs");
 
-bulletTrain.init({
+flagsmith.init({
 	environmentID: "<YOUR_ENVIRONMENT_KEY>"
 });
 
-bulletTrain.hasFeature("header", '<My User Id>')
+flagsmith.hasFeature("header", '<My User Id>')
 	.then((featureEnabled) => {
 		if (featureEnabled) {
 			//Show my awesome cool new feature to this one user
 		}
 	});
-bulletTrain.hasFeature("header")
+flagsmith.hasFeature("header")
 	.then((featureEnabled) => {
 		if (featureEnabled) {
 			//Show my awesome cool new feature to the world
 		}
 	});
 
-bulletTrain.getValue("header", '<My User Id')
+flagsmith.getValue("header", '<My User Id')
 	.then((value) => {
 		//Show some unique value to this user
 	});
 
-bulletTrain.getValue("header")
+flagsmith.getValue("header")
 	.then((value) => {
 		//Show a value to the world
 	});
@@ -51,18 +51,18 @@ bulletTrain.getValue("header")
 | ------------- |:-------------:| -----:| -----:|
 | ```environmentID```     | Defines which project environment you wish to get flags for. *example ACME Project - Staging.* | **YES** | null
 | ```onError```     | Callback function on failure to retrieve flags. ``` (error)=>{...} ``` |  **NO** | null
-| ```defaultFlags```     | Defines the default flags if there are any | **NO** | null
-| ```api```     | Use this property to define where you're getting feature flags from, e.g. if you're self hosting. |  **NO** | https://bullet-train-api.dokku1.solidstategroup.com/api/v1/
+| ```api```     | Use this property to define where you're getting feature flags from, e.g. if you're self hosting. |  **NO** | https://api.flagsmith.com/api/v1
+| ```cache```     | Defines an object containing 3 functions (`has(k)`, `get(k)`, `set(k,v)`) to cache API results | **NO** | null
 
 **Available Functions**
 
 | Property        | Description |
 | ------------- |:-------------:|
 | ```init```     | Initialise the sdk against a particular environment
-| ```hasFeature(key)```     | Get the value of a particular feature e.g. ```bulletTrain.hasFeature("powerUserFeature") // true```
-| ```hasFeature(key, userId)```     | Get the value of a particular feature for a user e.g. ```bulletTrain.hasFeature("powerUserFeature", 1234) // true```
-| ```getValue(key)```     | Get the value of a particular feature e.g. ```bulletTrain.getValue("font_size") // 10```
-| ```getValue(key, userId)```     | Get the value of a particular feature for a specificed user e.g. ```bulletTrain.getValue("font_size", 1234) // 15```
+| ```hasFeature(key)```     | Get the value of a particular feature e.g. ```flagsmith.hasFeature("powerUserFeature") // true```
+| ```hasFeature(key, userId)```     | Get the value of a particular feature for a user e.g. ```flagsmith.hasFeature("powerUserFeature", 1234) // true```
+| ```getValue(key)```     | Get the value of a particular feature e.g. ```flagsmith.getValue("font_size") // 10```
+| ```getValue(key, userId)```     | Get the value of a particular feature for a specificed user e.g. ```flagsmith.getValue("font_size", 1234) // 15```
 | ```getFlags()```     | Trigger a manual fetch of the environment features
 | ```getFlagsForUser(userId)```     | Trigger a manual fetch of the environment features for a given user id
 | ```getUserIdentity(userId)```     | Trigger a manual fetch of both the environment features and users' traits for a given user id
