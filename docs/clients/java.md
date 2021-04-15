@@ -223,6 +223,8 @@ FlagsmithClient flagsmithClient = FlagsmithClient.newBuilder()
 
 ### In-Memory Caching
 
+*Available since version 2.6*
+
 If you would like to use in-memory caching, you will need to enable it (it is disabled by default).
 The main advantage of using in-memory caching is that you can reduce the number of HTTP calls performed to fetch flags.
 
