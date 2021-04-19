@@ -94,6 +94,17 @@ if (myRemoteConfig != null) {
 }
 ```
 
+To set user traits:
+
+```Java
+FeatureUser user = new FeatureUser();
+user.setIdentifier(identifier);
+
+flagsmithClient.identifyUserWithTraits(FeatureUser user, Arrays.asList(
+    trait(null, "trait1", "some value1"),
+    trait(null, "trait2", "some value2")));
+```
+
 To get user traits for a given user context:
 
 ```Java
