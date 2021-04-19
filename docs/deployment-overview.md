@@ -1,8 +1,20 @@
-description: Self hosting Flagsmith.
+description: Allow us to host your Feature Flag API, starting at $29 per month. 99.99% SLA available. 
 
-# Self Hosting
+# Deploying Flagsmith
 
-You are free to self host the entire Flagsmith Platform. The easiest way to do this is via [Docker](/docker).
+## Paid Hosting
+
+If you would rather skip the hosting and jump straight to integrating Flagsmith with your own application, you can use [https://flagsmith.com/](https://flagsmith.com/) right now. We have [paid plans with pricing to suit both startups and enterprise customers alike](https://flagsmith.com/pricing).
+
+## Deployment Options
+
+We recommend running Flagsmith with Docker. We have options to run within Docker, Kubernetes or RedHat OpenShift.
+
+## Architecture
+
+The Flagsmith architecture is based around a simple REST API that is accessed by both SDK clients and the Flagsmith Dashboard Front End Web App.
+
+![Application Architecture](./images/architecture.png)
 
 ## Dependencies
 
@@ -18,6 +30,39 @@ The API can also optionally make use of the following 3rd party services:
 * AWS S3 - to store Django Static Assets
 * GitHub - oAuth provider
 * Google - oAuth provider
+
+## InfluxDB
+
+Flagsmith has a soft dependency on InfluxDB to store time-series data. You dont need to configure Influx to run the platform, but SDK traffic and flag analytics will not work without it being set up and configured correctly. Once your docker-compose is running:
+
+1. Create a user account in influxdb. You can visit http://localhost:8086/ and do this. Create an Initial Bucket with the name `flagsmith_api`
+2. Go into Data > Buckets and create a second bucket, `flagsmith_api_downsampled_15m`.
+3. Go into Data > Tokens and grab your access token.
+4. Edit the `docker-compose.yml` file and add the following `environment` variables in the api service to connect the api to InfluxDB:
+    * `INFLUXDB_TOKEN`: The token from the step above
+    * `INFLUXDB_URL`: `http://influxdb`
+    * `INFLUXDB_ORG`: The organisation ID - you can find it [here](https://docs.influxdata.com/influxdb/v2.0/organizations/view-orgs/)
+    * `INFLUXDB_BUCKET`: `flagsmith_api`
+5. Restart `docker-compose`
+6. Log into InfluxDB, create a new bucket called `flagsmith_api_downsampled_15m`
+7. Create a new task with the following query. This will downsample your per millisecond data down to 15 minute blocks for faster queries. Set it to run every 15 minutes.
+
+```text
+option task = {name: "Downsample", every: 15m}
+
+data = from(bucket: "flagsmith_api")
+	|> range(start: -duration(v: int(v: task.every) * 2))
+	|> filter(fn: (r) =>
+		(r._measurement == "api_call"))
+
+data
+	|> aggregateWindow(fn: sum, every: 15m)
+	|> filter(fn: (r) =>
+		(exists r._value))
+	|> to(bucket: "flagsmith_api_downsampled_15m")
+```
+
+Once this task has run you will see data coming into the Organisation API Usage area.
 
 ## API Telemetry
 

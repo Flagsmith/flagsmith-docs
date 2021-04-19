@@ -30,10 +30,14 @@ nav:
   - Flagsmith.com: 'https://www.flagsmith.com/'
   - Overview: 
     - Overview: 'index.md'
-    - Contributing:  'contributing.md'
-  - Releases: 
     - Releases: 'releases.md'
-  - User Guide:
+    - Contributing:  'contributing.md'
+  - Deployment: 
+    - Overview: 'deployment-overview.md'
+    - Docker: 'docker.md'
+    - Kubernetes: 'kubernetes.md'
+    - OpenShift: 'openshift.md'
+  - Dev Guide:
     - Overview: 'overview.md'
     - Managing Features: 'managing-features.md'
     - Managing Identities: 'managing-identities.md'
@@ -42,12 +46,6 @@ nav:
     - Flag Analytics : 'flag-analytics.md'
     - A/B Testing: 'ab-testing.md'
     - Integration Approaches: 'integration-approaches.md'
-  - Admin Guide: 
-    - Hosting: 
-      - Hosted Service: 'hosted-service.md'
-      - Self Hosting: 'self-hosting.md'
-      - Docker: 'docker.md'
-      - Architecture: 'architecture.md'
     - API: 'api.md'
     - Web Hooks: 'system-administration.md'
     - Permissions: 'permissions.md'
