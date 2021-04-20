@@ -12,8 +12,8 @@ Currently the following events will generate a Web Hook action:
 
 - Creating Features (Sent as event_type FLAG_UPDATED)
 - Updating Feature value / state in an environment (Sent as event_type FLAG_UPDATED)
-- Overriding a Feature for an identity
-- Overriding a Feature for a segment
+- Overriding a Feature for an identity (Sent as event_type FLAG_UPDATED)
+- Overriding a Feature for a segment (Sent as event_type FLAG_UPDATED)
 
 You can define any number of Web Hook endpoints per Environment. Web Hooks can be managed from the Environment settings page.
 
