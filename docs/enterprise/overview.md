@@ -13,7 +13,7 @@ The Flagsmith platform is made up of 4 main components:
 
 All of these components are open source, but the API is also provided as an "Enterprise Edition" which has additional features and capabilities:
 
-- Roll Based Access Controls
+- Role Based Access Controls
 - SAML authentication
 - Additional Database Engines (Oracle, SQL Server and MySQL)
 
