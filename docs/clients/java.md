@@ -18,7 +18,7 @@ Add following dependencies to your project in `pom.xml`
 <dependency>
   <groupId>com.flagsmith</groupId>
   <artifactId>flagsmith-java-client</artifactId>
-  <version>2.6</version>
+  <version>2.8</version>
 </dependency>
 ```
 
