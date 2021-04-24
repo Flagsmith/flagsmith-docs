@@ -25,7 +25,7 @@ Add following dependencies to your project in `pom.xml`
 ### Gradle
 
 ```groovy
-implementation 'com.flagsmith:flagsmith-java-client:2.6'
+implementation 'com.flagsmith:flagsmith-java-client:2.8'
 ```
 
 ## Usage
@@ -280,6 +280,7 @@ final FlagsmithClient flagsmithClient = FlagsmithClient.newBuilder()
                 .build();
 ```
 
+The user identifier is used as the cache key, this provides granular control over the cache should you require it.
 If you would like to manipulate the cache:
 
 ```java
@@ -294,3 +295,8 @@ final CacheStats stats = cache.stats();
 // check if flags for a user identifier are cached
 final FlagsAndTraits flags = cache.getIfPresent("user-identifier");
 ```
+
+The following API calls do not currently support caching:
+
+- `getFeatureFlags(...)`, `hasFeatureFlag(...)`, `getFeatureFlagValue(...)` if the user parameter is null.
+- `identifyUserWithTraits(...)`
