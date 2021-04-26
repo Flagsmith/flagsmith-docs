@@ -10,20 +10,13 @@ Flags within Flagsmith are a combination of both:
 
 and then optionally:
 
-* A String of text - the `Flag Value`
+* A String/Integer/Float value - the `Flag Value`
 
 or
 
-* A selected Multivariate value - the `Flag Value`
+* A selected Multivariate String/Integer/Float - the `Flag Value`
 
 You are free to use either the `Flag State`, or the `Flag Value` or a combination of both `Flag State` and `Flag Value` within each flag. You dont have to provide or use a `Flag Value`. If you just want a boolean flag, you can just ignore the `Flag Value` altogether.
-
-## Multivariate Flags
-
-You can create a Multivariate Flag if you want the `Flag Value` to be one value out of a selection that you define. Multivariate Flags are useful in 2 core use-cases:
-
-1. You want to be able to control the `Flag Value` from a pre-selected list.
-2. You want to run an A/B test. [Learn more here](/ab-testing/).
 
 ## Examples of Use
 
@@ -48,7 +41,10 @@ Flags default to On (true) or Off (false). You can also optionally store and ove
 !!! note
     This feature is currently in beta. Please contact us if you need more help with this feature!
 
-You can also create Multi-Variate Flags. Multi-Variate flags have their flag values defined as a list. Each Environment within a Project can then define and select which value to return based on this list.
+You can create a Multivariate Flag if you want the `Flag Value` to be one value out of a selection that you define. Each Environment within a Project can then define and select which value to return based on this list. Multivariate Flags are useful in 2 core use-cases:
+
+1. You want to be able to control the `Flag Value` from a pre-selected list.
+2. You want to run an A/B test. [Learn more here](/ab-testing/).
 
 Multi-Variate Flag values are defined as a "Control" and "Variations". The Control value is always sent as the Flag Value when you get the Flags for the Environment without passing in a [User Identity](/managing-identities/).
 
