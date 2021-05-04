@@ -1,22 +1,23 @@
 description: Manage your Feature Flags and Remote Config in your PHP applications.
 
 # Flagsmith Client
+
 The SDK client for PHP [https://flagsmith.com/](https://www.flagsmith.com/). Flagsmith allows you to manage feature flags and remote config across multiple projects, environments and organisations.
 
 The source code for the client is available on [Github](https://github.com/flagsmith/flagsmith-php-client).
 
 ## Installing VIA composer
 
-```composer require bullettrainhq/bullet-train-php-client```
+```composer require flagsmith/flagsmith-php-client```
 
 ## Usage
 
 Retrieving feature flags for your project. For full documentation visit [https://docs.flagsmith.com](https://docs.flagsmith.com).
 
 ```php
-use BulletTrain\BulletTrain;
+use Flagsmith\Flagsmith;
 
-$bt = new BulletTrain('H8YyJ3vxBaSFVfX229MUFU');
+$bt = new Flagsmith('H8YyJ3vxBaSFVfX229MUFU');
 
 $flags = $bt->getFlags();
 foreach ($flags as &$value) {
@@ -28,7 +29,8 @@ foreach ($flags as &$value) {
 
 | Property        | Description           | Required  | Default Value  |
 | ------------- |:-------------:| -----:| -----:|
-| ```environmentID```     | Defines which project environment you wish to get flags for. *example ACME Project - Staging.* | **YES** | null
+| ```environment api key```     | Defines which project environment you wish to get flags for. E.g. `H8YyJ3vxBaSFVfX229MUFU` | **Yes** | null
+| ```api url```     | Defines the base URL for the Flagsmith API. Override this value if you are self hosting | **No** | `https://api.flagsmith.com/api/v1/`
 
 ### Available Functions
 
