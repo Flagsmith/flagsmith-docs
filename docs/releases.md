@@ -2,6 +2,13 @@ description: Flagsmith Releases
 
 # Releases
 
+## v2.7
+
+Released **5 May 2021**
+
+- [Multivariate Flags](https://flagsmith.com/blog/introducing-multivariate-flags/)
+- Various minor bug fixes
+
 ## v2.6
 
 Released **9 Apr 2021**
