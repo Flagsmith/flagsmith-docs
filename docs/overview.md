@@ -13,17 +13,25 @@ Feature Flags are a development methodology that allow you to ship code and feat
 
 If you want to learn more about Feature Flags, [Flickr wrote the seminal blog post on it in 2009.](https://code.flickr.net/2009/12/02/flipping-out/)
 
+## Flagsmith Model
+
+<img src="/images/flagsmith-model.svg" width="100%"/>
+
 ## Organisations
 
 Organisations are a way for you and other team members to manage projects and their features. Users can be members of multiple organisations.
 
 ## Projects
 
-Projects contain one or more Environments that share a single set of features across all of the Environments within the Project. Organisations can have any number of Projects.
+Projects contain one or more Environments that share a single set of Features across all of the Environments within the Project. Organisations can have any number of Projects.
 
 ## Environments
 
 Environments are a way to separate the configuration of your features. For example, your project's Development and Staging environments might have a feature configured as on while it is turned off in your Production environment. A project can have any number of environments.
+
+## Features
+
+Features are shared between all the Environments within the Project, but their values/states can be modified between Environments.
 
 ## Identities
 

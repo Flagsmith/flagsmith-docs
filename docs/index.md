@@ -54,4 +54,4 @@ Examples applications for popular JS frameworks can be found here:
 
 ## What Next
 
-Find out more about [Managing Features](managing-features.md)
+Find out more about [Managing Features](overview.md)
