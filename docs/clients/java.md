@@ -28,11 +28,14 @@ Add following dependencies to your project in `pom.xml`
 implementation 'com.flagsmith:flagsmith-java-client:2.8'
 ```
 
-## Usage
+## Basic Usage
+
+The SDK is initialised against a single environment within a project on [https://flagsmith.com](https://flagsmith.com),
+for example the Development or Production environment. You can find your environment key in the Environment settings page.
+
+<img src="/images/api-key.png"/>
 
 ### Retrieving feature flags for your project
-
-**For full documentation visit [https://docs.flagsmith.com/](https://docs.flagsmith.com/)**
 
 Sign Up and create an account at [https://www.flagsmith.com/](https://www.flagsmith.com/)
 
@@ -234,7 +237,8 @@ FlagsmithClient flagsmithClient = FlagsmithClient.newBuilder()
 
 ### In-Memory Caching
 
-*Available since version 2.6*
+!!! note
+    Caching was made available in version 2.6+
 
 If you would like to use in-memory caching, you will need to enable it (it is disabled by default).
 The main advantage of using in-memory caching is that you can reduce the number of HTTP calls performed to fetch flags.

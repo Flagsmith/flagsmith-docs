@@ -12,13 +12,21 @@ These instructions will get you a copy of the project up and running on your loc
 
 ## Installing
 
-### VIA gem
-```gem install flagsmith```
-	
-## Usage
-**Retrieving feature flags for your project**
+VIA gem:
 
-**For full documentation visit [https://docs.flagsmith.com](https://docs.flagsmith.com)**
+```gem install flagsmith```
+
+## Basic Usage
+
+The SDK is initialised against a single environment within a project on [https://flagsmith.com](https://flagsmith.com),
+for example the Development or Production environment. You can find your environment key in the Environment settings page.
+
+<img src="/images/api-key.png"/>
+
+## Usage
+
+### Retrieving feature flags for your project
+
 ```ruby
 require "flagsmith"
 
@@ -35,14 +43,14 @@ else
 end
 ```
 
-**Available Options**
+## Available Options
 
 | Property  |                                            Description                                            | Required |                     Default Value |   Environment Key |
 | --------- | :-----------------------------------------------------------------------------------------------: | -------: | --------------------------------: | ----------------: |
 | `api_key` |  Defines which project environment you wish to get flags for. _example ACME Project - Staging._   |  **YES** |                              null | FLAGSMITH_API_KEY |
 | `url`     | Use this property to define where you're getting feature flags from, e.g. if you're self hosting. |   **NO** | https://api.flagsmith.com/api/v1/ |     FLAGSMITH_URL |
 
-**Available Functions**
+## Available Functions
 
 | Property                                          |                                                     Description                                                      |
 | ------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------: |
@@ -55,7 +63,7 @@ end
 | `get_flags(user_id)`                              |                       Trigger a manual fetch of the environment features with a given user id                        |
 | `set_trait(user_id, trait, value)`                |                                    Set the value of a trait for the given user id                                    |
 
-**Identifying Users**
+## Identifying Users
 
 Identifying users allows you to target specific users from the [Flagsmith dashboard](https://www.flagsmith.com/).
 You can include an optional user identifier as part of the `feature_enabled?` and `get_value` methods to retrieve unique user flags and variables.

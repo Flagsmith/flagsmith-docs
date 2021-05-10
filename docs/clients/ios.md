@@ -14,11 +14,12 @@ This library can be used with iOS and Mac applications. The source code for the 
 pod 'BulletTrainClient', '~> 1.0'
 ```
 
-## Usage
+## Basic Usage
 
-### Sign Up
+The SDK is initialised against a single environment within a project on [https://flagsmith.com](https://flagsmith.com),
+for example the Development or Production environment. You can find your environment key in the Environment settings page.
 
-Sign up at [Flagsmith](https://flagsmith.com/) and create a project. Take a note of the API key which you will need to configure your app.
+<img src="/images/api-key.png"/>
 
 ### Initialization
 

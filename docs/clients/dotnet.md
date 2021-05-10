@@ -8,9 +8,16 @@ The source code for the client is available on [Github](https://github.com/flags
 
 The client library is available from NuGet and can be added to your project by many tools. You can find the package here [https://www.nuget.org/packages/BulletTrain/](https://www.nuget.org/packages/BulletTrain/)
 
+## Basic Usage
+
+The SDK is initialised against a single environment within a project on [https://flagsmith.com](https://flagsmith.com),
+for example the Development or Production environment. You can find your environment key in the Environment settings page.
+
+<img src="/images/api-key.png"/>
+
 ## Usage
 
-**Retrieving feature flags for your project**
+### Retrieving feature flags for your project
 
 Sign Up and create account at [https://flagsmith.com/](https://www.flagsmith.com/)
 

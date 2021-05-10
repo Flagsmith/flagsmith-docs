@@ -18,9 +18,14 @@ import (
 )
 ```
 
-## Usage
+## Basic Usage
 
-### Retrieving feature flags for your project
+The SDK is initialised against a single environment within a project on [https://flagsmith.com](https://flagsmith.com),
+for example the Development or Production environment. You can find your environment key in the Environment settings page.
+
+<img src="/images/api-key.png"/>
+
+## Retrieving feature flags for your project
 
 For full documentation visit [https://docs.flagsmith.com](https://docs.flagsmith.com)
 

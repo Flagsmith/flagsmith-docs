@@ -8,44 +8,47 @@ These instructions will get you a copy of the project up and running on your loc
 
 ## Installing
 
-### VIA npm
+VIA npm:
+
 ```npm i flagsmith-nodejs --save```
 
 ## Usage
-**Retrieving feature flags for your project**
 
-**For full documentation visit [https://docs.flagsmith.com](https://docs.flagsmith.com)**
+### Retrieving feature flags for your project
+
 ```javascript
 const flagsmith = require("flagsmith-nodejs");
 
 flagsmith.init({
-	environmentID: "<YOUR_ENVIRONMENT_KEY>"
+    environmentID: "<YOUR_ENVIRONMENT_KEY>"
 });
 
 flagsmith.hasFeature("header", '<My User Id>')
-	.then((featureEnabled) => {
-		if (featureEnabled) {
-			//Show my awesome cool new feature to this one user
-		}
-	});
+    .then((featureEnabled) => {
+        if (featureEnabled) {
+           //Show my awesome cool new feature to this one user
+        }
+    });
+
 flagsmith.hasFeature("header")
-	.then((featureEnabled) => {
-		if (featureEnabled) {
-			//Show my awesome cool new feature to the world
-		}
-	});
+    .then((featureEnabled) => {
+        if (featureEnabled) {
+            //Show my awesome cool new feature to the world
+        }
+    });
 
 flagsmith.getValue("header", '<My User Id')
-	.then((value) => {
-		//Show some unique value to this user
-	});
+    .then((value) => {
+        //Show some unique value to this user
+    });
 
 flagsmith.getValue("header")
-	.then((value) => {
-		//Show a value to the world
-	});
+    .then((value) => {
+        //Show a value to the world
+    });
 ```
-**Available Options**
+
+## Available Options
 
 | Property        | Description           | Required  | Default Value  |
 | ------------- |:-------------:| -----:| -----:|
@@ -54,7 +57,7 @@ flagsmith.getValue("header")
 | ```api```     | Use this property to define where you're getting feature flags from, e.g. if you're self hosting. |  **NO** | https://api.flagsmith.com/api/v1
 | ```cache```     | Defines an object containing 3 functions (`has(k)`, `get(k)`, `set(k,v)`) to cache API results | **NO** | null
 
-**Available Functions**
+## Available Functions
 
 | Property        | Description |
 | ------------- |:-------------:|
@@ -69,7 +72,7 @@ flagsmith.getValue("header")
 | ```getTrait(userId, key)```     | Trigger a manual fetch of a specific trait for a given user id
 | ```setTrait(userId, key, value)```     | Set a specific trait for a given user id
 
-**Identifying users**
+##Identifying users
 
 Identifying users allows you to target specific users from the [Flagsmith dashboard](https://www.flagsmith.com/).
 You can include an optional user identifier as part of the `hasFeature` and `getValue` methods to retrieve unique user flags and variables.
