@@ -16,6 +16,10 @@ To get up and running, you can either use [https://flagsmith.com/](https://flags
 
 More information can be found on the [Self Hosted Page](/self-hosting).
 
+## Product Roadmap
+
+You can check out our [product roadmap on Github](https://github.com/Flagsmith/flagsmith-api/projects/1).
+
 ### Server Side API
 
 The source code and installation instructions can be found at [the GitHub project](https://github.com/flagsmith/flagsmith-api). The API is written in Python and is based on Django and the Django Rest Framework.
