@@ -15,31 +15,35 @@ If you want to learn more about Feature Flags, [Flickr wrote the seminal blog po
 
 ## Flagsmith Model
 
+Here's a high level overview of the data model for Flagsmith. Fear not - it's not as complex as it looks! 
+
 <img src="/images/flagsmith-model.svg" width="100%"/>
 
-## Organisations
+OK let's break this down.
+
+### Organisations
 
 Organisations are a way for you and other team members to manage projects and their features. Users can be members of multiple organisations.
 
-## Projects
+### Projects
 
 Projects contain one or more Environments that share a single set of Features across all of the Environments within the Project. Organisations can have any number of Projects.
 
-## Environments
+### Environments
 
 Environments are a way to separate the configuration of your features. For example, your project's Development and Staging environments might have a feature configured as on while it is turned off in your Production environment. A project can have any number of environments.
 
-## Features
+### Features
 
 Features are shared between all the Environments within the Project, but their values/states can be modified between Environments.
 
-## Identities
+### Identities
 
 Identities are a particular user registration for one of your Project's environments. Registering identities within the client application allows you to manage features for individual users. Identity features can be overridden from your environment defaults. For example, joe@yourwebsite.com would be a different identity in your development environment to the one in production, and they can have different features enabled for each environment.
 
 For more info see [Identities](/managing-identities).
 
-## Traits
+### Traits
 
 You can store any number of Traits against an Identity. Traits are simple name:value pairs that can store any type of data. Some examples of traits that you might store against an Identity might be:
 
@@ -50,7 +54,7 @@ You can store any number of Traits against an Identity. Traits are simple name:v
 
 For more info see [Traits](/managing-identities/#identity-traits).
 
-## Segments
+### Segments
 
 Segments are a way to define a group of users by traits such as number of times logged in, device, location or any number of custom defined traits.
 
