@@ -1,6 +1,7 @@
 # Flagsmith Documentation
 
-This is the documentation repository for the [Docs](https://docs.flagsmith.com/) of [Flagsmith](https://flagsmith.com/). The site is currently hosted on [https://zeit.co/](https://zeit.co/).
+This is the documentation repository for the [Docs](https://docs.flagsmith.com/) of [Flagsmith](https://flagsmith.com/).
+The site is currently hosted on [https://zeit.co/](https://zeit.co/).
 
 Built with [MKDocs](https://www.mkdocs.org/).
 
@@ -10,17 +11,25 @@ Built with [MKDocs](https://www.mkdocs.org/).
 
 ## Local Development
 
-``` bash
+```bash
 pip install pipenv
 pipenv install
 pipenv run mkdocs serve
 ```
 
+You can lint/format the documentation using prettier.
+
+```bash
+npm install
+npm run prettier
+```
+
 ## Deploy
 
-Deployments to Zeit happen automatically if configured on the Zeit side. You can build a local static version of the site with
+Deployments to Vercel happen automatically if configured on the Vercel side. You can build a local static version of the
+site with
 
-``` bash
+```bash
 mkdocs build
 ```
 
