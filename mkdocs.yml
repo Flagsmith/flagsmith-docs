@@ -25,6 +25,7 @@ markdown_extensions:
     - meta
     - pymdownx.highlight
     - pymdownx.superfences
+    - attr_list
 
 nav:
     - Flagsmith.com: 'https://www.flagsmith.com/'

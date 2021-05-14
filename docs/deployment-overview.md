@@ -17,7 +17,7 @@ We recommend running Flagsmith with Docker. We have options to run within Docker
 The Flagsmith architecture is based around a simple REST API that is accessed by both SDK clients and the Flagsmith
 Dashboard Front End Web App.
 
-![Application Architecture](./images/architecture.png)
+![Application Architecture](./images/architecture.svg){ width=100% }
 
 ## Dependencies
 
