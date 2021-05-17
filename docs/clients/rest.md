@@ -53,3 +53,32 @@ curl 'https://api.flagsmith.com/api/v1/environments/' \
 
 You can find a complete list of endpoints via the Swagger REST API at
 [https://api.flagsmith.com/api/v1/docs/](https://api.flagsmith.com/api/v1/docs/).
+
+## Useful SDK Endpoints
+
+### Send Identity with Traits and receive Flags
+
+This `curl` command below will perform the entire SDK workflow in a single call:
+
+1. Creating an Identity
+2. Setting Traits for the Identity
+3. Receiving the Flags for that Identity
+
+```bash
+curl --request POST 'https://api.bullet-train.io/api/v1/identities/' \
+--header 'X-Environment-Key: <Your Env Key>' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "identifier":"identifier_5",
+    "traits": [
+        {
+            "trait_key": "my_trait_key",
+            "trait_value": 123.5
+        },
+        {
+            "trait_key": "my_other_key",
+            "trait_value": true
+        }
+    ]
+}'
+```
