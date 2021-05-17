@@ -1,6 +1,7 @@
 description: Manage your Feature Flags and Remote Config in your .Net applications.
 
-This SDK can be used for Flutter applications. The source code for the client is available on [Github](https://github.com/flagsmith/flagsmith-flutter-client).
+This SDK can be used for Flutter applications. The source code for the client is available on
+[Github](https://github.com/flagsmith/flagsmith-flutter-client).
 
 ## Getting Started
 
@@ -14,7 +15,8 @@ dependencies:
 ## Basic Usage
 
 The SDK is initialised against a single environment within a project on [https://flagsmith.com](https://flagsmith.com),
-for example the Development or Production environment. You can find your environment key in the Environment settings page.
+for example the Development or Production environment. You can find your environment key in the Environment settings
+page.
 
 <img src="/images/api-key.png"/>
 
@@ -26,8 +28,8 @@ In your application, initialise the Flagsmith client with your API key:
 
 ```dart
 final flagsmithClient = FlagsmithClient(
-        apiKey: 'YOUR_ENV_API_KEY' 
-        config: config, 
+        apiKey: 'YOUR_ENV_API_KEY'
+        config: config,
         seeds: <Flag>[
             Flag.seed('feature', enabled: true),
         ],
@@ -40,10 +42,10 @@ if you prefer async initialization then you should use
 ```dart
 final flagsmithClient = await FlagsmithClient.init(
         apiKey: 'YOUR_ENV_API_KEY',
-        config: config, 
+        config: config,
         seeds: <Flag>[
             Flag.seed('feature', enabled: true),
-        ], 
+        ],
         update: false,
     );
 await flagsmithClient.getFeatureFlags(reload: true) // fetch updates from api
@@ -86,11 +88,11 @@ final config = FlagsmithConfig(
 );
 
 final flagsmithClient = await FlagsmithClient.init(
-        apiKey: 'YOUR_ENV_API_KEY', 
-        config: config, 
+        apiKey: 'YOUR_ENV_API_KEY',
+        config: config,
         seeds: <Flag>[
             Flag.seed('feature', enabled: true),
-        ], 
+        ],
     );
 
 await flagsmithClient.getFeatureFlags(reload: true); // fetch updates from api

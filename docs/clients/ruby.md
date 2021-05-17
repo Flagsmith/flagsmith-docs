@@ -2,24 +2,27 @@ description: Manage your Feature Flags and Remote Config in your Ruby applicatio
 
 # Flagsmith Client
 
-The SDK clients for Ruby [https://flagsmith.com/](https://www.flagsmith.com/). Flagsmith allows you to manage feature flags and remote config across multiple projects, environments and organisations.
+The SDK clients for Ruby [https://flagsmith.com/](https://www.flagsmith.com/). Flagsmith allows you to manage feature
+flags and remote config across multiple projects, environments and organisations.
 
 The source code for the client is available on [Github](https://github.com/flagsmith/flagsmith-ruby-client).
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See running in production for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing
+purposes. See running in production for notes on how to deploy the project on a live system.
 
 ## Installing
 
 VIA gem:
 
-```gem install flagsmith```
+`gem install flagsmith`
 
 ## Basic Usage
 
 The SDK is initialised against a single environment within a project on [https://flagsmith.com](https://flagsmith.com),
-for example the Development or Production environment. You can find your environment key in the Environment settings page.
+for example the Development or Production environment. You can find your environment key in the Environment settings
+page.
 
 <img src="/images/api-key.png"/>
 
@@ -65,5 +68,6 @@ end
 
 ## Identifying Users
 
-Identifying users allows you to target specific users from the [Flagsmith dashboard](https://www.flagsmith.com/).
-You can include an optional user identifier as part of the `feature_enabled?` and `get_value` methods to retrieve unique user flags and variables.
+Identifying users allows you to target specific users from the [Flagsmith dashboard](https://www.flagsmith.com/). You
+can include an optional user identifier as part of the `feature_enabled?` and `get_value` methods to retrieve unique
+user flags and variables.

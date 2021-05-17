@@ -2,13 +2,15 @@ description: Manage your Feature Flags and Remote Config in your iOS application
 
 # iOS Client
 
-This library can be used with iOS and Mac applications. The source code for the client is available on [Github](https://github.com/flagsmith/flagsmith-ios-client).
+This library can be used with iOS and Mac applications. The source code for the client is available on
+[Github](https://github.com/flagsmith/flagsmith-ios-client).
 
 ## Installation
 
 ### CocoaPods
 
-[CocoaPods](https://cocoapods.org) is a dependency manager for Cocoa projects. For usage and installation instructions, visit their website. To integrate Flagsmith into your Xcode project using CocoaPods, specify it in your `Podfile`:
+[CocoaPods](https://cocoapods.org) is a dependency manager for Cocoa projects. For usage and installation instructions,
+visit their website. To integrate Flagsmith into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
 ```ruby
 pod 'BulletTrainClient', '~> 1.0'
@@ -17,13 +19,14 @@ pod 'BulletTrainClient', '~> 1.0'
 ## Basic Usage
 
 The SDK is initialised against a single environment within a project on [https://flagsmith.com](https://flagsmith.com),
-for example the Development or Production environment. You can find your environment key in the Environment settings page.
+for example the Development or Production environment. You can find your environment key in the Environment settings
+page.
 
 <img src="/images/api-key.png"/>
 
 ### Initialization
 
-Within your application delegate (usually *AppDelegate.swift*) add:
+Within your application delegate (usually _AppDelegate.swift_) add:
 
 ```swift
 import BulletTrainClient
@@ -76,9 +79,11 @@ BulletTrain.shared.getFeatureValue(withID: "test_feature2", forIdentity: nil) { 
 }
 ```
 
-These methods can also specify a particular identity to retrieve the values for a user registration. See [Identities](https://docs.flagsmith.com/managing-identities/) , using the **forIdentity** parameter.
+These methods can also specify a particular identity to retrieve the values for a user registration. See
+[Identities](https://docs.flagsmith.com/managing-identities/) , using the **forIdentity** parameter.
 
-To retrieve a trait for a particular identity (see [Traits](https://docs.flagsmith.com/managing-identities/#identity-traits)):
+To retrieve a trait for a particular identity (see
+[Traits](https://docs.flagsmith.com/managing-identities/#identity-traits)):
 
 ```swift
 BulletTrain.shared.getTraits(forIdentity: "test_user@test.com") {(result) in

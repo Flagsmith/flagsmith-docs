@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "This is the documentation repository for the [Docs](https://docs.flagsmith.com/) of [Flagsmith](https://flagsmith.com/). The site is currently hosted on [https://zeit.co/](https://zeit.co/).",
   "scripts": {
-    "prettier": "npx prettier --write --config .prettierrc.json **/*.md **/*.yml *.md *.yml"
+    "prettier": "npx prettier --write --config .prettierrc.json {,*/**/}*.{md,yml}"
   },
   "dependencies": {
     "prettier": "^2.3.0"

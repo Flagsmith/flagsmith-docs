@@ -2,7 +2,8 @@ description: Manage your Feature Flags and Remote Config in your Java/Kotlin app
 
 # Java/Kotlin Client
 
-This library can be used with server-side Java, Kotlin and Android applications. The source code for the client is available on [Github](https://github.com/flagsmith/flagsmith-java-client).
+This library can be used with server-side Java, Kotlin and Android applications. The source code for the client is
+available on [Github](https://github.com/flagsmith/flagsmith-java-client).
 
 ## Getting Started
 
@@ -31,7 +32,8 @@ implementation 'com.flagsmith:flagsmith-java-client:2.8'
 ## Basic Usage
 
 The SDK is initialised against a single environment within a project on [https://flagsmith.com](https://flagsmith.com),
-for example the Development or Production environment. You can find your environment key in the Environment settings page.
+for example the Development or Production environment. You can find your environment key in the Environment settings
+page.
 
 <img src="/images/api-key.png"/>
 
@@ -62,7 +64,7 @@ To get configuration value for a feature flag:
 
 ```Java
 String myRemoteConfig = flagsmithClient.getFeatureFlagValue("my_test_feature");
-if (myRemoteConfig != null) {    
+if (myRemoteConfig != null) {
     // run the code that uses the remote config value
 } else {
     // run the code that doesn't depend on the remote config value
@@ -90,7 +92,7 @@ To get the configuration value of a feature flag for a given user context:
 
 ```Java
 String myRemoteConfig = flagsmithClient.getFeatureFlagValue("my_test_feature", user);
-if (myRemoteConfig != null) {    
+if (myRemoteConfig != null) {
     // run the code that uses the remote config value
 } else {
     // run the code tbat doesn't depend on the remote config value
@@ -112,7 +114,7 @@ To get user traits for a given user context:
 
 ```Java
 List<Trait> userTraits = flagsmithClient.getTraits(user)
-if (userTraits != null && userTraits) {    
+if (userTraits != null && userTraits) {
     // run the code that expects the user traits
 } else {
     // run the code that doesn't depend on user traits
@@ -123,7 +125,7 @@ To get a user trait for a given user context and specific key:
 
 ```Java
 Trait userTrait = flagsmithClient.getTrait(user, "cookies_key");
-if (userTrait != null) {    
+if (userTrait != null) {
     // run the code that uses the user trait
 } else {
     // run the code that doesn't depend on the user trait
@@ -134,7 +136,7 @@ Or get the user traits for a given user context and specific keys:
 
 ```Java
 List<Trait> userTraits = flagsmithClient.getTraits(user, "cookies_key", "other_trait");
-if (userTraits != null) {    
+if (userTraits != null) {
     // run the code that uses the user traits
 } else {
     // run the code doesn't depend on user traits
@@ -145,7 +147,7 @@ To update the value for user traits for a given user context and specific keys:
 
 ```Java
 Trait userTrait = flagsmithClient.getTrait(user, "cookies_key");
-if (userTrait != null) {    
+if (userTrait != null) {
     // update the value for a user trait
     userTrait.setValue("new value");
     Trait updated = flagsmithClient.updateTrait(user, userTrait);
@@ -209,8 +211,8 @@ FlagsmithClient flagsmithClient = FlagsmithClient.newBuilder()
                 .build();
 ```
 
-Flagsmith uses [SLF4J](http://www.slf4j.org) and we only implement its API.
-If your project does not already have SLF4J, then include an implementation, i.e.:
+Flagsmith uses [SLF4J](http://www.slf4j.org) and we only implement its API. If your project does not already have SLF4J,
+then include an implementation, i.e.:
 
 ```xml
 <dependency>
@@ -237,16 +239,15 @@ FlagsmithClient flagsmithClient = FlagsmithClient.newBuilder()
 
 ### In-Memory Caching
 
-!!! note
-    Caching was made available in version 2.6+
+!!! note Caching was made available in version 2.6+
 
-If you would like to use in-memory caching, you will need to enable it (it is disabled by default).
-The main advantage of using in-memory caching is that you can reduce the number of HTTP calls performed to fetch flags.
+If you would like to use in-memory caching, you will need to enable it (it is disabled by default). The main advantage
+of using in-memory caching is that you can reduce the number of HTTP calls performed to fetch flags.
 
 Flagsmith uses [Caffeine](https://github.com/ben-manes/caffeine), a high performance, near optimal caching library.
 
-If you enable caching on the Flagsmith client without setting any values (as shown below), the following default
-values will be set for you:
+If you enable caching on the Flagsmith client without setting any values (as shown below), the following default values
+will be set for you:
 
 - maxSize(10)
 - expireAfterWrite(5, TimeUnit.MINUTES)
@@ -284,8 +285,8 @@ final FlagsmithClient flagsmithClient = FlagsmithClient.newBuilder()
                 .build();
 ```
 
-The user identifier is used as the cache key, this provides granular control over the cache should you require it.
-If you would like to manipulate the cache:
+The user identifier is used as the cache key, this provides granular control over the cache should you require it. If
+you would like to manipulate the cache:
 
 ```java
 // this will return null if caching is disabled

@@ -1,17 +1,19 @@
 description: Manage your Feature Flags and Remote Config in your .Net applications.
 
-This SDK can be used for .NET Core, .NET Framework, Mono, Xamarin and Universal Windows Platform applications. 
+This SDK can be used for .NET Core, .NET Framework, Mono, Xamarin and Universal Windows Platform applications.
 
 The source code for the client is available on [Github](https://github.com/flagsmith/flagsmith-dotnet-client).
 
 ## Getting Started
 
-The client library is available from NuGet and can be added to your project by many tools. You can find the package here [https://www.nuget.org/packages/BulletTrain/](https://www.nuget.org/packages/BulletTrain/)
+The client library is available from NuGet and can be added to your project by many tools. You can find the package here
+[https://www.nuget.org/packages/BulletTrain/](https://www.nuget.org/packages/BulletTrain/)
 
 ## Basic Usage
 
 The SDK is initialised against a single environment within a project on [https://flagsmith.com](https://flagsmith.com),
-for example the Development or Production environment. You can find your environment key in the Environment settings page.
+for example the Development or Production environment. You can find your environment key in the Environment settings
+page.
 
 <img src="/images/api-key.png"/>
 

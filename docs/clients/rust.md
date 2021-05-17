@@ -2,14 +2,16 @@ description: Manage your Feature Flags and Remote Config in your PHP application
 
 # Flagsmith Client
 
-The SDK client for Rust [https://flagsmith.com/](https://www.flagsmith.com/). Flagsmith allows you to manage feature flags and remote config across multiple projects, environments and organisations.
+The SDK client for Rust [https://flagsmith.com/](https://www.flagsmith.com/). Flagsmith allows you to manage feature
+flags and remote config across multiple projects, environments and organisations.
 
 The source code for the client is available on [Github](https://github.com/flagsmith/flagsmith-rust-client).
 
 ## Basic Usage
 
 The SDK is initialised against a single environment within a project on [https://flagsmith.com](https://flagsmith.com),
-for example the Development or Production environment. You can find your environment key in the Environment settings page.
+for example the Development or Production environment. You can find your environment key in the Environment settings
+page.
 
 <img src="/images/api-key.png"/>
 
@@ -44,7 +46,8 @@ if let Some(Value::String(s)) = bt.get_value("cart_abundant_notification_ab_test
 }
 ```
 
-More examples can be found in the [Tests](https://github.com/Flagsmith/flagsmith-rust-client/blob/master/tests/integration_test.rs)
+More examples can be found in the
+[Tests](https://github.com/Flagsmith/flagsmith-rust-client/blob/master/tests/integration_test.rs)
 
 ## Override default configuration
 
