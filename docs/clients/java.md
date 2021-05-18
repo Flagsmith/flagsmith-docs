@@ -109,8 +109,8 @@ FlagsAndTraits flagsAndTraits = flagsmithClient.identifyUserWithTraits(FeatureUs
     trait(null, "trait1", "some value1"),
     trait(null, "trait2", "some value2")));
 
-// This method returns a FlagsAndTraits object, from which you can obtain the returned flags 
-// and / or traits
+// Since version 3.0, this method returns a FlagsAndTraits object, from which you can obtain the 
+// returned flags and / or traits.
 List<Trait> traits = flagsAndTraits.getTraits();
 List<Flag> flags = flagsAndTraits.getFlags();
 ```
