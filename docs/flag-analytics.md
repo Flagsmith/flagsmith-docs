@@ -2,7 +2,9 @@ description: Get analytics on your Feature Flag SDK evaluations.
 
 # Feature Flag Analytics
 
-!!! note This feature is currently in beta. Please contact us if you are interested in joining the beta!
+<!-- prettier-ignore -->
+!!! note
+    This feature is currently in beta. Please contact us if you are interested in joining the beta!
 
 ## Overview
 

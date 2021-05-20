@@ -49,7 +49,9 @@ False/Null if the flag is missing or the value is not set, but there are variati
 
 ## Multi-Variate Flags
 
-!!! note This feature is currently in beta. Please contact us if you need more help with this feature!
+<!-- prettier-ignore -->
+!!! note
+    This feature is currently in beta. Please contact us if you need more help with this feature!
 
 You can create a Multivariate Flag if you want the `Flag Value` to be one value out of a selection that you define. Each
 Environment within a Project can then define and select which value to return based on this list. Multivariate Flags are
@@ -61,7 +63,9 @@ useful in 2 core use-cases:
 Multi-Variate Flag values are defined as a "Control" and "Variations". The Control value is always sent as the Flag
 Value when you get the Flags for the Environment without passing in a [User Identity](/managing-identities/).
 
-!!! important The Control and Variant weightings **_only_** come into effect if you are getting the Flags for a
+<!-- prettier-ignore -->
+!!! important
+    The Control and Variant weightings **_only_** come into effect if you are getting the Flags for a
 particular Identity. If you are just retrieving the flags for an Environment without passing in an Identity, you will
 **_always_** receive the Control value.
 

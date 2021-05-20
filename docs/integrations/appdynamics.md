@@ -7,7 +7,9 @@ description: Integrate Flagsmith with AppDynamics
 You can integrate Flagsmith with AppDynamics. This integration is helpful if you are self hosting and wanting to analyse
 the performance of Flagsmith in more detail.
 
-!!! note AppDynamics is an Enterprise-only integration.
+<!-- prettier-ignore -->
+!!! note
+    AppDynamics is an Enterprise-only integration.
 
 ## Setup
 
