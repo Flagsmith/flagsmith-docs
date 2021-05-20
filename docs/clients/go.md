@@ -36,13 +36,13 @@ Sign Up and create account at [https://flagsmith.com/](https://www.flagsmith.com
 In your application initialise the BulletTrain client with your API key
 
 ```go
-bt := bullettrain.DefaultBulletTrainClient("<Your API Key>")
+bt := bullettrain.DefaultClient("<Your API Key>")
 ```
 
 To check if a feature flag exists and is enabled:
 
 ```go
-bt := bullettrain.DefaultBulletTrainClient("<Your API Key>")
+bt := bullettrain.DefaultClient("<Your API Key>")
 enabled, err := bt.FeatureEnabled("cart_abundant_notification_ab_test_enabled")
 if err != nil {
     log.Fatal(err)
