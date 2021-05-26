@@ -8,6 +8,7 @@ verify_ssl = true
 [packages]
 mkdocs = "*"
 mkdocs-material = "*"
+pre-commit = "*"
 
 [requires]
 python_version = "3.7"
