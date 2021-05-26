@@ -18,6 +18,11 @@ pip install virtualenv
 virtualenv .venv
 source .venv/bin/activate
 pip install -r requirements-dev.txt
+```
+
+You can set up prettier on a pre-commit hook with:
+
+```bash
 pre-commit install
 ```
 
