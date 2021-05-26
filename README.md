@@ -11,17 +11,14 @@ Built with [MKDocs](https://www.mkdocs.org/).
 
 ## Local Development
 
-```bash
-pip install pipenv
-pipenv install
-pipenv run mkdocs serve
-```
-
-You can lint/format the documentation using prettier.
+This sets up pip-tools, mkdocs and pre-commit.
 
 ```bash
-npm install
-npm run prettier
+pip install virtualenv
+virtualenv .venv
+source .venv/bin/activate
+pip install -r requirements-dev.txt
+pre-commit install
 ```
 
 ## Deploy
