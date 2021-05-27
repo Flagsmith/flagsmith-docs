@@ -13,20 +13,22 @@ The client library is available from the Central Maven Repository and can be add
 
 ### Maven
 
+[![Download](https://img.shields.io/maven-central/v/com.flagsmith/flagsmith-java-client)](https://mvnrepository.com/artifact/com.flagsmith/flagsmith-java-client)
+
 Add following dependencies to your project in `pom.xml`
 
 ```xml
 <dependency>
   <groupId>com.flagsmith</groupId>
   <artifactId>flagsmith-java-client</artifactId>
-  <version>2.8</version>
+  <version>3.1</version>
 </dependency>
 ```
 
 ### Gradle
 
 ```groovy
-implementation 'com.flagsmith:flagsmith-java-client:2.8'
+implementation 'com.flagsmith:flagsmith-java-client:3.1'
 ```
 
 ## Basic Usage
@@ -287,6 +289,7 @@ final FlagsmithClient flagsmithClient = FlagsmithClient.newBuilder()
                         .newBuilder()
                         .maxSize(100)
                         .expireAfterWrite(10, TimeUnit.MINUTES)
+                        .enableEnvLevelCaching("YOUR_ENV_LEVEL_CACHE_KEY")
                         .recordStats()
                         .build())
                 .build();
@@ -308,7 +311,12 @@ final CacheStats stats = cache.stats();
 final FlagsAndTraits flags = cache.getIfPresent("user-identifier");
 ```
 
-The following API calls do not currently support caching:
+Since, as mentioned above, the user identifier is used as the cache key, you will need to set an environment level cache key
+if you would like to cache environment flags, i.e. fetching flags without a user identifier.
 
-- `getFeatureFlags(...)`, `hasFeatureFlag(...)`, `getFeatureFlagValue(...)` if the user parameter is null.
-- `identifyUserWithTraits(...)`
+<!-- prettier-ignore -->
+!!! note
+    Caching was made available for these endpoints in version 3.1+
+
+    - `getFeatureFlags(...)`, `hasFeatureFlag(...)`, `getFeatureFlagValue(...)` if the user parameter is null.
+    - `identifyUserWithTraits(...)`
