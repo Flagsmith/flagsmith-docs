@@ -1,7 +1,7 @@
 # Flagsmith Documentation
 
 This is the documentation repository for the [Docs](https://docs.flagsmith.com/) of [Flagsmith](https://flagsmith.com/).
-The site is currently hosted on [https://zeit.co/](https://zeit.co/).
+The site is currently hosted on [https://vercel.com/](https://vercel.com/).
 
 Built with [MKDocs](https://www.mkdocs.org/).
 
@@ -17,10 +17,10 @@ This sets up pip-tools, mkdocs and pre-commit.
 pip install virtualenv
 virtualenv .venv
 source .venv/bin/activate
-pip install -r requirements-dev.txt
+pip install -r requirements.txt
 ```
 
-You can set up prettier on a pre-commit hook with:
+You can set up prettier on a pre-commit hook. You will need node installed
 
 ```bash
 pre-commit install
