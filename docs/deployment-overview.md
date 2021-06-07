@@ -193,6 +193,36 @@ The list of the flags and remote config we're currently using in production is b
 ]
 ```
 
+## OAuth Integration
+
+You can set up Flagsmith to log in with both Google and Github. To do this, you will need to be running Flagsmith on
+Flagsmith (as described above).
+
+### Google Sign In
+
+Create a new API key in yuour Google Cloud project. Go to your project, then APIs and Services > Credentials > Create
+Credentials > OAuth Client ID. Create a flag, `oauth_google` and add the following value:
+
+```json
+{
+ "clientId": "<Client ID from Google OAuth step>",
+ "apiKey": "<Client Secret from Google OAuth step>"
+}
+```
+
+### Github Sign In
+
+Create an OAuth application in Github. Go to Organization > Developer settings > OAuth Apps and create a new OAuth App.
+Create a flag, `oauth_github` and add the following value:
+
+```json
+{
+ "url": "https://github.com/login/oauth/authorize?scope=user&client_id=<your Github client ID>&redirect_uri=<your redirect URL>%2Foauth%2Fgithub"
+}
+```
+
+Note the client_id and redirect URL need entering above.
+
 ## Manual Installation
 
 If you want a more configurable environment, you can manually install both the Front End and the API.
