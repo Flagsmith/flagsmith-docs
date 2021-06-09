@@ -19,7 +19,7 @@ npm i flagsmith --save
 ### Via JavaScript CDN
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/flagsmith/lib/index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/flagsmith/index.js"></script>
 ```
 
 ### NPM for React Native
