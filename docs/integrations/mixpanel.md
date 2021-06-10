@@ -52,7 +52,7 @@ Mixpanel `identity`.
 ## How It Works Under The Hood
 
 Every time an `Identity` requests their flags from the Flagsmith API, Flagsmith will send a `POST` to
-`https://api.mixpanel.com/engage#profile-set` with the followong JSON payload:
+`https://api.mixpanel.com/engage#profile-set` with the following JSON payload:
 
 ```json
 {

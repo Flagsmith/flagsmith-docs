@@ -19,7 +19,7 @@ Released **9 Apr 2021**
 - Fix Segment override incorrect date
 - Add sorting to identity feature list
 - Enable SDK analytics based on FLAGSMITH_ANALYTICS env var
-- Configurable butterbar
+- Configurable butter-bar
 - Show segment descriptions
 - New integrations
   - Mixpanel
@@ -39,7 +39,7 @@ Released **20 Jan 2021**
 
 ## v2.4
 
-Relased **7 Dec 2020**
+Released **7 Dec 2020**
 
 This release is the first under our new brand, Flagsmith.
 

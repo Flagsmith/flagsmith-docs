@@ -20,7 +20,7 @@ or
 - A selected Multivariate String/Integer/Float - the `Flag Value`
 
 You are free to use either the `Flag State`, or the `Flag Value` or a combination of both `Flag State` and `Flag Value`
-within each flag. You dont have to provide or use a `Flag Value`. If you just want a boolean flag, you can just ignore
+within each flag. You don't have to provide or use a `Flag Value`. If you just want a boolean flag, you can just ignore
 the `Flag Value` altogether.
 
 ## Examples of Use
@@ -51,9 +51,11 @@ False/Null if the flag is missing or the value is not set, but there are variati
 
 ## Multi-Variate Flags
 
-<!-- prettier-ignore -->
-!!! note
-    This feature is currently in beta. Please contact us if you need more help with this feature!
+:::note
+
+This feature is currently in beta. Please contact us if you need more help with this feature!
+
+:::
 
 You can create a Multivariate Flag if you want the `Flag Value` to be one value out of a selection that you define. Each
 Environment within a Project can then define and select which value to return based on this list. Multivariate Flags are
@@ -66,11 +68,13 @@ Multi-Variate Flag values are defined as a "Control" and "Variations". The Contr
 Value when you get the Flags for the Environment without passing in a
 [User Identity](/basic-features/managing-identities.md).
 
-<!-- prettier-ignore -->
-!!! important
-    The Control and Variant weightings **_only_** come into effect if you are getting the Flags for a
-particular Identity. If you are just retrieving the flags for an Environment without passing in an Identity, you will
-**_always_** receive the Control value.
+:::important
+
+The Control and Variant weightings **_only_** come into effect if you are getting the Flags for a particular Identity.
+If you are just retrieving the flags for an Environment without passing in an Identity, you will **_always_** receive
+the Control value.
+
+:::
 
 If you are getting the Flags for an Identity, the Flagsmith engine will send the value based on the defined Weightings,
 as specified within the Environment.

@@ -64,7 +64,7 @@ if (myRemoteConfig != null) {
 }
 ```
 
-**Identifying users**
+### Identifying Users
 
 Identifying users allows you to target specific users from the [Flagsmith dashboard](https://www.flagsmith.com/).
 

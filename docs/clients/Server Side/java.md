@@ -10,8 +10,6 @@ available on [Github](https://github.com/flagsmith/flagsmith-java-client).
 
 ## Getting Started
 
-## Quick Setup
-
 The client library is available from the Central Maven Repository and can be added to your project by many tools:
 
 ### Maven
@@ -98,7 +96,7 @@ String myRemoteConfig = flagsmithClient.getFeatureFlagValue("my_test_feature", u
 if (myRemoteConfig != null) {
     // run the code that uses the remote config value
 } else {
-    // run the code tbat doesn't depend on the remote config value
+    // run the code that doesn't depend on the remote config value
 }
 ```
 
@@ -247,9 +245,11 @@ FlagsmithClient flagsmithClient = FlagsmithClient.newBuilder()
 
 ### In-Memory Caching
 
-<!-- prettier-ignore -->
-!!! note
-    Caching was made available in version 2.6+
+:::note
+
+Caching was made available in version 2.6+
+
+:::
 
 If you would like to use in-memory caching, you will need to enable it (it is disabled by default). The main advantage
 of using in-memory caching is that you can reduce the number of HTTP calls performed to fetch flags.

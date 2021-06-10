@@ -4,8 +4,7 @@ sidebar_label: REST API
 ---
 
 Flagsmith is built around a client/server architecture. The REST API server is accessible from SDK clients as well as
-the administration front end. This decoupling means that you can programatically access the entire API programatically
-if you wish.
+the administration front end. This decoupling means that you can programmatically access the entire API if you wish.
 
 You can view the current REST API via Swagger at
 [https://api.flagsmith.com/api/v1/docs/](https://api.flagsmith.com/api/v1/docs/).
@@ -42,7 +41,7 @@ curl 'https://api.flagsmith.com/api/v1/auth/login/' \
 {"key":"<KEY HASH>"}
 ```
 
-Then use this token for subsequent requests. For example, to create a new evironment:
+Then use this token for subsequent requests. For example, to create a new environment:
 
 ```bash
 curl 'https://api.flagsmith.com/api/v1/environments/' \

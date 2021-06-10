@@ -101,10 +101,11 @@ The versions of the `flagsmith-api-ee` track the versions of our Open Source ver
 The application supports the use of AppDynamics for monitoring purposes. In order to set up AppDynamics for your
 environment follow the steps below:
 
-<!-- prettier-ignore -->
-!!! note
-      There is a bug in the AppDynamics wizard that sets the value `ssl = (on)` which needs to be changed to
-`ssl = on`
+:::note
+
+There is a bug in the AppDynamics wizard that sets the value `ssl = (on)` which needs to be changed to `ssl = on`
+
+:::
 
 1. Set up your application in your AppDynamics dashboard using the "Getting Started Wizard - Python".
 2. In the wizard you will need to select the "uWSGI with Emperor: Module Directive" when choosing a deployment method

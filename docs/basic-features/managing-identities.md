@@ -16,7 +16,7 @@ For example, you've pushed a feature into production, but the relevant feature f
 of your users. You can now override that flag for your own user, and test that feature. Once you are happy with
 everything, you can roll that feature out to all of your users by enabling the flag itself.
 
-Identities are specific and indivdual for each Environment within your project. For example, joe@yourwebsite.com would
+Identities are specific and individual for each Environment within your project. For example, joe@yourwebsite.com would
 be a different identity in your development environment to the one in production, and they can have different features
 enabled for each environment.
 

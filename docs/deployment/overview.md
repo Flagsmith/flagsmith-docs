@@ -38,7 +38,7 @@ The API can also optionally make use of the following 3rd party services:
 
 ## InfluxDB
 
-Flagsmith has a soft dependency on InfluxDB to store time-series data. You dont need to configure Influx to run the
+Flagsmith has a soft dependency on InfluxDB to store time-series data. You don't need to configure Influx to run the
 platform, but SDK traffic and flag analytics will not work without it being set up and configured correctly. Once your
 docker-compose is running:
 

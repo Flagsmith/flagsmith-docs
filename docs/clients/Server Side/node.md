@@ -75,7 +75,7 @@ flagsmith.getValue('header').then((value) => {
 | `getTrait(userId, key)`        |                         Trigger a manual fetch of a specific trait for a given user id                         |
 | `setTrait(userId, key, value)` |                                    Set a specific trait for a given user id                                    |
 
-##Identifying users
+## Identifying users
 
 Identifying users allows you to target specific users from the [Flagsmith dashboard](https://www.flagsmith.com/). You
 can include an optional user identifier as part of the `hasFeature` and `getValue` methods to retrieve unique user flags

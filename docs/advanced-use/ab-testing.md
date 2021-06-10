@@ -15,7 +15,7 @@ to put users into a particular AB testing bucket. These buckets will control the
 tested. The analytics platform will receive a stream of event data derived from the behaviour of the user. Combining
 these two concepts allows you to deliver seamless AB test.
 
-We have [integrations](integrations/overview.md) with a number of analytics platforms. If we dont integrate with the
+We have [integrations](integrations/overview.md) with a number of analytics platforms. If we don't integrate with the
 platform you are using, you can still manually send the test data to the downstream platform manually.
 
 ## Overview - Testing a new Paypal button
@@ -24,7 +24,7 @@ For this example, lets assume we have an app that currently accepts Credit Card 
 are losing out on potential customers that would like to pay with Paypal. We're going to test whether adding Paypal to
 the payment options increases our checkout rate.
 
-We have a lot of users on our platform, so we dont want to run this test against our entire user-base. We want 90% of
+We have a lot of users on our platform, so we don't want to run this test against our entire user-base. We want 90% of
 our users to be excluded from the test. Then for our test, 5% of our users will see the new Paypal button, and the
 remaining 5% will not see it. So we will have 3 buckets:
 
@@ -45,10 +45,10 @@ In order to perform the A/B Test, we need to complete the following steps:
 
    1. Control - 90% of users
    2. Paypal Button - 5% of users
-   3. Test users that dont see the Paypal Button - 5% of users
+   3. Test users that don't see the Paypal Button - 5% of users
 
 2. In our app, we want to [Identify](/basic-features/managing-identities.md) each user before they start the checkout
-   process. All Flagsmith Multivariate flags need us to Identify the user, so we can bucket them in a reproducable
+   process. All Flagsmith Multivariate flags need us to Identify the user, so we can bucket them in a reproducible
    manner.
 3. When we get to the checkout page, check the `value` of the `paypal_button_test` flag for that user. If it evaluates
    to `show`, show the Paypal payment button. Otherwise, don't show the button.
@@ -63,14 +63,14 @@ Here is what creating the Flag would look like.
 ## Evaluating the Test
 
 Once the test is set up, and the flag has been enabled, data will start streaming into the analytics platform. You can
-now evaluate the results of the tests based on the behavioural changes that the new button has created.
+now evaluate the results of the tests based on the behavioral changes that the new button has created.
 
 ## Anonymous/Unknown Identities
 
 To do A/B testing you need to use Identities. Without an Identity to key from, it's impossible for the platform to serve
 a consistent experience to your users.
 
-What if you want to run an A/B test in an area of your application where you dont know who your users are? For example
+What if you want to run an A/B test in an area of your application where you don't know who your users are? For example
 on the homepage of your website? In this instance, you need to generate _Anonymous Identities_ values for your users. In
 this case we will generate a _GUID_ for each user.
 

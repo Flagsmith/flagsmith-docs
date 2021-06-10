@@ -9,7 +9,7 @@ your users.
 ## Sane Defaults
 
 Whether your application is a mobile app or a server side rendered web platform, building with sane and safe flag
-defaults is a good idea. There are two good ways to implement this practise.
+defaults is a good idea. There are two good ways to implement this practice.
 
 ### Hard Coded Defaults
 

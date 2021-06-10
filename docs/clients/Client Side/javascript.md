@@ -172,12 +172,12 @@ See all available types [here](https://github.com/Flagsmith/flagsmith-js-client/
 
 `onChange` calls when flags are fetched this can be a result of:
 
-    - init
-    - setTrait
-    - incrementTrait
-    - getFlags
-    - identify
-    - flags evaluated by local storage
+- init
+- setTrait
+- incrementTrait
+- getFlags
+- identify
+- flags evaluated by local storage
 
 Using onChange is best used in combination with your application's state management e.g. onChange triggering an action
 to re-evaluate flags with `hasFeature` and `getValue`.
@@ -187,20 +187,20 @@ resolves when fresh flags have been retrieved.
 
 For example by doing the following:
 
-```
-    await flagsmith.setTrait("age",21)
-    const hasFeature = flagsmith.hasFeature("my_feature")
+```javascript
+await flagsmith.setTrait('age', 21);
+const hasFeature = flagsmith.hasFeature('my_feature');
 ```
 
 On change calls back with information telling you what has changed, you can use this to prevent any unnecessary
 re-renders.
 
-```
-    onChange(this.oldFlags, {
-        isFromServer: true, // flags have come from the server or local storage
-        flagsChanged: deepEqualsCheck(oldFlags,newFlags),
-        traitsChanged: deepEqualsCheck(oldFlags,newFlags),
-    });
+```javascript
+onChange(this.oldFlags, {
+ isFromServer: true, // flags have come from the server or local storage
+ flagsChanged: deepEqualsCheck(oldFlags, newFlags),
+ traitsChanged: deepEqualsCheck(oldFlags, newFlags),
+});
 ```
 
 **How does caching flags work?**
