@@ -1,8 +1,11 @@
+---
+title: New Relic Analytics Integration
 description: Integrate Flagsmith with New Relic
+sidebar_label: New Relic
+hide_title: true
+---
 
-# New Relic Integration
-
-<img src="/images/integrations/newrelic/newrelic-logo.svg"/>
+<img src="/img/integrations/newrelic/newrelic-logo.svg"/>
 
 You can integrate Flagsmith with New Relic. Send flag change events from Flagsmith into your New Relic event stream.
 

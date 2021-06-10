@@ -1,46 +1,36 @@
-# Flagsmith Documentation
+# Website
 
-This is the documentation repository for the [Docs](https://docs.flagsmith.com/) of [Flagsmith](https://flagsmith.com/).
-The site is currently hosted on [https://vercel.com/](https://vercel.com/).
+This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
 
-Built with [MKDocs](https://www.mkdocs.org/).
+## Installation
 
-## Pre requesites
-
-[pip](https://pip.pypa.io/)
+```console
+yarn install
+```
 
 ## Local Development
 
-This sets up pip-tools, mkdocs and pre-commit.
-
-```bash
-pip install virtualenv
-virtualenv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
+```console
+yarn start
 ```
 
-You can set up prettier on a pre-commit hook. You will need node installed
+This command starts a local development server and opens up a browser window. Most changes are reflected live without
+having to restart the server.
 
-```bash
-pre-commit install
+## Build
+
+```console
+yarn build
 ```
 
-## Deploy
+This command generates static content into the `build` directory and can be served using any static contents hosting
+service.
 
-Deployments to Vercel happen automatically if configured on the Vercel side. You can build a local static version of the
-site with
+## Deployment
 
-```bash
-mkdocs build
+```console
+GIT_USER=<Your GitHub username> USE_SSH=true yarn deploy
 ```
 
-## Useful links
-
-[Website](https://flagsmith.com)
-
-[Documentation](https://docs.flagsmith.com/)
-
-[Code Examples](https://github.com/flagsmith/flagsmith-docs)
-
-[Youtube Tutorials](https://www.youtube.com/channel/UCki7GZrOdZZcsV9rAIRchCw)
+If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the
+`gh-pages` branch.

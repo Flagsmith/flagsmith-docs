@@ -1,8 +1,11 @@
+---
+title: Mixpanel Analytics Integration
 description: Integrate Flagsmith with Mixpanel
+sidebar_label: Mixpanel
+hide_title: true
+---
 
-# Mixpanel Analytics Integration
-
-<img src="/images/integrations/mixpanel/mixpanel-logo.svg"/>
+<img src="/img/integrations/mixpanel/mixpanel-logo.svg"/>
 
 You can integrate Flagsmith with Mixpanel. The integration automatically sends the flag states for identified users into
 Mixpanel for cohort analysis, A/B testing and more. The process is as follows:
@@ -22,7 +25,7 @@ Identity flag values are passed into Mixpanel.
 
 Here's a demo user in Flagsmith:
 
-<img src="/images/integrations/mixpanel/mixpanel-integration-2.png"/>
+<img src="/img/integrations/mixpanel/mixpanel-integration-2.png"/>
 
 If we make the call to the Flagsmith API to get the flags for this user:
 
@@ -34,7 +37,7 @@ curl 'https://api.flagsmith.com/api/v1/identities/?identifier=development_user_1
 And then take a look in our Mixpanel dashboard, you can see the user and the flag data that has been sent to the
 Mixpanel platform.
 
-<img src="/images/integrations/mixpanel/mixpanel-integration-1.png"/>
+<img src="/img/integrations/mixpanel/mixpanel-integration-1.png"/>
 
 ## Use Case
 
@@ -49,7 +52,7 @@ Mixpanel `identity`.
 ## How It Works Under The Hood
 
 Every time an `Identity` requests their flags from the Flagsmith API, Flagsmith will send a `POST` to
-`https://api.mixpanel.com/engage#profile-set` with the followong JSON payload:
+`https://api.mixpanel.com/engage#profile-set` with the following JSON payload:
 
 ```json
 {

@@ -1,8 +1,10 @@
-description: Integrate Flagsmith with Heap Analytics
+---
+title: Heap Analytics Integration
+sidebar_label: Heap Analytics
+hide_title: true
+---
 
-# Heap Analytics Integration
-
-<img src="/images/integrations/heap/heap-logo.svg"/>
+![Heap Analytics](/img/integrations/heap/heap-logo.svg)
 
 You can integrate Flagsmith with Heap Analytics. The integration automatically sends the flag states for identified
 users into Heap for cohort analysis, A/B testing and more. The process is as follows:
@@ -21,7 +23,7 @@ Identity flag values are passed into Heap.
 
 Here's a demo user in Flagsmith:
 
-<img src="/images/integrations/heap/heap-integration-2.png"/>
+<img src="/img/integrations/heap/heap-integration-2.png"/>
 
 If we make the call to the Flagsmith API to get the flags for this user:
 
@@ -33,7 +35,7 @@ curl 'https://api.flagsmith.com/api/v1/identities/?identifier=development_user_1
 And then take a look in our Heap dashboard, you can see the user and the flag data that has been sent to the Heap
 platform.
 
-<img src="/images/integrations/heap/heap-integration-1.png"/>
+<img src="/img/integrations/heap/heap-integration-1.png"/>
 
 ## Use Case
 

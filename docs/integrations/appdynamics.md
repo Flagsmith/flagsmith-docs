@@ -1,15 +1,19 @@
-description: Integrate Flagsmith with AppDynamics
+---
+title: AppDynamics Integration
+sidebar_label: AppDynamics
+hide_title: true
+---
 
-# AppDynamics Integration
-
-<img src="/images/integrations/appdynamics/appdynamics-logo.svg"/>
+![Amplitude](/img/integrations/appdynamics/appdynamics-logo.svg)
 
 You can integrate Flagsmith with AppDynamics. This integration is helpful if you are self hosting and wanting to analyse
 the performance of Flagsmith in more detail.
 
-<!-- prettier-ignore -->
-!!! note
-    AppDynamics is an Enterprise-only integration.
+:::note
+
+AppDynamics is an Enterprise-only integration.
+
+:::
 
 ## Setup
 
