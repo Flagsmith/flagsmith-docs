@@ -5,11 +5,11 @@ sidebar_position: 2
 ---
 
 You can use docker to set up an entire [Flagsmith Feature Flag](https://www.flagsmith.com) environment locally. Just
-clone the [docker repository](https://github.com/Flagsmith/flagsmith-docker) and run docker-compose:
+clone the [docker repository](https://github.com/Flagsmith/flagsmith) and run docker-compose:
 
 ```bash
-git clone https://github.com/Flagsmith/flagsmith-docker.git
-cd flagsmith-docker
+git clone https://github.com/Flagsmith/flagsmith.git
+cd flagsmith/docker
 docker-compose up
 ```
 
