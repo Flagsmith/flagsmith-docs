@@ -35,7 +35,7 @@ module.exports = {
                     position: 'left',
                 },
                 {
-                    href: 'https://github.com/flagsmith/flagsmith-api',
+                    href: 'https://github.com/flagsmith/flagsmith',
                     label: 'GitHub',
                     position: 'right',
                 },
@@ -91,7 +91,7 @@ module.exports = {
                     sidebarPath: require.resolve('./sidebars.js'),
                     routeBasePath: '/',
                     // Please change this to your repo.
-                    editUrl: 'https://github.com/flagsmith/flagsmith-api/',
+                    editUrl: 'https://github.com/flagsmith/flagsmith',
                 },
                 theme: {
                     customCss: require.resolve('./src/css/custom.css'),

@@ -94,7 +94,7 @@ Env Var: **FLAGSMITH** Value example: 4vfqhypYjcPoGGu8ByrBaj Description: The `e
 
 The versions of the `flagsmith-api-ee` track the versions of our Open Source version. You can view these tags here:
 
-[https://github.com/Flagsmith/flagsmith-api/tags](https://github.com/Flagsmith/flagsmith-api/tags)
+[https://github.com/Flagsmith/flagsmith/tags](https://github.com/Flagsmith/flagsmith/tags)
 
 ## AppDynamics
 
@@ -168,7 +168,7 @@ If you need additional AppDynamics setup options you can find the other environm
 
 There are [JMeter](https://jmeter.apache.org/) tests avaiable in our public repo on Github:
 
-https://github.com/Flagsmith/flagsmith-api/tree/master/jmeter-tests
+https://github.com/Flagsmith/flagsmith/tree/master/jmeter-tests
 
 ### wrk
 
