@@ -1,8 +1,11 @@
+---
+title: Segment Integration
 description: Integrate Flagsmith with Segment
+sidebar_label: Segment
+hide_title: true
+---
 
-# Segment Integration
-
-<img src="/images/integrations/segment/segment-logo.svg"/>
+<img src="/img/integrations/segment/segment-logo.svg"/>
 
 You can integrate Flagsmith with Segment. Send your Identity flag states into segment for further downstream analysis.
 
@@ -22,7 +25,7 @@ Identity flag values are passed into Segment.
 
 Here's a demo user in Flagsmith:
 
-<img src="/images/integrations/segment/segment-integration-2.png"/>
+<img src="/img/integrations/segment/segment-integration-2.png"/>
 
 If we make the call to the Flagsmith API to get the flags for this user:
 
@@ -34,7 +37,7 @@ curl 'https://api.flagsmith.com/api/v1/identities/?identifier=development_user_1
 And then take a look in our Segment dashboard, you can see the user and the flag data that has been sent to the Segment
 platform.
 
-<img src="/images/integrations/segment/segment-integration-1.png"/>
+<img src="/img/integrations/segment/segment-integration-1.png"/>
 
 ## Use Case
 

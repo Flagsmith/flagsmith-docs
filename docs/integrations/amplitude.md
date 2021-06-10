@@ -1,8 +1,10 @@
-description: Integrate Flagsmith with Amplitude
+---
+title: Amplitude Integration
+sidebar_label: Amplitude
+hide_title: true
+---
 
-# Amplitude Integration
-
-<img src="/images/integrations/amplitude/amplitude-logo.svg"/>
+![Amplitude](/img/integrations/amplitude/amplitude-logo.svg)
 
 You can integrate Flagsmith with Amplitude. You can automate AB tests by connecting the Flagsmith platform with
 Amplitude. The process is as follows:
@@ -22,7 +24,7 @@ Identity flag values are passed into Amplitude.
 
 Here's a demo user in Flagsmith:
 
-<img src="/images/integrations/amplitude/amplitude-integration-2.png"/>
+<img src="/img/integrations/amplitude/amplitude-integration-2.png"/>
 
 If we make the call to the Flagsmith API to get the flags for this user:
 
@@ -34,7 +36,7 @@ curl 'https://api.flagsmith.com/api/v1/identities/?identifier=development_user_1
 And then take a look in our Amplitude dashboard, you can see the user and the flag data that has been sent to the
 Amplitude platform.
 
-<img src="/images/integrations/amplitude/amplitude-integration-1.png"/>
+<img src="/img/integrations/amplitude/amplitude-integration-1.png"/>
 
 ## Use Case
 

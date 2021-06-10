@@ -1,6 +1,14 @@
-description: Learn how to manage feature flags across web, mobile and server side applications.
+---
+id: intro
+slug: /
+sidebar_position: 1
+hide_title: true
+sidebar_label: Overview
+---
 
-<img src="/images/banner-logo-dark.png" />
+# Flagsmith Docs
+
+![Flagsmith](/img/banner-logo-dark.png)
 
 [Flagsmith](https://flagsmith.com/) lets you manage features across web, mobile and server side applications. Flagsmith
 is Open Source. Host yourself or let us take care of the hosting.
@@ -17,7 +25,7 @@ apps and start managing your features remotely.
 
 ## Installation
 
-More information can be found on the [Self Hosted Page](/self-hosting).
+More information can be found on the [Self Hosted Page](/deployment/overview).
 
 ## Product Roadmap
 
@@ -55,7 +63,8 @@ Once you are setup with the front and back end, you can integrate our client lib
 
 ## Integration Approaches
 
-We've put together some [tips and ideas](integration-approaches.md) on how to best integrate into your applications.
+We've put together some [tips and ideas](advanced-use/integration-approaches.md) on how to best integrate into your
+applications.
 
 ## Javascript framework examples
 
@@ -65,4 +74,4 @@ Examples applications for popular JS frameworks can be found here:
 
 ## What Next
 
-Find out more about [Managing Features](overview.md)
+Find out more about [Managing Features](/basic-features/overview.md)
