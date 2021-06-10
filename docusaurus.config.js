@@ -13,6 +13,9 @@ module.exports = {
         prism: {
             additionalLanguages: ['java', 'csharp', 'ruby', 'rust', 'swift', 'dart'],
         },
+        googleAnalytics: {
+            trackingID: 'UA-120237963-2',
+        },
         navbar: {
             title: 'Flagsmith',
             logo: {
