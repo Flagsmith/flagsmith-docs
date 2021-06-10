@@ -44,3 +44,6 @@ site/
 
 .envrc
 .venv/
+
+.docusaurus
+

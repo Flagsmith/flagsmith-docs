@@ -24,7 +24,7 @@ module.exports = {
                     type: 'doc',
                     docId: 'intro',
                     position: 'left',
-                    label: 'Tutorial',
+                    label: 'Docs',
                 },
                 {
                     to: 'https://flagsmith.com',
@@ -42,28 +42,24 @@ module.exports = {
             style: 'dark',
             links: [
                 {
-                    title: 'Docs',
+                    title: 'Flagsmith',
                     items: [
                         {
-                            label: 'Tutorial',
-                            to: '/',
+                            label: 'Flagsmith.com',
+                            to: 'https://flagsmith.com/',
+                        },
+                        {
+                            label: 'Twitter',
+                            href: 'https://twitter.com/getflagsmith',
                         },
                     ],
                 },
                 {
-                    title: 'Community',
+                    title: 'Open Source',
                     items: [
                         {
-                            label: 'Stack Overflow',
-                            href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-                        },
-                        {
-                            label: 'Discord',
-                            href: 'https://discordapp.com/invite/docusaurus',
-                        },
-                        {
-                            label: 'Twitter',
-                            href: 'https://twitter.com/docusaurus',
+                            label: 'Github',
+                            href: 'https://github.com/Flagsmith',
                         },
                     ],
                 },
@@ -75,13 +71,13 @@ module.exports = {
                             to: 'https://flagsmith.com/blog/',
                         },
                         {
-                            label: 'GitHub',
-                            href: 'https://github.com/flagsmith/flagsmith-api',
+                            label: 'Podcast',
+                            href: 'https://flagsmith.com/podcast/',
                         },
                     ],
                 },
             ],
-            copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+            copyright: `Copyright © ${new Date().getFullYear()} Bullet Train Ltd. Built with Docusaurus.`,
         },
     },
     presets: [
