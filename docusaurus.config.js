@@ -7,19 +7,20 @@ module.exports = {
     onBrokenLinks: 'throw',
     onBrokenMarkdownLinks: 'warn',
     favicon: 'img/favicon.ico',
-    organizationName: 'facebook', // Usually your GitHub org/user name.
-    projectName: 'docusaurus', // Usually your repo name.
+    organizationName: 'Flagsmith',
+    projectName: 'flagsmith',
+    plugins: ['@ionic-internal/docusaurus-plugin-tag-manager'],
     themeConfig: {
         prism: {
             additionalLanguages: ['java', 'csharp', 'ruby', 'rust', 'swift', 'dart'],
         },
-        googleAnalytics: {
-            trackingID: 'UA-120237963-2',
+        tagManager: {
+            trackingID: 'GTM-5ZV5K5G',
         },
         navbar: {
             title: 'Flagsmith',
             logo: {
-                alt: 'My Site Logo',
+                alt: 'Flagsmith Logo',
                 src: 'img/logo.svg',
             },
             items: [
