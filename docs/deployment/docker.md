@@ -1,7 +1,7 @@
 ---
 title: Docker
 description: Getting Started with Flagsmith on Docker
-sidebar_position: 2
+sidebar_position: 4
 ---
 
 You can use docker to set up an entire [Flagsmith Feature Flag](https://www.flagsmith.com) environment locally. Just
