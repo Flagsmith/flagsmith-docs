@@ -42,7 +42,7 @@ npm run dev
 **Production**
 
 You can deploy this application on [Heroku](https://www.heroku.com/) and [Dokku](http://dokku.viewdocs.io/dokku/)
-without making any changes, other than the API URL in [project_prod.js](/env/project_prod.js)
+without making any changes, other than the API URL in '/frontend/env/project_prod.js'
 
 Bundles, minifies and cache busts the project to a build folder and runs node in production. This can be used as part of
 your deployment script.
@@ -54,13 +54,13 @@ npm start
 
 ## ENV variables
 
-Variables that differ per environment are exported globally to `window.Project in`
-[common/project.js](./common/project.js), this file gets replaced by a project.js located in [env](./env) by webpack
-based on what is set to the "ENV" environment variable (e.g. ENV=prod).
+Variables that differ per environment are exported globally to `window.Project in` 'frontend/common/project.js', this
+file gets replaced by a project.js located in 'frontend/env' by webpack based on what is set to the "ENV" environment
+variable (e.g. ENV=prod).
 
-You can override each variable individually or add more by editing [./bin/env.js](./bin/env.js).
+You can override each variable individually or add more by editing 'frontend/bin/env.js'.
 
-Current variables used between [environment.js](./bin/env.js) and [common/project.js](./bin/env.js):
+Current variables used between 'frontend/environment.js' and 'frontend/common/project.js':
 
 - API_URL: The API to hit for requests. E.g. `https://api.flagsmith.com/api/v1/`
 - FLAGSMITH: The flagsmith environment key we use to manage features - Flagsmith runs on Flagsmith.
