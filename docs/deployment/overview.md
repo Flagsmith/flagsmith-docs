@@ -137,34 +137,64 @@ The list of the flags and remote config we're currently using in production is b
   "type": "FLAG"
  },
  {
+  "description": "Allows for new user overrides UX",
+  "name": "butter_bar",
+  "value": "<html> to show at the top of the dashboard page"
+ },
+ {
   "description": "Configures integrations",
   "name": "integration_data",
   "value": "{\n  \"datadog\": {\n    \"perEnvironment\": false,\n    \"image\": \"https://www.vectorlogo.zone/logos/datadoghq/datadoghq-icon.svg\",\n    \"fields\": [\n      {\n        \"key\": \"base_url\",\n        \"label\": \"Base URL\"\n      },\n      {\n        \"key\": \"api_key\",\n        \"label\": \"API Key\"\n      }\n    ],\n    \"tags\": [\n      \"logging\"\n    ],\n    \"title\": \"Datadog\",\n    \"description\": \"Sends events to Datadog for when flags are created, updated and removed. Logs are tagged with the environment they came from e.g. production.\"\n  },\n  \"amplitude\": {\n    \"perEnvironment\": true,\n    \"image\": \"https://braze-marketing-assets.s3.amazonaws.com/img/partner_logos/amplitude-1.png\",\n    \"fields\": [\n      {\n        \"key\": \"api_key\",\n        \"label\": \"API Key\"\n      }\n    ],\n    \"tags\": [\n      \"analytics\"\n    ],\n    \"title\": \"Amplitude\",\n    \"description\": \"Sends data on what flags served to each identity.\"\n  }\n}"
  },
  {
   "description": "Determines what integrations show",
-  "name": "integration_data",
+  "name": "integrations",
   "value": "[\"datadog\"]"
  },
  {
-  "description": "Controls rbac and 2f based on plans",
+  "description": "Controls RBAC and 2FA based on organisation plan",
   "name": "plan_based_access",
   "type": "FLAG"
  },
-
  {
   "description": "Determines whether to show tags",
   "name": "tags",
   "type": "FLAG"
  },
  {
-  "description": "Usage chart",
+  "description": "Shows 'Disable All' on Flag Overrides",
+  "name": "killswitch",
+  "type": "FLAG"
+ },
+ {
+  "description": "Better Override UX",
+  "name": "improved_identity_overrides",
+  "type": "FLAG"
+ },
+ {
+  "description": "Flag usage chart",
   "name": "usage_chart",
   "type": "FLAG"
  },
  {
-  "name": "identity_segments",
-  "description": "Lists segments users are in on the user page"
+  "name": "invite_link",
+  "description": "Enables Invitation by Link",
+  "type": "FLAG"
+ },
+ {
+  "name": "value_editor",
+  "description": "Enables remote config syntax highlighting",
+  "type": "FLAG"
+ },
+ {
+  "name": "dark_mode",
+  "description": "Enables Dark Mode UI option",
+  "type": "FLAG"
+ },
+ {
+  "name": "mv",
+  "description": "Enables Multi Variate Flags in UI",
+  "type": "FLAG"
  },
  {
   "name": "segment_operators",
@@ -173,24 +203,13 @@ The list of the flags and remote config we're currently using in production is b
  },
  {
   "name": "oauth_github",
-  "description": "WIP oauth with github",
-  "value": "oauth config"
- },
- {
-  "name": "oauth_facebook",
-  "description": "WIP oauth with facebook",
-  "value": "oauth config"
- },
-
- {
-  "name": "oauth_microsoft",
-  "description": "WIP oauth with microsoft",
-  "value": "oauth config"
+  "description": "OAuth with Github - Below is a sample value - you will need to create your own credentials",
+  "value": "{\n  \"url\": \"https://github.com/login/oauth/authorize?scope=user&client_id=b706a0da3e9d3115ea9d&redirect_uri=https%3A%2F%2Fapp.flagsmith.com%2Foauth%2Fgithub\"\n}"
  },
  {
   "name": "oauth_google",
-  "description": "WIP oauth with google",
-  "value": "oauth config"
+  "description": "OAuth with Google - Below is a sample value - you will need to create your own credentials",
+  "value": "{\n \"clientId\":\"232959427810-br6ltnrgouktp0ngsbs04o14ueb9rch0.apps.googleusercontent.com\",\n \"apiKey\":\"AIzaSyCnHuN-y6BIEAM5vTISXaz3X9GpEPSxWjo\"\n}"
  }
 ]
 ```
