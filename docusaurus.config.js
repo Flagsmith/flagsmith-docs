@@ -14,6 +14,10 @@ module.exports = {
         prism: {
             additionalLanguages: ['java', 'csharp', 'ruby', 'rust', 'swift', 'dart'],
         },
+        algolia: {
+            apiKey: 'd207a6e4abfead06cecba47adc7d1515',
+            indexName: 'flagsmith',
+        },
         tagManager: {
             trackingID: 'GTM-5ZV5K5G',
         },
