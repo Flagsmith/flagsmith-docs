@@ -160,6 +160,28 @@ See all available types [here](https://github.com/Flagsmith/flagsmith-js-client/
 | <code>identify(userId:string, traits?:Record<string, string&#124;number&#124;boolean>)=> Promise&lt;IFlags&gt;</code> | Identify as a user, optionally with traits e.g. `{foo:"bar",numericProp:1,boolProp:true}`. This will create a user for your environment in the dashboard if they don't exist, it will also trigger a call to `getFlags()`, resolves a promise when the flags are updated. |
 | <code>logout()=>Promise&lt;IFlags&gt;</code>                                                                          |                                                                                                   Stop identifying as a user, this will trigger a call to `getFlags()`                                                                                                    |
 
+## Multiple SDK Instances
+
+[Version 1.5 and above](https://github.com/Flagsmith/flagsmith-js-client/releases/tag/1.5.0) allows you to create
+multiple instances of the Flagsmith SDK. This may be used when you wish to identify multiple users simultaneously within
+your app and retain access to getValue, hasFeature etc for each user.
+
+Type:
+
+```javascript
+export function createFlagsmithInstance (): IFlagsmith<br class="Apple-interchange-newline">
+```
+
+Usage:
+
+```javascript
+import { createFlagsmithInstance } from 'flagsmith';
+const flagsmith = createFlagsmithInstance();
+const flagsmithB = createFlagsmithInstance();
+
+// now you can use flagsmith as before but in its own instance
+```
+
 ## FAQs
 
 **How do I call `identify`, `setTraits` etc alongside `init`?**
