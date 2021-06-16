@@ -47,19 +47,24 @@ React/Javascript and requires NodeJS.
 
 Once you are setup with the front and back end, you can integrate our client libraries within your apps.
 
-- [Javascript and React/React Native](/clients/javascript/)
-- [NodeJS](/clients/node/)
+### Client Side SDKs
+
 - [Android](/clients/android/)
-- [iOS](/clients/ios/)
 - [Flutter](/clients/flutter/)
-- [Java](/clients/java/)
-- [Python](/clients/python/)
-- [Ruby](/clients/ruby/)
+- [iOS](/clients/ios/)
+- [Javascript and React/React Native](/clients/javascript/)
+
+### Server Side SDKs
+
 - [.Net](/clients/dotnet/)
 - [Go](/clients/go/)
-- [Rust](/clients/rust/)
+- [Java](/clients/java/)
+- [NodeJS](/clients/node/)
 - [PHP](/clients/php/)
+- [Python](/clients/python/)
 - [REST](/clients/rest/)
+- [Ruby](/clients/ruby/)
+- [Rust](/clients/rust/)
 
 ## Integration Approaches
 
