@@ -56,15 +56,15 @@ flagsmith.init({
   const { isFromServer } = params; //determines if the update came from the server or local cached storage
 
   //Check for a feature
-  if (flagsmith.hasFeature('myCoolFeature')) {
+  if (flagsmith.hasFeature('my_cool_feature')) {
    myCoolFeature();
   }
 
   //Or, use the value of a feature
-  const bannerSize = flagsmith.getValue('bannerSize');
+  const bannerSize = flagsmith.getValue('banner_size');
 
   //Check whether value has changed
-  const bannerSizeOld = oldFlags['bannerSize'] && oldFlags['bannerSize'].value;
+  const bannerSizeOld = oldFlags['banner_size'] && oldFlags['banner_size'].value;
   if (bannerSize !== bannerSizeOld) {
   }
  },
@@ -102,7 +102,7 @@ flagsmith.init({
   flagsmith.setTrait('favourite_colour', 'blue'); //This save the trait against the user, it can be queried with flagsmith.getTrait
 
   //Check for a feature
-  if (flagsmith.hasFeature('myPowerUserFeature')) {
+  if (flagsmith.hasFeature('my_power_user_feature')) {
    myPowerUserFeature();
   }
 
@@ -112,10 +112,10 @@ flagsmith.init({
   }
 
   //Or, use the value of a feature
-  const myPowerUserFeature = flagsmith.getValue('myPowerUserFeature');
+  const myPowerUserFeature = flagsmith.getValue('my_power_user_feature');
 
   //Check whether value has changed
-  const myPowerUserFeatureOld = oldFlags['myPowerUserFeature'] && oldFlags['myPowerUserFeature'].value;
+  const myPowerUserFeatureOld = oldFlags['my_power_user_feature'] && oldFlags['my_power_user_feature'].value;
   if (myPowerUserFeature !== myPowerUserFeatureOld) {
   }
  },
