@@ -55,20 +55,19 @@ When running the application using Docker, it reads the database configuration f
 
 ## Initialising
 
+The application is built using django which comes with a handy set of admin pages available at `/admin/`. To access
+these, you'll need to create a super user. This user can also be used to access the admin pages or the application 
+itself if you have the frontend application running as well. This user can be created using the instructions below 
+dependent on your installation:
+
 ### Locally
 
-The application is built using django which comes with a handy set of admin pages available at `/admin/`. To access
-these, you'll need to create a super user. This can be done with the following command:
-
 ```bash
-python src/manage.py createsuperuser
+cd api
+python manage.py createsuperuser
 ```
 
-Once you've created the super user, you can use the details to log in at `/admin/`. From here, you can create an
-organisation and either create another user or simply assign the organisation to your admin user to begin using the
-application.
-
-### In a Heroku-ish environment
+### Environments with no direct console access (e.g. Heroku, ECS)
 
 Once the app has been deployed, you can initialise it to create a super user by sending a GET request to the
 `/api/v1/users/init/` endpoint. This will create a super user with the details configured in `app.settings.common` with
@@ -82,6 +81,10 @@ ADMIN_INITIAL_PASSWORD
 
 Note that this functionality can be turned off in the settings if required by setting
 `ALLOW_ADMIN_INITIATION_VIA_URL=False`.
+
+Once you've created the super user, you can use the details to log in at `/admin/`. From here, you can create an
+organisation and either create another user or simply assign the organisation to your admin user to begin using the
+application.
 
 ## Deploying
 
