@@ -137,7 +137,7 @@ The list of the flags and remote config we're currently using in production is b
   "type": "FLAG"
  },
  {
-  "description": "Allows for new user overrides UX",
+  "description": "Displays top area butter bar for in app messaging",
   "name": "butter_bar",
   "value": "<html> to show at the top of the dashboard page"
  },
@@ -177,23 +177,23 @@ The list of the flags and remote config we're currently using in production is b
   "type": "FLAG"
  },
  {
-  "name": "invite_link",
   "description": "Enables Invitation by Link",
+  "name": "invite_link",
   "type": "FLAG"
  },
  {
-  "name": "value_editor",
   "description": "Enables remote config syntax highlighting",
+  "name": "value_editor",
   "type": "FLAG"
  },
  {
+  "description": "Enables Dark Mode in UI",
   "name": "dark_mode",
-  "description": "Enables Dark Mode UI option",
   "type": "FLAG"
  },
  {
-  "name": "mv",
   "description": "Enables Multi Variate Flags in UI",
+  "name": "mv",
   "type": "FLAG"
  },
  {
@@ -213,6 +213,12 @@ The list of the flags and remote config we're currently using in production is b
  }
 ]
 ```
+
+We also have a Segment that manages the ui Dark Mode:
+
+Segment Name: `dark_mode` Segment Rules: Trait `dark_mode` EXACTLY MATCHES `True`
+
+Then use this rule to override the `dark_mode` Feature Flag.
 
 ## Manual Installation
 
