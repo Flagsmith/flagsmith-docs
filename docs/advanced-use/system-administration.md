@@ -27,46 +27,56 @@ Environment:
 ```json
 {
  "data": {
-  "changed_by": "Some User",
+  "changed_by": "Ben Rometsch",
   "new_state": {
    "enabled": true,
-   "environment": 23,
+   "environment": {
+    "id": 23,
+    "name": "Development"
+   },
    "feature": {
-    "created_date": "2020-02-25T22:11:16.355547Z",
+    "created_date": "2021-02-10T20:03:43.348556Z",
     "default_enabled": false,
-    "description": null,
-    "id": 2411,
-    "initial_value": "blue",
-    "name": "feature_name",
-    "project": 12,
-    "type": "FLAG|CONFIG"
+    "description": "Show html in a butter bar for certain users",
+    "id": 7168,
+    "initial_value": null,
+    "name": "butter_bar",
+    "project": {
+     "id": 12,
+     "name": "Flagsmith Website"
+    },
+    "type": "CONFIG"
    },
    "feature_segment": null,
-   "feature_state_value": null,
-   "id": 10430,
+   "feature_state_value": "<strong>\nYou are using the develop environment.\n</strong>",
    "identity": null,
    "identity_identifier": null
   },
   "previous_state": {
    "enabled": false,
-   "environment": 23,
+   "environment": {
+    "id": 23,
+    "name": "Development"
+   },
    "feature": {
-    "created_date": "2020-02-25T22:11:16.355547Z",
+    "created_date": "2021-02-10T20:03:43.348556Z",
     "default_enabled": false,
-    "description": null,
-    "id": 2411,
-    "initial_value": "red",
-    "name": "feature_name",
-    "project": 12,
-    "type": "FLAG|CONFIG"
+    "description": "Show html in a butter bar for certain users",
+    "id": 7168,
+    "initial_value": null,
+    "name": "butter_bar",
+    "project": {
+     "id": 12,
+     "name": "Flagsmith Website"
+    },
+    "type": "CONFIG"
    },
    "feature_segment": null,
-   "feature_state_value": null,
-   "id": 10430,
+   "feature_state_value": "<strong>\nYou are using the develop environment.\n</strong>",
    "identity": null,
    "identity_identifier": null
   },
-  "timestamp": "2020-03-07T13:59:07.040Z"
+  "timestamp": "2021-06-18T07:50:26.595298Z"
  },
  "event_type": "FLAG_UPDATED"
 }
