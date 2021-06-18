@@ -13,9 +13,10 @@ found in the following section entitled 'Databases'.
 virtualenv .venv
 source .venv/bin/activate
 pip install pip-tools
+cd api
 pip-sync requirements.txt requirements-dev.txt
-python src/manage.py migrate
-python src/manage.py runserver
+python manage.py migrate
+python manage.py runserver
 ```
 
 Note: if you're running on on MacOS and you find some issues installing the dependencies (specifically around pyre2),
@@ -235,14 +236,12 @@ We collect the following data on startup per API server instance:
 
 ### Creating a secret key
 
-It is important to also set an environment variable on whatever platform you are using for `DJANGO_SECRET_KEY`. There is
-a function to create one in `app.settings.common` if none exists in the environment variables, however, this is not
-suitable for use in production. To generate a new secret key, you can use the function defined in
-`src/secret-key-gen.py` by simply running it from a command prompt:
-
-```bash
-python secret-key-gen.py
-```
+It is important to also set an environment variable on whatever platform you are using for `DJANGO_SECRET_KEY`. If one is 
+not set then Django will create one for you each time the application starts up, however, this will cause unexpected 
+behaviour as it is used by Django for encryption of e.g. session tokens, etc. To avoid these issues, please create set the 
+`DJANGO_SECRET_KEY` variable. Django recommends that this key should be at least 50 characters in length, however, it is 
+up to you to configure the key how you wish. Check the `get_random_secret_key()` method in the Django source code if you 
+want more information on what the key should look like. 
 
 ## Pre commit
 
