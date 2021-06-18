@@ -182,6 +182,10 @@ the below variables will be ignored.
 - `SENTRY_TRACE_SAMPLE_RATE`: Float. If using Sentry, sets the trace sample rate. Defaults to 1.0.
 - `DEFAULT_ORG_STORE_TRAITS_VALUE`: Boolean. Set this flag to ensure new organisations default to not persisting traits.
   Useful for data sensitive installations that don't want persistent traits.
+- `OAUTH_CLIENT_ID`: Google OAuth Client ID to enable accessing django admin pages via Google OAuth. See the 
+[Django Admin SSO package](https://pypi.org/project/django-admin-sso/) for information on how to set users up to access 
+the admin pages via SSO. 
+- `OAUTH_CLIENT_SECRET`: Google OAuth Secret to enable accessing django admin pages via Google OAuth.
 
 #### Email Environment Variables
 
