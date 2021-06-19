@@ -122,6 +122,8 @@ your browser developer console to see this). You can now start creating flags an
 the platform. For example, if you wanted to disable Google OAuth authentication, you would create a flag called
 `oauth_google` and disable it.
 
+### Current Flagsmith Feature Flags
+
 The list of the flags and remote config we're currently using in production is below:
 
 ```json
