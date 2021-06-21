@@ -8,6 +8,13 @@ Segments allow you to group your users based on a set of rules, and then control
 those groups. You can create a Segment and then override a Feature Flag state or Remote Config value for that segment of
 users.
 
+:::important
+
+Segments are _not_ sent back to client SDKs. They are used to override flag values within the dashboard, but they are
+never sent back to our SDKs from the API.
+
+:::
+
 Segments for Flags and Config are overridden at the Environment level, meaning that different Environments can define
 their own Segment overrides.
 
