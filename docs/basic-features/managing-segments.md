@@ -51,6 +51,20 @@ the Segment rules:
 
 Now all users who log in with a `@solidstategroup.com` email address are automatically included in beta features.
 
+## Percentage Split Operator
+
+:::important
+
+The percentage split operator **_only_** comes into effect if you are getting the Flags for a particular Identity. If
+you are just retrieving the flags for an Environment without passing in an Identity, your user will **_never_** be
+included in the percentage split segment.
+
+:::
+
+This is the only operator that does not require a Trait. You can use the percentage split operator to drive
+[A/B tests](/advanced-use/ab-testing) and
+[staged feature rollouts](/advanced-use/staged-feature-rollouts#creating-staged-rollouts).
+
 ## Feature Flag and Remote Config Precedence
 
 Feature Flag states and Remote Config values can be defined in 3 different places:

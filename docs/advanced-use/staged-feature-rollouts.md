@@ -12,6 +12,14 @@ simply disable the Feature Flag, thus hiding the feature within your application
 
 ## Creating Staged Rollouts
 
+:::important
+
+Staged Rollouts **_only_** come into effect if you are getting the Flags for a particular Identity. If you are just
+retrieving the flags for an Environment without passing in an Identity, your user will never be included in the "%
+Split% Segment.
+
+:::
+
 You can achieve staged rollouts by creating a [Segment](/basic-features/managing-segments.md) and adding a rule defined
 with the "% Split" condition. Specifying a "% Split" value between 1 and 100 then defines what percentage of your user
 base are included within this Segment.
