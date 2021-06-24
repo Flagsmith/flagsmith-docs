@@ -80,3 +80,20 @@ flagsmith.getValue('header').then((value) => {
 Identifying users allows you to target specific users from the [Flagsmith dashboard](https://www.flagsmith.com/). You
 can include an optional user identifier as part of the `hasFeature` and `getValue` methods to retrieve unique user flags
 and variables.
+
+## Caching Data
+
+You can initialise the SDK with something like this:
+
+```javascript
+flagsmith.init({
+ cache: {
+   has:(key)=> return Promise.resolve(!!cache[key]) , // true | false
+   get: (k)=> cache[k] // return flags or flags for user
+   set: (k,v)=> cache[k] = v // gets called if has returns false with response from API for Identify or getFlags
+  }
+})
+```
+
+The core concept is that if `has` returns false, the SDK will make the required API calls under the hood. The keys are
+either `flags` or `flags_traits-${identity}`.
