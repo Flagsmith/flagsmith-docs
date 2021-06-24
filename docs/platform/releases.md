@@ -2,6 +2,14 @@
 title: Releases
 ---
 
+## Docker Image Tags
+
+We have a fairly simple tagging strategy:
+
+- Commits to the `main` branch trigger Docker image builds tagged `latest`.
+- Git tags (e.g. `2.7.1`) will trigger Docker image builds tagged:
+  - v2.7.1
+
 ## v2.7
 
 Released **5 May 2021**
