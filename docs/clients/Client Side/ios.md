@@ -51,7 +51,7 @@ Flagsmith.shared.getFeatureFlags() { (result) in
     case .success(let flags):
         for flag in flags {
             let name = flag.feature.name
-            let value = flag.value
+            let value = flag.value?.stringValue
             let enabled = flag.enabled
             print(name, "= enabled:", enabled, "value:", value ?? "nil")
         }
@@ -60,6 +60,14 @@ Flagsmith.shared.getFeatureFlags() { (result) in
     }
 }
 ```
+
+Note that you can use:
+
+- `flag.value?.stringValue`
+- `flag.value?.intValue`
+- `flag.value?.floatValue`
+
+Based on your desired type.
 
 To retrieve a feature flag boolean value by its name:
 
