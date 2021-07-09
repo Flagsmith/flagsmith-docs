@@ -97,3 +97,50 @@ flagsmith.init({
 
 The core concept is that if `has` returns false, the SDK will make the required API calls under the hood. The keys are
 either `flags` or `flags_traits-${identity}`.
+
+An example of a concrete implemention is below.
+
+```javascript
+const flagsmith = require('flagsmith-nodejs');
+const redis = require('redis');
+
+const redisClient = redis.createClient({
+ host: 'localhost',
+ port: 6379,
+});
+
+flagsmith.init({
+ environmentID: '<Flagsmith Environment API Key>',
+ cache: {
+  has: (key) =>
+   new Promise((resolve, reject) => {
+    redisClient.exists(key, (err, reply) => {
+     console.log('check ' + key + ' from cache', err, reply);
+     resolve(reply === 1);
+    });
+   }),
+  get: (key) =>
+   new Promise((resolve) => {
+    redisClient.get(key, (err, cacheValue) => {
+     console.log('get ' + key + ' from cache');
+     resolve(cacheValue && JSON.parse(cacheValue));
+    });
+   }),
+  set: (key, value) =>
+   new Promise((resolve) => {
+    redisClient.set(key, JSON.stringify(value), (err, reply) => {
+     console.log('set ' + key + ' to cache', err);
+     resolve();
+    });
+   }),
+ },
+});
+
+router.get('/', function (req, res, next) {
+ flagsmith.getValue('background_colour').then((value) => {
+  res.render('index', {
+   title: value,
+  });
+ });
+});
+```
