@@ -36,17 +36,17 @@ For full documentation visit [https://docs.flagsmith.com](https://docs.flagsmith
 
 Sign Up and create account at [https://flagsmith.com/](https://www.flagsmith.com/)
 
-In your application initialise the BulletTrain client with your API key
+In your application initialise the Flagsmith client with your API key
 
 ```go
-bt := bullettrain.DefaultClient("<Your API Key>")
+fs := flagsmith.DefaultClient("<Your API Key>")
 ```
 
 To check if a feature flag exists and is enabled:
 
 ```go
-bt := bullettrain.DefaultClient("<Your API Key>")
-enabled, err := bt.FeatureEnabled("cart_abundant_notification_ab_test_enabled")
+fs := flagsmith.DefaultClient("<Your API Key>")
+enabled, err := fs.FeatureEnabled("cart_abundant_notification_ab_test_enabled")
 if err != nil {
     log.Fatal(err)
 } else {
@@ -59,7 +59,7 @@ if err != nil {
 To get the configuration value for feature flag value:
 
 ```go
-feature_value, err := bt.GetValue("cart_abundant_notification_ab_test")
+feature_value, err := fs.GetValue("cart_abundant_notification_ab_test")
 if err != nil {
     log.Fatal(err)
 } else {
@@ -67,13 +67,12 @@ if err != nil {
 }
 ```
 
-More examples can be found in the
-[Tests](https://github.com/flagsmith/bullet-train-go-client/blob/master/client_test.go)
+More examples can be found in the [Tests](https://github.com/Flagsmith/flagsmith-go-client/blob/main/client_test.go)
 
 ## Override default configuration
 
 By default, client is using default configuration. You can override configuration as follows:
 
 ```go
-bt := bullettrain.NewBulletTrainClient("<Your API Key>", bullettrain.Config{BaseURI: "<Your API URL>"})
+fs := flagsmith.NewClient("<Your API Key>", flagsmith.Config{BaseURI: "<Your API URL>"})
 ```
