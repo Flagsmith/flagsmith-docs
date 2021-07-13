@@ -10,6 +10,12 @@ We have a fairly simple tagging strategy:
 - Git tags (e.g. `2.7.1`) will trigger Docker image builds tagged:
   - v2.7.1
 
+## v2.8
+
+Released **28 July 2021**
+
+- SAML Integration (Enterprise version only)
+
 ## v2.7
 
 Released **5 May 2021**

@@ -168,7 +168,7 @@ If you need additional AppDynamics setup options you can find the other environm
 
 There are [JMeter](https://jmeter.apache.org/) tests avaiable in our public repo on Github:
 
-https://github.com/Flagsmith/flagsmith/tree/master/jmeter-tests
+https://github.com/Flagsmith/flagsmith/tree/main/jmeter-tests
 
 ### wrk
 

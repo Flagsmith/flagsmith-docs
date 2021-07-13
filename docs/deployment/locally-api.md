@@ -57,8 +57,8 @@ When running the application using Docker, it reads the database configuration f
 ## Initialising
 
 The application is built using django which comes with a handy set of admin pages available at `/admin/`. To access
-these, you'll need to create a super user. This user can also be used to access the admin pages or the application 
-itself if you have the frontend application running as well. This user can be created using the instructions below 
+these, you'll need to create a super user. This user can also be used to access the admin pages or the application
+itself if you have the frontend application running as well. This user can be created using the instructions below
 dependent on your installation:
 
 ### Locally
@@ -140,7 +140,7 @@ The application relies on the following environment variables to run:
 
 #### Database Environment Variables
 
-- `DATABASE_URL`: required by develop and master environments, should be a standard format database url e.g.
+- `DATABASE_URL`: required by develop and production environments, should be a standard format database url e.g.
   postgres://user:password@host:port/db_name
 
 You can also provide individual variables as below. Note that if a `DATABASE_URL` is defined, it will take precedent and
@@ -183,9 +183,9 @@ the below variables will be ignored.
 - `SENTRY_TRACE_SAMPLE_RATE`: Float. If using Sentry, sets the trace sample rate. Defaults to 1.0.
 - `DEFAULT_ORG_STORE_TRAITS_VALUE`: Boolean. Set this flag to ensure new organisations default to not persisting traits.
   Useful for data sensitive installations that don't want persistent traits.
-- `OAUTH_CLIENT_ID`: Google OAuth Client ID to enable accessing django admin pages via Google OAuth. See the 
-[Django Admin SSO package](https://pypi.org/project/django-admin-sso/) for information on how to set users up to access 
-the admin pages via SSO. 
+- `OAUTH_CLIENT_ID`: Google OAuth Client ID to enable accessing django admin pages via Google OAuth. See the
+  [Django Admin SSO package](https://pypi.org/project/django-admin-sso/) for information on how to set users up to
+  access the admin pages via SSO.
 - `OAUTH_CLIENT_SECRET`: Google OAuth Secret to enable accessing django admin pages via Google OAuth.
 
 #### Email Environment Variables
@@ -236,12 +236,12 @@ We collect the following data on startup per API server instance:
 
 ### Creating a secret key
 
-It is important to also set an environment variable on whatever platform you are using for `DJANGO_SECRET_KEY`. If one is 
-not set then Django will create one for you each time the application starts up, however, this will cause unexpected 
-behaviour as it is used by Django for encryption of e.g. session tokens, etc. To avoid these issues, please create set the 
-`DJANGO_SECRET_KEY` variable. Django recommends that this key should be at least 50 characters in length, however, it is 
-up to you to configure the key how you wish. Check the `get_random_secret_key()` method in the Django source code if you 
-want more information on what the key should look like. 
+It is important to also set an environment variable on whatever platform you are using for `DJANGO_SECRET_KEY`. If one
+is not set then Django will create one for you each time the application starts up, however, this will cause unexpected
+behaviour as it is used by Django for encryption of e.g. session tokens, etc. To avoid these issues, please create set
+the `DJANGO_SECRET_KEY` variable. Django recommends that this key should be at least 50 characters in length, however,
+it is up to you to configure the key how you wish. Check the `get_random_secret_key()` method in the Django source code
+if you want more information on what the key should look like.
 
 ## Pre commit
 
