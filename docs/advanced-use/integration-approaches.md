@@ -6,6 +6,33 @@ We have put a lot of work into making the Flagsmith API fast, stable, reliable a
 there are some simple techniques that can be used to enhance things further and provide the best experience possible to
 your users.
 
+## SDK Flag endpoints are public
+
+The API endpoints that our SDKs make calls to are all public. Your Environment API key should also be considered public.
+Think if it in the same way you would a Google Analytics key.
+
+## Flags are evaluated Server Side
+
+Flagsmith is different to some other feature flag providers in that we evaluate your flag rules on our server. There are
+some advantages to this approach:
+
+### Segment and Targeting rules are not leaked to the client
+
+If flags are evaluated within the SDK, the entire set of rules for targeting users based on Segments etc need to be sent
+to the client. Given these endpoints are public by default, we think this is a leak of potentially sensitive
+information. We think the best place for your flags to be evaluated is on our server.
+
+### You can get your flags with a single HTTP GET
+
+You don't need to run a set of complicated rule evaluations to get your flags. Just hit our endpoint and you get your
+flags. You won't receive any information on Segments or rollout rules, and this is by design. If you want to run your
+own HTTP client within your application its just a simple HTTP GET and you're good.
+
+### Our SDKs are super-lightweight
+
+We have designed our SDKs with minimal dependencies. Because we don't have to do any rule evaluation on the client, we
+can keep the codebase for our SDKs slimmed down and without a bunch of dependencies you don't want.
+
 ## Sane Defaults
 
 Whether your application is a mobile app or a server side rendered web platform, building with sane and safe flag
