@@ -10,6 +10,18 @@ If you would rather skip the hosting and jump straight to integrating Flagsmith 
 [https://flagsmith.com/](https://flagsmith.com/) right now. We have
 [paid plans with pricing to suit both startups and enterprise customers alike](https://flagsmith.com/pricing).
 
+## Self Hosting Overview
+
+You will need to run through the following steps to get set up:
+
+1. Create a Postgres database to store the Flagsmith data.
+2. Deploy the API and set up DNS for it.
+3. Deploy the Front End Dashboard and set up DNS for it. Point the Dashboard to the API using the relevant Environment
+   Variables.
+4. Create a new Organisation, Project, Environment and Flags via the Dashboard.
+5. When using our SDKs, you will need to override the API URL that they point to, otherwise they will default to connect
+   to our paid-for API at `https://api.flagsmith.com/api/v1`. See the SDK documentation for the library you are using.
+
 ## Deployment Options
 
 We recommend running Flagsmith with Docker. We have options to run within Docker, Kubernetes or RedHat OpenShift.
