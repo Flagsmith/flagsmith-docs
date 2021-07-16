@@ -13,12 +13,12 @@ The source code for the client is available on [Github](https://github.com/flags
 ## Getting Started
 
 ```bash
-go get github.com/flagsmith/flagsmith-go-client
+go get github.com/Flagsmith/flagsmith-go-client
 ```
 
 ```go
 import (
-  "github.com/flagsmith/flagsmith-go-client"
+  "github.com/Flagsmith/flagsmith-go-client"
 )
 ```
 
