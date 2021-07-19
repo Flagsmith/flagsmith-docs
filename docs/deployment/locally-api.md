@@ -43,7 +43,7 @@ The app is configured to use PostgreSQL for all environments.
 When running locally, you'll need a local instance of postgres running. The easiest way to do this is to use docker
 which is achievable with the following command:
 
-`docker run --name local_postgres -d -P postgres`
+`docker-compose -f docker/db.yaml up -d`
 
 You'll also need to ensure that you have a value for POSTGRES_PASSWORD set as an environment variable on your
 development machine.
