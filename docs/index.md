@@ -15,8 +15,8 @@ is Open Source. Host yourself or let us take care of the hosting.
 
 The application consist of 3 components:
 
-1. The [Server-Side REST API](https://github.com/flagsmith/flagsmith/api).
-2. The [Front End Administration Web Interface](https://github.com/flagsmith/flagsmith/frontend).
+1. The [Server-Side REST API](https://github.com/Flagsmith/flagsmith/tree/main/api).
+2. The [Front End Administration Web Interface](https://github.com/Flagsmith/flagsmith/tree/main/frontend).
 3. Client Libraries.
 
 To get up and running, you can either use [https://flagsmith.com/](https://flagsmith.com/) for 1 and 2 above, or you can
