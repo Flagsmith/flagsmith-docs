@@ -24,7 +24,8 @@ You will need to run through the following steps to get set up:
 
 ## Deployment Options
 
-We recommend running Flagsmith with Docker. We have options to run within Docker, Kubernetes or RedHat OpenShift.
+We recommend running Flagsmith with [Docker](/deployment/docker). We have options to run within
+[Docker](/deployment/docker), [Kubernetes](/deployment/kubernetes) or [RedHat OpenShift](/deployment/openshift).
 
 ## Architecture
 

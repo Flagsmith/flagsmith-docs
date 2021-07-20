@@ -305,34 +305,3 @@ To add a new library to the project, edit requirements.in amd then:
 pip-compile requirements.in
 pip install -r requirements.txt
 ```
-
-## Documentation
-
-Further documentation can be found [here](https://docs.flagsmith.com/).
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/kyle-ssg/c36a03aebe492e45cbd3eefb21cb0486) for details on our code
-of conduct, and the process for submitting pull requests to us.
-
-## Getting Help
-
-If you encounter a bug or feature request we would like to hear about it. Before you submit an issue please search
-existing issues in order to prevent duplicates.
-
-## Get in touch
-
-If you have any questions about our projects you can email
-<a href="mailto:support@flagsmith.com">support@flagsmith.com</a>.
-
-## Useful links
-
-[Website](https://www.flagsmith.com)
-
-[Product Roadmap](https://product-hub.io/roadmap/5d81f2406180537538d99f28)
-
-[Documentation](https://docs.flagsmith.com/)
-
-[Code Examples](https://github.com/Flagsmith/flagsmith-train-examples)
-
-[Youtube Tutorials](https://www.youtube.com/channel/UCki7GZrOdZZcsV9rAIRchCw)
