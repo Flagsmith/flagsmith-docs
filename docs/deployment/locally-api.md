@@ -187,6 +187,7 @@ the below variables will be ignored.
   [Django Admin SSO package](https://pypi.org/project/django-admin-sso/) for information on how to set users up to
   access the admin pages via SSO.
 - `OAUTH_CLIENT_SECRET`: Google OAuth Secret to enable accessing django admin pages via Google OAuth.
+- `ENABLE_ADMIN_ACCESS_USER_PASS`: Boolean. Set this flag to enable login to admin panel using username and password.
 
 #### Email Environment Variables
 
@@ -243,6 +244,14 @@ the `DJANGO_SECRET_KEY` variable. Django recommends that this key should be at l
 it is up to you to configure the key how you wish. Check the `get_random_secret_key()` method in the Django source code
 if you want more information on what the key should look like.
 
+## Running Tests
+The application uses pytest for writing(appropritate use of fixtures) and running tests.
+Before running tests please make sure that `DJANGO_SETTINGS_MODULE` env var is pointing to the right module, e.g. `app.settings.test`.
+
+To run tests:
+```bash
+DJANGO_SETTINGS_MODULE=app.settings.test pytest
+```
 ## Pre commit
 
 The application uses pre-commit configuration ( `.pre-commit-config.yaml` ) to run black formatting before commits.
