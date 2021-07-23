@@ -27,7 +27,7 @@ The SDK is initialised against a single environment within a project on [https:/
 for example the Development or Production environment. You can find your environment key in the Environment settings
 page.
 
-<img src="/img/api-key.png"/>
+![API Key](/img/api-key.png)
 
 ## Usage
 
@@ -51,10 +51,10 @@ end
 
 ## Available Options
 
-| Property  |                                            Description                                            | Required |                     Default Value |   Environment Key |
-| --------- | :-----------------------------------------------------------------------------------------------: | -------: | --------------------------------: | ----------------: |
-| `api_key` |  Defines which project environment you wish to get flags for. _example ACME Project - Staging._   |  **YES** |                              null | FLAGSMITH_API_KEY |
-| `url`     | Use this property to define where you're getting feature flags from, e.g. if you're self hosting. |   **NO** | https://api.flagsmith.com/api/v1/ |     FLAGSMITH_URL |
+| Property  |                                            Description                                            | Required |                       Default Value |   Environment Key |
+| --------- | :-----------------------------------------------------------------------------------------------: | -------: | ----------------------------------: | ----------------: |
+| `api_key` |  Defines which project environment you wish to get flags for. _example ACME Project - Staging._   |  **YES** |                                null | FLAGSMITH_API_KEY |
+| `url`     | Use this property to define where you're getting feature flags from, e.g. if you're self hosting. |   **NO** | <https://api.flagsmith.com/api/v1/> |     FLAGSMITH_URL |
 
 ## Available Functions
 

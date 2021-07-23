@@ -52,10 +52,10 @@ flagsmith.get_trait("accept-cookies", "ben@flagsmith.com"))
 
 ### Available Options
 
-| Property         | Description                                                                                       | Required |                     Default Value |
-| ---------------- | :------------------------------------------------------------------------------------------------ | -------: | --------------------------------: |
-| `environment_id` | Defines which project environment you wish to get flags for. _example ACME Project - Staging._    |  **YES** |                              None |
-| `api`            | Use this property to define where you're getting feature flags from, e.g. if you're self hosting. |   **NO** | https://api.flagsmith.com/api/v1/ |
+| Property         | Description                                                                                       | Required |                       Default Value |
+| ---------------- | :------------------------------------------------------------------------------------------------ | -------: | ----------------------------------: |
+| `environment_id` | Defines which project environment you wish to get flags for. _example ACME Project - Staging._    |  **YES** |                                None |
+| `api`            | Use this property to define where you're getting feature flags from, e.g. if you're self hosting. |   **NO** | <https://api.flagsmith.com/api/v1/> |
 
 ### Available Functions
 

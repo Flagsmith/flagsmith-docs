@@ -53,12 +53,12 @@ flagsmith.getValue('header').then((value) => {
 
 ## Available Options
 
-| Property        |                                            Description                                            | Required |                    Default Value |
-| --------------- | :-----------------------------------------------------------------------------------------------: | -------: | -------------------------------: |
-| `environmentID` |  Defines which project environment you wish to get flags for. _example ACME Project - Staging._   |  **YES** |                             null |
-| `onError`       |                 Callback function on failure to retrieve flags. `(error)=>{...}`                  |   **NO** |                             null |
-| `api`           | Use this property to define where you're getting feature flags from, e.g. if you're self hosting. |   **NO** | https://api.flagsmith.com/api/v1 |
-| `cache`         |  Defines an object containing 3 functions (`has(k)`, `get(k)`, `set(k,v)`) to cache API results   |   **NO** |                             null |
+| Property        |                                            Description                                            | Required |                      Default Value |
+| --------------- | :-----------------------------------------------------------------------------------------------: | -------: | ---------------------------------: |
+| `environmentID` |  Defines which project environment you wish to get flags for. _example ACME Project - Staging._   |  **YES** |                               null |
+| `onError`       |                 Callback function on failure to retrieve flags. `(error)=>{...}`                  |   **NO** |                               null |
+| `api`           | Use this property to define where you're getting feature flags from, e.g. if you're self hosting. |   **NO** | <https://api.flagsmith.com/api/v1> |
+| `cache`         |  Defines an object containing 3 functions (`has(k)`, `get(k)`, `set(k,v)`) to cache API results   |   **NO** |                               null |
 
 ## Available Functions
 
