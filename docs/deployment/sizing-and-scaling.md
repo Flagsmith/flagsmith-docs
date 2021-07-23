@@ -1,7 +1,7 @@
 ---
 title: Sizing and Scaling
 description: Sizing and Scaling Flagsmith
-sidebar_position: 6
+sidebar_position: 8
 ---
 
 ## Overview
@@ -15,7 +15,14 @@ require sticky-sessions.
 
 ## API
 
-The API is completely stateless. This means it can scale out behind a load balancer almost perfectly.
+The API is completely stateless. This means it can scale out behind a load balancer almost perfectly. As an example,
+when running on AWS ECS/Fargate we run with:
+
+- `cpu=1024`
+- `memory=2048`
+
+In terms of auto scaling, we recommend basing the autoscaling off the `ECSServiceAverageCPUUtilization` metric, with a
+`target_value` of `50` and a 30 second cool-down timeout.
 
 ## Database
 
