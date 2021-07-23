@@ -29,5 +29,5 @@ We run in production on PostgreSQL version `11`; Aurora release `3.x`.
 
 We direct all traffic through an AWS ALB to the relevant ECS service. We run with two domains:
 
-- api.<domain>
-- app.<domain>
+- **api**.domain.com
+- **app**.domain.com
