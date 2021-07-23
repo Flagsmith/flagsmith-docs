@@ -246,7 +246,7 @@ if you want more information on what the key should look like.
 
 ## Running Tests
 The application uses pytest for writing(appropritate use of fixtures) and running tests.
-Before running tests please make sure that `DJANGO_SETTINGS_MODULE` env var is pointing to the right module.
+Before running tests please make sure that `DJANGO_SETTINGS_MODULE` env var is pointing to the right module, e.g. `app.settings.test`.
 
 To run tests:
 ```bash
