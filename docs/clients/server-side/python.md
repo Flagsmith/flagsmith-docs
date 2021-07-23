@@ -18,7 +18,7 @@ purposes. See running in production for notes on how to deploy the project on a 
 ### VIA pip
 
 ```bash
-pip install bullet-train
+pip install flagsmith
 ```
 
 ## Basic Usage
@@ -27,35 +27,35 @@ The SDK is initialised against a single environment within a project on [https:/
 for example the Development or Production environment. You can find your environment key in the Environment settings
 page.
 
-<img src="/img/api-key.png"/>
+![API Key](/img/api-key.png)
 
 ## Usage
 
 ### Retrieving feature flags for your project
 
 ```python
-from bullet_train import BulletTrain;
+from flagsmith import Flagsmith
 
-bt = BulletTrain(environment_id="<YOUR_ENVIRONMENT_KEY>")
+flagsmith = Flagsmith(environment_id="<YOUR_ENVIRONMENT_KEY>")
 
-if bt.has_feature("header"):
-  if bt.feature_enabled("header"):
+if flagsmith.has_feature("header"):
+  if flagsmith.feature_enabled("header"):
     # Show my awesome cool new feature to the world
 
-value = bt.get_value("header", '<My User Id>')
+value = flagsmith.get_value("header", '<My User Id>')
 
-value = bt.get_value("header")
+value = flagsmith.get_value("header")
 
-bt.set_trait("accept-cookies", "true", "ben@bullet-train.io"))
-bt.get_trait("accept-cookies", "ben@bullet-train.io"))
+flagsmith.set_trait("accept-cookies", "true", "ben@flagsmith.com"))
+flagsmith.get_trait("accept-cookies", "ben@flagsmith.com"))
 ```
 
 ### Available Options
 
-| Property         | Description                                                                                       | Required |                    Default Value |
-| ---------------- | :------------------------------------------------------------------------------------------------ | -------: | -------------------------------: |
-| `environment_id` | Defines which project environment you wish to get flags for. _example ACME Project - Staging._    |  **YES** |                             None |
-| `api`            | Use this property to define where you're getting feature flags from, e.g. if you're self hosting. |   **NO** | https://api.bullet-train.io/api/ |
+| Property         | Description                                                                                       | Required |                  Default Value |
+| ---------------- | :------------------------------------------------------------------------------------------------ | -------: | -----------------------------: |
+| `environment_id` | Defines which project environment you wish to get flags for. _example ACME Project - Staging._    |  **YES** |                           None |
+| `api`            | Use this property to define where you're getting feature flags from, e.g. if you're self hosting. |   **NO** | https://api.flagsmith.com/api/ |
 
 ### Available Functions
 
@@ -73,19 +73,19 @@ bt.get_trait("accept-cookies", "ben@bullet-train.io"))
 
 ### Identifying users
 
-Identifying users allows you to target specific users from the [Bullet Train dashboard](https://www.bullet-train.io/).
-You can include an optional user identifier as part of the `has_feature` and `get_value` methods to retrieve unique user
-flags and variables.
+Identifying users allows you to target specific users from the [Flagsmith dashboard](https://flagsmith.com/). You can
+include an optional user identifier as part of the `has_feature` and `get_value` methods to retrieve unique user flags
+and variables.
 
 ### Flags data structure
 
-| Field               | Description                            | Type                                                                                |
-| ------------------- | -------------------------------------- | ----------------------------------------------------------------------------------- |
-| id                  | Internal id of feature state           | Integer                                                                             |
-| enabled             | Whether feature is enabled or not      | Boolean                                                                             |
-| environment         | Internal ID of environment             | Integer                                                                             |
-| feature_state_value | Value of the feature                   | Any - determined based on data input on [bullet-train.io](https://bullet-train.io). |
-| feature             | Feature object - see below for details | Object                                                                              |
+| Field               | Description                            | Type                                                                            |
+| ------------------- | -------------------------------------- | ------------------------------------------------------------------------------- |
+| id                  | Internal id of feature state           | Integer                                                                         |
+| enabled             | Whether feature is enabled or not      | Boolean                                                                         |
+| environment         | Internal ID of environment             | Integer                                                                         |
+| feature_state_value | Value of the feature                   | Any - determined based on data input on [flagsmith.com](https://flagsmith.com). |
+| feature             | Feature object - see below for details | Object                                                                          |
 
 ### Feature data structure
 
