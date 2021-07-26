@@ -177,7 +177,7 @@ By default, Flagsmith uses InfluxDB to store time series data. Currently this is
 - SDK API traffic
 - SDK Flag Evaluations
 
-[Setting up InfluxDB is discussed in more detail in the Docs](https://docs.flagsmith.com/deployment-overview/#influxdb).
+[Setting up InfluxDB is discussed in more detail in the Docs](/deployment/overview#influxdb).
 
 ## Configuration
 
