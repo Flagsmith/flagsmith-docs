@@ -38,7 +38,7 @@ Dashboard Front End Web App.
 
 Running the API has the following hard dependencies:
 
-- Postgres database - the main data store
+- Postgres database(We have tested it for 11.12 but it can work for other versions too) - the main data store
 
 The API can also optionally make use of the following 3rd party services:
 
