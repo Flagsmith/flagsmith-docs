@@ -16,6 +16,18 @@ docker-compose up
 Wait for the images to download and run, then visit `http://localhost:8080/`. As a first step, you will need to create a
 new account at [http://localhost:8080/signup](http://localhost:8080/signup)
 
+## Environment Variables
+
+As well as the Environment Variables specified in the [API](/deployment/locally-api#environment-variables) and
+[Front End](https://docs.flagsmith.com/deployment/locally-frontend#environment-variables) you can also specify the
+following:
+
+- `GUNICORN_WORKERS`: The number of [Gunicorn Workers](https://docs.gunicorn.org/en/stable/settings.html#workers) that
+  are created
+- `GUNICORN_THREADS`: The number of
+  [Gunicorn Threads per Worker](https://docs.gunicorn.org/en/stable/settings.html#threads)
+- `ACCESS_LOG_LOCATION`: The location to write access logs to
+
 ## Architecture
 
 The docker-compose file runs the following containers:
