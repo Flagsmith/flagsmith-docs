@@ -10,6 +10,8 @@ flags and remote config across multiple projects, environments and organisations
 
 The source code for the client is available on [Github](https://github.com/flagsmith/flagsmith-rust-client).
 
+The client SDK is published to [Crates](https://crates.io/crates/flagsmith)
+
 ## Basic Usage
 
 The SDK is initialised against a single environment within a project on [https://flagsmith.com](https://flagsmith.com),
