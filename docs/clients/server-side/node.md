@@ -128,7 +128,8 @@ flagsmith.init({
    }),
   set: (key, value) =>
    new Promise((resolve) => {
-    redisClient.set(key, JSON.stringify(value), (err, reply) => {
+    // Expire the key after 60 seconds
+    redisClient.set(key, JSON.stringify(value), 'EX', 60, (err, reply) => {
      console.log('set ' + key + ' to cache', err);
      resolve();
     });
