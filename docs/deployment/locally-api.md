@@ -19,6 +19,15 @@ python manage.py migrate
 python manage.py runserver
 ```
 
+You can now visit `http://<your-server-domain:8000>/api/v1/users/config/init/` to create an initial Superuser and
+provide DNS settings for your installation.
+
+If you want to load some sample data into your database:
+
+```bash
+python manage.py loaddata app/fixtures/init_data.yaml
+```
+
 Note: if you're running on on MacOS and you find some issues installing the dependencies (specifically around pyre2),
 you may need to run the following:
 
@@ -245,13 +254,16 @@ it is up to you to configure the key how you wish. Check the `get_random_secret_
 if you want more information on what the key should look like.
 
 ## Running Tests
-The application uses pytest for writing(appropritate use of fixtures) and running tests.
-Before running tests please make sure that `DJANGO_SETTINGS_MODULE` env var is pointing to the right module, e.g. `app.settings.test`.
+
+The application uses pytest for writing(appropritate use of fixtures) and running tests. Before running tests please
+make sure that `DJANGO_SETTINGS_MODULE` env var is pointing to the right module, e.g. `app.settings.test`.
 
 To run tests:
+
 ```bash
 DJANGO_SETTINGS_MODULE=app.settings.test pytest
 ```
+
 ## Pre commit
 
 The application uses pre-commit configuration ( `.pre-commit-config.yaml` ) to run black formatting before commits.
