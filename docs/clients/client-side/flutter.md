@@ -23,7 +23,7 @@ The SDK is initialised against a single environment within a project on [https:/
 for example the Development or Production environment. You can find your environment key in the Environment settings
 page.
 
-<img src="/img/api-key.png"/>
+![Image](/img/api-key.png)
 
 ### Retrieving feature flags for your project
 

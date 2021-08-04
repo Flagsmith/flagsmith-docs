@@ -58,7 +58,7 @@ In order to perform the A/B Test, we need to complete the following steps:
 
 Here is what creating the Flag would look like.
 
-<img src="/img/ab-test-paypal-example.png" width="100%"/>
+![Image](/img/ab-test-paypal-example.png)
 
 ## Evaluating the Test
 

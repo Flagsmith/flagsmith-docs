@@ -39,7 +39,7 @@ The SDK is initialised against a single environment within a project on [https:/
 for example the Development or Production environment. You can find your environment key in the Environment settings
 page.
 
-<img src="/img/api-key.png"/>
+![Image](/img/api-key.png)
 
 ### Example: Initialising the SDK
 
@@ -77,7 +77,7 @@ Identifying users allows you to target specific users from the Flagsmith dashboa
 You can call this before or after you initialise the project, calling it after will re-fetch features from the API.
 
 User features can be managed by navigating to users on [https://flagsmith.com](https://flagsmith.com) for your desired
-project. <img src="/img/user-features.png"/>
+project. ![Image](/img/user-features.png)
 
 ### Example: Initialising the SDK and identifying as a user
 

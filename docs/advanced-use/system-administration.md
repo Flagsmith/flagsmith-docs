@@ -7,7 +7,7 @@ title: System Administration
 You can use the Web Hooks to send events from Flagsmith into your own infrastructure. Web Hooks are managed at an
 Environment level, and can be configured in the Environment settings page.
 
-<img src="/img/add-webhook.png"/>
+![Image](/img/add-webhook.png)
 
 Currently the following events will generate a Web Hook action:
 

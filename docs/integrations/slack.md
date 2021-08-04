@@ -5,7 +5,7 @@ sidebar_label: Slack
 hide_title: true
 ---
 
-<img src="/img/integrations/slack/slack-logo.svg"/>
+![Image](/img/integrations/slack/slack-logo.svg)
 
 :::note
 

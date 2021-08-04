@@ -24,7 +24,7 @@ You can achieve staged rollouts by creating a [Segment](/basic-features/managing
 with the "% Split" condition. Specifying a "% Split" value between 1 and 100 then defines what percentage of your user
 base are included within this Segment.
 
-<img src="/img/percent-rollout.png"/>
+![Image](/img/percent-rollout.png)
 
 Once you have created the Segment, you can then go ahead and connect it up to a Feature Flag as per regular
 [Segments](/basic-features/managing-segments.md).

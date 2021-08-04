@@ -15,7 +15,7 @@ Flag Analytics allow you to track how often individual Flags are evaluated withi
 To view Analytics for a particular flag, browse to the relevant environment and click on a single flag to edit that
 flag.
 
-<img src="/img/flag-analytics.png" width="90%"/>
+![Image](/img/flag-analytics.png)
 
 Flag Analytics can be really useful when removing flags from Flagsmith. More often than not, flags can be removed from
 your codebase and platform once they have been rolled out and everyone is comfortable with them running in production.

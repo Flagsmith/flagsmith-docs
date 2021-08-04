@@ -21,14 +21,14 @@ greatly benefits Continuous Integration and Continuous Deployment (CI/CD). The t
 6. If everything is working as intended, simply flip the "sharing_button" flag to True for everyone in your production
    environment, and your feature is rolled out.
 
-If you want to learn more about Feature Flags,
-[Flickr wrote the seminal blog post on it in 2009.](https://code.flickr.net/2009/12/02/flipping-out/)
+If you want to learn more about Feature Flags, [Flickr wrote the seminal blog post on it in
+2009.png)(https://code.flickr.net/2009/12/02/flipping-out/)
 
 ## Flagsmith Model
 
 Here's a high level overview of the data model for Flagsmith. Fear not - it's not as complex as it looks!
 
-<img src="/img/flagsmith-model.svg" width="100%"/>
+![Image](/img/flagsmith-model.svg)
 
 OK let's break this down.
 

@@ -5,7 +5,7 @@ sidebar_label: New Relic
 hide_title: true
 ---
 
-<img src="/img/integrations/newrelic/newrelic-logo.svg"/>
+![Image](/img/integrations/newrelic/newrelic-logo.svg)
 
 You can integrate Flagsmith with New Relic. Send flag change events from Flagsmith into your New Relic event stream.
 
