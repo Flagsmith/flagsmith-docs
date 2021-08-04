@@ -20,11 +20,18 @@ Amplitude. The process is as follows:
 
 ## How it Works
 
+:::tip
+
+For flags that contain remote config values, Flagsmith will pass the value of the flag to Amplitude if the flag is
+`enabled`. If the flag has no remote config value, Flagsmith will just pass the boolean state for the flag.
+
+:::
+
 Identity flag values are passed into Amplitude.
 
 Here's a demo user in Flagsmith:
 
-<img src="/img/integrations/amplitude/amplitude-integration-2.png"/>
+![Amplitude](/img/integrations/amplitude/amplitude-integration-2.png)
 
 If we make the call to the Flagsmith API to get the flags for this user:
 
@@ -36,7 +43,7 @@ curl 'https://api.flagsmith.com/api/v1/identities/?identifier=development_user_1
 And then take a look in our Amplitude dashboard, you can see the user and the flag data that has been sent to the
 Amplitude platform.
 
-<img src="/img/integrations/amplitude/amplitude-integration-1.png"/>
+![Amplitude](/img/integrations/amplitude/amplitude-integration-1.png)
 
 ## Use Case
 

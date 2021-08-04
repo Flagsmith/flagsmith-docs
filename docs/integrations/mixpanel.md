@@ -5,7 +5,7 @@ sidebar_label: Mixpanel
 hide_title: true
 ---
 
-<img src="/img/integrations/mixpanel/mixpanel-logo.svg"/>
+![Mixpanel](/img/integrations/mixpanel/mixpanel-logo.svg)
 
 You can integrate Flagsmith with Mixpanel. The integration automatically sends the flag states for identified users into
 Mixpanel for cohort analysis, A/B testing and more. The process is as follows:
@@ -21,11 +21,18 @@ Mixpanel for cohort analysis, A/B testing and more. The process is as follows:
 
 ## How it Works
 
+:::tip
+
+For flags that contain remote config values, Flagsmith will pass the value of the flag to Mixpanel if the flag is
+`enabled`. If the flag has no remote config value, Flagsmith will just pass the boolean state for the flag.
+
+:::
+
 Identity flag values are passed into Mixpanel.
 
 Here's a demo user in Flagsmith:
 
-<img src="/img/integrations/mixpanel/mixpanel-integration-2.png"/>
+![Mixpanel](/img/integrations/mixpanel/mixpanel-integration-2.png)
 
 If we make the call to the Flagsmith API to get the flags for this user:
 
@@ -37,7 +44,7 @@ curl 'https://api.flagsmith.com/api/v1/identities/?identifier=development_user_1
 And then take a look in our Mixpanel dashboard, you can see the user and the flag data that has been sent to the
 Mixpanel platform.
 
-<img src="/img/integrations/mixpanel/mixpanel-integration-1.png"/>
+![Mixpanel](/img/integrations/mixpanel/mixpanel-integration-1.png)
 
 ## Use Case
 

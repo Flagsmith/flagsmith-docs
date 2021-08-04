@@ -19,11 +19,18 @@ users into Heap for cohort analysis, A/B testing and more. The process is as fol
 
 ## How it Works
 
+:::tip
+
+For flags that contain remote config values, Flagsmith will pass the value of the flag to Heap if the flag is `enabled`.
+If the flag has no remote config value, Flagsmith will just pass the boolean state for the flag.
+
+:::
+
 Identity flag values are passed into Heap.
 
 Here's a demo user in Flagsmith:
 
-<img src="/img/integrations/heap/heap-integration-2.png"/>
+![Heap Analytics](/img/integrations/heap/heap-integration-2.png)
 
 If we make the call to the Flagsmith API to get the flags for this user:
 
@@ -35,7 +42,7 @@ curl 'https://api.flagsmith.com/api/v1/identities/?identifier=development_user_1
 And then take a look in our Heap dashboard, you can see the user and the flag data that has been sent to the Heap
 platform.
 
-<img src="/img/integrations/heap/heap-integration-1.png"/>
+![Heap Analytics](/img/integrations/heap/heap-integration-1.png)
 
 ## Use Case
 
