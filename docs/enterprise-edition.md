@@ -79,11 +79,10 @@ docker pull 084060095745.dkr.ecr.eu-west-2.amazonaws.com/flagsmith-api-ee:latest
 
 ### Frontend Environment Variables
 
-Env Var: **API_URL** Value example: http://localhost:8888/api/v1 Description: The URL of the API Backend
-
-Env Var: **FLAGSMITH_CLIENT_API** Value example: http://localhost:8888/api/v1 Description: This is where the features
-for the front end themselves are pulled from. Create a project within your backend and refer to flag names
-[here](https://gist.github.com/kyle-ssg/55f3b869c28bdd13c02c6688bc76c67f).
+| Variable                 | Example Value                | Description                                                                                                                           |
+| ------------------------ | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| **API_URL**              | http://localhost:8888/api/v1 | The URL of the API Backend                                                                                                            |
+| **FLAGSMITH_CLIENT_API** | http://localhost:8888/api/v1 | This is where the features for the front end themselves are pulled from. Create a project within your backend and refer to flag names |
 
 Env Var: **FLAGSMITH** Value example: 4vfqhypYjcPoGGu8ByrBaj Description: The `environment id` for the
 `FLAGSMITH_CLIENT_API` project above.
