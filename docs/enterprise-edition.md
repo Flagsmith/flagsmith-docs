@@ -164,7 +164,7 @@ If you need additional AppDynamics setup options you can find the other environm
 ### Oracle Database
 
 Flagsmith is compatible with the Oracle database engine by configuring a few environment variables
-correctly. Firstly, you'll need to ensure that you have a value for DJANGO_DB_ENGINE set as `oracle`.
+correctly. Firstly, you'll need to ensure that you have a value for `DJANGO_DB_ENGINE` set as `oracle`.
 Then you can set the remaining database parameters (`DJANGO_DB_*`) as required. 
 
 #### Local Testing
