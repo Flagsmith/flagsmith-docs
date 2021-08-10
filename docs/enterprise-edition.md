@@ -89,6 +89,20 @@ Env Var: **FLAGSMITH** Value example: 4vfqhypYjcPoGGu8ByrBaj Description: The `e
 
 ### Backend Environment Variables
 
+
+| Variable                              | Example Value                                      | Description                                                               | Default Value                                              |
+| ------------------------------------- | ----------------------------                       | ------------------------------------------------------------------------  | ---------------------------------------------------------- |
+| **LDAP_AUTH_URL**                     | ldap://localhost:389                               | The URL of the LDAP server                                                | None                                                       |
+| **LDAP_AUTH_USE_TLS**                 | False                                              | Setting this to true will initiate TLS on connection                      | False                                                      |
+| **LDAP_AUTH_SEARCH_BASE**             | ou=people,dc=example,dc=com                        | The LDAP search base for looking up users                                 | ou=people,dc=example,dc=com                                |
+| **LDAP_AUTH_OBJECT_CLASS**            | inetOrgPerson                                      | The LDAP class that represents a user                                     | inetOrgPerson                                              |
+| **LDAP_AUTH_USER_FIELDS**             | username=uid,email=email                           | User model fields mapped to the LDAP attributes that represent them.      | username=uid,email=email,first_name=givenName,last_name=sn |
+| **LDAP_AUTH_ACTIVE_DIRECTORY_DOMAIN** | DOMAIN                                             | Sets the login domain for Active Directory users.                         | None                                                       |
+| **LDAP_AUTH_CONNECT_TIMEOUT**         | 60                                                 | Set connection timeouts (in seconds) on the underlying `ldap3` library.   | None                                                       |
+| **LDAP_AUTH_RECEIVE_TIMEOUT**         | 60                                                 | Set receive timeouts (in seconds) on the underlying `ldap3` library.      | None                                                       |
+| **LDAP_AUTH_FORMAT_USERNAME**         | django_python3_ldap.utils.format_username_openldap | Path to a callable used to format the username to bind to the LDAP server | django_python3_ldap.utils.format_username_openldap         |
+
+
 ### Version Tags
 
 The versions of the `flagsmith-api-ee` track the versions of our Open Source version. You can view these tags here:
@@ -229,6 +243,39 @@ can currently only be done via the Django admin console.
 When running the application locally, you will also need [xmlsec1](https://command-not-found.com/xmlsec1) installed. 
 
 :::
+
+### LDAP Authentication
+The application can be configured to use LDAP based authentication backend using [environment variables](#backend-environment-variables).
+When enabled - it works by authenticating the user with username and password using the ldap sever(if the user does not exists locally)
+Fetching the user details from the ldap server(if the authentication was successful) and creating the user in the Django database.
+
+:::note
+
+#### Microsoft Active Directory support
+LDAP is configured by default to support login via OpenLDAP. To connect to a Microsoft Active Directory, you need to modify following enviroment variables
+
+For simple usernames (e.g. "username"):
+
+LDAP_AUTH_FORMAT_USERNAME="django_python3_ldap.utils.format_username_active_directory"
+
+For down-level login name formats (e.g. "DOMAIN\username"):
+
+LDAP_AUTH_FORMAT_USERNAME="django_python3_ldap.utils.format_username_active_directory"
+LDAP_AUTH_ACTIVE_DIRECTORY_DOMAIN="DOMAIN"
+
+
+For user-principal-name formats (e.g. "user@domain.com"):
+
+LDAP_AUTH_FORMAT_USERNAME="django_python3_ldap.utils.format_username_active_directory_principal"
+LDAP_AUTH_ACTIVE_DIRECTORY_DOMAIN="domain.com"
+
+Depending on how your Active Directory server is configured, the following additional settings may match your server better than the defaults used by django-python3-ldap:
+
+LDAP_AUTH_USER_FIELDS=username=sAMAccountName,email=mail,first_name=givenName,last_name=sn
+LDAP_AUTH_OBJECT_CLASS="user"
+
+:::
+
 
 ## Load testing
 
