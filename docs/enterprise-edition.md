@@ -89,6 +89,18 @@ Env Var: **FLAGSMITH** Value example: 4vfqhypYjcPoGGu8ByrBaj Description: The `e
 
 ### Backend Environment Variables
 
+| Variable                              | Example Value                                      | Description                                                               | Default Value                                              |
+| ------------------------------------- | -------------------------------------------------- | ------------------------------------------------------------------------- | ---------------------------------------------------------- |
+| **LDAP_AUTH_URL**                     | ldap://localhost:389                               | The URL of the LDAP server                                                | None                                                       |
+| **LDAP_AUTH_USE_TLS**                 | False                                              | Setting this to true will initiate TLS on connection                      | False                                                      |
+| **LDAP_AUTH_SEARCH_BASE**             | ou=people,dc=example,dc=com                        | The LDAP search base for looking up users                                 | ou=people,dc=example,dc=com                                |
+| **LDAP_AUTH_OBJECT_CLASS**            | inetOrgPerson                                      | The LDAP class that represents a user                                     | inetOrgPerson                                              |
+| **LDAP_AUTH_USER_FIELDS**             | username=uid,email=email                           | User model fields mapped to the LDAP attributes that represent them.      | username=uid,email=email,first_name=givenName,last_name=sn |
+| **LDAP_AUTH_ACTIVE_DIRECTORY_DOMAIN** | DOMAIN                                             | Sets the login domain for Active Directory users.                         | None                                                       |
+| **LDAP_AUTH_CONNECT_TIMEOUT**         | 60                                                 | Set connection timeouts (in seconds) on the underlying `ldap3` library.   | None                                                       |
+| **LDAP_AUTH_RECEIVE_TIMEOUT**         | 60                                                 | Set receive timeouts (in seconds) on the underlying `ldap3` library.      | None                                                       |
+| **LDAP_AUTH_FORMAT_USERNAME**         | django_python3_ldap.utils.format_username_openldap | Path to a callable used to format the username to bind to the LDAP server | django_python3_ldap.utils.format_username_openldap         |
+
 ### Version Tags
 
 The versions of the `flagsmith-api-ee` track the versions of our Open Source version. You can view these tags here:
@@ -163,52 +175,55 @@ If you need additional AppDynamics setup options you can find the other environm
 
 ### Oracle Database
 
-Flagsmith is compatible with the Oracle database engine by configuring a few environment variables
-correctly. Firstly, you'll need to ensure that you have a value for `DJANGO_DB_ENGINE` set as `oracle`.
-Then you can set the remaining database parameters (`DJANGO_DB_*`) as required. 
+Flagsmith is compatible with the Oracle database engine by configuring a few environment variables correctly. Firstly,
+you'll need to ensure that you have a value for `DJANGO_DB_ENGINE` set as `oracle`. Then you can set the remaining
+database parameters (`DJANGO_DB_*`) as required.
 
 #### Local Testing
 
-The following sections detail how to run the application locally using the OracleDB Docker image. If 
-you're looking to run the application using an instance of OracleDB elsewhere, you just need to setup
-the environment variables correctly as per the documentation. 
+The following sections detail how to run the application locally using the OracleDB Docker image. If you're looking to
+run the application using an instance of OracleDB elsewhere, you just need to setup the environment variables correctly
+as per the documentation.
 
 :::note
 
 **Prerequisites**
 
 You will likely need to install the Oracle client on the machine running the Flagsmith API  
-application. The instructions to do so are [here](https://cx-oracle.readthedocs.io/en/latest/user_guide/installation.html).
+application. The instructions to do so are
+[here](https://cx-oracle.readthedocs.io/en/latest/user_guide/installation.html).
 
 :::
 
-To run the application locally using Oracle (via Docker), you need to go through a registration with your docker hub 
+To run the application locally using Oracle (via Docker), you need to go through a registration with your docker hub
 account to get access to the images. Go to https://hub.docker.com/_/oracle-database-enterprise-edition and register.
-Once you've done that, you can run the Oracle database using docker, and we've created a docker-compose
-file to simplify this. 
+Once you've done that, you can run the Oracle database using docker, and we've created a docker-compose file to simplify
+this.
 
-```
+```bash
 docker-compose -f docker-compose.oracle.yml up db
 ```
 
-Once you have a database running, you'll need to set up the database and users correctly. This can be done
-with the following processes. 
+Once you have a database running, you'll need to set up the database and users correctly. This can be done with the
+following processes.
 
 First, connect to the database itself:
 
 ```bash
 sqlplus /nolog
 ```
+
 OR
+
 ```bash
 docker-compose exec db bash -c "source /home/oracle/.bashrc; sqlplus /nolog"
 ```
 
-Once connected, you'll need to run the following SQL commands. Note that these commands should be 
-amended if you'd like a different password / user combination.
+Once connected, you'll need to run the following SQL commands. Note that these commands should be amended if you'd like
+a different password / user combination.
 
 ```sql
-conn sys as sysdba; 
+conn sys as sysdba;
 # password is blank when asked
 alter session set "_ORACLE_SCRIPT"=true;
 create user oracle_user identified by oracle_password;
@@ -219,16 +234,59 @@ GRANT EXECUTE ON SYS.DBMS_RANDOM TO oracle_user;
 
 ### SAML Authentication
 
-The application can be run using SAML2 as an authentication backend. You should not need any additional configuration
-on the startup of the application to use SAML2, however, once the application is running, you will need to create the
-relevant configuration entities for any organisations on your installation that require SAML2 authentication. This
-can currently only be done via the Django admin console. 
+The application can be run using SAML2 as an authentication backend. You should not need any additional configuration on
+the startup of the application to use SAML2, however, once the application is running, you will need to create the
+relevant configuration entities for any organisations on your installation that require SAML2 authentication. This can
+currently only be done via the Django admin console.
 
 :::note
 
-When running the application locally, you will also need [xmlsec1](https://command-not-found.com/xmlsec1) installed. 
+When running the application locally, you will also need [xmlsec1](https://command-not-found.com/xmlsec1) installed.
 
 :::
+
+### LDAP Authentication
+
+The application can be configured to use an LDAP based authentication backend using
+[environment variables](#backend-environment-variables). When enabled, it works by authenticating the user with username
+and password using the ldap server, fetching the user details from the LDAP server (if the authentication was
+successful) and creating the user in the Django database.
+
+:::note
+
+#### Microsoft Active Directory support
+
+LDAP is configured by default to support login via OpenLDAP. To connect to a Microsoft Active Directory, you need to
+modify following environment variables.
+
+:::
+
+For simple usernames (e.g. "username"):
+
+```txt
+LDAP_AUTH_FORMAT_USERNAME="django_python3_ldap.utils.format_username_active_directory"
+```
+
+For down-level login name formats (e.g. "DOMAIN\username"):
+
+```txt
+LDAP_AUTH_FORMAT_USERNAME="django_python3_ldap.utils.format_username_active_directory"
+LDAP_AUTH_ACTIVE_DIRECTORY_DOMAIN="DOMAIN"
+```
+
+For user-principal-name formats (e.g. "user@domain.com"):
+
+```txt
+LDAP_AUTH_FORMAT_USERNAME="django_python3_ldap.utils.format_username_active_directory_principal"
+LDAP_AUTH_ACTIVE_DIRECTORY_DOMAIN="domain.com"
+```
+
+Depending on how your Active Directory server is configured, the following additional settings may match your server
+better than the defaults used by django-python3-ldap:
+
+```txt
+LDAP_AUTH_USER_FIELDS=username=sAMAccountName,email=mail,first_name=givenName,last_name=sn LDAP_AUTH_OBJECT_CLASS="user"
+```
 
 ## Load testing
 
