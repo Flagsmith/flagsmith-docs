@@ -246,7 +246,7 @@ When running the application locally, you will also need [xmlsec1](https://comma
 
 ### LDAP Authentication
 The application can be configured to use LDAP based authentication backend using [environment variables](#backend-environment-variables).
-When enabled - it works by authenticating the user with username and password using the ldap sever(if the user does not exists locally)
+When enabled - it works by authenticating the user with username and password using the ldap server,
 Fetching the user details from the ldap server(if the authentication was successful) and creating the user in the Django database.
 
 :::note
