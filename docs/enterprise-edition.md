@@ -161,6 +161,75 @@ docker-compose -f docker-compose.yml up
 If you need additional AppDynamics setup options you can find the other environment variables you can set
 [here](https://docs.appdynamics.com/display/PRO21/Python+Agent+Settings).
 
+### Oracle Database
+
+Flagsmith is compatible with the Oracle database engine by configuring a few environment variables
+correctly. Firstly, you'll need to ensure that you have a value for DJANGO_DB_ENGINE set as `oracle`.
+Then you can set the remaining database parameters (`DJANGO_DB_*`) as required. 
+
+#### Local Testing
+
+The following sections detail how to run the application locally using the OracleDB Docker image. If 
+you're looking to run the application using an instance of OracleDB elsewhere, you just need to setup
+the environment variables correctly as per the documentation. 
+
+:::note
+
+**Prerequisites**
+
+You will likely need to install the Oracle client on the machine running the Flagsmith API  
+application. The instructions to do so are [here](https://cx-oracle.readthedocs.io/en/latest/user_guide/installation.html).
+
+:::
+
+To run the application locally using Oracle (via Docker), you need to go through a registration with your docker hub 
+account to get access to the images. Go to https://hub.docker.com/_/oracle-database-enterprise-edition and register.
+Once you've done that, you can run the Oracle database using docker, and we've created a docker-compose
+file to simplify this. 
+
+```
+docker-compose -f docker-compose.oracle.yml up db
+```
+
+Once you have a database running, you'll need to set up the database and users correctly. This can be done
+with the following processes. 
+
+First, connect to the database itself:
+
+```bash
+sqlplus /nolog
+```
+OR
+```bash
+docker-compose exec db bash -c "source /home/oracle/.bashrc; sqlplus /nolog"
+```
+
+Once connected, you'll need to run the following SQL commands. Note that these commands should be 
+amended if you'd like a different password / user combination.
+
+```sql
+conn sys as sysdba; 
+# password is blank when asked
+alter session set "_ORACLE_SCRIPT"=true;
+create user oracle_user identified by oracle_password;
+grant dba to oracle_user;
+GRANT EXECUTE ON SYS.DBMS_LOB TO oracle_user;
+GRANT EXECUTE ON SYS.DBMS_RANDOM TO oracle_user;
+```
+
+### SAML Authentication
+
+The application can be run using SAML2 as an authentication backend. You should not need any additional configuration
+on the startup of the application to use SAML2, however, once the application is running, you will need to create the
+relevant configuration entities for any organisations on your installation that require SAML2 authentication. This
+can currently only be done via the Django admin console. 
+
+:::note
+
+When running the application locally, you will also need [xmlsec1](https://command-not-found.com/xmlsec1) installed. 
+
+:::
+
 ## Load testing
 
 ### JMeter
