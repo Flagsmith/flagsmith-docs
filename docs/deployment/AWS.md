@@ -21,6 +21,9 @@ We recommend run 2 docker containers: one for the API and the other for the Dash
 We run two ECS services, 1 for each container. We strongly recommend running the API with at least two Fargate instances
 running for failover. For more info on Fargate sizes, see our [scaling page](/deployment/sizing-and-scaling).
 
+If you are using health-checks, make sure to use `/health` as the health-check endpoint for both the API and the Front
+End.
+
 ## RDS/Aurora
 
 We run in production on PostgreSQL version `11`; Aurora release `3.x`.

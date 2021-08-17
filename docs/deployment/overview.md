@@ -15,11 +15,12 @@ If you would rather skip the hosting and jump straight to integrating Flagsmith 
 You will need to run through the following steps to get set up:
 
 1. Create a Postgres database to store the Flagsmith data.
-2. Deploy the API and set up DNS for it.
+2. Deploy the API and set up DNS for it. If you are using health-checks, make sure to use `/health` as the health-check
+   endpoint.
 3. Visit `http://<your-server-domain:8000>/api/v1/users/config/init/` to create an initial Superuser and provide DNS
    info to the platform.
 4. Deploy the Front End Dashboard and set up DNS for it. Point the Dashboard to the API using the relevant Environment
-   Variables.
+   Variables. If you are using health-checks, make sure to use `/health` as the health-check endpoint.
 5. Create a new Organisation, Project, Environment and Flags via the Dashboard.
 6. When using our SDKs, you will need to override the API URL that they point to, otherwise they will default to connect
    to our paid-for API at `https://api.flagsmith.com/api/v1`. See the SDK documentation for the library you are using.
