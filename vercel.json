@@ -1,14 +1,6 @@
 {
     "redirects": [
         {
-            "source": "/",
-            "destination": "/api/frameworks"
-        },
-        {
-            "source": "/api/v1/frameworks",
-            "destination": "/api/frameworks"
-        },
-        {
             "source": "/managing-identities/",
             "destination": "/basic-features/managing-identities"
         },
