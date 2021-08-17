@@ -1,0 +1,100 @@
+{
+    "rewrites": [
+        {
+            "source": "/",
+            "destination": "/api/frameworks"
+        },
+        {
+            "source": "/api/v1/frameworks",
+            "destination": "/api/frameworks"
+        },
+        {
+            "source": "/managing-identities/",
+            "destination": "/basic-features/managing-identities"
+        },
+        {
+            "source": "/system-administration/",
+            "destination": "/advanced-use/system-administration"
+        },
+        {
+            "source": "/contributing",
+            "destination": "/platform/contributing"
+        },
+        {
+            "source": "/overview/",
+            "destination": "/basic-features/overview"
+        },
+        {
+            "source": "/ab-testing/",
+            "destination": "/advanced-use/ab-testing"
+        },
+        {
+            "source": "/permissions/",
+            "destination": "/advanced-use/permissions"
+        },
+        {
+            "source": "/audit-logs/",
+            "destination": "/advanced-use/audit-logs"
+        },
+        {
+            "source": "/managing-features/",
+            "destination": "/basic-features/managing-features"
+        },
+        {
+            "source": "/deployment-overview/",
+            "destination": "/deployment/overview"
+        },
+        {
+            "source": "/hosted-service/",
+            "destination": "/basic-features/overview"
+        },
+        {
+            "source": "/flag-analytics/",
+            "destination": "/advanced-use/flag-analytics"
+        },
+        {
+            "source": "/staged-feature-rollouts/",
+            "destination": "/advanced-use/staged-feature-rollouts"
+        },
+        {
+            "source": "/self-hosting/",
+            "destination": "/basic-features/overview"
+        },
+        {
+            "source": "/clients/rust/test/integration_test.rs",
+            "destination": "/clients/rust"
+        },
+        {
+            "source": "/api/",
+            "destination": "/advanced-use/api"
+        },
+        {
+            "source": "/managing-segments",
+            "destination": "/basic-features/managing-segments"
+        },
+        {
+            "source": "/architecture/",
+            "destination": "/basic-features/overview"
+        },
+        {
+            "source": "/releases/",
+            "destination": "/platform/releases"
+        },
+        {
+            "source": "/contributing/",
+            "destination": "/platform/contributing"
+        },
+        {
+            "source": "/kubernetes",
+            "destination": "/deployment/kubernetes"
+        },
+        {
+            "source": "/managing-identities",
+            "destination": "/basic-features/managing-identities"
+        },
+        {
+            "source": "/integration-approaches/",
+            "destination": "/advanced-use/integration-approaches"
+        }
+    ]
+}
