@@ -149,11 +149,6 @@ The list of the flags and remote config we're currently using in production is b
   "type": "FLAG"
  },
  {
-  "description": "Allows for new user overrides UX",
-  "name": "improved_identity_overrides",
-  "type": "FLAG"
- },
- {
   "description": "Displays top area butter bar for in app messaging",
   "name": "butter_bar",
   "value": "<html> to show at the top of the dashboard page"
@@ -161,6 +156,11 @@ The list of the flags and remote config we're currently using in production is b
  {
   "description": "Turning this on will prevent users from creating any additional organisations",
   "name": "disable_create_org",
+  "type": "FLAG"
+ },
+ {
+  "description": "Disables audit log for anyone under scale-up plan",
+  "name": "scaleup_audit",
   "type": "FLAG"
  },
  {
@@ -179,43 +179,13 @@ The list of the flags and remote config we're currently using in production is b
   "type": "FLAG"
  },
  {
-  "description": "Determines whether to show tags",
-  "name": "tags",
-  "type": "FLAG"
- },
- {
-  "description": "Shows 'Disable All' on Flag Overrides",
-  "name": "killswitch",
-  "type": "FLAG"
- },
- {
-  "description": "Better Override UX",
-  "name": "improved_identity_overrides",
-  "type": "FLAG"
- },
- {
   "description": "Flag usage chart",
   "name": "usage_chart",
   "type": "FLAG"
  },
  {
-  "description": "Enables Invitation by Link",
-  "name": "invite_link",
-  "type": "FLAG"
- },
- {
-  "description": "Enables remote config syntax highlighting",
-  "name": "value_editor",
-  "type": "FLAG"
- },
- {
   "description": "Enables Dark Mode in UI",
   "name": "dark_mode",
-  "type": "FLAG"
- },
- {
-  "description": "Enables Multi Variate Flags in UI",
-  "name": "mv",
   "type": "FLAG"
  },
  {
