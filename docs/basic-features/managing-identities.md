@@ -5,7 +5,8 @@ description: Manage user traits and properties independently of your application
 
 Feature flags are great, but they can be a very blunt tool, only allowing you to enable or disable flags across your
 entire user base. In order to target users more precisely, and to be able to perform
-[staged feature rollouts](/advanced-use/staged-feature-rollouts.md), you need to _Identify your Users_.
+[staged feature roll-outs](/advanced-use/staged-feature-rollouts.md) or
+[A/B and multi-variate tests](/advanced-use/ab-testing.md), you need to _Identify your Users_.
 
 Identities are created within Flagsmith automatically the first time they are identified from your client SDKs.
 Generally you'd make a call to identify a user with a unique string/id whenever they log into your app/site. The SDK
@@ -29,8 +30,34 @@ and modifying their Flags.
 ## Identity Traits
 
 You can also use Flagsmith to store 'Traits' against identities. Traits are simply key/value pairs that are associated
-with individual Identities. Traits can be used to store additional data about your users that would be cumbersome to
-store within your application. Some possible uses for traits could be:
+with individual Identities for a particular Environment. Traits have two purposes outlined below, but the main use case
+is to drive [Segments](managing-segments.md).
+
+### Using Traits to drive Segments
+
+Let's say you are working on a mobile app, and you want to control a feature based on the version of the application
+that the Identity is using. When you integrate the Flagsmith SDK, you would pass the application version number to the
+Flagsmith platform as a trait key/value pair:
+
+```java
+FeatureUser user = new FeatureUser();
+user.setIdentifier("user_512356");
+
+FlagsAndTraits flagsAndTraits = flagsmithClient.identifyUserWithTraits(FeatureUser user, Arrays.asList(
+    trait(null, "app_version", Application.getVersion());
+```
+
+Here we are setting the trait key `app_version` with the value of `Application.getVersion()`.You can now create a
+[Segment](managing-segments.md) that is based on the application version and manage features based on the application
+version.
+
+Traits are completely freeform. You can store any number of traits, with any relevant information you see fit, in the
+platform and then use Segments to control features based on these Trait values.
+
+### Using Traits as a data-store
+
+Traits can also be used to store additional data about your users that would be cumbersome to store within your
+application. Some possible uses for traits could be:
 
 - Storing whether the user has accepted a new set of terms and conditions.
 - Storing the last viewed page of the application so that you can resume the users place later, across any device.
