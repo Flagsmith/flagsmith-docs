@@ -31,21 +31,22 @@ Sign Up and create account at [https://flagsmith.com/](https://www.flagsmith.com
 In your application initialise the Flagsmith client once with your environment API key and API URL.
 
 ```dotnet
-BulletTrainConfiguration configuration = new BulletTrainConfiguration()
+FlagsmithConfiguration configuration = new FlagsmithConfiguration()
 {
     ApiUrl = "https://api.flagsmith.com/api/v1/",
     EnvironmentKey = "env-key-goes-here"
 };
 
-BulletTrainClient bulletClient = new BulletTrainClient(configuration);
+FlagsmithClient client = new FlagsmithClient(configuration);
+
 ```
 
-You can then use the `instance` static variable on `BulletTrainClient` anywhere within your app.
+You can then use the `instance` static variable on `FlagsmithClient` anywhere within your app.
 
 To check if a feature flag exists and is enabled:
 
 ```dotnet
-bool featureEnabled = await BulletTrainClient.instance.HasFeatureFlag("my_test_feature");
+featureEnabled = (bool)FlagsmithClient.instance.HasFeatureFlag("my_test_feature").GetAwaiter().GetResult();
 if (featureEnabled) {
     // run the code to execute enabled feature
 } else {
@@ -56,7 +57,7 @@ if (featureEnabled) {
 To get a remote config feature value:
 
 ```dotnet
-string myRemoteConfig = await BulletTrainClient.instance.GetFeatureValue("my_test_feature");
+string myRemoteConfig = FlagsmithClient.instance.GetFeatureValue("my_test_feature").GetAwaiter().GetResult();
 if (myRemoteConfig != null) {
     // run the code to use remote config value
 } else {
@@ -71,7 +72,7 @@ Identifying users allows you to target specific users from the [Flagsmith dashbo
 To check if a feature exists and is enabled for a specific user:
 
 ```dotnet
-bool featureEnabled = await BulletTrainClient.instance.HasFeatureFlag("my_test_feature", "my_user_id");
+featureEnabled = (bool)FlagsmithClient.instance.HasFeatureFlag("my_test_feature", "my_user_id").GetAwaiter().GetResult();
 if (featureEnabled) {
     // run the code to execute enabled feature for given user
 } else {
@@ -82,7 +83,8 @@ if (featureEnabled) {
 To get a remote config value for specific user:
 
 ```dotnet
-string myRemoteConfig = await BulletTrainClient.instance.GetFeatureValue("my_test_feature", "my_user_id");
+
+string myRemoteConfig = FlagsmithClient.instance.GetFeatureValue("my_test_feature", "my_user_id").GetAwaiter().GetResult();
 if (myRemoteConfig != null) {
     // run the code to use remote config value
 } else {
@@ -93,7 +95,7 @@ if (myRemoteConfig != null) {
 To get user traits:
 
 ```dotnet
-List<Trait> userTraits = await BulletTrainClient.instance.GetTraits("my_user_id")
+List<Trait> userTraits = FlagsmithClient.instance.GetTraits("my_user_id").GetAwaiter().GetResult();
 if (userTraits != null && userTraits) {
     // run the code to use user traits
 } else {
@@ -104,15 +106,16 @@ if (userTraits != null && userTraits) {
 To get a specific user trait:
 
 ```dotnet
-string userTrait = await BulletTrainClient.instance.GetTrait("my_user_id", "cookies_key");
-bool userTrait = await BulletTrainClient.instance.GetBoolTrait("my_user_id", "cookies_key");
-int userTrait = await BulletTrainClient.instance.GetIntegerTrait("my_user_id", "cookies_key");
+
+string userTrait = FlagsmithClient.instance.GetTrait("my_user_id", "my_user_trait").GetAwaiter().GetResult();
+bool userTrait = FlagsmithClient.instance.GetTrait("my_user_id", "my_user_bool_trait").GetAwaiter().GetResult();
+int userTrait = FlagsmithClient.instance.GetTrait("my_user_id", "my_user_number_trait").GetAwaiter().GetResult();
 ```
 
 To get filtered user traits:
 
 ```dotnet
-List<Trait> userTraits = await BulletTrainClient.instance.GetTraits("my_user_id", new List<string> { "specific_key", /* rest of elements */ });
+List<Trait> userTraits = await FlagsmithClient.instance.GetTrait("my_user_id", new List<string> { "specific_key", /* rest of elements */ });
 if (userTraits != null) {
     // run the code to use user traits
 } else {
@@ -123,21 +126,21 @@ if (userTraits != null) {
 To set or update a user trait:
 
 ```dotnet
-Trait userTrait = await BulletTrainClient.instance.SetTrait("my_user_id", "my_user_trait", "blue");
-Trait userTrait = await BulletTrainClient.instance.SetTrait("my_user_id", "my_user_number_trait", 4);
-Trait userTrait = await BulletTrainClient.instance.SetTrait("my_user_id", "my_user_bool_trait", true);
+Trait userTrait = await FlagsmithClient.instance.SetTrait("my_user_id", "my_user_trait", "blue");
+Trait userTrait = await FlagsmithClient.instance.SetTrait("my_user_id", "my_user_number_trait", 4);
+Trait userTrait = await FlagsmithClient.instance.SetTrait("my_user_id", "my_user_bool_trait", true);
 ```
 
 To increment a numeric user trait:
 
 ```dotnet
-Trait userTrait = await BulletTrainClient.instance.IncrementTrait("my_user_id", "my_user_number_trait", 1);
+Trait userTrait = await FlagsmithClient.instance.IncrementTrait("my_user_id", "my_user_number_trait", 1);
 ```
 
 To retrieve a user identity (both features and traits):
 
 ```dotnet
-Identity userIdentity = await BulletTrainClient.instance.GetUserIdentity("my_user_id");
+Identity userIdentity = await FlagsmithClient.instance.GetUserIdentity("my_user_id");
 if (userIdentity != null) {
   // Run the code to use user identity i.e. userIdentity.flags or userIdentity.traits
 }
