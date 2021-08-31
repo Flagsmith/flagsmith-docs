@@ -200,6 +200,13 @@ the below variables will be ignored.
 
 #### Email Environment Variables
 
+:::note
+
+You can self host Flagsmith without setting up an email server/gateway. You can invite additional users to the platform
+using invitation links, and the platform will run fine without email.
+
+:::
+
 - `SENDER_EMAIL`: Email address from which emails are sent
 - `EMAIL_BACKEND`: One of:
   - `django.core.mail.backends.smtp.EmailBackend`
