@@ -12,7 +12,7 @@ The source code for the client is available on [Github](https://github.com/flags
 ## Getting Started
 
 The client library is available from NuGet and can be added to your project by many tools. You can find the package here
-[https://www.nuget.org/packages/BulletTrain/](https://www.nuget.org/packages/BulletTrain/)
+[https://www.nuget.org/packages/Flagsmith/](https://www.nuget.org/packages/Flagsmith/)
 
 ## Basic Usage
 
