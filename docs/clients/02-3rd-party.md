@@ -11,6 +11,10 @@ here please get in touch!
 
 ## React
 
-[Flagsmith SDK for React Single Page Applications](https://github.com/TheMagoo73/flagsmith-react)
+[Flagsmith SDK for React Single Page Applications](https://github.com/TheMagoo73/flagsmith-react).
 
 You can also use our [Javascript SDK](client-side/javascript.md).
+
+## Clojure
+
+[A Clojure wrapper around the Flagsmith Java SDK](https://github.com/Global-Online-Health/flagsmith-clj).
