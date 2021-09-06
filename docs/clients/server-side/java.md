@@ -310,8 +310,3 @@ final CacheStats stats = cache.stats();
 // check if flags for a user identifier are cached
 final FlagsAndTraits flags = cache.getIfPresent("user-identifier");
 ```
-
-The following API calls do not currently support caching:
-
-- `getFeatureFlags(...)`, `hasFeatureFlag(...)`, `getFeatureFlagValue(...)` if the user parameter is null.
-- `identifyUserWithTraits(...)`
