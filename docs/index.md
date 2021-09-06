@@ -15,9 +15,9 @@ is Open Source. Host yourself or let us take care of the hosting.
 
 The application consist of 3 components:
 
-1. The [Server-Side REST API](https://github.com/Flagsmith/flagsmith/tree/main/api).
-2. The [Front End Administration Web Interface](https://github.com/Flagsmith/flagsmith/tree/main/frontend).
-3. Client Libraries.
+1. [Server-Side REST API](https://github.com/Flagsmith/flagsmith/tree/main/api).
+2. [Front End Administration Web Interface](https://github.com/Flagsmith/flagsmith/tree/main/frontend).
+3. [Client Libraries](/#client-libraries).
 
 To get up and running, you can either use [https://flagsmith.com/](https://flagsmith.com/) for 1 and 2 above, or you can
 self host the API and Front End. Once you have these components up and running, you can add the client libraries to your
@@ -26,10 +26,6 @@ apps and start managing your features remotely.
 ## Installation
 
 More information can be found on the [Self Hosted Page](/deployment/overview).
-
-## Product Roadmap
-
-You can check out our [product roadmap on Github](https://github.com/Flagsmith/flagsmith/projects/1).
 
 ### Server Side API
 
@@ -65,6 +61,10 @@ Once you are setup with the front and back end, you can integrate our client lib
 - [REST](/clients/rest/)
 - [Ruby](/clients/ruby/)
 - [Rust](/clients/rust/)
+
+## Product Road-map
+
+You can check out our [product road-map on Github](https://github.com/Flagsmith/flagsmith/projects/1).
 
 ## Integration Approaches
 
