@@ -33,6 +33,13 @@ You can also use Flagsmith to store 'Traits' against identities. Traits are simp
 with individual Identities for a particular Environment. Traits have two purposes outlined below, but the main use case
 is to drive [Segments](managing-segments.md).
 
+:::important
+
+The maximum size of each individual Trait Value is **_2000 bytes_**. You cannot store more data than that in a single
+trait, and the API will return a 500 error if you try to do so.
+
+:::
+
 ### Using Traits to drive Segments
 
 Let's say you are working on a mobile app, and you want to control a feature based on the version of the application
