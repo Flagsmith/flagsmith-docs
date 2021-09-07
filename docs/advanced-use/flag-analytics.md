@@ -4,7 +4,8 @@ title: Feature Flag Analytics
 
 :::note
 
-This feature is currently in beta. Please contact us if you are interested in joining the beta!
+This feature is currently available in the Javascript SDK.
+[We are working](https://github.com/Flagsmith/flagsmith/issues/293) on adding this feature to the other SDKs.
 
 :::
 
