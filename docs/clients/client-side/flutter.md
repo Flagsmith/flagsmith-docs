@@ -39,7 +39,7 @@ final flagsmithClient = FlagsmithClient(
             Flag.seed('feature', enabled: true),
         ],
     );
-await flagsmithClient.initialize();    
+await flagsmithClient.initialize();
 await flagsmithClient.getFeatureFlags(reload: true) // fetch updates from api
 ```
 
@@ -77,7 +77,9 @@ if (myRemoteConfig != null) {
     // run the code without remote config
 }
 ```
+
 To listen for fetch request state
+
 ```dart
 flagsmithClient.loading.listen((state){
     // FlagsmithLoading.loading
@@ -86,6 +88,7 @@ flagsmithClient.loading.listen((state){
 ```
 
 To listen for feature flag changes:
+
 ```dart
 flagsmithClient.stream("my_test_feature").listen((value){
     // call to action
@@ -119,7 +122,7 @@ final config = FlagsmithConfig(
     storeType = StoreType.inMemory,
     caches: true, // mandatory if you want to use caches
 );
-await flagsmithClient.initialize(); 
+await flagsmithClient.initialize();
 
 final flagsmithClient = await FlagsmithClient.init(
         apiKey: 'YOUR_ENV_API_KEY',
@@ -238,4 +241,3 @@ final flagsmithClient = FlagsmithClient(
           caches: true,
       ), apiKey: 'YOUR_ENV_API_KEY');
 ```
-
