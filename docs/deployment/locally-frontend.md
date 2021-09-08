@@ -60,27 +60,30 @@ You can override each variable individually or add more by editing 'frontend/bin
 
 Current variables used between 'frontend/environment.js' and 'frontend/common/project.js':
 
-- `API_URL`: The API to hit for requests. E.g. `https://api.flagsmith.com/api/v1/`
-- `FLAGSMITH`: The flagsmith environment key we use to manage features - Flagsmith runs on Flagsmith.
-- `FLAGSMITH_CLIENT_API`: The api which the flagsmith client should communicate with. Flagsmith runs on flagsmith. E.g.
-  `https://api.flagsmith.com/api/v1/`.
-- `DISABLE_INFLUXDB_FEATURES`: Disables any features that rely on influxdb. API Usage charts, flag analytics. E.g.
-  `DISABLE_INFLUXDB_FEATURES=1`.
-- `FLAGSMITH_ANALYTICS`: Determines if the flagsmith sdk should send usage analytics, if you want to disable analytics
-  don't set this. E.g. `true`.
+- `FLAGSMITH_API_URL`: The API to hit for requests. E.g. `https://api.flagsmith.com/api/v1/`
+- `FLAGSMITH_ON_FLAGSMITH_API_KEY`: The flagsmith environment key we use to manage features -
+  [Flagsmith runs on Flagsmith](/deployment/overview#running-flagsmith-on-flagsmith).
+- `FLAGSMITH_ON_FLAGSMITH_API_URL`: The API URL which the flagsmith client should communicate with. Flagsmith runs on
+  flagsmith. E.g. `https://api.flagsmith.com/api/v1/`. If you are self hosting and using your own Flagsmith instance to
+  manage its own features, you would generally point this to the same domain name as your own Flagsmith instance.
+- `ENABLE_INFLUXDB_FEATURES`: Enables any features that rely on influxdb. API Usage charts, flag analytics. E.g.
+  `ENABLE_INFLUXDB_FEATURES=1`.
+- `ENABLE_FLAG_EVALUATION_ANALYTICS`: Determines if the flagsmith sdk should send usage analytics, if you want to enable
+  Flag Analytics, set this. E.g. `ENABLE_FLAG_EVALUATION_ANALYTICS=1`.
 - `PROXY_API_URL`: Proxies the API via this application. Set this to the hostname of the API being proxied. Proxies
-  `/api/v1/` through to `PROXY_API_URL`. If you are using this, any setting to `API_URL` will be ignored and the browser
-  will use the front end node server to send API requests. Do not prepend `api/v1/` - it will be added automatically.
-- `GA`: Google analytics key
-- `CRISP_CHAT`: Crisp Chat widget key
-- `PREVENT_SIGNUP`: Determines whether to prevent manual signup without invite. Set it to any value to disable signups.
-- `MAINTENANCE`: Puts the site into maintenance mode. Set it to any value to disable signups.
-- `AMPLITUDE`: The Amplitude key to use for behaviour tracking.
-- `MIXPANEL`: Mixpanel analytics key to use for behaviour tracking.
-- `SENTRY`: Sentry key for error reporting.
-- `ASSET_URL`: Used for replacing local static paths with a cdn, .e.g https://cdn.flagsmith.com. Defaults to `/`, i.e.
-  no CDN.
-- `BASENAME`: Used for specifying a base url path that's ignored during routing if serving from a subdirectory
+  `/api/v1/` through to `PROXY_API_URL`. If you are using this, any setting to `FLAGSMITH_API_URL` will be ignored and
+  the browser will use the front end node server to send API requests. Do not prepend `api/v1/` - it will be added
+  automatically.
+- `GOOGLE_ANALYTICS_API_KEY`: Google Analytics key to track API usage.
+- `CRISP_WEBSITE_ID`: Crisp Chat widget Website key.
+- `ALLOW_SIGNUPS`: Determines whether to prevent manual signups without invites. Set it to any value to allow signups.
+- `ENABLE_MAINTENANCE_MODE`: Puts the site into maintenance mode. Set it to any value to enable maintenance.
+- `AMPLITUDE_API_KEY`: The Amplitude key to use for behaviour tracking.
+- `MIXPANEL_API_KEY`: Mixpanel analytics key to use for behaviour tracking.
+- `SENTRY_API_KEY`: Sentry key for error reporting.
+- `STATIC_ASSET_CDN_URL`: Used for replacing local static paths with a cdn, .e.g https://cdn.flagsmith.com. Defaults to
+  `/`, i.e. no CDN.
+- `BASE_URL`: Used for specifying a base url path that's ignored during routing if serving from a subdirectory
 
 ## E2E testing
 
