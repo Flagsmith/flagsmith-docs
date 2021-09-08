@@ -39,6 +39,7 @@ final flagsmithClient = FlagsmithClient(
             Flag.seed('feature', enabled: true),
         ],
     );
+await flagsmithClient.initialize();    
 await flagsmithClient.getFeatureFlags(reload: true) // fetch updates from api
 ```
 
@@ -51,7 +52,6 @@ final flagsmithClient = await FlagsmithClient.init(
         seeds: <Flag>[
             Flag.seed('feature', enabled: true),
         ],
-        update: false,
     );
 await flagsmithClient.getFeatureFlags(reload: true) // fetch updates from api
 ```
@@ -77,6 +77,34 @@ if (myRemoteConfig != null) {
     // run the code without remote config
 }
 ```
+To listen for fetch request state
+```dart
+flagsmithClient.loading.listen((state){
+    // FlagsmithLoading.loading
+    // FlagsmithLoading.loaded
+});
+```
+
+To listen for feature flag changes:
+```dart
+flagsmithClient.stream("my_test_feature").listen((value){
+    // call to action
+});
+```
+
+```dart
+StreamBuilder(
+    stream: flagsmithClient.stream("my_test_feature"),
+    builder: (context, AsyncSnapshot<String> snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+            return CircularProgressIndicator();
+        }
+        return TextButton(
+            onPressed: snapshot.data.enabled ? (){} : null,
+            child: Text('Call to Action'),);
+    },
+),
+```
 
 ## Cached flags
 
@@ -91,6 +119,7 @@ final config = FlagsmithConfig(
     storeType = StoreType.inMemory,
     caches: true, // mandatory if you want to use caches
 );
+await flagsmithClient.initialize(); 
 
 final flagsmithClient = await FlagsmithClient.init(
         apiKey: 'YOUR_ENV_API_KEY',
@@ -177,6 +206,14 @@ if (userTrait != null) {
 }
 ```
 
+## Reset storage
+
+To reset storage and re-seed default values
+
+```dart
+await flagsmithClient.reset();
+```
+
 ## Override default configuration
 
 By default, the client uses the default configuration. You can override this configuration as follows:
@@ -201,3 +238,4 @@ final flagsmithClient = FlagsmithClient(
           caches: true,
       ), apiKey: 'YOUR_ENV_API_KEY');
 ```
+
