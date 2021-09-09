@@ -20,7 +20,7 @@ the affected users_ of our application altogether. Here's how we go about it.
 
 ### 1. Put Features behind Flags
 
-It sounds obvious, but if you dont wrap features in feature flags, you lose the ability to control them remotely. Make
+It sounds obvious, but if you don't wrap features in feature flags, you lose the ability to control them remotely. Make
 it a part of your routine to wrap new features/code in flags so you can start managing them remotely.
 
 ### 2. Start telling Flagsmith about the Device and Application Version
@@ -42,23 +42,23 @@ rapidly isolate exactly what subset of devices are affected:
 - Or have all Android devices broken for some reason?
 - Did you actually ship the bug 2 versions back but have only just realised now?
 
-This is generally the hardest part of the process. Work to isolate what the smallest subset of your userbase is
-affected.
+This is generally the hardest part of the process. Work to isolate and define the smallest subset of your user-base that
+is affected.
 
 ### 4. Segment your Users based on the Bug
 
 From your work in #3, create a [Segment](/basic-features/managing-segments.md) in Flagsmith that captures the defined
-set of users from #3. Let's say we shipped update 5.4.1, but we have figured out that the bug actually started in 5.4.0.
-Also, this issue is only affecting iOS devices; Android users don't have the problem. So our Segment would read
-something like:
+set of users from #3. Let's say we just shipped version 5.4.1, but we have figured out that the bug actually showed up
+in version 5.4.0. Also, this issue is only affecting iOS devices; Android users don't have the problem. So our Segment
+would contain 2 rules and read something like:
 
-- platform _equals_ "iOS"
-- version _contains_ "5.4.0" _OR_ "5.4.1"
+- Trait `platform` _equals_ "iOS"
+- Trait `version` _contains_ "5.4.0" _OR_ "5.4.1"
 
 ### 5. Override your Feature with your Segment
 
 Locate the feature that is causing the problem. Get to the Overrides tab, add the Segment you defined in #4, and set
-that Feature to **_disabled_**.
+that Feature Override to **_disabled_**.
 
 And breathe...
 
@@ -73,8 +73,9 @@ feature, **_but just for those users_**.
 
 ## What happens next?
 
-Firstly, (sounds obvious but who knows!) ship a fix! Push 5.4.2 that fixes the issue. As users upgrade, their `version`
-trait will automatically change to 5.4.2 and they will drop out of the Segment.
+Firstly, (sounds obvious but who knows!) ship a fix! Push version 5.4.2 that fixes the issue. As users upgrade, their
+`version` trait will automatically change to 5.4.2 and they will drop out of the Segment. Flagsmith will then start
+sending an Enabled flag for this feature, and your users will have access to the feature that you just fixed.
 
 We can keep this Segment and the override in place. In fact, it's really important that we do! Lots of people don't
 bother upgrading their apps at all. That's fine though; with the Segment in place, they will never know that you shipped
