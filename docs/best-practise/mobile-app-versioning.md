@@ -28,7 +28,7 @@ it a part of your routine to wrap new features/code in flags so you can start ma
 Using [Identities and Traits](/basic-features/managing-identities.md), make sure you are transmitting data about your
 device type and version to Flagsmith. We recommend using the following Traits:
 
-- Platfrom (iOS or Android)
+- Platform (iOS or Android)
 - Platform Version (e.g. Android 11, iOS 14)
 - Your Application Version (this would be the version number you ship your app as - generally the one that shows up in
   the App/Play Store)
