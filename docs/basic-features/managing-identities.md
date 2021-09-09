@@ -5,7 +5,7 @@ description: Manage user traits and properties independently of your application
 
 Feature flags are great, but they can be a very blunt tool, only allowing you to enable or disable flags across your
 entire user base. In order to target users more precisely, and to be able to perform
-[staged feature roll-outs](/advanced-use/staged-feature-rollouts.md) or
+[staged feature roll-outs](/best-practise/staged-feature-rollouts.md) or
 [A/B and multi-variate tests](/advanced-use/ab-testing.md), you need to _Identify your Users_.
 
 Identities are created within Flagsmith automatically the first time they are identified from your client SDKs.

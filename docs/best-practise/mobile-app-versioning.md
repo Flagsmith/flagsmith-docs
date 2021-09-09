@@ -47,7 +47,7 @@ affected.
 
 ### 4. Segment your Users based on the Bug
 
-From your work in #3, create a [Segment](../basic-features/managing-segments.md) in Flagsmith that captures the defined
+From your work in #3, create a [Segment](/basic-features/managing-segments.md) in Flagsmith that captures the defined
 set of users from #3. Let's say we shipped update 5.4.1, but we have figured out that the bug actually started in 5.4.0.
 Also, this issue is only affecting iOS devices; Android users don't have the problem. So our Segment would read
 something like:
