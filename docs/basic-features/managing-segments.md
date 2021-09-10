@@ -63,7 +63,7 @@ included in the percentage split segment.
 
 This is the only operator that does not require a Trait. You can use the percentage split operator to drive
 [A/B tests](/advanced-use/ab-testing) and
-[staged feature rollouts](/best-practise/staged-feature-rollouts#creating-staged-rollouts).
+[staged feature rollouts](/guides-and-examples/staged-feature-rollouts#creating-staged-rollouts).
 
 ## Feature Flag and Remote Config Precedence
 
