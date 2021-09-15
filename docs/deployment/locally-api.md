@@ -173,6 +173,7 @@ the below variables will be ignored.
 - `DJANGO_CSRF_TRUSTED_ORIGINS`: comma separated list of hosts to allow unsafe (POST, PUT) requests from. Useful for
   allowing localhost to set traits in development.
 - `DJANGO_SETTINGS_MODULE`: python path to settings file for the given environment, e.g. "app.settings.develop"
+- `ENABLE_GZIP_COMPRESSION`: If Django should gzip compress HTTP responses. Defaults to `False`.
 - `GOOGLE_ANALYTICS_KEY`: if google analytics is required, add your tracking code
 - `GOOGLE_SERVICE_ACCOUNT`: service account json for accessing the google API, used for getting usage of an
   organisation - needs access to analytics.readonly scope
