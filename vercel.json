@@ -87,6 +87,14 @@
         {
             "source": "/integration-approaches/",
             "destination": "/advanced-use/integration-approaches"
+        },
+        {
+            "source": "/advanced-use/staged-feature-rollouts/",
+            "destination": "//guides-and-examples/staged-feature-rollouts"
+        },
+        {
+            "source": "/managing-segments/",
+            "destination": "/basic-features/managing-segments"
         }
     ]
 }
