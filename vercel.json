@@ -46,7 +46,11 @@
         },
         {
             "source": "/staged-feature-rollouts/",
-            "destination": "/advanced-use/staged-feature-rollouts"
+            "destination": "/guides-and-examples/staged-feature-rollouts"
+        },
+        {
+            "source": "/advanced-use/staged-feature-rollouts/",
+            "destination": "/guides-and-examples/staged-feature-rollouts"
         },
         {
             "source": "/self-hosting/",
