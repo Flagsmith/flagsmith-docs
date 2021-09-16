@@ -33,5 +33,24 @@ Note that you can include the "% Split" rule alongside other Segment rules if yo
 
 ## How does it work
 
-Every Identity/Segment combination is combined and then hashed, and a floating point value between 0.0 and 1.0 is
-generated from this hash. This value is then evaluated against the "% Split" rule.
+Every Identity/Segment ID merged then hashed, and a floating point value between 0.0 and 1.0 is generated from this
+hash. This value is then evaluated against the "% Split" rule.
+
+### An Example
+
+So to take an example. For a single Identity, we perform the following steps:
+
+1. Take the internal Segment ID and their internal Identity ID and combine them into a single string
+2. We then hash that string
+3. We then generate a float value between 0 and 1 based on that hash
+
+So for every Segment/Identity combination, a value of between 0 and 1 is generated. Due to the hashing algorithm used,
+we ensure a consistent spread of values from 0 to 1.
+
+So lets say that number comes out at 0.351 for a particular Identity. If you create a Segment % split to be 30%, that
+Identity will not be included in that Segment because 0.351 is great than 0.3 (30%). If you then modify the Segment to
+be a 40% split, the Identity WILL be in that Segment because 0.4 > 0.351. That way you get a consistent experience as an
+end-user. This works because the ID of a Segment doesn't change after it has been created.
+
+A second Identity might have their value hash be equal to 0.94. In that case, they would not be in the Segment with the
+split at either 30% of 40%.
