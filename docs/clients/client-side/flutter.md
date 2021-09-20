@@ -8,6 +8,8 @@ slug: /clients/flutter
 This SDK can be used for Flutter applications. The source code for the client is available on
 [Github](https://github.com/flagsmith/flagsmith-flutter-client).
 
+The Flagsmith Flutter SDK supports iOS, Android and Web targets.
+
 ## Getting Started
 
 The client library is available from the [https://pub.dev/packages/flagsmith](https://pub.dev/packages/flagsmith):
@@ -32,6 +34,8 @@ Sign Up and create an account at [https://flagsmith.com/](https://flagsmith.com/
 In your application, initialise the Flagsmith client with your API key:
 
 ```dart
+import 'package:flagsmith/flagsmith.dart';
+
 final flagsmithClient = FlagsmithClient(
         apiKey: 'YOUR_ENV_API_KEY'
         config: config,
@@ -46,6 +50,8 @@ await flagsmithClient.getFeatureFlags(reload: true) // fetch updates from api
 if you prefer async initialization then you should use
 
 ```dart
+import 'package:flagsmith/flagsmith.dart';
+
 final flagsmithClient = await FlagsmithClient.init(
         apiKey: 'YOUR_ENV_API_KEY',
         config: config,
