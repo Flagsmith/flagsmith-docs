@@ -1,5 +1,5 @@
 ---
-title: Feature Flag Analytics
+title: Flag Analytics
 ---
 
 :::note
