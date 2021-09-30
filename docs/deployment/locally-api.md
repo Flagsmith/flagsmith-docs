@@ -305,6 +305,24 @@ The application makes use of caching in a couple of locations:
    number of seconds this is cached for is configurable using the environment variable
    `"CACHE_PROJECT_SEGMENTS_SECONDS"`.
 
+## Unified Front End and Back End Build
+
+You can run Flagsmith as a single application/docker container using our unified builds. These are available on
+[Docker Hub](https://hub.docker.com/repository/docker/flagsmith/flagsmith) but you can also run the front end as part of
+the Django Application. Steps to do this:
+
+1. `cd frontend; npm run bundledjango`
+2. `cd ../api; python manage.py collectstatic`
+3. `python manage.py runserver`
+
+### How it works
+
+Webpack compiles a front end build, sourcing `api/app/templates/index.html`. It places the compiled JS and CSS assets to
+`api/static` then copies the annotated `index.html` page to `api/app/templates/webpack/index.html`.
+
+The Django `collectstatic` command then copies all the additional static assets that Django needs, including
+`api/app/templates/webpack/index.html`, into `api/static`.
+
 ## Information for Developers working on the project
 
 ### Stack
