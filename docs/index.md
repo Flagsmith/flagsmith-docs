@@ -6,9 +6,7 @@ hide_title: true
 sidebar_label: Overview
 ---
 
-# Flagsmith Docs
-
-![Flagsmith](/img/banner-logo-dark.png)
+# ![Flagsmith Documentation](/img/banner-logo-dark.png)
 
 [Flagsmith](https://flagsmith.com/) lets you manage features across web, mobile and server side applications. Flagsmith
 is Open Source. Host yourself or let us take care of the hosting.
