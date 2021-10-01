@@ -2,6 +2,7 @@
 id: intro
 slug: /
 sidebar_position: 1
+title: Flagsmith Documentation
 hide_title: true
 sidebar_label: Overview
 ---
