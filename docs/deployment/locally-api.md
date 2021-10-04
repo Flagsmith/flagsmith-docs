@@ -208,6 +208,13 @@ using invitation links, and the platform will run fine without email.
 
 :::
 
+:::tip
+
+Flagsmith makes use of the `django_site` table to provide the domain name for email template links. You will need to
+configure the record in this table to point to your domain for email links to work correctly.
+
+:::
+
 - `SENDER_EMAIL`: Email address from which emails are sent
 - `EMAIL_BACKEND`: One of:
   - `django.core.mail.backends.smtp.EmailBackend`
