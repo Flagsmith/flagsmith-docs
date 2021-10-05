@@ -211,7 +211,7 @@ using invitation links, and the platform will run fine without email.
 :::tip
 
 Flagsmith makes use of the `django_site` table to provide the domain name for email template links. You will need to
-configure the record in this table to point to your domain for email links to work correctly.
+configure the record in this table to point to your domain for email links to work.
 
 :::
 
@@ -353,9 +353,10 @@ pip-compile
 
 We are using [pip-tools](https://github.com/jazzband/pip-tools) to manage dependencies.
 
-To add a new library to the project, edit requirements.in amd then:
+To add a new library to the project, edit requirements.in, then:
 
 ```bash
+# This step will overwrite requirements.txt
 pip-compile requirements.in
 pip install -r requirements.txt
 ```
