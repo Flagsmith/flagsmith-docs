@@ -1,6 +1,6 @@
 ---
 title: Webhook Analytics Integration
-sidebar_label: Webhook Integration
+sidebar_label: Webhook
 ---
 
 :::info
