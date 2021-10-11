@@ -35,8 +35,13 @@ module.exports = {
                     label: 'Docs',
                 },
                 {
-                    to: 'https://flagsmith.com',
+                    href: 'https://flagsmith.com',
                     label: 'Flagsmith.com',
+                    position: 'left',
+                },
+                {
+                    label: 'Discord',
+                    href: 'https://discord.gg/hFhxNtXzgm',
                     position: 'left',
                 },
                 {
@@ -68,6 +73,10 @@ module.exports = {
                         {
                             label: 'Github',
                             href: 'https://github.com/Flagsmith',
+                        },
+                        {
+                            label: 'Discord',
+                            href: 'https://discord.gg/hFhxNtXzgm',
                         },
                     ],
                 },
