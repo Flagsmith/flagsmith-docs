@@ -3,7 +3,7 @@ title: A/B Testing
 ---
 
 A/B testing enables you to experiment with design and functionality variants of your application. The data generated
-will allow you to make modifications to your app, safe in the knowledge that it will have a net positive effect.
+will allow you to make modifications to your app, save the knowledge that it will have a net positive effect.
 
 You can use Flagsmith to perform A/B Tests. Using a combination of
 [Multivariate Flags](/basic-features/managing-features.md#multi-variate-flags) and a 3rd party analytics tool like
@@ -47,14 +47,14 @@ In order to perform the A/B Test, we need to complete the following steps:
    2. Paypal Button - 5% of users
    3. Test users that don't see the Paypal Button - 5% of users
 
-2. In our app, we want to [Identify](/basic-features/managing-identities.md) each user before they start the checkout
-   process. All Flagsmith Multivariate flags need us to Identify the user, so we can bucket them in a reproducible
+2. In our app, we want to [identify](/basic-features/managing-identities.md) each user before they start the checkout
+   process. All Flagsmith Multivariate flags need us to identify the user, so we can bucket them in a reproducible
    manner.
 3. When we get to the checkout page, check the `value` of the `paypal_button_test` flag for that user. If it evaluates
    to `show`, show the Paypal payment button. Otherwise, don't show the button.
-4. Send an event message to the Analytics platform, adding the name/value pair of `paypal_button_test` and the value of
+4. Send an event message to the analytics platform, adding the name/value pair of `paypal_button_test` and the value of
    the flag; in this case it would be one of either `control`, `show` or `hide`.
-5. Deploy your app, enable the flag and watch the data come in to your analytics platform.
+5. Deploy our app, enable the flag and watch the data come in to your analytics platform.
 
 Here is what creating the Flag would look like.
 
@@ -62,7 +62,7 @@ Here is what creating the Flag would look like.
 
 ## Evaluating the Test
 
-Once the test is set up, and the flag has been enabled, data will start streaming into the analytics platform. You can
+Once the test is set up, and the flag has been enabled, data will start streaming into the analytics platform. We can
 now evaluate the results of the tests based on the behavioral changes that the new button has created.
 
 ## Anonymous/Unknown Identities
@@ -82,7 +82,7 @@ The general flow would be:
 1. A new browser visits your website homepage for the first time.
 2. You see that this is an anonymous user, so you generate a random _GUID_ for that user and assign it to them.
 3. You send that GUID along with an Identify call to Flagsmith. This will then segment that visitor.
-4. You cookie the browser and store the GUID. That way, if the browser returns to your page, they will still be in the
+4. You add a cookie to the browser and store the GUID. That way, if the user returns to your page, they will still be in the
    same segment.
 
 These techniques will be slightly different depending on what platform you are developing for, but the general concept
