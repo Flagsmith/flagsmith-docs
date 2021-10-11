@@ -3,7 +3,7 @@ title: A/B Testing
 ---
 
 A/B testing enables you to experiment with design and functionality variants of your application. The data generated
-will allow you to make modifications to your app, save the knowledge that it will have a net positive effect.
+will allow you to make modifications to your app, safe in the knowledge that it will have a net positive effect.
 
 You can use Flagsmith to perform A/B Tests. Using a combination of
 [Multivariate Flags](/basic-features/managing-features.md#multi-variate-flags) and a 3rd party analytics tool like
