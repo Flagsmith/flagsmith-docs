@@ -44,22 +44,23 @@ Once you are setup with the front and back end, you can integrate our client lib
 
 ### Client Side SDKs
 
-- [Android](/clients/android/)
-- [Flutter](/clients/flutter/)
-- [iOS](/clients/ios/)
-- [Javascript and React/React Native](/clients/javascript/)
+- [Android](/clients/android)
+- [Flutter](/clients/flutter)
+- [iOS](/clients/ios)
+- [Javascript and React/React Native](/clients/javascript)
 
 ### Server Side SDKs
 
-- [.Net](/clients/dotnet/)
-- [Go](/clients/go/)
-- [Java](/clients/java/)
-- [NodeJS](/clients/node/)
-- [PHP](/clients/php/)
-- [Python](/clients/python/)
-- [REST](/clients/rest/)
-- [Ruby](/clients/ruby/)
-- [Rust](/clients/rust/)
+- [.Net](/clients/dotnet)
+- [Elixir](/clients/elixir)
+- [Go](/clients/go)
+- [Java](/clients/java)
+- [NodeJS](/clients/node)
+- [PHP](/clients/php)
+- [Python](/clients/python)
+- [REST](/clients/rest)
+- [Ruby](/clients/ruby)
+- [Rust](/clients/rust)
 
 ## Product Road-map
 
