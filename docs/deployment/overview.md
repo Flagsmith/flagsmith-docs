@@ -123,10 +123,10 @@ dashboard at this Flagsmith project in order to control what features show for y
 Once you have created the project, you need to set the following
 [Front End](https://github.com/Flagsmith/flagsmith-frontend) environment variables in order to configure this:
 
-- `FLAGSMITH`
+- `FLAGSMITH_ON_FLAGSMITH_API_KEY`
   - The flagsmith environment key we use to manage features - Flagsmith runs on Flagsmith. This will be the API key for
     the project you created as instructed above.
-- `FLAGSMITH_CLIENT_API`
+- `FLAGSMITH_ON_FLAGSMITH_API_URL`
   - The API URL which the Flagsmith front end dashboard should communicate with. This will most likely be the domain
     name of the Flagsmith API you are self hosting: Flagsmith runs on Flagsmith. E.g. For our SaaS hosted platform, the
     variable is `https://api.flagsmith.com/api/v1/`. For example, if you were running everything locally using the
