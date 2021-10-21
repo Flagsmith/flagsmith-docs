@@ -12,7 +12,7 @@ module.exports = {
     plugins: ['@ionic-internal/docusaurus-plugin-tag-manager'],
     themeConfig: {
         prism: {
-            additionalLanguages: ['java', 'csharp', 'ruby', 'rust', 'swift', 'dart'],
+            additionalLanguages: ['java', 'csharp', 'ruby', 'rust', 'swift', 'dart', 'php'],
         },
         algolia: {
             apiKey: 'd207a6e4abfead06cecba47adc7d1515',
