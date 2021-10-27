@@ -19,6 +19,16 @@ visit their website. To integrate Flagsmith into your Xcode project using CocoaP
 pod 'FlagsmithClient', '~> 1.0'
 ```
 
+### Swift Package Manager
+
+The Swift Package Manager is a tool for automating the distribution of Swift code and is integrated into the swift compiler. You can use it to install Flagsmith by adding the description to your `Package.swift` file:
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/Flagsmith/flagsmith-ios-client.git", from: "1.1.1"),
+]
+```
+
 ## Basic Usage
 
 The SDK is initialised against a single environment within a project on [https://flagsmith.com](https://flagsmith.com),
