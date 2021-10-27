@@ -15,7 +15,9 @@ with clients for languages that we do not currently have SDKs for.
 
 ## API Explorer
 
-You can view the API via Swagger at [https://api.flagsmith.com/api/v1/docs/](https://api.flagsmith.com/api/v1/docs/) or get OpenAPI as [JSON](https://api.flagsmith.com/api/v1/docs/?format=.json) or [YAML](https://api.flagsmith.com/api/v1/docs/?format=.yaml).
+You can view the API via Swagger at [https://api.flagsmith.com/api/v1/docs/](https://api.flagsmith.com/api/v1/docs/) or
+get OpenAPI as [JSON](https://api.flagsmith.com/api/v1/docs/?format=.json) or
+[YAML](https://api.flagsmith.com/api/v1/docs/?format=.yaml).
 
 ## Environment Key
 

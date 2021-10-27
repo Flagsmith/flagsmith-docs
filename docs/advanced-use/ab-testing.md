@@ -82,8 +82,8 @@ The general flow would be:
 1. A new browser visits your website homepage for the first time.
 2. You see that this is an anonymous user, so you generate a random _GUID_ for that user and assign it to them.
 3. You send that GUID along with an Identify call to Flagsmith. This will then segment that visitor.
-4. You add a cookie to the browser and store the GUID. That way, if the user returns to your page, they will still be in the
-   same segment.
+4. You add a cookie to the browser and store the GUID. That way, if the user returns to your page, they will still be in
+   the same segment.
 
 These techniques will be slightly different depending on what platform you are developing for, but the general concept
 will remain the same.

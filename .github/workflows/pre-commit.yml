@@ -1,0 +1,24 @@
+name: Pre-commit Checks
+
+on:
+    push:
+        branches:
+            - main
+    pull_request:
+        types: [opened, synchronize, reopened, ready_for_review]
+
+jobs:
+    pre-commit:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+              with:
+                  fetch-depth: 0
+
+            - name: Setup Python
+              uses: actions/setup-python@v2
+
+            - name: Pre-commit checks
+              uses: pre-commit/action@v2.0.3
