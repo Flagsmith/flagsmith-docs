@@ -179,6 +179,11 @@ By default, Flagsmith uses InfluxDB to store time series data. Currently this is
 
 [Setting up InfluxDB is discussed in more detail in the Docs](/deployment/overview#influxdb).
 
+### PgBouncer
+
+By default, Flagsmith connects directly to the database - either in-cluster, or external. Can enable PgBouncer with
+`pgbouncer.enabled: true` to have Flagsmith connect to PgBouncer, and PgBouncer connect to the database.
+
 ## Configuration
 
 The following table lists the configurable parameters of the chart and their default values.
@@ -276,6 +281,33 @@ The following table lists the configurable parameters of the chart and their def
 | `influxdbExternal.tokenFromExistingSecret.enabled` | Use reference to a k8s secret not managed by this chart        | `false`                        |
 | `influxdbExternal.tokenFromExistingSecret.name`    | Referenced secret name                                         |                                |
 | `influxdbExternal.tokenFromExistingSecret.key`     | Key within the referenced secret to use                        |                                |
+| `pgbouncer.enabled`                                |                                                                | `false`                        |
+| `pgbouncer.image.repository`                       |                                                                | `bitnami/pgbouncer`            |
+| `pgbouncer.image.tag`                              |                                                                | `1.16.0`                       |
+| `pgbouncer.image.imagePullPolicy`                  |                                                                | `IfNotPresent`                 |
+| `pgbouncer.image.imagePullSecrets`                 |                                                                | `[]`                           |
+| `pgbouncer.replicaCount`                           |                                                                | 1                              |
+| `pgbouncer.podAnnotations`                         |                                                                | `{}`                           |
+| `pgbouncer.resources`                              |                                                                | `{}`                           |
+| `pgbouncer.podLabels`                              |                                                                | `{}`                           |
+| `pgbouncer.extraEnv`                               |                                                                | `{}`                           |
+| `pgbouncer.nodeSelector`                           |                                                                | `{}`                           |
+| `pgbouncer.tolerations`                            |                                                                | `[]`                           |
+| `pgbouncer.affinity`                               |                                                                | `{}`                           |
+| `pgbouncer.podSecurityContext`                     |                                                                | `{}`                           |
+| `pgbouncer.securityContext`                        |                                                                | `{}`                           |
+| `pgbouncer.defaultSecurityContext.enabled`         |                                                                | `true`                         |
+| `pgbouncer.defaultSecurityContext`                 |                                                                | `{}`                           |
+| `pgbouncer.livenessProbe.failureThreshold`         |                                                                | 5                              |
+| `pgbouncer.livenessProbe.initialDelaySeconds`      |                                                                | 5                              |
+| `pgbouncer.livenessProbe.periodSeconds`            |                                                                | 10                             |
+| `pgbouncer.livenessProbe.successThreshold`         |                                                                | 1                              |
+| `pgbouncer.livenessProbe.timeoutSeconds`           |                                                                | 2                              |
+| `pgbouncer.readinessProbe.failureThreshold`        |                                                                | 10                             |
+| `pgbouncer.readinessProbe.initialDelaySeconds`     |                                                                | 1                              |
+| `pgbouncer.readinessProbe.periodSeconds`           |                                                                | 10                             |
+| `pgbouncer.readinessProbe.successThreshold`        |                                                                | 1                              |
+| `pgbouncer.readinessProbe.timeoutSeconds`          |                                                                | 2                              |
 | `service.influxdb.externalPort`                    |                                                                | `8080`                         |
 | `service.api.type`                                 |                                                                | `ClusterIP`                    |
 | `service.api.port`                                 |                                                                | `8000`                         |
