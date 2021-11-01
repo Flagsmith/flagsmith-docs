@@ -26,7 +26,8 @@ end
 
 ## Configuration
 
-You can configure the SDK per environment using a static default config, for instance in your `config/config.exs` adding:
+You can configure the SDK per environment using a static default config, for instance in your `config/config.exs`
+adding:
 
 ```elixir
 config :flagsmith_elixir_sdk, :sdk,
@@ -41,7 +42,8 @@ config :flagsmith_elixir_sdk, :sdk,
        base_url: "YOUR-BASE-URL"
 ```
 
-For runtime configuration you can create a client struct manually and pass it as the first argument to whatever SDK function you want to call:
+For runtime configuration you can create a client struct manually and pass it as the first argument to whatever SDK
+function you want to call:
 
 ```elixir
 {:ok, sdk_client} = Flagsmith.SDK.new("YOUR-ENV-KEY")
@@ -91,9 +93,11 @@ Flagsmith.SDK.API.flags_list(sdk_client)
 
 ## HTTP Client
 
-Underneath the SDK uses [Tesla](https://github.com/teamon/tesla), so you can customise which adapter you want to use. Refer to `Tesla`'s documentation for additional context.
+Underneath the SDK uses [Tesla](https://github.com/teamon/tesla), so you can customise which adapter you want to use.
+Refer to `Tesla`'s documentation for additional context.
 
-The default HTTP adapter is Erlang's `httpc`, to use instead, for instance, `hackney`, and the same for any other of the supported clients, add to your deps the correct dependency:
+The default HTTP adapter is Erlang's `httpc`, to use instead, for instance, `hackney`, and the same for any other of the
+supported clients, add to your deps the correct dependency:
 
 ```elixir
 defp deps do
