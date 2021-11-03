@@ -18,3 +18,7 @@ You can also use our [Javascript SDK](client-side/javascript.md).
 ## Clojure
 
 [A Clojure wrapper around the Flagsmith Java SDK](https://github.com/Global-Online-Health/flagsmith-clj).
+
+## Laravel
+
+[A PHP/Laravel Framework library](https://github.com/clearlyip/laravel-flagsmith)
