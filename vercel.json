@@ -99,6 +99,10 @@
         {
             "source": "/managing-segments/",
             "destination": "/basic-features/managing-segments"
+        },
+        {
+            "source": "/clients/02-3rd-party",
+            "destination": "/clients/3rd-party"
         }
     ]
 }
