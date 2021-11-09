@@ -10,7 +10,7 @@ sidebar_position: 7
 We recommend running Flagsmith on AWS using the following AWS services:
 
 - ECS/Fargate for running the Docker images
-- RDS/Aurara/Postgres for the database
+- RDS/Aurora/Postgres for the database
 - Application Load Balancer to distribute traffic
 
 ## ECS
