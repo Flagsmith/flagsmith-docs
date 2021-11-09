@@ -16,7 +16,7 @@ pip install pip-tools
 cd api
 pip-sync requirements.txt requirements-dev.txt
 python manage.py migrate
-python manage.py runserver
+python manage.py runserver --nostatic
 ```
 
 You can now visit `http://<your-server-domain:8000>/api/v1/users/config/init/` to create an initial Superuser and
