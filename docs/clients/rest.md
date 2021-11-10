@@ -6,6 +6,9 @@ sidebar_position: 1
 
 # Direct API Access
 
+Flagsmith is built around a client/server architecture. The REST API server is accessible from SDK clients as well as
+the administration front end. This decoupling means that you can programmatically access the entire API if you wish.
+
 We have a [Postman Collection](https://www.postman.com/flagsmith/workspace/flagsmith/overview) that you can use to play
 around with the API and get a feel for how it works.
 

@@ -103,6 +103,14 @@
         {
             "source": "/clients/02-3rd-party",
             "destination": "/clients/3rd-party"
+        },
+        {
+            "source": "/advanced-use/api/",
+            "destination": "/clients/rest"
+        },
+        {
+            "source": "/advanced-use/api",
+            "destination": "/clients/rest"
         }
     ]
 }
