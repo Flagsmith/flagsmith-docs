@@ -12,6 +12,20 @@ Identities are created within Flagsmith automatically the first time they are id
 Generally you'd make a call to identify a user with a unique string/id whenever they log into your app/site. The SDK
 will then send an API message to the Flagsmith API, with the relevant Identity information.
 
+:::tip
+
+The SDK part of the Flagsmith API is public by design. The Environment Key is designed to be public and is easy to
+view/find when building a client integration. When identifying users, it is important to use an Identity value that is
+not easy to guess. For example, if you used an incrementing integer to identify your users, it would be trivial to
+request Identities by enumerating this integer. This would effectively give public access to any user traits that are
+associated with users.
+
+We strongly recommend using an unguessable, unidentifiable Identity Key, such as a
+[GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier), when identifying your users, to prevent
+unintentionally leaking Identity trait data.
+
+:::
+
 Once you have uniquely identified a user, you can then override features for that user from your environment defaults.
 For example, you've pushed a feature into production, but the relevant feature flag is still hiding that feature to all
 of your users. You can now override that flag for your own user, and test that feature. Once you are happy with
