@@ -10,14 +10,21 @@ users.
 
 :::important
 
-Segments are _not_ sent back to client SDKs. They are used to override flag values within the dashboard, but they are
-never sent back to our SDKs from the API.
-[Learn more about our architecture](/advanced-use/integration-approaches#flags-are-evaluated-server-side).
+Segment definitions are shared amongst your Project's Environments. If you modify a Segment in one Environment, that
+change will reflect in all the Environments for that Project.
 
 :::
 
 Segments for Flags and Config are overridden at the Environment level, meaning that different Environments can define
 their own Segment overrides.
+
+:::tip
+
+Segments are _not_ sent back to client SDKs. They are used to override flag values within the dashboard, but they are
+never sent back to our SDKs from the API.
+[Learn more about our architecture](/advanced-use/integration-approaches#flags-are-evaluated-server-side).
+
+:::
 
 ## Example - Beta Users
 
