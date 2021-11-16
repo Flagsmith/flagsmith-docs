@@ -311,7 +311,7 @@ We also recommend using [wrk](https://github.com/wg/wrk) for load testing the co
 wrk -t6 -c200 -d20s -H 'X-Environment-Key: iyiS5EDNDxMDuiFpHoiwzG' http://127.0.0.1:8000/api/v1/flags/
 
 # Get flags for an identity
-wrk -t6 -c200 -d20s -H 'X-Environment-Key: iyiS5EDNDxMDuiFpHoiwzG' "http://127.0.0.1:8000/api/v1/identities/?identifier=ben.rometsch%40bullet-train.io"
+wrk -t6 -c200 -d20s -H 'X-Environment-Key: iyiS5EDNDxMDuiFpHoiwzG' "http://127.0.0.1:8000/api/v1/identities/?identifier=mrflags@flagsmith.com"
 ```
 
 ## Common Installation Issues and Fixes

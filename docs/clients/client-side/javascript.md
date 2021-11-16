@@ -88,7 +88,7 @@ import flagsmith from 'flagsmith';
 Can be called both before or after you're done initialising the project.
 Calling identify before will prevent flags being fetched twice.
 */
-flagsmith.identify('bullet_train_sample_user'); //This will create a user in the dashboard if they don't already exist
+flagsmith.identify('flagsmith_sample_user'); //This will create a user in the dashboard if they don't already exist
 
 //Standard project initialisation
 flagsmith.init({
@@ -240,5 +240,5 @@ the browser, an onChange event will be fired immediately with the local storage 
 
 5. whenever flags have been retrieved local storage will be updated.
 
-By default, these flags will be persisted indefinitely, you can clear this by removing `"BULLET_TRAIN_DB"` from
+By default, these flags will be persisted indefinitely, you can clear this by removing `"FLAGSMITH_DB"` from
 `localStorage`.

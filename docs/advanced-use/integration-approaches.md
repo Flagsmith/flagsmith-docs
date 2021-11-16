@@ -52,14 +52,14 @@ this:
 
     public static void setup() {
 
-    BulletTrainClient bulletClient = BulletTrainClient.newBuilder()
-            .setApiKey(Play.configuration.getProperty("bullettrain.apikey"))
+    FlagsmithClient flagsmithClient = FlagsmithClient.newBuilder()
+            .setApiKey(Play.configuration.getProperty("flagsmith.apikey"))
             .build();
 
-    FF_FREEZE_DELINQUENT_ACCOUNTS = bulletClient.hasFeatureFlag("freeze_delinquent_accounts");
-    FF_KYC_BUTTON = bulletClient.hasFeatureFlag("kyc_button");
-    FF_YOTI_INCLUDE_LIVENESS = bulletClient.hasFeatureFlag("yoti_include_liveness");
-    FF_YOTI_UPLOAD_TYPE = bulletClient.getFeatureFlagValue("yoti_upload_type");
+    FF_FREEZE_DELINQUENT_ACCOUNTS = flagsmithClient.hasFeatureFlag("freeze_delinquent_accounts");
+    FF_KYC_BUTTON = flagsmithClient.hasFeatureFlag("kyc_button");
+    FF_YOTI_INCLUDE_LIVENESS = flagsmithClient.hasFeatureFlag("yoti_include_liveness");
+    FF_YOTI_UPLOAD_TYPE = flagsmithClient.getFeatureFlagValue("yoti_upload_type");
 ```
 
 That way, if for whatever reason the Flagsmith client is not able to reach the API, and times out, your application will

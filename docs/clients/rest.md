@@ -79,7 +79,7 @@ This `curl` command below will perform the entire SDK workflow in a single call:
 3. Receiving the Flags for that Identity
 
 ```bash
-curl --request POST 'https://api.bullet-train.io/api/v1/identities/' \
+curl --request POST 'https://api.flagsmith.com/api/v1/identities/' \
 --header 'X-Environment-Key: <Your Env Key>' \
 --header 'Content-Type: application/json' \
 --data-raw '{

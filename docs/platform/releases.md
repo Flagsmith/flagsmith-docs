@@ -120,8 +120,8 @@ Released **9 Nov 2020**
 We've added a bunch of new features and bug fixes.
 
 - You can now tag flags with user-defined tags. You can use these tags to manage flags and organise them.
-- Beta release of both [Data Dog](https://docs.bullet-train.io/integrations/datadog/) and
-  [Amplitude](https://docs.bullet-train.io/integrations/amplitude/) integrations.
+- Beta release of both [Data Dog](https://docs.flagsmith.com/integrations/datadog/) and
+  [Amplitude](https://docs.flagsmith.com/integrations/amplitude/) integrations.
 - You can now set multiple traits in a single call
 - For a given feature, show which Identities have it individually overridden
 - When viewing an Identity, show the segments and test whether the identity is a member of each segment
@@ -139,9 +139,6 @@ Released **12th June 2020**
 ## v2.1
 
 Released **28th May 2020**
-
-[Front End](https://github.com/BulletTrainHQ/bullet-train-frontend/releases/tag/v2.1.0) /
-[API](https://github.com/BulletTrainHQ/bullet-train-api/releases/tag/v2.1.0)
 
 - Google OAuth2 integration
 - 2 Factor authentication

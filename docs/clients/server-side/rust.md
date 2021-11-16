@@ -24,7 +24,7 @@ page.
 
 ### Retrieving feature flags for your project
 
-In your application initialise the BulletTrain client with your API key
+In your application initialise the Flagsmith client with your API key
 
 ```rust
 let flagsmith = flagsmith::Client::new("<Your API Key>");
