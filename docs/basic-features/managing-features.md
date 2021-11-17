@@ -23,6 +23,13 @@ You are free to use either the `Flag State`, or the `Flag Value` or a combinatio
 within each flag. You don't have to provide or use a `Flag Value`. If you just want a boolean flag, you can just ignore
 the `Flag Value` altogether.
 
+:::important
+
+The maximum size of each String Value is **_20,000 bytes_**. You cannot store more data than that in a flag value, and
+the API will return a 500 error if you try to do so.
+
+:::
+
 ## Examples of Use
 
 This allows you to use Flagsmith in the multiple ways:
