@@ -15,6 +15,10 @@ here please get in touch!
 
 You can also use our [Javascript SDK](client-side/javascript.md).
 
+## Vue
+
+[Flagsmith client for Vue applications](https://github.com/mstfymrtc/flagsmith-vue-client).
+
 ## Clojure
 
 [A Clojure wrapper around the Flagsmith Java SDK](https://github.com/Global-Online-Health/flagsmith-clj).
