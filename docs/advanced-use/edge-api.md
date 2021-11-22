@@ -7,7 +7,9 @@ title: Edge API
 :::tip
 
 The Edge API is currently in beta. If you want to join the beta programme, please connect with us in
-[Discord](https://discord.gg/hFhxNtXzgm). :::
+[Discord](https://discord.gg/hFhxNtXzgm).
+
+:::
 
 [The Flagsmith Architecture](/advanced-use/integration-approaches#flags-are-evaluated-server-side) is based around a
 server-side flag engine. This comes with a number of benefits, but it can increase latency especially when the calls are
