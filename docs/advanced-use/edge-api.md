@@ -28,9 +28,12 @@ latency!
 
 ### DynamoDB Global Tables
 
-We store state within our API - both related to the Environments for your projects, but also for the Identities within
+We store state within our API - both related to the Environments for your Projects, but also for the Identities within
 those Environments. Our Edge design sees us write this data through to DynamoDB global tables, which are replicated
 globally.
+
+Currently we are writing through Environment data only (see Caveat below) but we plan on writing through Identities
+soon.
 
 Our Lambda functions then connect to the nearest DynamoDB table to retrieve both Environment and Identity data.
 
@@ -48,6 +51,11 @@ the Edge API into production.
 
 If you have an existing Identity currently in Flagsmith, it will _not_ exist in our Edge API database. You have to
 create the Identity within the Edge API.
+
+## Identities are not viewable in the Dashboard
+
+You wont see Edge Identities show up in the dashboard currently. This also means you cant currently specify a per
+Identity override. This is still being worked on.
 
 ### Integrations are not currently implemented
 
