@@ -145,7 +145,7 @@ $identity = new \Flagsmith\Models\Identity('identity');
 
 $identityTrait = (new \Flagsmith\Models\IdentityTrait('Foo'))->withValue('Bar');
 
-$identity->withTrait($identityTrait);
+$identity = $identity->withTrait($identityTrait);
 
 $flagsmith = new \Flagsmith\Flagsmith('apiToken');
 $flagsmith->getFlagsByIdentity($identity);
