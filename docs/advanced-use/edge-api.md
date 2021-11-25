@@ -72,6 +72,10 @@ Identity override. This is still being worked on.
 
 [Integrations](/integrations/overview.md) are not currently supported.
 
+### Increment and Decrement endpoints are deprecated
+
+You probably didn't know these existed though, right?
+
 ### You may experience cold starts in different regions
 
 Cold starts currently add around 400ms to service a request. We are building out a solution to this issue but whilst the
