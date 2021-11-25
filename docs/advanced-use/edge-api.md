@@ -15,16 +15,15 @@ The Edge API is currently in beta. If you want to join the beta programme, pleas
 server-side flag engine. This comes with a number of benefits, but it can increase latency especially when the calls are
 being made from a location that is not located near the EU - the location of our current API.
 
-In order to solve this problem we have developer a Global Edge API. Our aim for this API is to serve all SDK requests
+In order to solve this problem we have developed a Global Edge API. Our aim for this API is to serve all SDK requests
 within 100 milliseconds, anywhere in the world. In order to achieve this, we are using the following AWS components.
 
 ### Lambda@Edge
 
 Our core [Rules Engine](https://github.com/Flagsmith/flagsmith-engine) has been factored out of our REST API. This
 allows us to use it as a dependency within both the Flagsmith API, but also within a set of Lambda functions that
-service SDK API calls. This means that you can point your SDK clients to our global Cloudfront CDN which in turn will
-serve your request using a Lambda function running in an AWS data-centre near your client. This is how we reduce
-latency!
+service SDK API calls. You can point your SDK clients to our global CDN `edge.api.flagsmith.com` which will serve your
+request using a Lambda function running in an AWS data-centre near your client. This is how we reduce latency!
 
 ### DynamoDB Global Tables
 
@@ -50,7 +49,8 @@ the Edge API into production.
 ### Identities are isolated between Edge and non-Edge endpoints
 
 If you have an existing Identity currently in Flagsmith, it will _not_ exist in our Edge API database. You have to
-create the Identity within the Edge API.
+create the Identity within the Edge API. This is done in the same way; Identities are lazily created when they are first
+seen.
 
 ## Identities are not viewable in the Dashboard
 
