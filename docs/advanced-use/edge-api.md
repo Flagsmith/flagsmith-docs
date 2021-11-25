@@ -41,6 +41,17 @@ Our Lambda functions then connect to the nearest DynamoDB table to retrieve both
 Once you have had your project added to the beta, all you will need to do is point your SDK to a new Flagsmith Edge API
 URL. This URL will point to our edge Cloudfront CDN. That's it!
 
+So for example, in the Java SDK we just add the `withApiUrl` line:
+
+```java
+FlagsmithClient flagsmithClient = FlagsmithClient.newBuilder()
+        .setApiKey("aaa"))
+        .withApiUrl("https://edge.api.flagsmith.com/api/v1/")
+        .build();
+```
+
+Check the docs for your language SDK on how to override the endpoint URL prefix.
+
 ## Current Caveats
 
 Whilst in beta, there are some limitations to the platform. These are being worked on and will be in place when we put
