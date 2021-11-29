@@ -63,6 +63,13 @@ If you have an existing Identity currently in Flagsmith, it will _not_ exist in 
 create the Identity within the Edge API. This is done in the same way; Identities are lazily created when they are first
 seen.
 
+### You need to trigger a manual write of your Environment to DynamoDB
+
+We have not yet migrated Environments from our core database into DynamoDB yet. In order to get working with an
+Environment on Edge you will need to trigger a write-through; the easiest way to do this is just to toggle a flag on and
+off in the Environment you want to get into Edge. All subsequent state changes to the Environment will be written
+through.
+
 ## Identities are not viewable in the Dashboard
 
 You wont see Edge Identities show up in the dashboard currently. This also means you cant currently specify a per
