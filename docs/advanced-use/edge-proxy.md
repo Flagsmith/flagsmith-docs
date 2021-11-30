@@ -26,6 +26,8 @@ api.flagsmith.com or self hosted by you) to get Environment Flags and Segment ru
 SDKs to your Edge Proxy; it implements all the current SDK endpoints. This means you can serve a very large number of
 requests close to your infrastructure and users, at very low latency. Check out the [architecture below](#architecture).
 
+The Proxy also acts as a local cache, allowing you to make requests to the Proxy without hitting the core API.
+
 ## Running the Edge Proxy
 
 The Edge Proxy runs as a docker container. It is currently available at the
@@ -61,8 +63,8 @@ You can configure the Edge Proxy with the following Environment Variables:
 ## Consuming the Edge Proxy
 
 The Edge Proxy provides an identical set of API methods as our Core API. This means you simply need to point your SDK to
-the Edge Proxy domain name and you're good to go. For example, lets say you had your proxy running locally, you could
-simply do:
+the Edge Proxy domain name and you're good to go. For example, lets say you had your proxy running locally as per the
+instructions above, you could simply do:
 
 ```bash
 curl "http://localhost:8000/api/v1/flags" -H "x-environment-key: 95DybY5oJoRNhxPZYLrxk4" | jq
@@ -133,7 +135,7 @@ curl -X "POST" "http://localhost:8000/api/v1/identities/?identifier=do_it_all_in
 }'
 ```
 
-Note that the Edge Proxy will _not_ send the Trait data back to the Core API.
+Note that the Edge Proxy will currently _not_ send the Trait data back to the Core API.
 
 ## Architecture
 
