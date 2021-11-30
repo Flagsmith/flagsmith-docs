@@ -121,3 +121,18 @@ Flagsmith.shared.getTraits(forIdentity: "test_user@test.com") {(result) in
     }
 }
 ```
+
+## Override default configuration
+
+By default, the client uses a default configuration. You can override the configuration as follows:
+
+Override just the default API URI with your own:
+
+```swift
+func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
+Flagsmith.shared.apiKey = "<YOUR_API_KEY>"
+Flagsmith.shared.baseURL = "https://<your-self-hosted-api>/api/v1/"
+// The rest of your launch method code
+}
+```
