@@ -87,3 +87,20 @@ You probably didn't know these existed though, right?
 
 Cold starts currently add around 400ms to service a request. We are building out a solution to this issue but whilst the
 platform is in beta and not serving a large volume of traffic, you will occasionally experience cold starts.
+
+### The response documents have been slimmed down
+
+Our core API responses are quite verbose, and the SDKs ignore a lot of the fields they receive. We've taken the
+opportunity to remove these extraneous fields. This wont affect the SDKs but if you are using these values via the REST
+API, things have changed. The list of removed fields is as follows:
+
+```txt
+trait.id
+flag.feature.created_data
+flag.feature.description
+flag.feature.initial_value
+flag.feature.default_enabled
+flag.environment
+flag.identity
+flag.feature_segment
+```
