@@ -1,5 +1,5 @@
 ---
-title: The Flagsmith Edge Proxy
+title: Edge Proxy
 sidebar_label: Edge Proxy
 ---
 
