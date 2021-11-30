@@ -1,7 +1,6 @@
 ---
 title: The Flagsmith Edge Proxy
 sidebar_label: Edge Proxy
-sidebar_position: 30
 ---
 
 ## Overview

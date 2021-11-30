@@ -70,7 +70,7 @@ Environment on Edge you will need to trigger a write-through; the easiest way to
 off in the Environment you want to get into Edge. All subsequent state changes to the Environment will be written
 through.
 
-## Identities are not viewable in the Dashboard
+### Identities are not viewable in the Dashboard
 
 You wont see Edge Identities show up in the dashboard currently. This also means you cant currently specify a per
 Identity override. This is still being worked on.
@@ -88,11 +88,11 @@ You probably didn't know these existed though, right?
 Cold starts currently add around 400ms to service a request. We are building out a solution to this issue but whilst the
 platform is in beta and not serving a large volume of traffic, you will occasionally experience cold starts.
 
-### The response documents have been slimmed down
+### The API responses have been slimmed down
 
 Our core API responses are quite verbose, and the SDKs ignore a lot of the fields they receive. We've taken the
-opportunity to remove these extraneous fields. This wont affect the SDKs but if you are using these values via the REST
-API, things have changed. The list of removed fields is as follows:
+opportunity to remove these additional, unused fields. This wont affect the SDKs but if you are using these values via
+the REST API, things have changed. The list of removed fields is as follows:
 
 ```txt
 trait.id
