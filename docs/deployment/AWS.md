@@ -2,7 +2,7 @@
 title: Deploying Flagsmith on AWS
 description: Getting Started with Flagsmith on AWS
 sidebar_label: AWS
-sidebar_position: 7
+sidebar_position: 70
 ---
 
 ## Overview

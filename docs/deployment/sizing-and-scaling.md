@@ -1,7 +1,7 @@
 ---
 title: Sizing and Scaling
 description: Sizing and Scaling Flagsmith
-sidebar_position: 8
+sidebar_position: 80
 ---
 
 ## Overview

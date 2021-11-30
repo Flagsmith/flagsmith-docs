@@ -1,7 +1,7 @@
 ---
-sidebar_label: Locally - API
+sidebar_label: API
 title: Flagsmith REST API
-sidebar_position: 2
+sidebar_position: 10
 ---
 
 ## Development Environment

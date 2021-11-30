@@ -1,7 +1,7 @@
 ---
-sidebar_label: Locally - Frontend
+sidebar_label: Frontend
 title: Flagsmith Frontend
-sidebar_position: 3
+sidebar_position: 20
 ---
 
 ## Getting Started

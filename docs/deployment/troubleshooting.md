@@ -1,7 +1,7 @@
 ---
 title: Troubleshooting
 sidebar_label: Troubleshooting
-sidebar_position: 9
+sidebar_position: 90
 ---
 
 Here are some common issues encountered when trying to set up Flagsmith in a self hosted environment.
