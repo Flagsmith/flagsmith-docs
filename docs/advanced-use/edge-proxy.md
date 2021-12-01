@@ -55,6 +55,8 @@ You can configure the Edge Proxy with the following Environment Variables:
   `["4vfqhypYjcPoGGu8ByrBaj", "EmJFz265Q6CAXuGRZYnkeE", "8KzETdDeMY7xkqkSkY3Gsg"]`
 - `API_POLL_FREQUENCY` set in seconds. The number of seconds to wait before polling `FLAGSMITH_API_URL` to update the
   Environments currently in use. Defaults to `10` seconds.
+- `WEB_CONCURRENCY` The number of [Uvicorn](https://www.uvicorn.org/) workers. Defaults to `1`. Set to the number of
+  available CPU cores.
 
 ## Consuming the Edge Proxy
 
