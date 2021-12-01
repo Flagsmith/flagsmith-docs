@@ -91,6 +91,9 @@ data
 
 Once this task has run you will see data coming into the Organisation API Usage area.
 
+You will need to generate some flag evaluations within our SDKs to start to see
+[Flag Analytics](/advanced-use/flag-analytics.md) data coming into the influx database.
+
 ## API Telemetry
 
 Flagsmith collects information about self hosted installations. This helps us understand how the platform is being used.
