@@ -183,7 +183,12 @@ The list of the flags and remote config we're currently using in production is b
   "type": "FLAG"
  },
  {
-  "description": "Flag usage chart",
+  "description": "Flag usage chart - requires InfluxDB",
+  "name": "flag_analytics",
+  "type": "FLAG"
+ },
+ {
+  "description": "Organisation Analytics usage chart - requires InfluxDB",
   "name": "usage_chart",
   "type": "FLAG"
  },
