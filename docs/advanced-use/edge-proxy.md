@@ -12,6 +12,12 @@ The Edge Proxy is currently in beta. If you want to join the beta programme, ple
 
 :::
 
+:::important
+
+The Edge Proxy is only available as part of our Enterprise Plans.
+
+:::
+
 The Flagsmith Edge Proxy allows you to run an instance of the Flagsmith Engine close to your servers. If you are running
 Flagsmith within a server-side environment, and you need very low latency response times, the Edge Proxy is for you!
 
