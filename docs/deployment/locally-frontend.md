@@ -15,8 +15,8 @@ What things you need to install the software and how to install them
 
 | Location                                    | Suggested Version |
 | ------------------------------------------- | :---------------: |
-| <a href="https://nodejs.org/en/">NodeJS</a> |     >= 6.0.0      |
-| <a href="https://nodejs.org/en/">npm</a>    |     >= 4.0.0      |
+| <a href="https://nodejs.org/en/">NodeJS</a> |     >= 16.0.0     |
+| <a href="https://nodejs.org/en/">npm</a>    |     >= 8.0.0      |
 
 ## Installing
 
