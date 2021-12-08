@@ -98,7 +98,7 @@ module.exports = {
         },
         announcementBar: {
             id: 'support_us',
-            content: `If you like Flagsmith, give us a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/Flagsmith/flagsmith">GitHub</a> and follow us on <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/getflagsmith">Twitter</a>`,
+            content: `If you like Flagsmith, give us a star 🌟 on <a target="_blank" rel="noopener noreferrer" href="https://github.com/Flagsmith/flagsmith">GitHub</a> and follow us ❤️ on <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/getflagsmith">Twitter</a>`,
             backgroundColor: '#5d60cc',
             textColor: '#ffffff',
             isCloseable: true,
