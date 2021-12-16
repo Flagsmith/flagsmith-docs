@@ -22,6 +22,11 @@ requests close to your infrastructure and users, at very low latency. Check out 
 
 The Proxy also acts as a local cache, allowing you to make requests to the Proxy without hitting the core API.
 
+## Performance
+
+The Edge Proxy can currently serve ~2,000 requests per second at a mean latency of ~7ms on a single, 4-core VM. It is
+stateless and hence close to perfectly scalable being deployed behind a load balancer.
+
 ## Running the Edge Proxy
 
 The Edge Proxy runs as a docker container. It is currently available at the
