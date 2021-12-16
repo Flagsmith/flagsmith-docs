@@ -5,16 +5,10 @@ sidebar_label: Edge Proxy
 
 ## Overview
 
-:::tip
-
-The Edge Proxy is currently in beta. If you want to join the beta programme, please connect with us in
-[Discord](https://discord.gg/hFhxNtXzgm).
-
-:::
-
 :::important
 
-The Edge Proxy is only available as part of our Enterprise Plans.
+The Edge Proxy is only available as part of our Enterprise Plans. Please
+[get in touch](https://flagsmith.com/contact-us/) if this is something you are interested in!
 
 :::
 
