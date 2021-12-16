@@ -28,11 +28,7 @@ that flag. Archiving the flag helps to keep your main list of flags under contro
 
 ## Flag Owners
 
-:::note
-
-This feature is currently in development but will be available soon!
-
-:::
-
 You can specify members of your team as owners of individual Flags. This helps in larger teams when you need to identify
 who is responsible for a particular flag.
+
+<img width="75%" src="/img/flag-owners.png"/>
