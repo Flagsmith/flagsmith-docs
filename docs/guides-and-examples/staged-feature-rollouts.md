@@ -33,7 +33,7 @@ Note that you can include the "% Split" rule alongside other Segment rules if yo
 
 ## How does it work
 
-Every Identity/Segment ID merged then hashed, and a floating point value between 0.0 and 1.0 is generated from this
+Each Identity and Segment has a unique identifier. These two pieces of data are merged then hashed, and a floating point value between 0.0 and 1.0 is generated from this
 hash. This value is then evaluated against the "% Split" rule.
 
 ### An Example
