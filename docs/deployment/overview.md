@@ -98,7 +98,7 @@ You will need to generate some flag evaluations within our SDKs to start to see
 
 Flagsmith collects information about self hosted installations. This helps us understand how the platform is being used.
 This data is _never_ shared outside of the organisation, and is anonymous by design. You can opt out of sending this
-telemetry on startup by setting the `TELEMETRY_DISABLED` environment variable to any value.
+telemetry on startup by setting the `ENABLE_TELEMETRY` environment variable to `False`.
 
 We collect the following data on startup and then once every 8 hours per API server instance:
 
