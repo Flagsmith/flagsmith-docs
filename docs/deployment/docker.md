@@ -19,8 +19,7 @@ new account at [http://localhost:8080/signup](http://localhost:8080/signup)
 ## Environment Variables
 
 As well as the Environment Variables specified in the [API](/deployment/locally-api#environment-variables) and
-[Front End](/deployment/locally-frontend#environment-variables) you can also specify the
-following:
+[Front End](/deployment/locally-frontend#environment-variables) you can also specify the following:
 
 - `GUNICORN_WORKERS`: The number of [Gunicorn Workers](https://docs.gunicorn.org/en/stable/settings.html#workers) that
   are created
