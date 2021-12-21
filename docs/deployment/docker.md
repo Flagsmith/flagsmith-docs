@@ -5,11 +5,11 @@ sidebar_position: 40
 ---
 
 You can use docker to set up an entire [Flagsmith Feature Flag](https://www.flagsmith.com) environment locally. Just
-clone the [docker repository](https://github.com/Flagsmith/flagsmith) and run docker-compose:
+clone the [docker repository](https://github.com/Flagsmith/self-hosted) and run docker-compose:
 
 ```bash
-git clone https://github.com/Flagsmith/flagsmith.git
-cd flagsmith/docker
+git clone https://github.com/Flagsmith/self-hosted.git
+cd self-hosted
 docker-compose up
 ```
 
@@ -19,7 +19,7 @@ new account at [http://localhost:8080/signup](http://localhost:8080/signup)
 ## Environment Variables
 
 As well as the Environment Variables specified in the [API](/deployment/locally-api#environment-variables) and
-[Front End](https://docs.flagsmith.com/deployment/locally-frontend#environment-variables) you can also specify the
+[Front End](/deployment/locally-frontend#environment-variables) you can also specify the
 following:
 
 - `GUNICORN_WORKERS`: The number of [Gunicorn Workers](https://docs.gunicorn.org/en/stable/settings.html#workers) that

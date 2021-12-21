@@ -40,6 +40,8 @@ the above steps as it gives you hot reloading. To run using docker compose, simp
 project root:
 
 ```bash
+git clone https://github.com/Flagsmith/self-hosted.git
+cd self-hosted
 docker-compose up
 ```
 
@@ -120,24 +122,18 @@ are required using your chosen CI/CD. Alternatively, you can add your own `optio
 ### Using Docker
 
 If you want to run the entire Flagsmith platform, including the front end dashboard, take a look at our
-[Flagsmith Docker repository](https://github.com/Flagsmith/flagsmith-docker).
+[Flagsmith Docker repository](https://github.com/Flagsmith/self-hosted).
 
 The application can be configured to run using docker with simply by running the following command:
 
 ```bash
+git clone https://github.com/Flagsmith/self-hosted.git
+cd self-hosted
 docker-compose up
 ```
 
 This will use some default settings created in the `docker-compose.yml` file located in the root of the project. These
 should be changed before using in any production environments.
-
-You can work on the project itself using Docker:
-
-```bash
-docker-compose -f docker-compose.dev.yml up
-```
-
-This gets an environment up and running along with Postgres and enables hot reloading etc.
 
 The docker container also accepts an argument that sets the access log file location for gunicorn. By default this is
 set to /dev/null to maintain the default behaviour of gunicorn. It can either be set to `"-"` to redirect the logs to
