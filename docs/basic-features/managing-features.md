@@ -58,12 +58,6 @@ False/Null if the flag is missing or the value is not set, but there are variati
 
 ## Multi-Variate Flags
 
-:::note
-
-This feature is currently in beta. Please contact us if you need more help with this feature!
-
-:::
-
 You can create a Multivariate Flag if you want the `Flag Value` to be one value out of a selection that you define. Each
 Environment within a Project can then define and select which value to return based on this list. Multivariate Flags are
 useful in 2 core use-cases:
