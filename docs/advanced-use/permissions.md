@@ -15,16 +15,18 @@ members. You can create groups with the Organisation Settings page.
 
 ## Organisations
 
-Team members can be defined as Organisation Administrators or Users. This is effectively a super-user role, and gives full read/write access to every Project, Environment, Flag, Remote Config and Segment within that organisation.
+Team members can be defined as Organisation Administrators or Users. Organisation Administrator is effectively a
+super-user role, and gives full read/write access to every Project, Environment, Flag, Remote Config and Segment within
+that Organisation.
 
-Users that are not Organisation Administrators must have permissions assigned to them manually at the relevant levels. The permissions available at the organisation level are defined below. 
+Users that are not Organisation Administrators must have permissions assigned to them manually at the relevant levels.
+The permissions available at the Organisation level are defined below.
 
-| **Role**           | **Ability**                                                                           |
-| ------------------ | ------------------------------------------------------------------------------------- |
+| **Role**       | **Ability**                                                  |
+| -------------- | ------------------------------------------------------------ |
 | Create Project | Allows the user to create projects in the given Organisation |
 
 ![Image](/img/organisation-permissions.png)
-
 
 ## Projects
 
