@@ -2,6 +2,42 @@
 title: System Administration
 ---
 
+## Audit Logs
+
+Every action taken within the Flagsmith administration application is tracked and logged. This allows you to easily
+retrace the events and values that flags, identities and segments have taken over time.
+
+You can view the Audit Log within the Flagsmith application, and filter it in order to find the information you are
+after.
+
+You can also stream your Audit Logs into your own infrastructure using [Audit Log Webhooks](#audit-log-webhooks).
+
+## Audit Log Webhooks
+
+You can use Audit Log Webhooks to stream your Organisation's Audit Log into your own infrastructure. This can be useful
+for compliance or to reference against local CI/CD infrastructure.
+
+```json
+{
+ "created_date": "2020-02-23T17:30:57.006318Z",
+ "log": "New Flag / Remote Config created: my_feature",
+ "author": {
+  "id": 3,
+  "email": "user@domain.com",
+  "first_name": "Kyle",
+  "last_name": "Johnson"
+ },
+ "environment": null,
+ "project": {
+  "id": 6,
+  "name": "Project name",
+  "organisation": 1
+ },
+ "related_object_id": 6,
+ "related_object_type": "FEATURE"
+}
+```
+
 ## Web Hooks
 
 You can use the Web Hooks to send events from Flagsmith into your own infrastructure. Web Hooks are managed at an
@@ -79,31 +115,5 @@ Environment:
   "timestamp": "2021-06-18T07:50:26.595298Z"
  },
  "event_type": "FLAG_UPDATED"
-}
-```
-
-## Audit Log Webhooks
-
-You can use Audit Log Webhooks to stream your Organisation's Audit Log into your own infrastructure. This can be useful
-for compliance or to reference against local CI/CD infrastructure.
-
-```json
-{
- "created_date": "2020-02-23T17:30:57.006318Z",
- "log": "New Flag / Remote Config created: my_feature",
- "author": {
-  "id": 3,
-  "email": "user@domain.com",
-  "first_name": "Kyle",
-  "last_name": "Johnson"
- },
- "environment": null,
- "project": {
-  "id": 6,
-  "name": "Project name",
-  "organisation": 1
- },
- "related_object_id": 6,
- "related_object_type": "FEATURE"
 }
 ```

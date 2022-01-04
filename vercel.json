@@ -111,6 +111,14 @@
         {
             "source": "/advanced-use/api",
             "destination": "/clients/rest"
+        },
+        {
+            "source": "/advanced-use/audit-logs/",
+            "destination": "/advanced-use/system-administration"
+        },
+        {
+            "source": "/advanced-use/audit-logs",
+            "destination": "/advanced-use/system-administration"
         }
     ]
 }
