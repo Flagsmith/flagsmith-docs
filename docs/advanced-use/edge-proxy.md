@@ -40,7 +40,7 @@ docker pull flagsmith/edge-proxy
 docker run \
     -e FLAGSMITH_API_URL='https://api.flagsmith.com/api/v1/' \
     -e FLAGSMITH_API_TOKEN='<API Token - see below>' \
-    -e ENVIRONMENT_API_KEYS='["<Flagsmith Environment Key - see below>"]' \
+    -e ENVIRONMENT_API_KEYS='<Flagsmith Environment Key - see below>' \
     -p 8000:8000 \
     flagsmith/edge-proxy:latest
 ```
@@ -53,8 +53,8 @@ You can configure the Edge Proxy with the following Environment Variables:
 
 - `FLAGSMITH_API_URL` **Required**. The URL of the API to proxy e.g. `https://api.flagsmith.com/api/v1/` or your own
   domain name if you are self hosting the Flagsmith API.
-- `ENVIRONMENT_API_KEYS` **Required**. A list of Environment keys to serve. Provided as a JSON List e.g.
-  `["4vfqhypYjcPoGGu8ByrBaj", "EmJFz265Q6CAXuGRZYnkeE", "8KzETdDeMY7xkqkSkY3Gsg"]`
+- `ENVIRONMENT_API_KEYS` **Required**. A list of Environment keys to serve. Provided as a comma-separated list e.g.
+  `4vfqhypYjcPoGGu8ByrBaj, EmJFz265Q6CAXuGRZYnkeE, "8KzETdDeMY7xkqkSkY3Gsg`
 - `FLAGSMITH_API_TOKEN` **Required**. Can be retrieved as per [these instructions](/clients/rest.md##private-endpoints).
 - `API_POLL_FREQUENCY` set in seconds. The number of seconds to wait before polling `FLAGSMITH_API_URL` to update the
   Environments currently in use. Defaults to `10` seconds.
