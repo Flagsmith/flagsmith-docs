@@ -5,7 +5,7 @@ sidebar_label: Edge Proxy
 
 ## Overview
 
-:::important
+:::tip
 
 The Edge Proxy is only available as part of our Enterprise Plans. Please
 [get in touch](https://flagsmith.com/contact-us/) if this is something you are interested in!
@@ -31,6 +31,13 @@ stateless and hence close to perfectly scalable being deployed behind a load bal
 
 The Edge Proxy runs as a docker container. It is currently available at the
 [Docker Hub](https://hub.docker.com/repository/docker/flagsmith/edge-proxy).
+
+:::tip
+
+The `flagsmith/edge-proxy` image is private - please [get in touch](https://flagsmith.com/contact-us/) if you would like
+access to it.
+
+:::
 
 ```bash
 # Download the Docker Image
