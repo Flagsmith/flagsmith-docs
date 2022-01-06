@@ -88,7 +88,7 @@ Current variables used between 'frontend/environment.js' and 'frontend/common/pr
 
 ## E2E testing
 
-This project uses [Nightwatch](http://nightwatchjs.org/) for automated end to end testing with Chromedriver.
+This project uses [Test Cafe](https://testcafe.io/) for automated end to end testing with Chromedriver.
 
 ```bash
 npm test
