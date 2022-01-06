@@ -76,7 +76,8 @@ Current variables used between 'frontend/environment.js' and 'frontend/common/pr
   automatically.
 - `GOOGLE_ANALYTICS_API_KEY`: Google Analytics key to track API usage.
 - `CRISP_WEBSITE_ID`: Crisp Chat widget Website key.
-- `ALLOW_SIGNUPS`: **DEPRECATED in favour of PREVENT_SIGNUP** Determines whether to prevent manual signups without invites. Set it to any value to allow signups.
+- `ALLOW_SIGNUPS`: **DEPRECATED in favour of PREVENT_SIGNUP** Determines whether to prevent manual signups without
+  invites. Set it to any value to allow signups.
 - `PREVENT_SIGNUP`: Determines whether to prevent manual signups without invites. Set it to any value to allow signups.
 - `ENABLE_MAINTENANCE_MODE`: Puts the site into maintenance mode. Set it to any value to enable maintenance.
 - `AMPLITUDE_API_KEY`: The Amplitude key to use for behaviour tracking.
