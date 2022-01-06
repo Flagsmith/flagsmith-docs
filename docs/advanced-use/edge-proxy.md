@@ -53,7 +53,7 @@ You can configure the Edge Proxy with the following Environment Variables:
 
 - `FLAGSMITH_API_URL` **Required**. The URL of the API to proxy e.g. `https://api.flagsmith.com/api/v1/` or your own
   domain name if you are self hosting the Flagsmith API.
-- `ENVIRONMENT_API_KEYS` **Required**. A list of Environment keys to serve. Provided as a comma-separated list e.g.
+- `ENVIRONMENT_API_KEYS` **Required**. A list of Environment keys to serve. Provided as a comma-separated String e.g.
   `4vfqhypYjcPoGGu8ByrBaj, EmJFz265Q6CAXuGRZYnkeE, "8KzETdDeMY7xkqkSkY3Gsg`
 - `FLAGSMITH_API_TOKEN` **Required**. Can be retrieved as per [these instructions](/clients/rest.md##private-endpoints).
 - `API_POLL_FREQUENCY` set in seconds. The number of seconds to wait before polling `FLAGSMITH_API_URL` to update the
