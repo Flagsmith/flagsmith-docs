@@ -46,17 +46,8 @@ http GET 'https://api.flagsmith.com/api/v1/flags/' 'X-Environment-Key':'TijpMX6a
 You can also do things like create new flags, environments, toggle flags or indeed anything that is possible from the
 administrative front end via the API.
 
-To authenticate, get a token by logging in with an account credentials:
-
-```bash
-curl 'https://api.flagsmith.com/api/v1/auth/login/' \
-    -H 'content-type: application/json' \
-    --data-binary '{"email":"<ACCOUNT EMAIL ADDRESS>","password":"<ACCOUNT PASSWORD>"}'
-
-{"key":"<KEY HASH>"}
-```
-
-Then use this token for subsequent requests. For example, to create a new evironment:
+To authenticate, you can use the token associated with your account. This can be found in the "Account" page from the
+top right navigation panel. Use this token for API calls. For example, to create a new evironment:
 
 ```bash
 curl 'https://api.flagsmith.com/api/v1/environments/' \
