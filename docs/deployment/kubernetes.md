@@ -184,6 +184,22 @@ By default, Flagsmith uses InfluxDB to store time series data. Currently this is
 By default, Flagsmith connects directly to the database - either in-cluster, or external. Can enable PgBouncer with
 `pgbouncer.enabled: true` to have Flagsmith connect to PgBouncer, and PgBouncer connect to the database.
 
+### All-in-one Docker image
+
+The Docker image at https://hub.docker.com/r/flagsmith/flagsmith/ contains both the API and the frontend. To make use of
+this, set the following values:
+
+```yaml
+api:
+ image:
+  repository: flagsmith/flagsmith # or some other repository hosting the combined image
+  tag: 2.14 # or some other tag that exists in that repository
+ separateApiAndFrontend: false
+```
+
+This switches off the Kubernetes deployment for the frontend. However, the ingress and service are retained, but all
+requests are handled by the API deployment.
+
 ## Configuration
 
 The following table lists the configurable parameters of the chart and their default values.
@@ -194,6 +210,7 @@ The following table lists the configurable parameters of the chart and their def
 | `api.image.tag`                                    | docker image tag for flagsmith api                             | appVersion                     |
 | `api.image.imagePullPolicy`                        |                                                                | `IfNotPresent`                 |
 | `api.image.imagePullSecrets`                       |                                                                | `[]`                           |
+| `api.separateApiAndFrontend`                       | Set to false if using flagsmith/flagsmith image for the api    | `true`                         |
 | `api.replicacount`                                 | number of replicas for the flagsmith api                       | 1                              |
 | `api.resources`                                    | resources per pod for the flagsmith api                        | `{}`                           |
 | `api.podLabels`                                    | additional labels to apply to pods for the flagsmith api       | `{}`                           |
