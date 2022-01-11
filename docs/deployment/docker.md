@@ -13,8 +13,8 @@ cd self-hosted
 docker-compose up
 ```
 
-Wait for the images to download and run, then visit `http://localhost:8080/`. As a first step, you will need to create a
-new account at [http://localhost:8080/signup](http://localhost:8080/signup)
+Wait for the images to download and run, then visit `http://localhost:8000/`. As a first step, you will need to create a
+new account at [http://localhost:8000/signup](http://localhost:8000/signup)
 
 ## Environment Variables
 
@@ -31,12 +31,10 @@ As well as the Environment Variables specified in the [API](/deployment/locally-
 
 The docker-compose file runs the following containers:
 
-### Front End Dashboard - Port 8080
+### Front End Dashboard and REST API combined - Port 8000
 
-The Web user interface. From here you can create accounts and manage your flags. The front end is written in node.js and
+The Web user interface allows you to create accounts and manage your flags. The front end is written in node.js and
 React.
-
-### REST API - Port 8000
 
 The web user interface communicates via REST to the API that powers the application. The SDK clients also connect to
 this API. The API is written in Django and the Django REST Framework.
@@ -55,13 +53,13 @@ docker-compose run --rm --entrypoint "python manage.py createsuperuser" api
 
 You can then access the admin dashboard at [http://localhost:8000/admin/](http://localhost:8000/admin/)
 
+### Postgres Database
+
+The REST API stores all its data within a Postgres database. Schema changes will be carried out automatically when
+upgrading using Django Migrations.
+
 ## Access Flagsmith Remotely
 
 You will need to either open ports into your docker host or set up a reverse proxy to access the two Flagsmith services
 (dashboard and API). You will also need to configure the dashboard environment variable `API_URL`, which tells the
 dashboard where the REST API is located.
-
-## Postgres Database
-
-The REST API stores all its data within a Postgres database. Schema changes will be carried out automatically when
-upgrading using Django Migrations.
