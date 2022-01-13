@@ -81,22 +81,23 @@ python manage.py createsuperuser
 
 ### Environments with no direct console access (e.g. Heroku, ECS)
 
-Once the app has been deployed, you can initialise it to create a super user by sending a GET request to the
-`/api/v1/users/init/` endpoint. This will create a super user with the details configured in `app.settings.common` with
-the following parameters:
+Once the app has been deployed, you can initialise your installation by accessing `/api/v1/users/config/init/`. This
+will show a page with a basic form to set up some initial data for the platform. Each of the parameters in the form are
+described below.
 
-```bash
-ADMIN_USERNAME,
-ADMIN_EMAIL,
-ADMIN_INITIAL_PASSWORD
-```
-
-Note that this functionality can be turned off in the settings if required by setting
-`ALLOW_ADMIN_INITIATION_VIA_URL=False`.
+| Parameter name | Description                                                                                                                      |
+| -------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| Username       | A unique username to give the installation super user                                                                            |
+| Email          | The email address to give the installation super user                                                                            |
+| Password       | The password to give the installation super user                                                                                 |
+| Site name      | A human readable name for the site, e.g. 'Flagsmith'                                                                             |
+| Site domain    | The domain that the FE of the site will be running on, e.g. app.flagsmith.com. This will be used for e.g. password reset emails. |
 
 Once you've created the super user, you can use the details to log in at `/admin/`. From here, you can create an
 organisation and either create another user or simply assign the organisation to your admin user to begin using the
 application.
+
+Further information on the admin pages can be found [here](/deployment/django-admin).
 
 ## Deploying
 
