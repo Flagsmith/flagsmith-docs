@@ -10,6 +10,12 @@ If you would rather skip the hosting and jump straight to integrating Flagsmith 
 [https://flagsmith.com/](https://flagsmith.com/) right now. We have
 [paid plans with pricing to suit both startups and enterprise customers alike](https://flagsmith.com/pricing).
 
+## One Click Installers
+
+[![Deploy to DigitalOcean](https://www.deploytodo.com/do-btn-blue.svg)](https://cloud.digitalocean.com/apps/new?repo=https://github.com/flagsmith/flagsmith/tree/main)
+
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/flagsmith/flagsmith/tree/main)
+
 ## Self Hosting Overview
 
 You will need to run through the following steps to get set up:
