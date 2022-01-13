@@ -25,6 +25,8 @@ As well as the Environment Variables specified in the [API](/deployment/locally-
   are created
 - `GUNICORN_THREADS`: The number of
   [Gunicorn Threads per Worker](https://docs.gunicorn.org/en/stable/settings.html#threads)
+- `GUNICORN_TIMEOUT`: The number of seconds before the
+  [Gunicorn times out](https://docs.gunicorn.org/en/stable/settings.html#timeout)
 - `ACCESS_LOG_LOCATION`: The location to write access logs to
 
 ## Architecture
