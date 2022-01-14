@@ -16,6 +16,11 @@ If you would rather skip the hosting and jump straight to integrating Flagsmith 
 
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/flagsmith/flagsmith/tree/main)
 
+### Caprover
+
+You can also deploy to a [Caprover Server](https://caprover.com/) with
+[One Click Apps](https://caprover.com/docs/one-click-apps.html).
+
 ## Self Hosting Overview
 
 You will need to run through the following steps to get set up:
