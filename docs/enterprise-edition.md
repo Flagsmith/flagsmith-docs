@@ -242,7 +242,17 @@ GRANT EXECUTE ON SYS.DBMS_RANDOM TO oracle_user;
 The application can be run using SAML2 as an authentication backend. You should not need any additional configuration on
 the startup of the application to use SAML2, however, once the application is running, you will need to create the
 relevant configuration entities for any organisations on your installation that require SAML2 authentication. This can
-currently only be done via the Django admin console.
+currently only be done via the Django admin console, via the 'Saml Configurations' section on the 'Organisation' page.
+Further information on how to access the django admin console can be found [here](/deployment/django-admin).
+
+The SAML configuration requires the following parameters:
+
+| Parameter name    | Description                                                                                                                   |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| Organisation      | The flagsmith organisation entity to allow SAML login for                                                                     |
+| Organisation name | A unique string for the organisation. You'll enter this when prompted by the SSO login flow and forms part of your entity ID. |
+| Frontend URL      | This is the URL to redirect to on a successful SAML authentication, e.g. app.flagsmith.com.                                   |
+| Idp metadata      | This is the metadata from your Identity Provider.                                                                             |
 
 :::note
 
