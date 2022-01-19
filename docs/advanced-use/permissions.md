@@ -32,13 +32,13 @@ The permissions available at the Organisation level are defined below.
 
 Team Members and Groups can be given individual roles at a Project level.
 
-| **Role**           | **Ability**                                                                           |
-| ------------------ | ------------------------------------------------------------------------------------- |
-| Administrator      | Full Read/Write over all Environments, Feature Flag, Remote Config and Segment values |
-| View Project       | Can view the Project within their account                                             |
-| Create Environment | Can create new Environments within the Project                                        |
-| Create Feature     | Can create a new Feature / Remote Config                                              |
-| Delete Feature     | Can remove an existing Feature / Remote Config entirely from the Project              |
+| **Role**           | **Ability**                                                                                |
+| ------------------ | ------------------------------------------------------------------------------------------ |
+| Administrator      | Full Read/Write over all Environments, Feature Flag, Remote Config, Segment and Tag values |
+| View Project       | Can view the Project within their account                                                  |
+| Create Environment | Can create new Environments within the Project                                             |
+| Create Feature     | Can create a new Feature / Remote Config                                                   |
+| Delete Feature     | Can remove an existing Feature / Remote Config entirely from the Project                   |
 
 ![Image](/img/project-permissions.png)
 
