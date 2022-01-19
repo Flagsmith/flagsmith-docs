@@ -117,3 +117,23 @@ Environment:
  "event_type": "FLAG_UPDATED"
 }
 ```
+
+## Webhook Signature
+When your webhook secret is set, Flagsmith uses it to create a hash signature with each payload. This hash signature is passed with each request under the X-Flagsmith-Signature header that you need to validate at your end
+
+### Validating Signature
+Compute an HMAC with the SHA256 hash function. Use request body(raw utf-8 encoded string) as the message and secret(utf8 encoded) as the Key.
+Here is one example in python
+
+```python3
+import hmcac
+secret = "my shared secret"
+expected_signature = hmac.new(
+    key=secret.encode(),
+    msg=request_body,
+    digestmod=hashlib.sha256,
+).hexdigest()
+received_signature = request["headers"]["x-flagsmith-signature"]
+hmac.compare_digest(expected_signature, received_signature) is True
+
+```
