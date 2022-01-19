@@ -190,6 +190,9 @@ the below variables will be ignored.
   access the admin pages via SSO.
 - `OAUTH_CLIENT_SECRET`: Google OAuth Secret to enable accessing django admin pages via Google OAuth.
 - `ENABLE_ADMIN_ACCESS_USER_PASS`: Boolean. Set this flag to enable login to admin panel using username and password.
+- `USE_X_FORWARDED_HOST`: Boolean. Default `False`. Specifies whether to use the X-Forwarded-Host header in preference
+  to the Host header. This should only be enabled if a proxy which sets this header is in use.
+  [More Info](https://docs.djangoproject.com/en/4.0/ref/settings/#std:setting-USE_X_FORWARDED_HOST).
 
 #### Security Environment Variables
 
