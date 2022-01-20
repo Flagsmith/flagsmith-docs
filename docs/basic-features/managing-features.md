@@ -86,7 +86,17 @@ In the screenshot above, roughly half our user population will receive the value
 will receive `large` and roughly one quarter (25%) will receive `huge`. Note that you can use 100% as a weighting to
 ensure all your users receive the same variant.
 
-Multi Variate values can be defined differently for each Environment within your Project.
+:::important
+
+Multi Variate _values_ are defined at the Project level, but the _weightings_ are defined at the Environment level. Each
+variate String Value will be the same amongst all Environments. Consequently, changing the _value_ of a variation in one
+Environment will change that value for all the other Environments within the Project.
+
+The _weightings_ of each variation, on the other hand, are defined at the Environment level. Changing a Variate
+weighting in the `development` environment, for example, will not change the corresponding variation weighting in any
+other Environments within the Project.
+
+:::
 
 ### Multi-Variate Flag Use Cases
 
