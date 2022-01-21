@@ -125,8 +125,8 @@ passed with each request under the X-Flagsmith-Signature header that you need to
 
 ### Validating Signature
 
-Compute an HMAC with the SHA256 hash function. Use request body(raw utf-8 encoded string) as the message and secret(utf8
-encoded) as the Key. Here is one example in python
+Compute an HMAC with the SHA256 hash function. Use request body (raw utf-8 encoded string) as the message and secret
+(utf8 encoded) as the Key. Here is one example in python
 
 ```python3
 import hmcac
@@ -138,5 +138,4 @@ expected_signature = hmac.new(
 ).hexdigest()
 received_signature = request["headers"]["x-flagsmith-signature"]
 hmac.compare_digest(expected_signature, received_signature) is True
-
 ```
