@@ -16,6 +16,22 @@ If you would rather skip the hosting and jump straight to integrating Flagsmith 
 
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/flagsmith/flagsmith/tree/main)
 
+### Fly.io
+
+We're big fans of [Fly.io](https://Fly.io)! You can deploy to fly.io really easily:
+
+```bash
+git clone git@github.com:Flagsmith/flagsmith.git
+cd flagsmith
+flyctl postgres create --name flagsmith-flyio-db
+flyctl apps create flagsmith-flyio
+flyctl postgres attach --postgres-app flagsmith-flyio-db
+flyctl deploy
+```
+
+Fly.io has a global application namespace, and so you may need to change the name of the application defined in
+`fly.toml` as well as the commands above.
+
 ### Caprover
 
 You can also deploy to a [Caprover Server](https://caprover.com/) with
