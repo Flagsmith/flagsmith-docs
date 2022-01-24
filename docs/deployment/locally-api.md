@@ -193,6 +193,12 @@ the below variables will be ignored.
 - `USE_X_FORWARDED_HOST`: Boolean. Default `False`. Specifies whether to use the X-Forwarded-Host header in preference
   to the Host header. This should only be enabled if a proxy which sets this header is in use.
   [More Info](https://docs.djangoproject.com/en/4.0/ref/settings/#std:setting-USE_X_FORWARDED_HOST).
+- `SECURE_PROXY_SSL_HEADER_NAME`: String. The name of the header looked for by Django's
+  [SECURE_PROXY_SSL_HEADER setting](https://docs.djangoproject.com/en/4.0/ref/settings/#secure-proxy-ssl-header).
+  Defaults to `HTTP_X_FORWARDED_PROTO`.
+- `SECURE_PROXY_SSL_HEADER_VALUE`: String. The value of the header looked for by Django's
+  [SECURE_PROXY_SSL_HEADER setting](https://docs.djangoproject.com/en/4.0/ref/settings/#secure-proxy-ssl-header).
+  Defaults to `https`.
 
 #### Security Environment Variables
 
