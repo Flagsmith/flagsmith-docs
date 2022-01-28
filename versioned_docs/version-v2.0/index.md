@@ -44,9 +44,9 @@ Once you are setup with the front and back end, you can integrate our client lib
 
 ### Client Side SDKs
 
-- [Android](/clients/android)
+- [Android/Kotlin](/clients/android)
 - [Flutter](/clients/flutter)
-- [iOS](/clients/ios)
+- [iOS/Swift](/clients/ios)
 - [Javascript and React/React Native](/clients/javascript)
 
 ### Server Side SDKs
