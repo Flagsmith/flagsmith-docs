@@ -45,6 +45,10 @@ module.exports = {
                     position: 'left',
                 },
                 {
+                    type: 'docsVersionDropdown',
+                    position: 'right',
+                },
+                {
                     href: 'https://github.com/flagsmith/flagsmith',
                     label: 'GitHub',
                     position: 'right',
