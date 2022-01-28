@@ -117,6 +117,16 @@ module.exports = {
                     routeBasePath: '/',
                     // Please change this to your repo.
                     editUrl: 'https://github.com/flagsmith/flagsmith-docs/tree/main',
+                    // includeCurrentVersion: false,
+                    versions: {
+                        current: {
+                            label: 'v3.0 🚧',
+                        },
+                        'v2.0': {
+                            label: 'v2.0',
+                            badge: false,
+                        },
+                    },
                 },
                 theme: {
                     customCss: require.resolve('./src/css/custom.css'),
