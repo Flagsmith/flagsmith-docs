@@ -40,17 +40,17 @@ module.exports = {
                     position: 'left',
                 },
                 {
+                    href: 'https://github.com/flagsmith/flagsmith',
+                    label: 'GitHub',
+                    position: 'left',
+                },
+                {
                     label: 'Discord',
                     href: 'https://discord.gg/hFhxNtXzgm',
                     position: 'left',
                 },
                 {
                     type: 'docsVersionDropdown',
-                    position: 'right',
-                },
-                {
-                    href: 'https://github.com/flagsmith/flagsmith',
-                    label: 'GitHub',
                     position: 'right',
                 },
             ],
