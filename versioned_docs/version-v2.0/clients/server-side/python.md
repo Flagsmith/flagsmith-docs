@@ -46,8 +46,8 @@ value = flagsmith.get_value("header", '<My User Id>')
 
 value = flagsmith.get_value("header")
 
-flagsmith.set_trait("accept-cookies", "true", "ben@flagsmith.com"))
-flagsmith.get_trait("accept-cookies", "ben@flagsmith.com"))
+flagsmith.set_trait("accept-cookies", "true", "ben@flagsmith.com")
+flagsmith.get_trait("accept-cookies", "ben@flagsmith.com")
 ```
 
 ### Available Options
