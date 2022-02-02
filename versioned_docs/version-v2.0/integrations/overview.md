@@ -26,7 +26,7 @@ users into Heap for cohort analysis, A/B testing and more. [Learn more](/integra
 You can integrate Flagsmith with Mixpanel. The integration automatically sends the flag states for identified users into
 Mixpanel for cohort analysis, A/B testing and more. [Learn more](/integrations/mixpanel)
 
-<a href="/integrations/mixpsegmentanel" alt="Segment"><img width="30%" src="/img/integrations/segment/segment-logo.svg"/></a>
+<a href="/integrations/segment" alt="Segment"><img width="30%" src="/img/integrations/segment/segment-logo.svg"/></a>
 
 You can integrate Flagsmith with Segment. Send your Identity flag states into segment for further downstream analysis.
 [Learn more](/integrations/segment)
