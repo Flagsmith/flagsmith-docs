@@ -36,6 +36,11 @@ You can integrate Flagsmith with Segment. Send your Identity flag states into se
 You can integrate Flagsmith with Rudderstack. Send your Identity flag states into Rudderstack for further downstream
 analysis. [Learn more](/integrations/rudderstack)
 
+<a href="/integrations/webhook" alt="WebHook"><img width="30%" src="/img/integrations/webhook/webhook-logo.svg"/></a>
+
+You can integrate Flagsmith with your own Analytics Platform/Data Warehouse. Send your Identity flag states into
+Snowflake, RedShift or anywhere else for further downstream analysis! [Learn more](/integrations/webhook)
+
 ## Application Monitoring and Performance
 
 <a href="/integrations/datadog" alt="Datadog"><img width="30%" src="/img/integrations/datadog/datadog-logo.svg"/></a>
