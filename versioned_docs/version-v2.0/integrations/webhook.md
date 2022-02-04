@@ -3,12 +3,6 @@ title: Webhook Analytics Integration
 sidebar_label: Webhook
 ---
 
-:::info
-
-This feature is [in development](https://github.com/Flagsmith/flagsmith/pull/393).
-
-:::
-
 You can integrate Flagsmith with your own data warehouse using our Webhook integration. The integration automatically
 sends the flag states for identified users as a webhook, to a URL you specify, for cohort analysis, A/B testing and
 more. The process is as follows:
@@ -28,54 +22,60 @@ Flagsmith will send a `POST` request to the Webhook url you provide, with the fo
 {
  "flags": [
   {
-   "id": 35528,
+   "enabled": false,
+   "environment": 2,
    "feature": {
-    "id": 1804,
-    "name": "hero",
-    "created_date": "2019-11-18T20:09:14.776177Z",
-    "description": "Determines what the hero image is",
-    "initial_value": "https://s3-us-west-2.amazonaws.com/com.uppercut.hero-images/assets/0466/comps/466_03314.jpg",
+    "created_date": "2022-02-04T14:57:39.200798Z",
     "default_enabled": false,
+    "description": null,
+    "id": 1,
+    "initial_value": null,
+    "name": "12e12e",
     "type": "STANDARD"
    },
-   "feature_state_value": "https://s3-us-west-2.amazonaws.com/com.uppercut.hero-images/assets/0466/comps/466_03314.jpg",
-   "enabled": true,
-   "environment": 6154,
-   "identity": null,
-   "feature_segment": null
+   "feature_segment": null,
+   "feature_state_value": null,
+   "id": 2,
+   "identity": null
   },
   {
-   "id": 35530,
+   "enabled": true,
+   "environment": 2,
    "feature": {
-    "id": 6149,
-    "name": "font_size",
-    "created_date": "2020-12-05T14:12:53.786706Z",
+    "created_date": "2022-02-04T14:57:44.244575Z",
+    "default_enabled": true,
     "description": null,
-    "initial_value": "12",
-    "default_enabled": false,
+    "id": 2,
+    "initial_value": null,
+    "name": "gggg",
     "type": "STANDARD"
    },
-   "feature_state_value": 14,
-   "enabled": true,
-   "environment": 6154,
-   "identity": null,
-   "feature_segment": null
+   "feature_segment": null,
+   "feature_state_value": null,
+   "id": 4,
+   "identity": null
   }
  ],
- "traits": {
-  "accepted_ts_cs": true,
-  "dark_mode": false
- },
- "segments": {
-  "power_users": {
-   "id": 152,
-   "member": true
-  },
-  "beta_testers": {
-   "id": 55,
-   "member": false
+ "identity": "user_test",
+ "segments": [
+  {
+   "id": 1,
+   "member": true,
+   "name": "test_segment"
   }
- }
+ ],
+ "traits": [
+  {
+   "id": 4,
+   "trait_key": "222",
+   "trait_value": 333
+  },
+  {
+   "id": 5,
+   "trait_key": "aaa",
+   "trait_value": "bbb"
+  }
+ ]
 }
 ```
 
