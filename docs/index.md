@@ -42,25 +42,16 @@ React/Javascript and requires NodeJS.
 
 Once you are setup with the front and back end, you can integrate our client libraries within your apps.
 
-### Client Side SDKs
-
-- [Android](/clients/android)
-- [Flutter](/clients/flutter)
-- [iOS](/clients/ios)
-- [Javascript and React/React Native](/clients/javascript)
-
-### Server Side SDKs
-
-- [.Net](/clients/dotnet)
-- [Elixir](/clients/elixir)
-- [Go](/clients/go)
-- [Java](/clients/java)
-- [NodeJS](/clients/node)
-- [PHP](/clients/php)
-- [Python](/clients/python)
-- [REST](/clients/rest)
-- [Ruby](/clients/ruby)
-- [Rust](/clients/rust)
+| Client Side SDKs                                        | Server Side SDKs          |
+| ------------------------------------------------------- | ------------------------- |
+| [Javascript, React & React Native](/clients/javascript) | [Node.js](/clients/node)  |
+| [Android/Kotlin](/clients/android)                      | [Java](/clients/java)     |
+| [Flutter](/clients/flutter)                             | [.Net](/clients/dotnet)   |
+| [iOS/Swift](/clients/ios)                               | [Python](/clients/python) |
+|                                                         | [Ruby](/clients/ruby)     |
+|                                                         | [Rust](/clients/rust)     |
+|                                                         | [Go](/clients/go)         |
+|                                                         | [Elixir](/clients/elixir) |
 
 ## Product Road-map
 

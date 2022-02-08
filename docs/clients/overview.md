@@ -10,6 +10,19 @@ sidebar_position: 1
 Flagsmith ships with SDKs for a bunch of different programming languages. We also have a [REST API](rest.md) that you
 can use if you want to consume the API directly.
 
+| Client Side SDKs                                        | Server Side SDKs          |
+| ------------------------------------------------------- | ------------------------- |
+| [Javascript, React & React Native](/clients/javascript) | [Node.js](/clients/node)  |
+| [Android/Kotlin](/clients/android)                      | [Java](/clients/java)     |
+| [Flutter](/clients/flutter)                             | [.Net](/clients/dotnet)   |
+| [iOS/Swift](/clients/ios)                               | [Python](/clients/python) |
+|                                                         | [Ruby](/clients/ruby)     |
+|                                                         | [Rust](/clients/rust)     |
+|                                                         | [Go](/clients/go)         |
+|                                                         | [Elixir](/clients/elixir) |
+
+## Remote and Local Evaluation Modes
+
 The Server Side SDKs (e.g Python, Ruby etc) can operate in 2 different modes:
 
 1. `Remote Evaluation`
@@ -53,7 +66,7 @@ the Flagsmith every `60` seconds; this rate is configurable within each SDK.
 
 It's important to understand the [pros and cons](#pros-cons-and-caveats) for runing `Local Evaluation`.
 
-## Client Side SDKs
+### Client Side SDKs
 
 All our Client Side SDKs run in `Remote Evaluation` mode only; they cannot run in `Local Evaluation mode`. The reason
 for this is down to data sensitivity. Because some of this data could be sensitive (for example, your Segment Rules), we
