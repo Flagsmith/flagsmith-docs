@@ -1,7 +1,7 @@
 ---
 description: Flagsmith 3rd Party Client SDKs
 sidebar_label: 3rd Party
-sidebar_position: 2
+sidebar_position: 3
 ---
 
 # 3rd Party SDKs

@@ -1,7 +1,7 @@
 ---
 description: Manage your Feature Flags and Remote Config in your REST APIs.
 sidebar_label: REST
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 # Direct API Access
