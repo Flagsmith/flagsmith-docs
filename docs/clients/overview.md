@@ -11,8 +11,8 @@ can use if you want to consume the API directly.
 
 The Server Side SDKs (e.g Python, Ruby etc) can operate in 2 different modes:
 
-1. Remote Evaluation
-2. Local Evaluation
+1. `Remote Evaluation`
+2. `Local Evaluation`
 
 In order to make the right choice, it's worth digging into how these two approaches are different, and what the pros and
 cons of each one are.
@@ -22,7 +22,7 @@ cons of each one are.
 In this mode, every time the SDK needs to get some Flags, it will make a blocking request to the Flagsmith API to get
 the Flags.
 
-For Remote Evaluation, initialise the SDK with the `Environment Key`.
+For `Remote Evaluation`, initialise the SDK with the `Environment Key`.
 
 This is the same way that the [Client Side SDKs](#client-side-sdks) work.
 
@@ -46,16 +46,16 @@ regular `Environment Key`. This key should _not_ be shared, and should be consid
 
 :::
 
-In order to keep their Environment data up-to-date, SDKs running in Local Evaluation mode will poll the Flagmsith API
+In order to keep their Environment data up-to-date, SDKs running in `Local Evaluation` mode will poll the Flagmsith API
 regularly and update their local Environment data with any changes from the Flagsmith API. By default the SDK will poll
 the Flagsmith every `60` seconds; this rate is configurable within each SDK.
 
-It's important to understand the [pros and cons](#pros-cons-and-caveats) for runing Local Evaluation.
+It's important to understand the [pros and cons](#pros-cons-and-caveats) for runing `Local Evaluation`.
 
 ## Client Side SDKs
 
-All our Client Side SDKs run in `Remote Evaluation` mode only; they cannot run in Local Evaluation mode. The reason for
-this is down to data sensitivity. Because some of this data could be sensitive (for example, your Segment Rules), we
+All our Client Side SDKs run in `Remote Evaluation` mode only; they cannot run in `Local Evaluation mode`. The reason
+for this is down to data sensitivity. Because some of this data could be sensitive (for example, your Segment Rules), we
 only allow Client Side SDKs to run in `Remote Evaluation` mode.
 
 :::info
@@ -67,13 +67,13 @@ running in `Local Evaluation` mode.
 
 ## Pros, Cons and Caveats
 
-When running _Remote Evaluation_, all aspects of the Flagsmith platform are enabled. This includes:
+When running `Remote Evaluation`, all aspects of the Flagsmith platform are enabled. This includes:
 
-- Identities are presisted within the Flagsmith Datastore.
+- Identities are persisted within the Flagsmith Datastore.
 - Identity overrides specified within the Dashboard
 - All Integrations work as designed.
 
-When running in _Local Evaluation_ mode, the following caveats are important to bear in mind:
+When running in `Local Evaluation` mode, the following caveats are important to bear in mind:
 
 - Identities are _not_ sent to the API and so are not persisted in the datastore.
 - Identity overrides do not operate at all.
