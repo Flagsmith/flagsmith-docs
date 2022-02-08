@@ -120,10 +120,10 @@ module.exports = {
                     // includeCurrentVersion: false,
                     versions: {
                         current: {
-                            label: 'v3.0 🚧',
+                            label: 'v2.0 🚧',
                         },
-                        'v2.0': {
-                            label: 'v2.0',
+                        'v1.0': {
+                            label: 'v1.0',
                             badge: false,
                         },
                     },
