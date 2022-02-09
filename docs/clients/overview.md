@@ -1,11 +1,10 @@
 ---
-title: SDKs Overview
 description: Manage your Feature Flags and Remote Config in your REST APIs.
 sidebar_label: Overview
 sidebar_position: 1
 ---
 
-## Introduction
+# SDKs Overview
 
 Flagsmith ships with SDKs for a bunch of different programming languages. We also have a [REST API](rest.md) that you
 can use if you want to consume the API directly.
