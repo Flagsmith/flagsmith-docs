@@ -26,6 +26,8 @@ unintentionally leaking Identity trait data.
 
 :::
 
+## Identity Overrides
+
 Once you have uniquely identified a user, you can then override features for that user from your environment defaults.
 For example, you've pushed a feature into production, but the relevant feature flag is still hiding that feature to all
 of your users. You can now override that flag for your own user, and test that feature. Once you are happy with
