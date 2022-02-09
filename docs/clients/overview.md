@@ -16,17 +16,6 @@ which mode is right for your use case. This is detailed below.
 
 :::
 
-| Client Side SDKs                                        | Server Side SDKs          |
-| ------------------------------------------------------- | ------------------------- |
-| [Javascript, React & React Native](/clients/javascript) | [Node.js](/clients/node)  |
-| [Android/Kotlin](/clients/android)                      | [Java](/clients/java)     |
-| [Flutter](/clients/flutter)                             | [.Net](/clients/dotnet)   |
-| [iOS/Swift](/clients/ios)                               | [Python](/clients/python) |
-|                                                         | [Ruby](/clients/ruby)     |
-|                                                         | [Rust](/clients/rust)     |
-|                                                         | [Go](/clients/go)         |
-|                                                         | [Elixir](/clients/elixir) |
-
 ## Remote and Local Evaluation Modes
 
 The Server Side SDKs (e.g Python, Ruby etc) can operate in 2 different modes:
@@ -42,7 +31,8 @@ cons of each one are.
 In this mode, every time the SDK needs to get some Flags, it will make a blocking request to the Flagsmith API to get
 the Flags for the particular request.
 
-For `Remote Evaluation`, initialise the SDK with the `Environment Key`.
+`Remote Evaluation` is the default mode; simply initialise the SDK with the `Environment Key` and you will be running in
+`Remote Evaluation` mode.
 
 This is the same way that the [Client Side SDKs](#client-side-sdks) work.
 
@@ -50,6 +40,10 @@ This is the same way that the [Client Side SDKs](#client-side-sdks) work.
 
 In this mode, all flag values are calculated locally, on your server. The Flagsmith SDK includes an implementation of
 the Flag Engine.
+
+You have to configure the SDK to run in `Local Evaluation` mode. See the
+[SDK configuration options](server-side.md#configuring-the-sdk) for details on how to set that in your particular
+language.
 
 When the SDK is initialised, it will grab the entire set of details about the Environment from the Flagsmith API. This
 will include all the Flags, Flag values, Segment rules, Segment overrides etc for that Environment. This full complement

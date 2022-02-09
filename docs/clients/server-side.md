@@ -48,21 +48,9 @@ implementation 'com.flagsmith:flagsmith-java-client:2.8'
 
 ```python
 from flagsmith import Flagsmith
-from flagsmith.models import DefaultFlag
-
-app = Flask(__name__)
 
 flagsmith = Flagsmith(
-    environment_key = os.environ.get("FLAGSMITH_SERVER_SIDE_SDK_TOKEN"),
-    defaults=[
-        # Set a default flag which will be used if the "secret_button"
-        # feature is not returned by the API or if the API is not reachable
-        DefaultFlag(
-            enabled = False,
-            value = json.dumps({"colour": "#b8b8b8"}),
-            feature_name = "secret_button",
-        )
-    ],
+    environment_key = os.environ.get("FLAGSMITH_ENVIRONMENT_KEY")
 )
 ```
 
@@ -121,6 +109,64 @@ Java
 </TabItem>
 </Tabs>
 
+## Managing Default Flags
+
+Default Flags are configured by passing in a function that is called when a Flag cannot be found.
+
+<Tabs groupId="language">
+<TabItem value="py" label="Python">
+
+```python
+from flagsmith import Flagsmith
+from flagsmith.models import DefaultFlag
+
+def default_flag_handler(feature_name: str) -> DefaultFlag:
+    """
+    Function that will be used if the API doesn't respond, or an unknown
+    feature is requested
+    """
+    if feature_name == "secret_button":
+        return DefaultFlag(
+            enabled=False,
+            value=json.dumps({"colour": "#b8b8b8"}),
+            feature_name="secret_button",
+        )
+    ],
+    return DefaultFlag(False, None)
+
+flagsmith = Flagsmith(
+    environment_key=os.environ.get("FLAGSMITH_ENVIRONMENT_KEY"),
+    default_flag_handler=default_flag_handler,
+)
+```
+
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java
+Java
+```
+
+</TabItem>
+</Tabs>
+
+## Network Behaviour
+
+The Server Side SDKS share the same network behaviour across the different languages:
+
+### Remote Evaluation Mode Network Behaviour
+
+- A blocking network request is made every time you make a call to get an Environment Flags. In Python, for example,
+  `flagsmith.get_environment_flags()` will trigger this request.
+- A blocking network request is made every time you make a call to get an Identities Flags. In Python, for example,
+  `flagsmith.get_identity_flags(identifier=identifier, traits=traits)` will trigger this request.
+
+### Local Evaluation Mode Network Behaviour
+
+- When the SDK is initialised, it will make an asnchronous network request to retrieve details about the Environment.
+- Every 60 seconds (by default), it will repeat this aysnchronous request to ensure that the Environment information it
+  has is up to date.
+
 ## Configuring the SDK
 
 You can modify the behaviour of the SDK during initialisation. Full configuration options are shown below.
@@ -131,17 +177,21 @@ You can modify the behaviour of the SDK during initialisation. Full configuratio
 ```python
 flagsmith = Flagsmith(
     # Your API Token.
+    # Note that this is either the `Environment API` key or the `Server Side SDK Token`
+    # depending on if you are using Local or Remote Evaluation
     # Required.
-    environment_key = os.environ.get("FLAGSMITH_SERVER_SIDE_SDK_TOKEN"),
+    environment_key = os.environ.get("FLAGSMITH_ENVIRONMENT_KEY"),
 
     # Controls which mode to run in; local or remote evaluation.
+    # See the `SDKs Overview Page` for more info
     # Optional.
     # Defaults to False.
     enable_local_evaluation = False,
 
     # Override the default Flagsmith API URL if you are self-hosting.
     # Optional.
-    api_url = "https://api.yourselfhostedflagsmith.com/api/v1",
+    # Defaults to https://edge.api.flagsmith.com/api/v1/
+    api_url = "https://api.yourselfhostedflagsmith.com/api/v1/",
 
     # The network timeout in seconds.
     # Optional.
@@ -157,6 +207,7 @@ flagsmith = Flagsmith(
     # A `urllib3` Retries object to control network retry policy
     # See https://urllib3.readthedocs.io/en/latest/reference/urllib3.util.html#urllib3.util.Retry
     # Optional
+    # Defaults to None
     retries: Retry = None,
 
     # Controls whether Flag Analytics data is sent to the Flagsmith API
@@ -168,6 +219,7 @@ flagsmith = Flagsmith(
     # You can pass custom headers to the Flagsmith API with this Dictionary.
     # This can be helpful, for example, when sending request IDs to help trace requests.
     # Optional
+    # Defaults to None
     custom_headers: typing.Dict[str, typing.Any] = None,
 
     # You can specify default Flag values on initialisation.
