@@ -4,8 +4,6 @@ sidebar_label: Server Side
 sidebar_position: 2
 ---
 
-import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
-
 # Server Side SDKs
 
 Server Side SDKs can run in 2 different modes: `Local Evaluation` and `Remote Evaluation`. We recommend
@@ -15,6 +13,8 @@ your applications.
 Once you've got understood, lets get the SDKs integrated!
 
 ## Add the Flagsmith package
+
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
 
 <Tabs groupId="language">
 <TabItem value="py" label="Python">
