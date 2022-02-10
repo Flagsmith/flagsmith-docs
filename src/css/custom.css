@@ -14,7 +14,7 @@
     --ifm-color-primary-light: rgb(70, 203, 174);
     --ifm-color-primary-lighter: rgb(102, 212, 189);
     --ifm-color-primary-lightest: rgb(146, 224, 208);
-    --ifm-code-font-size: 95%;
+    --ifm-code-font-size: 90%;
 }
 
 .docusaurus-highlight-code-line {
@@ -32,4 +32,5 @@
 
 :root {
     --ifm-font-family-base: 'Open Sans Regular';
+    --ifm-font-size-base: 95%;
 }
