@@ -18,7 +18,7 @@ If you would rather skip the hosting and jump straight to integrating Flagsmith 
 
 [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https%3A%2F%2Fgithub.com%2FFlagsmith%2Fflagsmith&plugins=postgresql&envs=DJANGO_ALLOWED_HOSTS%2CGUNICORN_THREADS%2CGUNICORN_WORKERS%2CPORT%2Cenv&DJANGO_ALLOWED_HOSTSDefault=%5B%27*%27%5D&GUNICORN_THREADSDefault=1&GUNICORN_WORKERSDefault=1&PORTDefault=8000&envDefault=prod)
 
-### Fly.io
+![Fly.io](/img/logos/fly.io.svg)
 
 We're big fans of [Fly.io](https://Fly.io)! You can deploy to fly.io really easily:
 
