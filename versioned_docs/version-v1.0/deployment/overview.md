@@ -32,7 +32,7 @@ flyctl deploy
 ```
 
 Fly.io has a global application namespace, and so you may need to change the name of the application defined in
-`fly.toml` as well as the commands above.
+[`fly.toml`](https://github.com/Flagsmith/flagsmith/blob/main/fly.toml) as well as the commands above.
 
 ### Caprover
 
