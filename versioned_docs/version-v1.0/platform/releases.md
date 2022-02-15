@@ -1,6 +1,4 @@
----
-title: Releases
----
+# Releases
 
 ## Docker Image Tags
 
@@ -12,6 +10,78 @@ We have a fairly simple tagging strategy:
   - 2.7
 
 Please look out our [Github Releases](https://github.com/Flagsmith/flagsmith/releases) page for detailed updates.
+
+## v2.18
+
+Released **15 February 2022**
+
+- Serverside SDK keys Frontend developed
+- Improved Segment Rules valuation
+- Multiple Dependency Updates
+
+## v2.17
+
+Released **8 February 2022**
+
+- Webhook Analytics Integration
+- Audit Log Search is now Serverside
+- Improvements to Flag Value Text Editor
+
+## v2.16
+
+Released **31 January 2022**
+
+- Segment Override Permissions Upgrade
+- Added lots of 1-click installers (fly.io, render, digital ocean)
+- Rudderstack Integration
+- New SDK tokens in preparation for SDKv2
+
+## v2.15
+
+Released **22 January 2022**
+
+- Added hostnames to InfluxDB
+- Better Env Var handling of SSL and `USE_X_FORWARDED_HOST`
+
+## v2.14
+
+Released **4 January 2022**
+
+- Slack Integration
+- Additional Permission Options
+- E2E tests moved to TestCafe
+
+## v2.13
+
+Released **8 December 2021**
+
+- Protected Flags
+- Compare Environments
+- Force 2fa
+
+## v2.12
+
+Released **2 December 2021**
+
+- Environment Variable renaming
+
+## v2.11
+
+Released **18 November 2021**
+
+- Improved Docker Compose
+- Heap Integration
+- Multiple Dependency Updates
+
+## v2.10
+
+Released **2 November 2021**
+
+- Elixir SDK
+- Archive Flags
+- Specify Flag Owners
+- Database performance improvements
+- Permission improvements
 
 ## v2.9
 
