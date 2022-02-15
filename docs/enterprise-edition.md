@@ -4,19 +4,13 @@ title: Enterprise Edition
 
 ## Overview
 
-The Flagsmith platform is made up of 4 main components:
+Flagsmith is also provided as an "Enterprise Edition" which has additional features and capabilities over the Open
+Source product:
 
-- The Flagsmith REST API
-- The Flagsmith administration front end (a React-based web application)
-- A SQL Database (currently we support Postgres)
-- A time-series database (currently we support InfluxDB 2.0)
-
-All of these components are open source, but the API is also provided as an "Enterprise Edition" which has additional
-features and capabilities:
-
-- Role Based Access Controls
-- SAML authentication
-- Additional Database Engines (Oracle, SQL Server and MySQL)
+- [Role Based Access Controls](advanced-use/permissions.md)
+- [SAML, LDAP, ADFS and Okta authentication](advanced-use/authentication-methods.md)
+- Additional database engines: Oracle, SQL Server and MySQL)
+- Additional deployment and orchestration options as detailed below
 
 ## Deployment Options
 
@@ -44,36 +38,8 @@ Please contact us for the relevant source code for these projects.
 
 ## Docker Image Repository
 
-The Flagsmith API Enterprise Edition is hosted within AWS ECR. To access the Docker images in this repository you will
-need an AWS IAM access key and secret. Please contact us for these credentials.
-
-The base ECR image repository URL is `084060095745.dkr.ecr.eu-west-2.amazonaws.com`.
-
-### Requirements
-
-You must install the [AWS cli](https://aws.amazon.com/cli/) and the docker command line tools.
-
-### Pulling the Docker images
-
-Once you have been provided with these credentials, add the following to your `~/.aws/credentials`:
-
-```txt
-[flagsmith-ee-ecr]
-aws_access_key_id = <your AWS access key>
-aws_secret_access_key = <your AWS secret key>
-```
-
-Then you can log in to AWS and add the access token to your docker cli
-
-```bash
-aws --profile flagsmith-ee-ecr ecr get-login-password --region eu-west-2 | docker login --username AWS --password-stdin 084060095745.dkr.ecr.eu-west-2.amazonaws.com
-```
-
-You can then use regular docker commands, e.g.:
-
-```bash
-docker pull 084060095745.dkr.ecr.eu-west-2.amazonaws.com/flagsmith-api-ee:latest
-```
+The Flagsmith API Enterprise Edition is hosted with a private Docker Hub repository. To access the Docker images in this
+repository you will need to provide a Docker Hub account.
 
 ## Environment Variables
 
