@@ -1,8 +1,9 @@
 ---
-title: Docker
 description: Getting Started with Flagsmith on Docker
 sidebar_position: 40
 ---
+
+# Docker
 
 You can use docker to set up an entire [Flagsmith Feature Flag](https://www.flagsmith.com) environment locally. Just
 clone the [docker repository](https://github.com/Flagsmith/self-hosted) and run docker-compose:
@@ -28,6 +29,14 @@ As well as the Environment Variables specified in the [API](/deployment/locally-
 - `GUNICORN_TIMEOUT`: The number of seconds before the
   [Gunicorn times out](https://docs.gunicorn.org/en/stable/settings.html#timeout)
 - `ACCESS_LOG_LOCATION`: The location to write access logs to
+
+## Platform Architectures
+
+Our Docker images are built against the following CPU architectures:
+
+- `amd64`
+- `linux/arm64`
+- `linux/arm/v7`
 
 ## Architecture
 
