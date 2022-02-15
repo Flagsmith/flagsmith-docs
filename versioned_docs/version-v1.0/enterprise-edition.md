@@ -1,8 +1,8 @@
 ---
-title: Enterprise Edition
+sidebar_position: 3
 ---
 
-## Overview
+# Enterprise Edition
 
 Flagsmith is also provided as an "Enterprise Edition" which has additional features and capabilities over the Open
 Source product:
