@@ -1,8 +1,8 @@
 ---
 id: intro
 slug: /
+title: Manage feature flags across web, mobile and server side applications
 sidebar_position: 1
-hide_title: true
 sidebar_label: Overview
 ---
 
