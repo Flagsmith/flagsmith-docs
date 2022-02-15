@@ -1,8 +1,4 @@
----
-title: Edge API
----
-
-## Overview
+# Edge API
 
 :::tip
 

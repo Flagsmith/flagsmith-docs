@@ -1,9 +1,4 @@
----
-title: Edge Proxy
-sidebar_label: Edge Proxy
----
-
-## Overview
+# Edge Proxy
 
 :::tip
 
