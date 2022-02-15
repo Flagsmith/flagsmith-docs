@@ -1,8 +1,4 @@
----
-title: Flag Management
----
-
-## Overview
+# Flag Management
 
 Managing larger numbers of flags is easy using some of the tools built into Flagsmith.
 
