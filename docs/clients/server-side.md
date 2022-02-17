@@ -6,11 +6,15 @@ sidebar_position: 2
 
 # Server Side SDKs
 
+:::tip
+
 Server Side SDKs can run in 2 different modes: `Local Evaluation` and `Remote Evaluation`. We recommend
 [reading up about the differences](overview#remote-and-local-evaluation-modes) first before integrating the SDKS into
 your applications.
 
-Once you've got understood, lets get the SDKs integrated!
+Once you've got that understood, lets get the SDKs integrated!
+
+:::
 
 ## Add the Flagsmith package
 
@@ -27,15 +31,17 @@ pip install flagsmith
 <TabItem value="java" label="Java">
 
 ```xml
+# Check https://search.maven.org/artifact/com.flagsmith/flagsmith-java-client for the latest version!
+
 # Maven
 <dependency>
   <groupId>com.flagsmith</groupId>
   <artifactId>flagsmith-java-client</artifactId>
-  <version>3.1</version>
+  <version>4.0.1</version>
 </dependency>
 
 # Gradle
-implementation 'com.flagsmith:flagsmith-java-client:2.8'
+implementation 'com.flagsmith:flagsmith-java-client:4.0.1'
 ```
 
 </TabItem>
@@ -246,6 +252,23 @@ flagsmith = Flagsmith(
 ```java
 Java
 ```
+
+</TabItem>
+</Tabs>
+
+## Contribute to the SDKs
+
+All our SDKs are Open Source.
+
+<Tabs groupId="language">
+<TabItem value="py" label="Python">
+
+https://github.com/Flagsmith/flagsmith-python-client
+
+</TabItem>
+<TabItem value="java" label="Java">
+
+https://github.com/Flagsmith/flagsmith-java-client
 
 </TabItem>
 </Tabs>
