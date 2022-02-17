@@ -28,8 +28,8 @@ cons of each one are.
 
 ### 1 - Remote Evaluation
 
-In this mode, every time the SDK needs to get some Flags, it will make a blocking request to the Flagsmith API to get
-the Flags for the particular request.
+In this mode, every time the SDK needs to get Flags, it will make a request to the Flagsmith API to get the Flags for
+the particular request.
 
 `Remote Evaluation` is the default mode; simply initialise the SDK with the `Environment Key` and you will be running in
 `Remote Evaluation` mode.
@@ -39,34 +39,35 @@ This is the same way that the [Client Side SDKs](#client-side-sdks) work.
 ### 2 - Local Evaluation
 
 In this mode, all flag values are calculated locally, on your server. The Flagsmith SDK includes an implementation of
-the Flag Engine.
+the Flag Engine, and the engine runs within your server environment within the Flagsmith SDK.
 
 You have to configure the SDK to run in `Local Evaluation` mode. See the
-[SDK configuration options](server-side.md#configuring-the-sdk) for details on how to set that in your particular
+[SDK configuration options](server-side.md#configuring-the-sdk) for details on how to do that in your particular
 language.
 
-When the SDK is initialised, it will grab the entire set of details about the Environment from the Flagsmith API. This
-will include all the Flags, Flag values, Segment rules, Segment overrides etc for that Environment. This full complement
-of data about the Environment enables the Flagsmith SDK to run the Flag Engine _locally_ and _natively_ within your
-server infrastructure.
+When the SDK is initialised in `Local Evaluation` mode, it will grab the entire set of details about the Environment
+from the Flagsmith API. This will include all the Flags, Flag values, Segment rules, Segment overrides etc for that
+Environment. This full complement of data about the Environment enables the Flagsmith SDK to run the Flag Engine
+_locally_ and _natively_ within your server infrastructure.
 
 The benefits to doing this are mainly one of latency and performance. Your server side code does not need to hit the
 Flagsmith API each time a user requests their flags - the flags can be computed locally. Hence it does not need to block
-and wait for the response back from the Flagsmith API.
+and wait for a response back from the Flagsmith API.
 
 :::tip
 
 The SDK has to request all of the data about an Environment in order to run. Because some of this data could be
 sensitive (for example, your Segment Rules), the SDK requires a specific `Server Side API Key`. This is different to the
-regular `Environment Key`. This key should _not_ be shared, and should be considered sensitive data.
+regular `Environment Key`. The `Server Side API Key` key should _not_ be shared, and should be considered sensitive
+data.
 
 :::
 
-In order to keep their Environment data up-to-date, SDKs running in `Local Evaluation` mode will poll the Flagmsith API
+In order to keep their Environment data up-to-date, SDKs running in `Local Evaluation` mode will poll the Flagsmith API
 regularly and update their local Environment data with any changes from the Flagsmith API. By default the SDK will poll
 the Flagsmith every `60` seconds; this rate is configurable within each SDK.
 
-It's important to understand the [pros and cons](#pros-cons-and-caveats) for runing `Local Evaluation`.
+It's important to understand the [pros and cons](#pros-cons-and-caveats) for running `Local Evaluation`.
 
 ### Client Side SDKs
 
@@ -95,5 +96,5 @@ running in `Local Evaluation` mode.
 - [Identity overrides](../basic-features/managing-identities#identity-overrides) do not operate at all.
 - Integrations do not run.
 
-The benefit of running in Local Evaluation mode is that you can process flag evaluations much more efficiently; they are
-all computed locally.
+The benefit of running in Local Evaluation mode is that you can process flag evaluations much more efficiently as they
+are all computed locally.
