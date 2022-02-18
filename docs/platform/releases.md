@@ -16,7 +16,7 @@ Please look out our [Github Releases](https://github.com/Flagsmith/flagsmith/rel
 Released **15 February 2022**
 
 - Serverside SDK keys Frontend developed
-- Improved Segment Rules valuation
+- Improved Segment Rules evaluation
 - Multiple Dependency Updates
 
 ## v2.17
