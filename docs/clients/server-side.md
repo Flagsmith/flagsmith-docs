@@ -109,7 +109,7 @@ Java
 </TabItem>
 <TabItem value="dotnet" label=".NET">
 
-```dotnet
+```csharp
 using Flagsmith;
 
 static FlagsmithClient _flagsmithClient;
@@ -142,7 +142,7 @@ Java
 </TabItem>
 <TabItem value="dotnet" label=".NET">
 
-```dotnet
+```csharp
 # Sync
 # The method below triggers a network request
 var flags = _flagsmithClient.GetEnvironmentFlags();  # This method triggers a network request
@@ -184,7 +184,7 @@ Java
 </TabItem>
 <TabItem value="dotnet" label=".NET">
 
-```dotnet
+```csharp
 var Identifier = "delboy@trotterstraders.co.uk";
 var traitKey = "age";
 var traitValue = 32;
@@ -245,7 +245,7 @@ Java
 </TabItem>
 <TabItem value="dotnet" label=".NET">
 
-```dotnet
+```csharp
 using Flagsmith;
 
 static FlagsmithClient _flagsmithClient;
@@ -364,8 +364,57 @@ Java
 </TabItem>
 <TabItem value="dotnet" label=".NET">
 
-```dotnet
+```csharp
+_flagsmithClient = new(
+    # Your API Token.
+    # Note that this is either the `Environment API` key or the `Server Side SDK Token`
+    # depending on if you are using Local or Remote Evaluation
+    # Required.
+    environmentKey: "FLAGSMITH_ENVIRONMENT_KEY",
 
+    # Pass in a default Flag Handler method
+    # Optional
+    defaultFlagHandler: defaultFlagHandler,
+
+    # Override the default Flagsmith API URL if you are self-hosting.
+    # Optional.
+    # Defaults to https://edge.api.flagsmith.com/api/v1/
+    apiUrl: "https://flagsmith.myproject.com"
+
+    # Controls which mode to run in; local or remote evaluation.
+    # See the `SDKs Overview Page` for more info
+    # Optional.
+    # Defaults to False.
+    enableClientSideEvaluation = false;
+
+    # Controls whether Flag Analytics data is sent to the Flagsmith API
+    # See https://docs.flagsmith.com/advanced-use/flag-analytics
+    # Optional
+    # Defaults to false
+    enableAnalytics: false
+
+    # When running in local evaluation mode, defines
+    # how often to request an updated Environment document in seconds
+    # Optional
+    # Defaults to 60 seconds
+    environmentRefreshIntervalSeconds: 60
+
+    # You can pass custom headers to the Flagsmith API with this Dictionary.
+    # This can be helpful, for example, when sending request IDs to help trace requests.
+    # Optional
+    # Defaults to None
+    customHeaders: <Dictionary>
+
+    # How often to retry failed HTTP requests
+    # Optional
+    # Defaults to 1
+    retries: 1
+
+    # The network timeout in seconds.
+    # Optional.
+    # Defaults to null (http client default)
+    requestTimeout = null,
+)
 ```
 
 </TabItem>
