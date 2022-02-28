@@ -16,6 +16,28 @@ Once you've got that understood, lets get the SDKs integrated!
 
 :::
 
+## Github Links
+
+All our SDKs are on Github.
+
+<Tabs groupId="language">
+<TabItem value="py" label="Python">
+
+[Python SDK](https://github.com/Flagsmith/flagsmith-python-client)
+
+</TabItem>
+<TabItem value="java" label="Java">
+
+[Java SDK](https://github.com/Flagsmith/flagsmith-java-client)
+
+</TabItem>
+<TabItem value="dotnet" label=".NET">
+
+[.NET SDK](https://github.com/Flagsmith/flagsmith-dotnet-client)
+
+</TabItem>
+</Tabs>
+
 ## Add the Flagsmith package
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
@@ -92,13 +114,7 @@ using Flagsmith;
 
 static FlagsmithClient _flagsmithClient;
 
-_flagsmithClient = new("FLAGSMITH_ENVIRONMENT_KEY", defaultFlagHandler: defaultFlagHandler);
-static Flag defaultFlagHandler(string featureName)
-{
-    if (featureName == "secret_button")
-        return new Flag(new Feature("secret_button"), enabled: false, value: JsonConvert.SerializeObject(new { colour = "#b8b8b8" }).ToString());
-    else return new Flag() { };
-}
+_flagsmithClient = new("FLAGSMITH_ENVIRONMENT_KEY");
 ```
 
 </TabItem>
@@ -110,7 +126,8 @@ static Flag defaultFlagHandler(string featureName)
 <TabItem value="py" label="Python">
 
 ```python
-flags = flagsmith.get_environment_flags() # This method triggers a network request
+# The method below triggers a network request
+flags = flagsmith.get_environment_flags()
 show_button = flags.is_feature_enabled("secret_button")
 button_data = json.loads(flags.get_feature_value("secret_button"))
 ```
@@ -126,9 +143,17 @@ Java
 <TabItem value="dotnet" label=".NET">
 
 ```dotnet
+# Sync
+# The method below triggers a network request
+var flags = _flagsmithClient.GetEnvironmentFlags();  # This method triggers a network request
+var showButton = flags.IsFeatureEnabled("secret_button");
+var buttonData = flags.GetFeatureValue("secret_button").Result;
+
+# Async
+# The method below triggers a network request
 var flags = await _flagsmithClient.GetEnvironmentFlags();  # This method triggers a network request
 var showButton = await flags.IsFeatureEnabled("secret_button");
-var buttonData = flags.GetFeatureValue("secret_button").Result;
+var buttonData = await flags.GetFeatureValue("secret_button").Result;
 ```
 
 </TabItem>
@@ -165,6 +190,12 @@ var traitKey = "age";
 var traitValue = 32;
 var traitList = new List<Trait> { new Trait(traitKey, traitValue) };
 
+# Sync
+# The method below triggers a network request
+var flags = _flagsmithClient.GetIdentityFlags(Identifier, traitList);
+var showButton = flags.IsFeatureEnabled("secret_button");
+
+# Async
 # The method below triggers a network request
 var flags = await _flagsmithClient.GetIdentityFlags(Identifier, traitList);
 var showButton = await flags.IsFeatureEnabled("secret_button");
