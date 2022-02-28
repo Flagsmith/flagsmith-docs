@@ -45,6 +45,23 @@ implementation 'com.flagsmith:flagsmith-java-client:4.0.1'
 ```
 
 </TabItem>
+<TabItem value="dotnet" label=".NET">
+
+```bash
+# Package Manager
+Install-Package Flagsmith -Version 4.0.0
+
+#.NET CLI
+dotnet add package Flagsmith --version 4.0.0
+
+# PackageReference
+<PackageReference Include="Flagsmith" Version="4.0.0" />
+
+# Paket CLI
+paket add Flagsmith --version 4.0.0
+```
+
+</TabItem>
 </Tabs>
 
 ## Initialise the SDK
@@ -65,6 +82,23 @@ flagsmith = Flagsmith(
 
 ```java
 Java
+```
+
+</TabItem>
+<TabItem value="dotnet" label=".NET">
+
+```dotnet
+using Flagsmith;
+
+static FlagsmithClient _flagsmithClient;
+
+_flagsmithClient = new("FLAGSMITH_ENVIRONMENT_KEY", defaultFlagHandler: defaultFlagHandler);
+static Flag defaultFlagHandler(string featureName)
+{
+    if (featureName == "secret_button")
+        return new Flag(new Feature("secret_button"), enabled: false, value: JsonConvert.SerializeObject(new { colour = "#b8b8b8" }).ToString());
+    else return new Flag() { };
+}
 ```
 
 </TabItem>
@@ -89,6 +123,15 @@ Java
 ```
 
 </TabItem>
+<TabItem value="dotnet" label=".NET">
+
+```dotnet
+var flags = await _flagsmithClient.GetEnvironmentFlags();  # This method triggers a network request
+var showButton = await flags.IsFeatureEnabled("secret_button");
+var buttonData = flags.GetFeatureValue("secret_button").Result;
+```
+
+</TabItem>
 </Tabs>
 
 ## Get Flags for an Identity
@@ -100,6 +143,7 @@ Java
 identifier = "delboy@trotterstraders.co.uk"
 traits = {"age": 32}
 
+# The method below triggers a network request
 identity_flags = flagsmith.get_identity_flags(identifier=identifier, traits=traits)
 show_button = identity_flags.is_feature_enabled("secret_button")
 button_data = json.loads(identity_flags.get_feature_value("secret_button"))
@@ -110,6 +154,20 @@ button_data = json.loads(identity_flags.get_feature_value("secret_button"))
 
 ```java
 Java
+```
+
+</TabItem>
+<TabItem value="dotnet" label=".NET">
+
+```dotnet
+var Identifier = "delboy@trotterstraders.co.uk";
+var traitKey = "age";
+var traitValue = 32;
+var traitList = new List<Trait> { new Trait(traitKey, traitValue) };
+
+# The method below triggers a network request
+var flags = await _flagsmithClient.GetIdentityFlags(Identifier, traitList);
+var showButton = await flags.IsFeatureEnabled("secret_button");
 ```
 
 </TabItem>
@@ -151,6 +209,25 @@ flagsmith = Flagsmith(
 
 ```java
 Java
+```
+
+</TabItem>
+<TabItem value="dotnet" label=".NET">
+
+```dotnet
+using Flagsmith;
+
+static FlagsmithClient _flagsmithClient;
+
+_flagsmithClient = new("FLAGSMITH_ENVIRONMENT_KEY", defaultFlagHandler: defaultFlagHandler);
+static Flag defaultFlagHandler(string featureName)
+{
+    // Function that will be used if the API doesn't respond, or an unknown
+    // feature is requested
+    if (featureName == "secret_button")
+        return new Flag(new Feature("secret_button"), enabled: false, value: JsonConvert.SerializeObject(new { colour = "#b8b8b8" }).ToString());
+    else return new Flag() { };
+}
 ```
 
 </TabItem>
@@ -251,6 +328,13 @@ flagsmith = Flagsmith(
 
 ```java
 Java
+```
+
+</TabItem>
+<TabItem value="dotnet" label=".NET">
+
+```dotnet
+
 ```
 
 </TabItem>
