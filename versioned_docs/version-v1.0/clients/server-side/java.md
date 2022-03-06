@@ -341,9 +341,9 @@ final FlagsAndTraits flags = cache.getIfPresent(projectLevelCacheKey);
 
 ### Default flag/config Values
 
-Evaluating a flag will always return a value, even if the evaluation fails, i.e. the flag does not exist in Flagsmith or the HTTP call fails.
-By default, a flag will be evaluated to `false` for flags and to `null` for configuration values if there is an error.
-If you would like to override this behaviour, you can use the following methods:
+Evaluating a flag will always return a value, even if the evaluation fails, i.e. the flag does not exist in Flagsmith or
+the HTTP call fails. By default, a flag will be evaluated to `false` for flags and to `null` for configuration values if
+there is an error. If you would like to override this behaviour, you can use the following methods:
 
 ```java
 final FlagsmithClient flagsmithClient = FlagsmithClient.newBuilder()
@@ -358,9 +358,10 @@ final FlagsmithClient flagsmithClient = FlagsmithClient.newBuilder()
                 .build();
 ```
 
-However, the code above will only be used if the evaluation is for a specific flag name, i.e. `client.getFeatureFlagValue("flag-name")`
-or `client.hasFeatureFlag("flag-name")`. If you call method `client.getFeatureFlags()` and an error occurs, you will get an empty list 
-of flags. If you would like to change this behaviour, you can configure a default list of flags:
+However, the code above will only be used if the evaluation is for a specific flag name, i.e.
+`client.getFeatureFlagValue("flag-name")` or `client.hasFeatureFlag("flag-name")`. If you call method
+`client.getFeatureFlags()` and an error occurs, you will get an empty list of flags. If you would like to change this
+behaviour, you can configure a default list of flags:
 
 ```java
 final FlagsmithClient flagsmithClient = FlagsmithClient.newBuilder()
@@ -373,5 +374,5 @@ final FlagsmithClient flagsmithClient = FlagsmithClient.newBuilder()
                 .build();
 ```
 
-Setting default flag names also means that if one of those flags is not configured in the Flagsmith server,
-it will still be included in the list of flags returned in the example of above.
+Setting default flag names also means that if one of those flags is not configured in the Flagsmith server, it will
+still be included in the list of flags returned in the example of above.
