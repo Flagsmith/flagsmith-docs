@@ -261,6 +261,7 @@ will be set for you:
 
 - maxSize(10)
 - expireAfterWrite(5, TimeUnit.MINUTES)
+- project level caching will be disabled by default (i.e. only enabled if you configure a caching key)
 
 ```java
 // use in-memory caching with Flagsmith defaults as described above
@@ -291,6 +292,7 @@ final FlagsmithClient flagsmithClient = FlagsmithClient.newBuilder()
                         .maxSize(100)
                         .expireAfterWrite(10, TimeUnit.MINUTES)
                         .recordStats()
+                        .enableEnvLevelCaching("some-key-to-avoid-clashing-with-user-identifiers")
                         .build())
                 .build();
 ```
@@ -310,3 +312,67 @@ final CacheStats stats = cache.stats();
 // check if flags for a user identifier are cached
 final FlagsAndTraits flags = cache.getIfPresent("user-identifier");
 ```
+
+Since the user identifier is used as the cache key, you need to configure a cache key to enable project level caching.
+Make sure you select a project level cache key that will never be a user identifier.
+
+```java
+// use in-memory caching with Flagsmith defaults and project level caching enabled
+final String projectLevelCacheKey = "some-key-to-avoid-clashing-with-user-identifiers";
+final FlagsmithClient flagsmithClient = FlagsmithClient.newBuilder()
+                .setApiKey("YOUR_ENV_API_KEY")
+                .withConfiguration(FlagsmithConfig
+                        .newBuilder()
+                        .baseURI("http://yoururl.com")
+                        .build())
+                .withCache(FlagsmithCacheConfig
+                        .newBuilder()
+                        .enableEnvLevelCaching(projectLevelCacheKey)
+                        .build())
+                .build();
+
+// if you need to access the cache directly, you can do this:
+final FlagsmithCache cache = flagsmithClient.getCache();
+// invalidate project level cache
+cache.invalidate(projectLevelCacheKey);
+// check if project level flags have been cached
+final FlagsAndTraits flags = cache.getIfPresent(projectLevelCacheKey);
+```
+
+### Default flag/config Values
+
+Evaluating a flag will always return a value, even if the evaluation fails, i.e. the flag does not exist in Flagsmith or
+the HTTP call fails. By default, a flag will be evaluated to `false` for flags and to `null` for configuration values if
+there is an error. If you would like to override this behaviour, you can use the following methods:
+
+```java
+final FlagsmithClient flagsmithClient = FlagsmithClient.newBuilder()
+                .setApiKey("YOUR_ENV_API_KEY")
+                .setDefaultFlagPredicate(
+                    (featureFlagName) -> true /* your logic for default flags */
+                  )
+                .setDefaultFlagValueFunction(
+                  (featureFlagName) ->
+                    "my-new-default-value" /* your logic for default config values */
+                 )
+                .build();
+```
+
+However, the code above will only be used if the evaluation is for a specific flag name, i.e.
+`client.getFeatureFlagValue("flag-name")` or `client.hasFeatureFlag("flag-name")`. If you call method
+`client.getFeatureFlags()` and an error occurs, you will get an empty list of flags. If you would like to change this
+behaviour, you can configure a default list of flags:
+
+```java
+final FlagsmithClient flagsmithClient = FlagsmithClient.newBuilder()
+                .setApiKey("YOUR_ENV_API_KEY")
+                .setDefaultFeatureFlags(new HashSet<String>() {{
+                    add("flag-name-1");
+                    add("flag-name-2");
+                    add("flag-name-3");
+                    }})
+                .build();
+```
+
+Setting default flag names also means that if one of those flags is not configured in the Flagsmith server, it will
+still be included in the list of flags returned in the example of above.
