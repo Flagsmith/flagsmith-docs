@@ -21,6 +21,10 @@ interest.
 Unless you have specific requirements, we recommend running the
 [unified Docker image](https://hub.docker.com/repository/docker/flagsmith/flagsmith).
 
+It's best to study our [docker-compose file](https://github.com/Flagsmith/self-hosted/blob/main/docker-compose.yml) in
+order to set up the base environment variables. Further environment variables are
+[described here](locally-api.md#environment-variables).
+
 Run a single ECS service with at least two Fargate instances running for failover. For more info on Fargate sizes, see
 our [scaling page](/deployment/sizing-and-scaling).
 
