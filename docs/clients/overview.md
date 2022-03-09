@@ -31,8 +31,7 @@ cons of each one are.
 In this mode, every time the SDK needs to get Flags, it will make a request to the Flagsmith API to get the Flags for
 the particular request.
 
-`Remote Evaluation` is the default mode; simply initialise the SDK with the `Environment Key` and you will be running in
-`Remote Evaluation` mode.
+`Remote Evaluation` is the default mode; simply initialise the SDK and you will be running in `Remote Evaluation` mode.
 
 This is the same way that the [Client Side SDKs](#client-side-sdks) work.
 
@@ -57,9 +56,9 @@ and wait for a response back from the Flagsmith API.
 :::tip
 
 The SDK has to request all of the data about an Environment in order to run. Because some of this data could be
-sensitive (for example, your Segment Rules), the SDK requires a specific `Server Side API Key`. This is different to the
-regular `Environment Key`. The `Server Side API Key` key should _not_ be shared, and should be considered sensitive
-data.
+sensitive (for example, your Segment Rules), the SDK requires a specific `Server-side Environment Key`. This is
+different to the regular `Client-Side Environment Key`. The `Server-side Environment Key` should _not_ be shared, and
+should be considered sensitive data.
 
 :::
 

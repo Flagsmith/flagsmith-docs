@@ -26,8 +26,8 @@ get OpenAPI as [JSON](https://api.flagsmith.com/api/v1/docs/?format=.json) or
 ## Environment Key
 
 Publicly accessible API calls need to have an environment key supplied with each request. This is provided as an HTTP
-header, with the name `X-Environment-Key` and the value of the environment API key that you can find within the
-Flagsmith administrative area.
+header, with the name `X-Environment-Key` and the value of the Environment Key that you can find within the Flagsmith
+administrative area.
 
 ### Curl Example
 

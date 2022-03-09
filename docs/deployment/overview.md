@@ -156,8 +156,8 @@ Once you have created the project, you need to set the following
 [Front End](https://github.com/Flagsmith/flagsmith-frontend) environment variables in order to configure this:
 
 - `FLAGSMITH_ON_FLAGSMITH_API_KEY`
-  - The flagsmith environment key we use to manage features - Flagsmith runs on Flagsmith. This will be the API key for
-    the project you created as instructed above.
+  - The Flagsmith Client-side Environment Key we use to manage features - Flagsmith runs on Flagsmith. This will be the
+    API key for the project you created as instructed above.
 - `FLAGSMITH_ON_FLAGSMITH_API_URL`
   - The API URL which the Flagsmith front end dashboard should communicate with. This will most likely be the domain
     name of the Flagsmith API you are self hosting: Flagsmith runs on Flagsmith. E.g. For our SaaS hosted platform, the

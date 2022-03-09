@@ -1,9 +1,8 @@
 ---
 id: intro
 slug: /
+title: Manage feature flags across web, mobile and server side applications
 sidebar_position: 1
-title: Flagsmith Documentation
-hide_title: true
 sidebar_label: Overview
 ---
 
@@ -23,6 +22,13 @@ self host the API and Front End. Once you have these components up and running, 
 apps and start managing your features remotely.
 
 ## Installation
+
+:::tip
+
+We also have a paid-for [Enterprise Edition](enterprise-edition.md) of the platform with a number of additional
+features. Please get in touch if you want to learn more.
+
+:::
 
 More information can be found on the [Self Hosted Page](/deployment/overview).
 
@@ -53,21 +59,7 @@ Once you are setup with the front and back end, you can integrate our client lib
 |                                                         | [Go](/clients/go)         |
 |                                                         | [Elixir](/clients/elixir) |
 
-## Product Road-map
-
-You can check out our [product road-map on Github](https://github.com/Flagsmith/flagsmith/projects/1).
-
-## Integration Approaches
-
-We've put together some [tips and ideas](advanced-use/integration-approaches.md) on how to best integrate into your
-applications.
-
-## Javascript framework examples
-
-Examples applications for popular JS frameworks can be found here:
-
-- [JS framework examples](https://github.com/flagsmith/flagsmith-js-client/tree/master/examples)
-
 ## What Next
 
-Find out more about [Managing Features](/basic-features/overview.md)
+Check out our [Quick Start Guide](quickstart.md) to get a high level overview of how to implement feature flags in your
+application.

@@ -5,8 +5,6 @@ sidebar_label: Quick Start
 
 # Flagsmith Quick Start Guide
 
-## Overview
-
 Let's get up and running in 5 minutes. We're going to run through the following steps:
 
 1. Create an account on [Flagsmith.com](https://flagsmith.com/) and add your first Flag.

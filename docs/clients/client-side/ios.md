@@ -33,8 +33,8 @@ dependencies: [
 ## Basic Usage
 
 The SDK is initialised against a single environment within a project on [https://flagsmith.com](https://flagsmith.com),
-for example the Development or Production environment. You can find your environment key in the Environment settings
-page.
+for example the Development or Production environment. You can find your Client-side Environment Key in the Environment
+settings page.
 
 ![Image](/img/api-key.png)
 
