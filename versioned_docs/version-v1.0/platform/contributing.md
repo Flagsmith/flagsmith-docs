@@ -1,6 +1,4 @@
----
-title: Contributing
----
+# Contributing
 
 We're always looking to improve this project, open source contribution is encouraged so long as they adhere to these
 guidelines.
