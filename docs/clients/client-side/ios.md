@@ -122,6 +122,33 @@ Flagsmith.shared.getTraits(forIdentity: "test_user@test.com") {(result) in
 }
 ```
 
+### Swift Concurrency
+
+When running with Swift version 5.5.2 and greater (Xcode 13.2), `async` versions of the Flagsmith api become available.
+These are provided using the generic [`withCheckedThrowingContinuation(function:_:)`](https://developer.apple.com/documentation/swift/3814989-withcheckedthrowingcontinuation)
+Swift api, to wrap the closure based syntax. The `async`/`await` syntax provides a streamlined execution flow leading
+to greater code clarity. For example:
+
+```swift
+/// (Example) Setup the app based on the available feature flags.
+func determineAppConfiguration() async throws {
+    let flagsmith = Flagsmith.shared
+    
+    if try await flagsmith.hasFeatureFlag(withID: "ab_test_enabled") {
+        if let theme = try await flagsmith.getFeatureValue(withID: "app_theme") {
+            setTheme(theme)
+        } else {
+            let flags = try await flagsmith.getFeatureFlags()
+                processFlags(flags)
+        }
+    } else {
+        let trait = Trait(key: "selected_tint_color", value: "orange")
+        let identity = "4DDBFBCA-3B6E-4C59-B107-954F84FD7F6D"
+        try await flagsmith.setTrait(trait, forIdentity: identity)
+    }
+}
+```
+
 ## Override default configuration
 
 By default, the client uses a default configuration. You can override the configuration as follows:
