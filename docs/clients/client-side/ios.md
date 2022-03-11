@@ -125,15 +125,16 @@ Flagsmith.shared.getTraits(forIdentity: "test_user@test.com") {(result) in
 ### Swift Concurrency
 
 When running with Swift version 5.5.2 and greater (Xcode 13.2), `async` versions of the Flagsmith api become available.
-These are provided using the generic [`withCheckedThrowingContinuation(function:_:)`](https://developer.apple.com/documentation/swift/3814989-withcheckedthrowingcontinuation)
-Swift api, to wrap the closure based syntax. The `async`/`await` syntax provides a streamlined execution flow leading
-to greater code clarity. For example:
+These are provided using the generic
+[`withCheckedThrowingContinuation(function:_:)`](https://developer.apple.com/documentation/swift/3814989-withcheckedthrowingcontinuation)
+Swift api, to wrap the closure based syntax. The `async`/`await` syntax provides a streamlined execution flow leading to
+greater code clarity. For example:
 
 ```swift
 /// (Example) Setup the app based on the available feature flags.
 func determineAppConfiguration() async throws {
     let flagsmith = Flagsmith.shared
-    
+
     if try await flagsmith.hasFeatureFlag(withID: "ab_test_enabled") {
         if let theme = try await flagsmith.getFeatureValue(withID: "app_theme") {
             setTheme(theme)
