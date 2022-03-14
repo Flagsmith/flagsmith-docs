@@ -10,11 +10,11 @@ module.exports = {
     organizationName: 'Flagsmith',
     projectName: 'flagsmith',
     plugins: ['@ionic-internal/docusaurus-plugin-tag-manager'],
-    themes: ['docusaurus-theme-search-typesense'],
     themeConfig: {
         prism: {
             additionalLanguages: ['java', 'csharp', 'ruby', 'rust', 'swift', 'dart', 'php'],
         },
+        /*
         typesense: {
             typesenseCollectionName: 'flagsmith-docs',
             typesenseServerConfig: {
@@ -27,6 +27,14 @@ module.exports = {
                     },
                 ],
             },
+        },
+        */
+        algolia: {
+            // The application ID provided by Algolia
+            appId: 'GZAPCBLIEE',
+            // Public API key: it is safe to commit it
+            apiKey: '00987f2d774d7787dcae25294463294c',
+            indexName: 'flagsmith',
         },
         tagManager: {
             trackingID: 'GTM-5ZV5K5G',
