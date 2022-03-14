@@ -22,6 +22,7 @@ users into Heap for cohort analysis, A/B testing and more. The process is as fol
 :::tip
 
 For flags that contain remote config values, Flagsmith will pass the value of the flag to Heap if the flag is `enabled`.
+
 If the flag has no remote config value, Flagsmith will just pass the boolean state for the flag.
 
 :::
@@ -47,7 +48,35 @@ platform.
 ## Use Case
 
 Once the integration has been set up, you can start segmenting your Heap identities based on the flags that they saw.
+
 This means you can run AB tests driven by Flagsmith segments, and have the data show up automatically in Heap.
+
+## Running Multivariate Tests with Heap and Flagsmith
+
+Once your integration has been set up and has been running for a few days, you will see flag values appear in Heap as
+"Custom Event Properties" as child properties of the "Flagsmith Feature Flags" event. Here's how you can see the
+effectiveness of a flag being enabled. We're going to use an example of our own platform, where people can toggle the
+"Dark Mode" flag within our application on and off.
+
+### Step 1 - Create a Custom Event Definition
+
+In Heap, go to Definitions > New Definition > New Event. Set up your event similar to the below:
+
+![Heap Analytics Step 1](/img/integrations/heap/heap-mv-step-1.png)
+
+### Step 2 - Create a Segment based on this new Custom Event Property
+
+In Heap, go to Definitions > New Definition > New Segment. Set up your Segment similar to the below:
+
+![Heap Analytics Step 2](/img/integrations/heap/heap-mv-step-2.png)
+
+### Step 3 - Create your Report
+
+Once you have your Segment created, based on a Flagsmith flag value, you can use that Segment in reports within Heap.
+Here's an example of us seeing what the conversion rate of a dark mode vs non-dark mode user looks like. Notice the
+"Group Analysis - Conversion Rate" at the bottom of the page.
+
+![Heap Analytics Step 3](/img/integrations/heap/heap-mv-step-3.png)
 
 ## Integration Notes
 
