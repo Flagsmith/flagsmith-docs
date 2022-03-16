@@ -28,6 +28,10 @@ as well as multi-region failover and fault tolerance.
 
 ### Step 1 - Prepare your applications
 
+Set your applications up to point to the Flagsmith Edge API. This means going from `api.flagsmith.com` to
+`edge.api.flagsmith.com`. You can either set this explicitly in our SDK or just ensure you are running the latest
+version of the SDK; by default they will point to `edge.api.flagsmith.com`.
+
 ### Step 2 - Migrate your data
 
 You can now trigger a one-way sync of data for each of your Flagsmith Projects within the Flagsmith Dashboard. Visit the
@@ -42,5 +46,24 @@ endpoint `edge.api.flagsmith.com` and benefit from global low latency!
 
 ## Things you should know
 
+:::caution
+
+If you are running Multi-Variate Flags or % Split Segments, your Identities might jump from one bucket to another. This
+is because the Keys we use to track Identities internally is changing from an autonumber Int (from Postgres) to a Hash
+(in DynamoDB).
+
+:::
+
+### Identity Syncing from Core to Edge
+
+If you have a product like a mobile app, where you cannot immediately force your users to upgrade (as opposed to a web
+app, for example), you will likely generate Identity writes to the old Core API.
+
 Following the migration, if we receive a request an `Identity` endpoint that results in a write to the core API, we will
-persist the data in the Core API _and replay the request into the Edge API_.
+persist the data in the Core API _and replay the request into the Edge API_. This will happen for 4 weeks following the
+migration. After that you should stop writing Identities to the core API.
+
+This will give you time to migrate your users over to the new version of your application.
+
+Note that writes to the Core API will still work into the future, but the data will not be synchronised across the two
+platforms (Core and Edge).
