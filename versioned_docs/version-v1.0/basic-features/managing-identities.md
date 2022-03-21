@@ -96,3 +96,15 @@ Traits are stored natively as either numbers, strings or booleans.
 
 Traits can be used within your application, but they also be used to power
 [Segments](/basic-features/managing-segments.md).
+
+## Trait Value Data Types
+
+Trait values can be stored as one of four different data types:
+
+- Boolean
+- String (max length 2000 bytes)
+- Int (32 bit signed)
+- Float (typically has a range of around 1E-307 to 1E+308 with a precision of at least 15 digits)
+
+If you need to store 64 bit integers or very high precision floats we suggest storing them as Strings and then doing the
+type conversion within the SDK.
