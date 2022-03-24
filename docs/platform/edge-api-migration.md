@@ -46,14 +46,6 @@ endpoint `edge.api.flagsmith.com` and benefit from global low latency!
 
 ## Things you should know
 
-:::caution
-
-If you are running Multi-Variate Flags or % Split Segments, your Identities might jump from one bucket to another. This
-is because the Keys we use to track Identities internally is changing from an autonumber Int (from Postgres) to a Hash
-(in DynamoDB).
-
-:::
-
 ### Identity Syncing from Core to Edge
 
 If you have a product like a mobile app, where you cannot immediately force your users to upgrade (as opposed to a web
