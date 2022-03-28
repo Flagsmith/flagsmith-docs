@@ -5,7 +5,8 @@ description: Manage your Feature Flags and Remote Config with React and React Na
 slug: /clients/react
 ---
 
-This library includes React/React Native Hooks allowing you to query individual features and flags that limit re-renders.
+This library includes React/React Native Hooks allowing you to query individual features and flags that limit
+re-renders.
 
 Example applications for a variety of React, React Native and Next.js can be found here:
 
@@ -36,12 +37,12 @@ npm i react-native-flagsmith --save
 ## Basic Usage
 
 The SDK is initialised against a single environment within a project on [https://flagsmith.com](https://flagsmith.com),
-for example, the Development or Production environment.
-![Image](/img/api-key.png)
+for example, the Development or Production environment. ![Image](/img/api-key.png)
 
 ### Step 1: Wrapping your application with Flagsmith Provider
 
-Wrapping your application with our FlagsmithProvider component provides a React Context throughout your application so that you can use the hooks ``useFlagsmith`` and ``useFlags``.
+Wrapping your application with our FlagsmithProvider component provides a React Context throughout your application so
+that you can use the hooks `useFlagsmith` and `useFlags`.
 
 ```
 import flagsmith from 'flagsmith'
@@ -56,15 +57,19 @@ export function AppRoot() {
 );
 ```
 
-Providing options to the Flagsmith provider will initialise the client, the API reference for these options can be found [here](/clients/javascript#initialisation-options).
+Providing options to the Flagsmith provider will initialise the client, the API reference for these options can be found
+[here](/clients/javascript#initialisation-options).
 
 **Advanced usage: Initialising before rendering the FlagsmithProvider**
 
-If you wish to initialise the Flagsmith client before React rendering (e.g. in redux, or SSR) you can do so by calling [flagsmith.init](http://localhost:3000/clients/javascript#example-initialising-the-sdk) and provide no options property to the FlagsmithProvider component.
+If you wish to initialise the Flagsmith client before React rendering (e.g. in redux, or SSR) you can do so by calling
+[flagsmith.init](http://localhost:3000/clients/javascript#example-initialising-the-sdk) and provide no options property
+to the FlagsmithProvider component.
 
 ### Step 2: Using useFlags to access feature values and enabled state
 
-Components that have been wrapped in a FlagsmithProvider will be able to evaluate feature values and enabled state as well as user traits via the ```useFlags``` hook.
+Components that have been wrapped in a FlagsmithProvider will be able to evaluate feature values and enabled state as
+well as user traits via the `useFlags` hook.
 
 ```
 import { useFlags } from 'flagsmith/react';
@@ -86,21 +91,18 @@ export function MyComponent() {
 useFlags(requiredFlags:string[], requiredTraits?:string[])=> {[key:string]: IFlagsmithTrait  or IFlagsmithFeature}
 ```
 
-
 ## FlagsmithProvider API Reference
 
-| Property                                              |                                                   Description                                                   | Required |                     Default Value |
-|-------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------:|---------:| --------------------------------: |
-| `flagsmith: IFlagsmith`                               |                           Defines the flagsmith instance that the provider will use.                            |  **YES** |                              null |
-| `options?: ` IInitConfig                              |    Initialisation options to use. If you don't provide this you will have to call flagsmith.init elsewhere.     |          |                              null |
-| `serverState?: IState`                                | Used to pass an initial state, in most cases as a result of SSR flagsmith.getState(). See [Next.js and SSR](/) |          |                              null |
-
-
-
+| Property                 |                                                  Description                                                   | Required | Default Value |
+| ------------------------ | :------------------------------------------------------------------------------------------------------------: | -------: | ------------: |
+| `flagsmith: IFlagsmith`  |                           Defines the flagsmith instance that the provider will use.                           |  **YES** |          null |
+| `options?: ` IInitConfig |    Initialisation options to use. If you don't provide this you will have to call flagsmith.init elsewhere.    |          |          null |
+| `serverState?: IState`   | Used to pass an initial state, in most cases as a result of SSR flagsmith.getState(). See [Next.js and SSR](/) |          |          null |
 
 ### Step 3: Using useFlagsmith to access the Flagsmith instance
 
-Components that have been wrapped in a FlagsmithProvider will be able to access the instance of Flagsmith via the ``useFlagsmith`` hook.
+Components that have been wrapped in a FlagsmithProvider will be able to access the instance of Flagsmith via the
+`useFlagsmith` hook.
 
 ```
 import React  from 'react';

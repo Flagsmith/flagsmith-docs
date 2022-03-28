@@ -49,7 +49,7 @@ React/Javascript and requires NodeJS.
 Once you are setup with the front and back end, you can integrate our client libraries within your apps.
 
 | Client Side SDKs                       | Server Side SDKs          |
-|----------------------------------------| ------------------------- |
+| -------------------------------------- | ------------------------- |
 | [Javascript](/clients/javascript)      | [Node.js](/clients/node)  |
 | [Android/Kotlin](/clients/android)     | [Java](/clients/java)     |
 | [Flutter](/clients/flutter)            | [.Net](/clients/dotnet)   |

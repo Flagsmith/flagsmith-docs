@@ -5,10 +5,11 @@ description: Manage your Feature Flags and Remote Config with NextJS and SSR.
 slug: /clients/next-ssr
 ---
 
-The JavaScript Library contains a bundled isomorphic library, allowing you to fetch flags in the server and hydrate your application with the resulting state.
+The JavaScript Library contains a bundled isomorphic library, allowing you to fetch flags in the server and hydrate your
+application with the resulting state.
 
-
-Example applications for a variety of  Next.js and SSR can be found [here](https://github.com/flagsmith/flagsmith-js-client/tree/master/examples/next).
+Example applications for a variety of Next.js and SSR can be found
+[here](https://github.com/flagsmith/flagsmith-js-client/tree/master/examples/next).
 
 ## Installation
 
@@ -28,18 +29,22 @@ settings page.
 
 ## Comparing SSR and client-side Flagsmith usage
 
-The SDK is initialised and used in the same way as the [JavaScript](/clients/javascript) and [React](/clients/react) SDK. The main difference is that Flagsmith should be imported from ``flagsmith/isomorphic``.
+The SDK is initialised and used in the same way as the [JavaScript](/clients/javascript) and [React](/clients/react)
+SDK. The main difference is that Flagsmith should be imported from `flagsmith/isomorphic`.
 
 The main flow with Next.js and any JavaScript-based SSR can be as follows:
 
-- 1: Fetch the flags on the server, optionally passing an identity to [flagsmith.init({})](http://localhost:3000/clients/javascript#initialisation-options)
-- 2: Pass the resulting state to the client with [flagsmith.getState()](http://localhost:3000/clients/javascript#available-functions)
-- 3: Initialise flagsmith on the client with [flagsmith.setState(state)](http://localhost:3000/clients/javascript#available-functions)
+- 1: Fetch the flags on the server, optionally passing an identity to
+  [flagsmith.init({})](http://localhost:3000/clients/javascript#initialisation-options)
+- 2: Pass the resulting state to the client with
+  [flagsmith.getState()](http://localhost:3000/clients/javascript#available-functions)
+- 3: Initialise flagsmith on the client with
+  [flagsmith.setState(state)](http://localhost:3000/clients/javascript#available-functions)
 
 ### Example: Initialising the SDK with Next.js
 
-Taking the above into account, the following example fetches flags on the server and initialises Flagsmith with the state.
-
+Taking the above into account, the following example fetches flags on the server and initialises Flagsmith with the
+state.
 
 ```
 import { FlagsmithProvider } from 'flagsmith/react';
@@ -85,7 +90,6 @@ export function MyComponent() {
 
 From that point the SDK usage is the same as the [React SDK Guide](/clients/react)
 
-
 ### Example: SSR without Next.js
 
 The same can be accomplished without using Next.js.
@@ -103,13 +107,13 @@ Step 1: Initialising the SDK and passing the resulting state to the client.
 Step 2: Initialising the SDK on the client.
 
 ```
-  flagsmith.setState(state) // set the state based on your 
+  flagsmith.setState(state) // set the state based on your
 ```
 
 Step 3: Optionally force the client to fetch a fresh set of flags
 
 ```
-  flagsmith.getFlags() // set the state based on your 
+  flagsmith.getFlags() // set the state based on your
 ```
 
 From that point the SDK usage is the same as the [JavaScript SDK Guide](/clients/javascript)
