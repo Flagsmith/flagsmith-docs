@@ -12,7 +12,7 @@ Example applications for a variety of React, React Native and Next.js can be fou
 
 - [Usage with React](https://github.com/Flagsmith/flagsmith-js-client/tree/main/examples/react)
 - [Usage with React Native](https://github.com/Flagsmith/flagsmith-js-client/tree/main/examples/react)
-- [Usage with Next.js](https://github.com/Flagsmith/flagsmith-js-client/tree/main/examples/next)
+- [Usage with Next.js](https://github.com/Flagsmith/flagsmith-js-client/tree/main/examples/nextjs)
 
 ## Installation
 
