@@ -9,7 +9,7 @@ The JavaScript Library contains a bundled isomorphic library, allowing you to fe
 application with the resulting state.
 
 Example applications for a variety of Next.js and SSR can be found
-[here](https://github.com/flagsmith/flagsmith-js-client/tree/master/examples/next).
+[here](https://github.com/flagsmith/flagsmith-js-client/tree/master/examples/nextjs).
 
 ## Installation
 
