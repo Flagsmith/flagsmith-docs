@@ -44,7 +44,7 @@ for example, the Development or Production environment. ![Image](/img/api-key.pn
 Wrapping your application with our FlagsmithProvider component provides a React Context throughout your application so
 that you can use the hooks `useFlagsmith` and `useFlags`.
 
-```
+```javascript
 import flagsmith from 'flagsmith'
 import {FlagsmithProvider} from 'flagsmith/react'
 
@@ -71,23 +71,23 @@ to the FlagsmithProvider component.
 Components that have been wrapped in a FlagsmithProvider will be able to evaluate feature values and enabled state as
 well as user traits via the `useFlags` hook.
 
-```
+```javascript
 import { useFlags } from 'flagsmith/react';
 
 export function MyComponent() {
-    const flags = useFlags(['font_size'], ['example_trait']); // only causes re-render if specified flag values / traits change
-    return (
-        <div className='App'>
-            font_size: {flags.font_size.value}
-            example_trait: {flags.example_trait}
-        </div>
-    );
+ const flags = useFlags(['font_size'], ['example_trait']); // only causes re-render if specified flag values / traits change
+ return (
+  <div className="App">
+   font_size: {flags.font_size.value}
+   example_trait: {flags.example_trait}
+  </div>
+ );
 }
 ```
 
 ## useFlags API Reference
 
-```
+```javascript
 useFlags(requiredFlags:string[], requiredTraits?:string[])=> {[key:string]: IFlagsmithTrait  or IFlagsmithFeature}
 ```
 
@@ -104,43 +104,33 @@ useFlags(requiredFlags:string[], requiredTraits?:string[])=> {[key:string]: IFla
 Components that have been wrapped in a FlagsmithProvider will be able to access the instance of Flagsmith via the
 `useFlagsmith` hook.
 
-```
-import React  from 'react';
+```javascript
+import React from 'react';
 import { useFlags, useFlagsmith } from 'flagsmith/react';
 
 export function MyComponent() {
-    const flags = useFlags(['font_size'], ['example_trait']); // only causes re-render if specified flag values / traits change
-    const flagsmith = useFlagsmith();
-    const identify = () => {
-        // This will re-render the component if the user has the trait example_trait or they have a different feature value for font_size
-        flagsmith.identify('flagsmith_sample_user');
-    };
-    const logout = () => {
-        // This will re-render the component if the user has the trait example_trait or they have a different feature value for font_size
-        flagsmith.logout();
-    };
-    return (
-        <div className='App'>
-            font_size: {flags.font_size?.value}
-            example_trait: {flags.example_trait}
-            {
-                flagsmith.identity ? (
-                    <button onClick={logout}>
-                        Logout
-                    </button>
-                ) : (
-                    <button onClick={identify}>
-                        Identify
-                    </button>
-                )
-            }
-        </div>
-    );
+ const flags = useFlags(['font_size'], ['example_trait']); // only causes re-render if specified flag values / traits change
+ const flagsmith = useFlagsmith();
+ const identify = () => {
+  // This will re-render the component if the user has the trait example_trait or they have a different feature value for font_size
+  flagsmith.identify('flagsmith_sample_user');
+ };
+ const logout = () => {
+  // This will re-render the component if the user has the trait example_trait or they have a different feature value for font_size
+  flagsmith.logout();
+ };
+ return (
+  <div className="App">
+   font_size: {flags.font_size?.value}
+   example_trait: {flags.example_trait}
+   {flagsmith.identity ? <button onClick={logout}>Logout</button> : <button onClick={identify}>Identify</button>}
+  </div>
+ );
 }
 ```
 
 ## useFlagsmith API Reference
 
-```
+```javascript
 useFlagsmith()=> IFlagsmith
 ```

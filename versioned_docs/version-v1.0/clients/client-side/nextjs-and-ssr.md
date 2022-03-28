@@ -46,7 +46,7 @@ The main flow with Next.js and any JavaScript-based SSR can be as follows:
 Taking the above into account, the following example fetches flags on the server and initialises Flagsmith with the
 state.
 
-```
+```javascript
 import { FlagsmithProvider } from 'flagsmith/react';
 import flagsmith from 'flagsmith/isomorphic';
 function MyApp({ Component, pageProps, flagsmithState }) {
@@ -73,18 +73,17 @@ export default MyApp;
 
 ```
 
-```
-
+```javascript
 import { useFlags } from 'flagsmith/react';
 
 export function MyComponent() {
-    const flags = useFlags(['font_size'], ['example_trait']); // only causes re-render if specified flag values / traits change
-    return (
-        <div className='App'>
-            font_size: {flags.font_size.value}
-            example_trait: {flags.example_trait}
-        </div>
-    );
+ const flags = useFlags(['font_size'], ['example_trait']); // only causes re-render if specified flag values / traits change
+ return (
+  <div className="App">
+   font_size: {flags.font_size.value}
+   example_trait: {flags.example_trait}
+  </div>
+ );
 }
 ```
 
@@ -96,24 +95,24 @@ The same can be accomplished without using Next.js.
 
 Step 1: Initialising the SDK and passing the resulting state to the client.
 
-```
- await flagsmith.init({ // fetches flags on the server
-      environmentID: "<YOUR_ENVIRONMENT_ID>,
-      identity: 'my_user_id' // optionaly specify the identity of the user to get their specific flags
-  });
-  const state = flagsmith.getState() // Pass this data to your client
+```javascript
+await flagsmith.init({ // fetches flags on the server
+    environmentID: "<YOUR_ENVIRONMENT_ID>,
+    identity: 'my_user_id' // optionaly specify the identity of the user to get their specific flags
+});
+const state = flagsmith.getState() // Pass this data to your client
 ```
 
 Step 2: Initialising the SDK on the client.
 
-```
-  flagsmith.setState(state) // set the state based on your
+```javascript
+flagsmith.setState(state); // set the state based on your
 ```
 
 Step 3: Optionally force the client to fetch a fresh set of flags
 
-```
-  flagsmith.getFlags() // set the state based on your
+```javascript
+flagsmith.getFlags(); // set the state based on your
 ```
 
 From that point the SDK usage is the same as the [JavaScript SDK Guide](/clients/javascript)
