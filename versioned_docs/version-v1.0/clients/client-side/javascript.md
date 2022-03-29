@@ -242,5 +242,5 @@ the browser, an onChange event will be fired immediately with the local storage 
 
 5. whenever flags have been retrieved local storage will be updated.
 
-By default, these flags will be persisted indefinitely, you can clear this by removing `"FLAGSMITH_DB"` from
+By default, these flags will be persisted indefinitely, you can clear this by removing `"BULLET_TRAIN_DB"` from
 `localStorage`.
