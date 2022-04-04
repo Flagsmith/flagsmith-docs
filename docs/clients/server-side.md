@@ -23,17 +23,42 @@ All our SDKs are on Github.
 <Tabs groupId="language">
 <TabItem value="py" label="Python">
 
-[Python SDK](https://github.com/Flagsmith/flagsmith-python-client)
+https://github.com/Flagsmith/flagsmith-python-client
 
 </TabItem>
 <TabItem value="java" label="Java">
 
-[Java SDK](https://github.com/Flagsmith/flagsmith-java-client)
+https://github.com/Flagsmith/flagsmith-java-client
 
 </TabItem>
 <TabItem value="dotnet" label=".NET">
 
-[.NET SDK](https://github.com/Flagsmith/flagsmith-dotnet-client)
+https://github.com/Flagsmith/flagsmith-dotnet-client
+
+</TabItem>
+<TabItem value="nodejs" label="NodeJS">
+
+https://github.com/Flagsmith/flagsmith-nodejs-client
+
+</TabItem>
+<TabItem value="php" label="PHP">
+
+https://github.com/Flagsmith/flagsmith-php-client
+
+</TabItem>
+<TabItem value="go" label="Go">
+
+https://github.com/Flagsmith/flagsmith-go-client
+
+</TabItem>
+<TabItem value="rust" label="Rust">
+
+https://github.com/Flagsmith/flagsmith-rust-client
+
+</TabItem>
+<TabItem value="elixir" label="Elixir">
+
+https://github.com/Flagsmith/flagsmith-elixir-client
 
 </TabItem>
 </Tabs>
@@ -84,6 +109,31 @@ paket add Flagsmith --version 4.0.0
 ```
 
 </TabItem>
+<TabItem value="nodejs" label="NodeJS">
+
+:todo
+
+</TabItem>
+<TabItem value="php" label="PHP">
+
+:todo
+
+</TabItem>
+<TabItem value="go" label="Go">
+
+:todo
+
+</TabItem>
+<TabItem value="rust" label="Rust">
+
+:todo
+
+</TabItem>
+<TabItem value="elixir" label="Elixir">
+
+:todo
+
+</TabItem>
 </Tabs>
 
 ## Initialise the SDK
@@ -116,6 +166,31 @@ static FlagsmithClient _flagsmithClient;
 
 _flagsmithClient = new("FLAGSMITH_ENVIRONMENT_KEY");
 ```
+
+</TabItem>
+<TabItem value="nodejs" label="NodeJS">
+
+:todo
+
+</TabItem>
+<TabItem value="php" label="PHP">
+
+:todo
+
+</TabItem>
+<TabItem value="go" label="Go">
+
+:todo
+
+</TabItem>
+<TabItem value="rust" label="Rust">
+
+:todo
+
+</TabItem>
+<TabItem value="elixir" label="Elixir">
+
+:todo
 
 </TabItem>
 </Tabs>
@@ -155,6 +230,31 @@ var flags = await _flagsmithClient.GetEnvironmentFlags();  # This method trigger
 var showButton = await flags.IsFeatureEnabled("secret_button");
 var buttonData = await flags.GetFeatureValue("secret_button").Result;
 ```
+
+</TabItem>
+<TabItem value="nodejs" label="NodeJS">
+
+:todo
+
+</TabItem>
+<TabItem value="php" label="PHP">
+
+:todo
+
+</TabItem>
+<TabItem value="go" label="Go">
+
+:todo
+
+</TabItem>
+<TabItem value="rust" label="Rust">
+
+:todo
+
+</TabItem>
+<TabItem value="elixir" label="Elixir">
+
+:todo
 
 </TabItem>
 </Tabs>
@@ -200,6 +300,31 @@ var showButton = flags.IsFeatureEnabled("secret_button");
 var flags = await _flagsmithClient.GetIdentityFlags(Identifier, traitList);
 var showButton = await flags.IsFeatureEnabled("secret_button");
 ```
+
+</TabItem>
+<TabItem value="nodejs" label="NodeJS">
+
+:todo
+
+</TabItem>
+<TabItem value="php" label="PHP">
+
+:todo
+
+</TabItem>
+<TabItem value="go" label="Go">
+
+:todo
+
+</TabItem>
+<TabItem value="rust" label="Rust">
+
+:todo
+
+</TabItem>
+<TabItem value="elixir" label="Elixir">
+
+:todo
 
 </TabItem>
 </Tabs>
@@ -260,6 +385,31 @@ static Flag defaultFlagHandler(string featureName)
     else return new Flag() { };
 }
 ```
+
+</TabItem>
+<TabItem value="nodejs" label="NodeJS">
+
+:todo
+
+</TabItem>
+<TabItem value="php" label="PHP">
+
+:todo
+
+</TabItem>
+<TabItem value="go" label="Go">
+
+:todo
+
+</TabItem>
+<TabItem value="rust" label="Rust">
+
+:todo
+
+</TabItem>
+<TabItem value="elixir" label="Elixir">
+
+:todo
 
 </TabItem>
 </Tabs>
@@ -418,6 +568,31 @@ _flagsmithClient = new(
 ```
 
 </TabItem>
+<TabItem value="nodejs" label="NodeJS">
+
+:todo
+
+</TabItem>
+<TabItem value="php" label="PHP">
+
+:todo
+
+</TabItem>
+<TabItem value="go" label="Go">
+
+:todo
+
+</TabItem>
+<TabItem value="rust" label="Rust">
+
+:todo
+
+</TabItem>
+<TabItem value="elixir" label="Elixir">
+
+:todo
+
+</TabItem>
 </Tabs>
 
 ## Contribute to the SDKs
@@ -433,6 +608,36 @@ https://github.com/Flagsmith/flagsmith-python-client
 <TabItem value="java" label="Java">
 
 https://github.com/Flagsmith/flagsmith-java-client
+
+</TabItem>
+<TabItem value="dotnet" label=".NET">
+
+https://github.com/Flagsmith/flagsmith-dotnet-client
+
+</TabItem>
+<TabItem value="nodejs" label="NodeJS">
+
+https://github.com/Flagsmith/flagsmith-nodejs-client
+
+</TabItem>
+<TabItem value="php" label="PHP">
+
+https://github.com/Flagsmith/flagsmith-php-client
+
+</TabItem>
+<TabItem value="go" label="Go">
+
+:todo
+
+</TabItem>
+<TabItem value="rust" label="Rust">
+
+:todo
+
+</TabItem>
+<TabItem value="elixir" label="Elixir">
+
+https://github.com/Flagsmith/flagsmith-elixir-client
 
 </TabItem>
 </Tabs>
