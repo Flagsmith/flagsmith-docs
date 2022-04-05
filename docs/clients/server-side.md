@@ -215,7 +215,7 @@ button_data = json.loads(flags.get_feature_value("secret_button"))
 <TabItem value="java" label="Java">
 
 ```java
-flags = flagsmith.getEnvironmentFlags();
+Flags flags = flagsmith.getEnvironmentFlags();
 Boolean showButton = flags.isFeatureEnabled(featureName);
 Object value = flags.getFeatureValue(featureName);
 ```
