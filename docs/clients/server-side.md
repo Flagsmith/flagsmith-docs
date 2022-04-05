@@ -78,17 +78,18 @@ pip install flagsmith
 <TabItem value="java" label="Java">
 
 ```xml
-# Check https://search.maven.org/artifact/com.flagsmith/flagsmith-java-client for the latest version!
+# Check https://search.maven.org/artifact/com.flagsmith/flagsmith-java-client
+# for the latest version!
 
 # Maven
 <dependency>
   <groupId>com.flagsmith</groupId>
   <artifactId>flagsmith-java-client</artifactId>
-  <version>4.0.1</version>
+  <version>5.0.0</version>
 </dependency>
 
 # Gradle
-implementation 'com.flagsmith:flagsmith-java-client:4.0.1'
+implementation 'com.flagsmith:flagsmith-java-client:5.0.0'
 ```
 
 </TabItem>
@@ -153,7 +154,10 @@ flagsmith = Flagsmith(
 <TabItem value="java" label="Java">
 
 ```java
-Java
+private static FlagsmithClient flagsmith = FlagsmithClient
+    .newBuilder()
+    .setApiKey(System.getenv("FLAGSMITH_ENVIRONMENT_KEY"))
+    .build();
 ```
 
 </TabItem>
@@ -211,7 +215,9 @@ button_data = json.loads(flags.get_feature_value("secret_button"))
 <TabItem value="java" label="Java">
 
 ```java
-Java
+flags = flagsmith.getEnvironmentFlags();
+Boolean showButton = flags.isFeatureEnabled(featureName);
+Object value = flags.getFeatureValue(featureName);
 ```
 
 </TabItem>
@@ -266,7 +272,7 @@ var buttonData = await flags.GetFeatureValue("secret_button").Result;
 
 ```python
 identifier = "delboy@trotterstraders.co.uk"
-traits = {"age": 32}
+traits = {"car_type": "robin_reliant"}
 
 # The method below triggers a network request
 identity_flags = flagsmith.get_identity_flags(identifier=identifier, traits=traits)
@@ -278,7 +284,14 @@ button_data = json.loads(identity_flags.get_feature_value("secret_button"))
 <TabItem value="java" label="Java">
 
 ```java
-Java
+String identifier = "delboy@trotterstraders.co.uk"
+Map<String, Object> traits = new HashMap<String, Object>();
+traits.put("car_type", "robin_reliant");
+
+// The method below triggers a network request
+flags = flagsmith.getIdentityFlags(identifier, traits);
+Boolean showButton = flags.isFeatureEnabled(featureName);
+Object value = flags.getFeatureValue(featureName);
 ```
 
 </TabItem>
@@ -286,8 +299,8 @@ Java
 
 ```csharp
 var Identifier = "delboy@trotterstraders.co.uk";
-var traitKey = "age";
-var traitValue = 32;
+var traitKey = "car_type";
+var traitValue = "robin_reliant";
 var traitList = new List<Trait> { new Trait(traitKey, traitValue) };
 
 # Sync
@@ -364,7 +377,24 @@ flagsmith = Flagsmith(
 <TabItem value="java" label="Java">
 
 ```java
-Java
+private static FlagsmithClient flagsmith = FlagsmithClient
+    .newBuilder()
+    .setDefaultFlagValueFunction(HelloController::defaultFlagHandler)
+    .setApiKey(System.getenv("FLAGSMITH_API_KEY"))
+    .build();
+
+private static DefaultFlag defaultFlagHandler(String featureName) {
+    DefaultFlag flag = new DefaultFlag();
+    flag.setEnabled(Boolean.FALSE);
+
+    if (featureName.equals("secret_button")) {
+        flag.setValue("{\"colour\": \"#ababab\"}");
+    } else {
+        flag.setValue(null);
+    }
+
+    return flag;
+}
 ```
 
 </TabItem>
@@ -508,7 +538,63 @@ flagsmith = Flagsmith(
 <TabItem value="java" label="Java">
 
 ```java
-Java
+private static FlagsmithClient flagsmith = FlagsmithClient
+    .newBuilder()
+    // Your API Token.
+    // Note that this is either the `Environment API` key or the `Server Side SDK Token`
+    // depending on if you are using Local or Remote Evaluation
+    // Required.
+    .setApiKey(System.getenv("FLAGSMITH_API_KEY"))
+
+    // Controls which mode to run in; local or remote evaluation.
+    // See the `SDKs Overview Page` for more info
+    // Optional.
+    // Defaults to False.
+    .withLocalEvaluation(True)
+
+    // Override the default Flagsmith API URL if you are self-hosting.
+    // Optional.
+    // Defaults to https://edge.api.flagsmith.com/api/v1/
+    .baseUri("https://api.yourselfhostedflagsmith.com/api/v1/")
+
+    // Set environment refresh rate with polling manager.
+    // Only needed when local evaluation is true.
+    // Optional.
+    // Defaults to 60 seconds
+    .withEnvironmentRefreshIntervalSeconds(Integer seconds)
+
+    // You can specify default Flag values on initialisation.
+    // Optional
+    .setDefaultFlagValueFunction(HelloController::defaultFlagHandler)
+
+    // Controls whether Flag Analytics data is sent to the Flagsmith API
+    // See https://docs.flagsmith.com/advanced-use/flag-analytics
+    // Optional
+    // Defaults to False
+    .withEnableAnalytics(Boolean enable) {
+
+    // The network timeout in seconds.
+    // See https://square.github.io/okhttp/4.x/okhttp/okhttp3/ for details
+    // Optional.
+    .connectTimeout(<millisecond int>)
+    .writeTimeout(<millisecond int>)
+    .readTimeout(<millisecond int>)
+
+    // Override the sslSocketFactory
+    // See https://square.github.io/okhttp/4.x/okhttp/okhttp3/ for details
+    // Optional.
+    .sslSocketFactory(SSLSocketFactory sslSocketFactory, X509TrustManager trustManager)
+
+    // Add a custom HTTP interceptor.
+    // See https://square.github.io/okhttp/4.x/okhttp/okhttp3/ for details
+    // Optional.
+    .addHttpInterceptor(Interceptor interceptor)
+
+    // Add retries for HTTP request to the builder.
+    // Optional.
+    .retries(Retry retries)
+
+    .build();
 ```
 
 </TabItem>
