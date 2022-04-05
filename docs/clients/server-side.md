@@ -289,7 +289,7 @@ Map<String, Object> traits = new HashMap<String, Object>();
 traits.put("car_type", "robin_reliant");
 
 // The method below triggers a network request
-flags = flagsmith.getIdentityFlags(identifier, traits);
+Flags flags = flagsmith.getIdentityFlags(identifier, traits);
 Boolean showButton = flags.isFeatureEnabled(featureName);
 Object value = flags.getFeatureValue(featureName);
 ```
