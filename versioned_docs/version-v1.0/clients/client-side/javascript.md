@@ -76,23 +76,68 @@ flagsmith.init({
 Identifying users allows you to target specific users from the Flagsmith dashboard and configure features and traits.
 You can call this before or after you initialise the project, calling it after will re-fetch features from the API.
 
+You can identify the users as part of initialising the client or after with the function `flagsmith.identify`.
+
 User features can be managed by navigating to users on [https://flagsmith.com](https://flagsmith.com) for your desired
 project. ![Image](/img/user-features.png)
 
-### Example: Initialising the SDK and identifying as a user
+### Example: Identifying a user after initialising the client
+
+When you initialise the client without an identity, it will fetch the flags for a given environment (unless you provide
+`preventFetch:true`).
 
 ```javascript
 import flagsmith from 'flagsmith';
 
-/*
-Can be called both before or after you're done initialising the project.
-Calling identify before will prevent flags being fetched twice.
-*/
-flagsmith.identify('flagsmith_sample_user'); //This will create a user in the dashboard if they don't already exist
-
-//Standard project initialisation
 flagsmith.init({
  environmentID: 'QjgYur4LQTwe5HpvbvhpzK',
+ onChange: (oldFlags, params) => {
+  //Occurs whenever flags are changed
+
+  const { isFromServer } = params; //determines if the update came from the server or local cached storage
+
+  //Set a trait against the Identity
+  flagsmith.setTrait('favourite_colour', 'blue'); //This save the trait against the user, it can be queried with flagsmith.getTrait
+
+  //Check for a feature
+  if (flagsmith.hasFeature('my_power_user_feature')) {
+   myPowerUserFeature();
+  }
+
+  //Check for a trait
+  if (!flagsmith.getTrait('accepted_cookie_policy')) {
+   showCookiePolicy();
+  }
+
+  //Or, use the value of a feature
+  const myPowerUserFeature = flagsmith.getValue('my_power_user_feature');
+
+  //Check whether value has changed
+  const myPowerUserFeatureOld = oldFlags['my_power_user_feature'] && oldFlags['my_power_user_feature'].value;
+  if (myPowerUserFeature !== myPowerUserFeatureOld) {
+  }
+ },
+});
+
+/*
+Can be called either after you're done initialising the project or in flagsmith.init with its identity and trait properties 
+to prevent flags being fetched twice.
+*/
+flagsmith.identify('flagsmith_sample_user'); //This will create a user in the dashboard if they don't already exist
+```
+
+### Example: Initialising the SDK with a user
+
+Initialising the client with an identity property will retrieve the user's flags instead of the environment defaults.
+You can also specify traits at this point which could determine the flags that come back based on segment overrides.
+
+```javascript
+import flagsmith from 'flagsmith';
+
+flagsmith.init({
+ environmentID: 'QjgYur4LQTwe5HpvbvhpzK',
+ identity: 'flagsmith_sample_user',
+ traits: { age: 21, country: 'England' }, // these will add to the user's existing traits
  onChange: (oldFlags, params) => {
   //Occurs whenever flags are changed
 
