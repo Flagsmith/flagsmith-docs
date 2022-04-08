@@ -20,14 +20,14 @@ Change Requests are configured at the Environment level. To enable Change Reques
 Enable 4 Eyes Change Request Approvals, and select how many approvals you would like for each Change Request to be
 applied.
 
-![Enabling Change Requests](/img/change-request-enable.png)
+<div style={{textAlign: 'center'}}><img width="75%" src="/img/change-request-enable.png"/></div>
 
 ## Creating a Change Request
 
 Once an Environment is configured with Change Requests enabled, attempting to change a flag value will prompt you to
 create a new Change Request.
 
-![Creating a Change Request](/img/change-request-create.png)
+<div style={{textAlign: 'center'}}><img width="75%" src="/img/change-request-create.png"/></div>
 
 You will need to provide:
 
