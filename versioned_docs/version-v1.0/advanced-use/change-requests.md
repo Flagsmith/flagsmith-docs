@@ -42,3 +42,7 @@ Change Requests awaiting approval are listed in the Change Request area.
 ![Listing Change Requests](/img/change-request-list.png)
 
 Clicking on a Change Request brings up the details of the request, and the current and new Flag values.
+
+![Approving a Change Requests](/img/change-request-approve.png)
+
+When the required number of approvals have been made, you will be able to merge the Change Request.
