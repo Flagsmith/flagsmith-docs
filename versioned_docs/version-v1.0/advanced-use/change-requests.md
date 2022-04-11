@@ -37,6 +37,12 @@ You will need to provide:
 
 ## Approving a Change Request
 
+:::info
+
+Any user that has permission to write to the Environment containing the Change Request can approve it.
+
+:::
+
 Change Requests awaiting approval are listed in the Change Request area.
 
 ![Listing Change Requests](/img/change-request-list.png)
@@ -45,4 +51,10 @@ Clicking on a Change Request brings up the details of the request, and the curre
 
 ![Approving a Change Requests](/img/change-request-approve.png)
 
-When the required number of approvals have been made, you will be able to merge the Change Request.
+## Publishing a Change Request
+
+When the required number of approvals have been made, you will be able to publish the Change Request.
+
+![Publishing a Change Requests](/img/change-request-publish.png)
+
+The Change Request will immediately come into effect once the Publish Change button is clicked.
