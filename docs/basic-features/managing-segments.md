@@ -59,7 +59,42 @@ the Segment rules:
 
 Now all users who log in with a `@solidstategroup.com` email address are automatically included in beta features.
 
-## Percentage Split Operator
+## Rules Operators
+
+The full set of Flagsmith rule operators are as follows:
+
+- `Exactly Matches (=)`
+- `Does Not Match (!=)`
+- `% Split`
+- `>`
+- `>=`
+- `<`
+- `<=`
+- `Contains`
+- `Does Not Contain`
+- `Matches Regex`
+
+All of the operators act as you would expect. Some of the operators also have special powers!
+
+### SemVer-aware operators
+
+The following operators are [SemVer](https://semver.org/) aware:
+
+- `Exactly Matches (=)`
+- `Does Not Match (!=)`
+- `>`
+- `>=`
+- `<`
+- `<=`
+
+For example, if you are using the SemVer system to version your application, you can store the version as a `Trait` in
+Flagsmith and then create a rule that looks like, for example:
+
+`version` `>=` `4.2.52`
+
+This segment rule will include all users running version `4.2.52` or greater of your application.
+
+### Percentage Split Operator
 
 :::important
 
