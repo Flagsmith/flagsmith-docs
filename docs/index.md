@@ -55,7 +55,7 @@ Once you are setup with the front and back end, you can integrate our client lib
 | [Flutter](/clients/flutter)            | [.Net](/clients/dotnet)   |
 | [iOS/Swift](/clients/ios)              | [Python](/clients/python) |
 | [React & React Native](/clients/react) | [Ruby](/clients/ruby)     |
-| [Next.js & SSR](/clients/next-ssr)     | [Rust](/clients/rust)     |
+| [Next.js and SSR](/clients/next-ssr)   | [Rust](/clients/rust)     |
 |                                        | [Go](/clients/go)         |
 |                                        | [Elixir](/clients/elixir) |
 

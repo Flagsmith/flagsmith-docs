@@ -48,6 +48,11 @@ Snowflake, RedShift or anywhere else for further downstream analysis! [Learn mor
 You can integrate Flagsmith with Datadog. Send flag change events from Flagsmith into your Datadog event stream.
 [Learn more](/integrations/datadog)
 
+<a href="/integrations/dynatrace" alt="Dynatrace"><img width="30%" src="/img/integrations/dynatrace/dynatrace-logo.svg"/></a>
+
+You can integrate Flagsmith with Dynatrace. Send flag change events from Flagsmith into your Dynatrace event stream.
+[Learn more](/integrations/dynatrace)
+
 <a href="/integrations/newrelic" alt="New Relic"><img width="30%" src="/img/integrations/newrelic/newrelic-logo.svg"/></a>
 
 You can integrate Flagsmith with New Relic. Send flag change events from Flagsmith into your Datadog event stream.
