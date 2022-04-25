@@ -78,21 +78,19 @@ All of the operators act as you would expect. Some of the operators also have sp
 
 ### SemVer-aware operators
 
-The following operators are [SemVer](https://semver.org/) aware:
+The following [SemVer](https://semver.org/) operators are also available:
 
-- `Exactly Matches (=)`
-- `Does Not Match (!=)`
-- `>`
-- `>=`
-- `<`
-- `<=`
+- `SemVer >`
+- `SemVer >=`
+- `SemVer <`
+- `SemVer <=`
 
 For example, if you are using the SemVer system to version your application, you can store the version as a `Trait` in
 Flagsmith and then create a rule that looks like, for example:
 
-`version` `>=` `4.2.52`
+`version` `SemVer >=` `4.2.52`
 
-This segment rule will include all users running version `4.2.52` or greater of your application.
+This Segment rule will include all users running version `4.2.52` or greater of your application.
 
 ### Percentage Split Operator
 
