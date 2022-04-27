@@ -24,6 +24,12 @@ applied.
 
 ## Creating a Change Request
 
+:::info
+
+Any user that has permission to _Update_ a Feature within the Environment can create a Change Request
+
+:::
+
 Once an Environment is configured with Change Requests enabled, attempting to change a flag value will prompt you to
 create a new Change Request.
 
