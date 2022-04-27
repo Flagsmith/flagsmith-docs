@@ -22,8 +22,8 @@ dependencies:
 ## Basic Usage
 
 The SDK is initialised against a single environment within a project on [https://flagsmith.com](https://flagsmith.com),
-for example the Development or Production environment. You can find your Client-side Environment Key in the Environment
-settings page.
+for example the Development or Production environment. You can find your environment key in the Environment settings
+page.
 
 ![Image](/img/api-key.png)
 
@@ -149,7 +149,7 @@ Identifying users allows you to target specific users from the [Flagsmith dashbo
 To check if a feature exists for a given user Identity:
 
 ```dart
-final user = FeatureUser(identifier: 'flagsmith_sample_user');
+final user = Identity(identifier: 'flagsmith_sample_user');
 bool featureEnabled = await flagsmithClient.hasFeatureFlag('my_test_feature', user: user);
 if (featureEnabled) {
     // run the code to execute enabled feature for given user
