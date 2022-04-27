@@ -120,7 +120,18 @@ npm i flagsmith-nodejs --save
 </TabItem>
 <TabItem value="php" label="PHP">
 
-:todo
+```bash
+# Requires PHP 7.4 or newer and ships with GuzzleHTTP.
+composer require flagsmith/flagsmith-php-client
+
+# You can optionally provide your own implementation of PSR-18 and PSR-16.
+# You will also need some implementation of PSR-18 and PSR-17,
+# for example Guzzle and PSR-16, for example Symfony Cache.
+composer require flagsmith/flagsmith-php-client guzzlehttp/guzzle symfony/cache
+
+# or
+composer require flagsmith/flagsmith-php-client symfony/http-client nyholm/psr7 symfony/cache
+```
 
 </TabItem>
 <TabItem value="go" label="Go">
@@ -191,7 +202,11 @@ flagsmith.init({
 </TabItem>
 <TabItem value="php" label="PHP">
 
-:todo
+```php
+use Flagsmith\Flagsmith;
+
+$flagsmith = new Flagsmith('<FLAGSMITH_ENVIRONMENT_KEY>');
+```
 
 </TabItem>
 <TabItem value="go" label="Go">
@@ -261,7 +276,9 @@ var buttonData = flags.getFeatureValue('secret_button');
 </TabItem>
 <TabItem value="php" label="PHP">
 
-:todo
+```php
+$flags = $flagsmith->getFlags();
+```
 
 </TabItem>
 <TabItem value="go" label="Go">
