@@ -112,7 +112,10 @@ paket add Flagsmith --version 4.0.0
 </TabItem>
 <TabItem value="nodejs" label="NodeJS">
 
-:todo
+```bash
+# Via NPM
+npm i flagsmith-nodejs --save
+```
 
 </TabItem>
 <TabItem value="php" label="PHP">
@@ -146,7 +149,7 @@ paket add Flagsmith --version 4.0.0
 from flagsmith import Flagsmith
 
 flagsmith = Flagsmith(
-    environment_key = os.environ.get("FLAGSMITH_ENVIRONMENT_KEY")
+    environment_key = os.environ.get("<FLAGSMITH_ENVIRONMENT_KEY>")
 )
 ```
 
@@ -156,7 +159,7 @@ flagsmith = Flagsmith(
 ```java
 private static FlagsmithClient flagsmith = FlagsmithClient
     .newBuilder()
-    .setApiKey(System.getenv("FLAGSMITH_ENVIRONMENT_KEY"))
+    .setApiKey(System.getenv("<FLAGSMITH_ENVIRONMENT_KEY>"))
     .build();
 ```
 
@@ -168,13 +171,22 @@ using Flagsmith;
 
 static FlagsmithClient _flagsmithClient;
 
-_flagsmithClient = new("FLAGSMITH_ENVIRONMENT_KEY");
+_flagsmithClient = new("<FLAGSMITH_ENVIRONMENT_KEY>");
 ```
 
 </TabItem>
 <TabItem value="nodejs" label="NodeJS">
 
-:todo
+```javascript
+const Flagsmith = require('flagsmith-nodejs');
+
+const flagsmith = new Flagsmith({'<FLAGSMITH_ENVIRONMENT_KEY>'});
+
+
+flagsmith.init({
+ environmentID: '<FLAGSMITH_ENVIRONMENT_KEY>',
+});
+```
 
 </TabItem>
 <TabItem value="php" label="PHP">
@@ -240,7 +252,11 @@ var buttonData = await flags.GetFeatureValue("secret_button").Result;
 </TabItem>
 <TabItem value="nodejs" label="NodeJS">
 
-:todo
+```javascript
+const flags = await flagsmith.getEnvironmentFlags();
+var showButton = flags.isFeatureEnabled('secret_button');
+var buttonData = flags.getFeatureValue('secret_button');
+```
 
 </TabItem>
 <TabItem value="php" label="PHP">
@@ -317,7 +333,14 @@ var showButton = await flags.IsFeatureEnabled("secret_button");
 </TabItem>
 <TabItem value="nodejs" label="NodeJS">
 
-:todo
+```javascript
+const identifier = 'delboy@trotterstraders.co.uk';
+const traitList = { car_type: 'robin_reliant' };
+
+const flags = await flagsmith.getIdentityFlags(identifier, traitList);
+var showButton = flags.isFeatureEnabled('secret_button');
+var buttonData = flags.getFeatureValue('secret_button');
+```
 
 </TabItem>
 <TabItem value="php" label="PHP">
@@ -368,7 +391,7 @@ def default_flag_handler(feature_name: str) -> DefaultFlag:
     return DefaultFlag(False, None)
 
 flagsmith = Flagsmith(
-    environment_key=os.environ.get("FLAGSMITH_ENVIRONMENT_KEY"),
+    environment_key=os.environ.get("<FLAGSMITH_ENVIRONMENT_KEY>"),
     default_flag_handler=default_flag_handler,
 )
 ```
@@ -380,7 +403,7 @@ flagsmith = Flagsmith(
 private static FlagsmithClient flagsmith = FlagsmithClient
     .newBuilder()
     .setDefaultFlagValueFunction(HelloController::defaultFlagHandler)
-    .setApiKey(System.getenv("FLAGSMITH_API_KEY"))
+    .setApiKey(System.getenv("<FLAGSMITH_ENVIRONMENT_KEY>"))
     .build();
 
 private static DefaultFlag defaultFlagHandler(String featureName) {
@@ -405,7 +428,7 @@ using Flagsmith;
 
 static FlagsmithClient _flagsmithClient;
 
-_flagsmithClient = new("FLAGSMITH_ENVIRONMENT_KEY", defaultFlagHandler: defaultFlagHandler);
+_flagsmithClient = new("<FLAGSMITH_ENVIRONMENT_KEY>", defaultFlagHandler: defaultFlagHandler);
 static Flag defaultFlagHandler(string featureName)
 {
     // Function that will be used if the API doesn't respond, or an unknown
@@ -419,7 +442,15 @@ static Flag defaultFlagHandler(string featureName)
 </TabItem>
 <TabItem value="nodejs" label="NodeJS">
 
-:todo
+```javascript
+const flagsmith = new Flagsmith({
+ environmentKey,
+ enableLocalEvaluation: true,
+ defaultFlagHandler: (str) => {
+  return { enabled: false, isDefault: true, value: { colour: '#ababab' } };
+ },
+});
+```
 
 </TabItem>
 <TabItem value="php" label="PHP">
@@ -656,7 +687,70 @@ _flagsmithClient = new(
 </TabItem>
 <TabItem value="nodejs" label="NodeJS">
 
-:todo
+```javascript
+const flagsmith = new Flagsmith({
+    /*
+    Your API Token.
+    Note that this is either the `Environment API` key or the `Server Side SDK Token`
+    depending on if you are using Local or Remote Evaluation
+    Required.
+    */
+    '<FLAGSMITH_ENVIRONMENT_KEY>',
+
+    /*
+    Controls which mode to run in; local or remote evaluation.
+    See the `SDKs Overview Page` for more info
+    Optional.
+    Defaults to false.
+    */
+    enableLocalEvaluation: true,
+
+    /*
+    Controls which mode to run in; local or remote evaluation.
+    See the `SDKs Overview Page` for more info
+    Optional.
+    Defaults to false.
+    */
+    apiUrl: 'https://api.yourselfhostedflagsmith.com/api/v1/',
+
+    /*
+    Set environment refresh rate with polling manager.
+    Only needed when local evaluation is true.
+    Optional.
+    Defaults to 60 seconds
+    */
+    environmentRefreshIntervalSeconds: 60,
+
+    /*
+    You can specify default Flag values on initialisation.
+    Optional
+    */
+    defaultFlagHandler: str => {
+        return { enabled: false, isDefault: true, value: null };
+    },
+
+    /*
+    Controls whether Flag Analytics data is sent to the Flagsmith API
+    See https://docs.flagsmith.com/advanced-use/flag-analytics
+    Optional
+    Defaults to false
+    */
+    enableAnalytics: true
+
+    /*
+    The network timeout in seconds.
+    Optional.
+    Defaults to 10 seconds
+    */
+    requestTimeoutSeconds: 30,
+
+    /*
+    Custom http headers can be added to the http client
+    Optional
+    */
+    customHeaders: { 'aHeader': 'aValue' },
+});
+```
 
 </TabItem>
 <TabItem value="php" label="PHP">
