@@ -278,6 +278,8 @@ var buttonData = flags.getFeatureValue('secret_button');
 
 ```php
 $flags = $flagsmith->getFlags();
+$flags->isFeatureEnabled('secret_button')
+$flags->getFeatureValue('secret_button')
 ```
 
 </TabItem>
@@ -362,7 +364,9 @@ var buttonData = flags.getFeatureValue('secret_button');
 </TabItem>
 <TabItem value="php" label="PHP">
 
-:todo
+```php
+$flags = $flagsmith->getIdentityFlags('delboy@trotterstraders.co.uk');
+```
 
 </TabItem>
 <TabItem value="go" label="Go">
@@ -472,7 +476,18 @@ const flagsmith = new Flagsmith({
 </TabItem>
 <TabItem value="php" label="PHP">
 
-:todo
+```php
+$flagsmith = (new Flagsmith('<FLAGSMITH_ENVIRONMENT_KEY>'))
+    ->withDefaultFlagHandler(function ($featureName) {
+        $defaultFlag = (new DefaultFlag())
+            ->withEnabled(false)->withValue(null);
+        if ($featureName === 'secret_button') {
+            return $defaultFlag->withValue('{"colour": "#ababab"}');
+        }
+
+        return $defaultFlag;
+    });
+```
 
 </TabItem>
 <TabItem value="go" label="Go">
