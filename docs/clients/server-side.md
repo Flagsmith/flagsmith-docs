@@ -136,7 +136,9 @@ composer require flagsmith/flagsmith-php-client symfony/http-client nyholm/psr7 
 </TabItem>
 <TabItem value="go" label="Go">
 
-:todo
+```bash
+go get github.com/Flagsmith/flagsmith-go-client
+```
 
 </TabItem>
 <TabItem value="rust" label="Rust">
