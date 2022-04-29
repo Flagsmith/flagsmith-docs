@@ -12,7 +12,7 @@ To set up SAML authentication, we will provide you with a unique name for your S
 enter when prompted by the 'Single Sign on' dialog. We will also provide you with our Service Provider metadata and
 expect your IdP metadata in return.
 
-### Mapping information
+### Mapping information
 
 To uniquely identify users, we attempt to retrieve a unique identifier from either the `subject-id` or `uid` claim, or
 we use the content of the `NameID` attribute.
