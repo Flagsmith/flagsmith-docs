@@ -59,7 +59,7 @@ create a super user account first with the following command:
 
 ```bash
 # Make sure you are in the root directory of this repository
-docker-compose run --rm --entrypoint "python manage.py createsuperuser" api
+docker compose run --rm --entrypoint "python manage.py createsuperuser" flagsmith
 ```
 
 You can then access the admin dashboard at [http://localhost:8000/admin/](http://localhost:8000/admin/)
