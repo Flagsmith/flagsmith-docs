@@ -21,6 +21,18 @@ To get up and running, you can either use [https://flagsmith.com/](https://flags
 self host the API and Front End. Once you have these components up and running, you can add the client libraries to your
 apps and start managing your features remotely.
 
+## Open Source vs SaaS vs Enterprise
+
+You are free to run the Open Source version of Flagsmith however you see fit! There are some differences between the
+Open Source, SaaS hosted and Enterprise plans:
+
+- The Open Source version has **no** API request or Identity limits - you can run as many API instances in a cluster as
+  you wish
+- The Open Source version has **no** Dashboard User limits - you can have as many team members as you wish
+- The SaaS and Enterprise versions have [Change Requests and Flag Scheduling](advanced-use/change-requests.md)
+- The SaaS and Enterprise versions have [Role-Based Access Controls](advanced-use/permissions.md)
+- The SaaS and Enterprise versions have additional [Authentication Providers](/enterprise-edition)
+
 ## Installation
 
 :::tip
