@@ -9,7 +9,7 @@ Source product:
 
 - [Role Based Access Controls](advanced-use/permissions.md)
 - [SAML, LDAP, ADFS and Okta authentication](advanced-use/authentication-methods.md)
-- Additional database engines: Oracle, SQL Server and MySQL)
+- Additional database engines: Oracle, SQL Server and MySQL
 - Additional deployment and orchestration options as detailed below
 
 ## Deployment Options
