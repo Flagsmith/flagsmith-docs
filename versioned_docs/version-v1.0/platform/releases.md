@@ -11,6 +11,37 @@ We have a fairly simple tagging strategy:
 
 Please look out our [Github Releases](https://github.com/Flagsmith/flagsmith/releases) page for detailed updates.
 
+## v2.22
+
+Released **25 April 2022**
+
+- Semantic Version Operators
+- Permissions Improvements
+- UI improvements
+
+## v2.21
+
+Released **12 April 2022**
+
+- Dropped Python 3.6 support
+- Change Requests
+
+## v2.20
+
+Released **7 April 2022**
+
+- Dashboard performance improvements
+- Segment Identity Sampling
+
+## v2.19
+
+Released **24 March 2022**
+
+- Dashboard performance improvements
+- UI tweaks
+- ARM Docker images
+- Dynatrace Integration
+
 ## v2.18
 
 Released **15 February 2022**

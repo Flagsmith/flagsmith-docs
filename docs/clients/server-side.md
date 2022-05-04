@@ -120,12 +120,25 @@ npm i flagsmith-nodejs --save
 </TabItem>
 <TabItem value="php" label="PHP">
 
-:todo
+```bash
+# Requires PHP 7.4 or newer and ships with GuzzleHTTP.
+composer require flagsmith/flagsmith-php-client
+
+# You can optionally provide your own implementation of PSR-18 and PSR-16.
+# You will also need some implementation of PSR-18 and PSR-17,
+# for example Guzzle and PSR-16, for example Symfony Cache.
+composer require flagsmith/flagsmith-php-client guzzlehttp/guzzle symfony/cache
+
+# or
+composer require flagsmith/flagsmith-php-client symfony/http-client nyholm/psr7 symfony/cache
+```
 
 </TabItem>
 <TabItem value="go" label="Go">
 
-:todo
+```bash
+go get github.com/Flagsmith/flagsmith-go-client
+```
 
 </TabItem>
 <TabItem value="rust" label="Rust">
@@ -191,7 +204,11 @@ flagsmith.init({
 </TabItem>
 <TabItem value="php" label="PHP">
 
-:todo
+```php
+use Flagsmith\Flagsmith;
+
+$flagsmith = new Flagsmith('<FLAGSMITH_ENVIRONMENT_KEY>');
+```
 
 </TabItem>
 <TabItem value="go" label="Go">
@@ -261,7 +278,11 @@ var buttonData = flags.getFeatureValue('secret_button');
 </TabItem>
 <TabItem value="php" label="PHP">
 
-:todo
+```php
+$flags = $flagsmith->getFlags();
+$flags->isFeatureEnabled('secret_button')
+$flags->getFeatureValue('secret_button')
+```
 
 </TabItem>
 <TabItem value="go" label="Go">
@@ -345,7 +366,14 @@ var buttonData = flags.getFeatureValue('secret_button');
 </TabItem>
 <TabItem value="php" label="PHP">
 
-:todo
+```php
+$identifier = 'delboy@trotterstraders.co.uk';
+$traits = (object) [ 'car_type' => 'robin_reliant' ];
+
+$flags = $flagsmith->getIdentityFlags($identifier, $traits);
+$showButton = $flags->isFeatureEnabled('secret_button');
+$buttonData = $flags->getFeatureValue('secret_button');
+```
 
 </TabItem>
 <TabItem value="go" label="Go">
@@ -455,7 +483,18 @@ const flagsmith = new Flagsmith({
 </TabItem>
 <TabItem value="php" label="PHP">
 
-:todo
+```php
+$flagsmith = (new Flagsmith('<FLAGSMITH_ENVIRONMENT_KEY>'))
+    ->withDefaultFlagHandler(function ($featureName) {
+        $defaultFlag = (new DefaultFlag())
+            ->withEnabled(false)->withValue(null);
+        if ($featureName === 'secret_button') {
+            return $defaultFlag->withValue('{"colour": "#ababab"}');
+        }
+
+        return $defaultFlag;
+    });
+```
 
 </TabItem>
 <TabItem value="go" label="Go">
@@ -755,7 +794,60 @@ const flagsmith = new Flagsmith({
 </TabItem>
 <TabItem value="php" label="PHP">
 
-:todo
+```php
+$flagsmith = new Flagsmith(
+    /*
+    Your API Token.
+    Note that this is either the `Environment API` key or the `Server Side SDK Token`
+    depending on if you are using Local or Remote Evaluation
+    Required.
+    */
+    string $apiKey,
+
+    /*
+    Controls which mode to run in; local or remote evaluation.
+    See the `SDKs Overview Page` for more info
+    Optional.
+    Defaults to false.
+    */
+    string $host = self::DEFAULT_API_URL,
+
+    /*
+    Custom http headers can be added to the http client
+    Optional
+    */
+    object $customHeaders = null,
+
+    /*
+    Set environment refresh rate with polling manager.
+    This also enables local evaluation.
+    Optional.
+    Defaults to null
+    */
+    int $environmentTtl = null,
+
+    /*
+    Retry Object, instance of Flagsmith\Utils\Retry
+    Retry configuration for api calls.
+    Defaults to 3 retries for every api call.
+    */
+    Retry $retries = null,
+
+    /*
+    Controls whether Flag Analytics data is sent to the Flagsmith API
+    See https://docs.flagsmith.com/advanced-use/flag-analytics
+    Optional
+    Defaults to false
+    */
+    bool $enableAnalytics = false,
+
+    /*
+    You can specify default Flag values on initialisation.
+    Optional
+    */
+    Closure $defaultFlagHandler = null
+);
+```
 
 </TabItem>
 <TabItem value="go" label="Go">
