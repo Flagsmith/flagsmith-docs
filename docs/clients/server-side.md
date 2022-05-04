@@ -367,7 +367,12 @@ var buttonData = flags.getFeatureValue('secret_button');
 <TabItem value="php" label="PHP">
 
 ```php
-$flags = $flagsmith->getIdentityFlags('delboy@trotterstraders.co.uk');
+$identifier = 'delboy@trotterstraders.co.uk';
+$traits = (object) [ 'car_type' => 'robin_reliant' ];
+
+$flags = $flagsmith->getIdentityFlags($identifier, $traits);
+$showButton = $flags->isFeatureEnabled('secret_button');
+$buttonData = $flags->getFeatureValue('secret_button');
 ```
 
 </TabItem>
@@ -789,7 +794,60 @@ const flagsmith = new Flagsmith({
 </TabItem>
 <TabItem value="php" label="PHP">
 
-:todo
+```php
+$flagsmith = new Flagsmith(
+    /*
+    Your API Token.
+    Note that this is either the `Environment API` key or the `Server Side SDK Token`
+    depending on if you are using Local or Remote Evaluation
+    Required.
+    */
+    string $apiKey,
+
+    /*
+    Controls which mode to run in; local or remote evaluation.
+    See the `SDKs Overview Page` for more info
+    Optional.
+    Defaults to false.
+    */
+    string $host = self::DEFAULT_API_URL,
+
+    /*
+    Custom http headers can be added to the http client
+    Optional
+    */
+    object $customHeaders = null,
+
+    /*
+    Set environment refresh rate with polling manager.
+    This also enables local evaluation.
+    Optional.
+    Defaults to null
+    */
+    int $environmentTtl = null,
+
+    /*
+    Retry Object, instance of Flagsmith\Utils\Retry
+    Retry configuration for api calls.
+    Defaults to 3 retries for every api call.
+    */
+    Retry $retries = null,
+
+    /*
+    Controls whether Flag Analytics data is sent to the Flagsmith API
+    See https://docs.flagsmith.com/advanced-use/flag-analytics
+    Optional
+    Defaults to false
+    */
+    bool $enableAnalytics = false,
+
+    /*
+    You can specify default Flag values on initialisation.
+    Optional
+    */
+    Closure $defaultFlagHandler = null
+);
+```
 
 </TabItem>
 <TabItem value="go" label="Go">
