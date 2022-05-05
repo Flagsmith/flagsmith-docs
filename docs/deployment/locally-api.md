@@ -209,6 +209,9 @@ the below variables will be ignored.
   [`SECURE_SSL_HOST`](https://docs.djangoproject.com/en/4.0/ref/settings/#secure-ssl-host). Defaults to `None`.
 - `DJANGO_SECURE_SSL_REDIRECT`: Boolean. Passthrough of Django's
   [`SECURE_SSL_REDIRECT`](https://docs.djangoproject.com/en/4.0/ref/settings/#secure-ssl-redirect). Defaults to `False`.
+- [`APPLICATION_INSIGHTS_CONNECTION_STRING`](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview).
+  String. Connection string to set up Flagsmith to send telemetry to Azure Application Insights.
+- [`OPENCENSUS_SAMPLING_RATE`](https://opencensus.io/tracing/sampling/probabilistic/): Float. The tracer sample rate.
 
 #### Security Environment Variables
 
