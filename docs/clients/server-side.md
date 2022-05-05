@@ -907,12 +907,12 @@ https://github.com/Flagsmith/flagsmith-php-client
 </TabItem>
 <TabItem value="go" label="Go">
 
-:todo
+https://github.com/Flagsmith/flagsmith-go-client
 
 </TabItem>
 <TabItem value="rust" label="Rust">
 
-:todo
+https://github.com/Flagsmith/flagsmith-rust-client
 
 </TabItem>
 <TabItem value="elixir" label="Elixir">
