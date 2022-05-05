@@ -31,6 +31,8 @@ cons of each one are.
 In this mode, every time the SDK needs to get Flags, it will make a request to the Flagsmith API to get the Flags for
 the particular request.
 
+![Remote Evaluation Diagram](/img/sdk-remote-evaluation.svg)
+
 `Remote Evaluation` is the default mode; simply initialise the SDK and you will be running in `Remote Evaluation` mode.
 
 This is the same way that the [Client Side SDKs](#client-side-sdks) work.
@@ -39,6 +41,8 @@ This is the same way that the [Client Side SDKs](#client-side-sdks) work.
 
 In this mode, all flag values are calculated locally, on your server. The Flagsmith SDK includes an implementation of
 the Flag Engine, and the engine runs within your server environment within the Flagsmith SDK.
+
+![Local Evaluation Diagram](/img/sdk-local-evaluation.svg)
 
 You have to configure the SDK to run in `Local Evaluation` mode. See the
 [SDK configuration options](server-side.md#configuring-the-sdk) for details on how to do that in your particular
