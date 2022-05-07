@@ -25,6 +25,10 @@ We also map the following Flagsmith user attributes to the following claims in t
 | `first_name`        | `gn`, `givenName` or (the first part of) `displayName` |
 | `last_name`         | `sn`, `surname` or (the second part of) `displayName`  |
 
+Here's an example configuration from Google's SAML app creation flow.
+
+<div style={{textAlign: 'center'}}><img width="75%" src="/img/saml-mapping-configuration.png"/></div>
+
 ## LDAP
 
 LDAP Authentication is available in our [Enterprise Edition](../enterprise-edition.md). Please contact us if this is of
