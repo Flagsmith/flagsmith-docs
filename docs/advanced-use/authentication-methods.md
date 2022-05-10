@@ -1,5 +1,17 @@
 # Authentication Methods
 
+:::tip
+
+Organisations within Flagsmith can be locked to a single authentication method if required, meaning that accounts can
+neither be created or logged into with anything other than the method specified.
+
+This can be configured at an Organisation level by a Super-Administrator. Please get in touch if you need help with
+this.
+
+:::
+
+As well as Email/Password and OAuth2 via Google or Github, we also provide the following methods of authentication.
+
 ## SAML
 
 The Flagsmith platform can be configured for a given organisation to use SAML authentication. To configure SAML login
