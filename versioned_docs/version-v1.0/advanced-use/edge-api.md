@@ -1,12 +1,5 @@
 # Edge API
 
-:::tip
-
-The Edge API is currently in beta. If you want to join the beta programme, please connect with us in
-[Discord](https://discord.gg/hFhxNtXzgm).
-
-:::
-
 [The Flagsmith Architecture](/advanced-use/integration-approaches#flags-are-evaluated-server-side) is based around a
 server-side flag engine. This comes with a number of benefits, but it can increase latency, especially when the calls
 are being made from a location that is far from the EU; the location of our current API.
@@ -15,6 +8,14 @@ In order to solve this problem we have developed a Global Edge API. Our aim for 
 within 100 milliseconds, anywhere in the world. In order to achieve this, we are using the following AWS components.
 
 ## Enabling the Edge API
+
+:::tip
+
+The Edge API is currently in beta. If you want to join the beta programme, please connect with us in
+[Discord](https://discord.gg/hFhxNtXzgm), via the chat widget at the bottom of this page or by emailing
+support@flagsmith.com
+
+:::
 
 Once you have had your project added to the beta, all you will need to do is point your SDK to a new Flagsmith Edge API
 URL. This URL will point to our edge Cloudfront CDN. That's it!
