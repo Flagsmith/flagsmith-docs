@@ -1,5 +1,11 @@
 # Edge API
 
+:::info
+
+The Edge API is only available with our paid-for SaaS platform. It does not form part of our Open Source project.
+
+:::
+
 [The Flagsmith Architecture](/advanced-use/integration-approaches#flags-are-evaluated-server-side) is based around a
 server-side flag engine. This comes with a number of benefits, but it can increase latency, especially when the calls
 are being made from a location that is far from the EU; the location of our current API.
@@ -11,16 +17,19 @@ within 100 milliseconds, anywhere in the world. In order to achieve this, we are
 
 :::tip
 
-The Edge API is currently in beta. If you want to join the beta programme, please connect with us in
+The Edge API is currently in Beta. If you want to join the beta programme, please connect with us in
 [Discord](https://discord.gg/hFhxNtXzgm), via the chat widget at the bottom of this page or by emailing
 support@flagsmith.com
 
 :::
 
-Once you have had your project added to the beta, all you will need to do is point your SDK to a new Flagsmith Edge API
-URL. This URL will point to our edge Cloudfront CDN. That's it!
+Once you have had your Project added to the Beta, all you will need to do is point your SDK to a new Flagsmith Edge API
+URL. This URL will point to our Edge CDN. That's it!
 
-So for example, in the Java SDK we just add the `withApiUrl` line:
+The easiest way to do this is to upgrade to the latest version of the Flagsmith SDK for your language.
+
+If you are unable to upgrade, you can manually point the existing SDK to the Edge API endpoint. So for example, in the
+Java SDK we just add the `withApiUrl` line:
 
 ```java
 FlagsmithClient flagsmithClient = FlagsmithClient.newBuilder()
@@ -29,43 +38,56 @@ FlagsmithClient flagsmithClient = FlagsmithClient.newBuilder()
         .build();
 ```
 
+Note that the Edge API URL is: `https://edge.api.flagsmith.com/api/v1/`.
+
 Check the docs for your language SDK on how to override the endpoint URL prefix.
 
-## Current Caveats
+## Migration Steps
 
-Whilst in beta, there are some limitations to the platform. These are being worked on and will be in place when we put
-the Edge API into production.
+The migration process will carry out a one-way sync of your `Identity` data, from the Core API to the Edge API. All your
+`Identity` data will continue to exist within the Core API, and you can continue to write `Identities` to the Core API
+if you wish.
 
-### Identities are isolated between Edge and non-Edge endpoints
+The goal is to get all of your applications running against the Edge API, where you will benefit from global low latency
+as well as multi-region failover and fault tolerance.
 
-If you have an existing Identity currently in Flagsmith, it will _not_ exist in our Edge API database. You have to
-create the Identity within the Edge API. This is done in the same way; Identities are lazily created when they are first
-seen.
+### Step 1 - Prepare your applications
 
-### You need to trigger a manual write of your Environment to DynamoDB
+Set your applications up to point to the Flagsmith Edge API. This means going from `api.flagsmith.com` to
+`edge.api.flagsmith.com`. You can either set this explicitly in our SDK or just ensure you are running the latest
+version of the SDK; by default they will point to `edge.api.flagsmith.com`.
 
-We have not yet migrated Environments from our core database into DynamoDB yet. In order to get working with an
-Environment on Edge you will need to trigger a write-through; the easiest way to do this is just to toggle a flag on and
-off in the Environment you want to get into Edge. All subsequent state changes to the Environment will be written
-through.
+### Step 2 - Migrate your data
 
-### Identities are not viewable in the Dashboard
+You can now trigger a one-way sync of data for each of your Flagsmith Projects within the Flagsmith Dashboard. Visit the
+Project Settings page in Flagsmith and hit the "Migrate Identity Data to Edge API" button. This will start a job that
+can take between 1 and 15 minutes, depending on how much data you have. Once the job is complete, all the Identities
+that were present in your Core API will be present in the Edge API.
 
-You wont see Edge Identities show up in the dashboard currently. This also means you cant currently specify a per
-Identity override. This is still being worked on.
+### Step 3 - Deploy your applications
 
-### Integrations are not currently implemented
+Once your data has been copied onto the Edge API datastore, you can now deploy your applications that point to the new
+endpoint `edge.api.flagsmith.com` and benefit from global low latency!
 
-[Integrations](/integrations/overview.md) are not currently supported.
+## Things you should know
+
+### Identity Syncing from Core to Edge
+
+If you have a product like a mobile app, where you cannot immediately force your users to upgrade (as opposed to a web
+app, for example), you will likely generate Identity writes to the old Core API.
+
+Following the migration, if we receive a request to an `Identity` endpoint that results in a write to the core API, we
+will persist the data in the Core API _and replay the request into the Edge API_. This will happen for 4 weeks following
+the migration. After that you should stop writing Identities to the core API.
+
+This will give you time to migrate your users over to the new version of your application.
+
+Note that writes to the Core API will still work into the future, but the data will not be synchronised across the two
+platforms (Core and Edge).
 
 ### Increment and Decrement endpoints are deprecated
 
 You probably didn't know these existed though, right?
-
-### You may experience cold starts in different regions
-
-Cold starts currently add around 400ms to service a request. We are building out a solution to this issue but whilst the
-platform is in beta and not serving a large volume of traffic, you will occasionally experience cold starts.
 
 ### The API responses have been slimmed down
 
