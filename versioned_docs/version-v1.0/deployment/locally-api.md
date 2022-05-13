@@ -307,19 +307,21 @@ DJANGO_SETTINGS_MODULE=app.settings.test pytest
 
 ## Pre commit
 
-The application uses pre-commit configuration ( `.pre-commit-config.yaml` ) to run black formatting before commits.
+The application uses pre-commit configuration ( `.pre-commit-config.yaml` ) to run `black`, `flake8` and `isort`
+formatting before commits.
 
 To install pre-commit:
 
 ```bash
+# From the repository root
 pip install pre-commit
 pre-commit install
 ```
 
-You can manually run the black formatter with:
+You can also manually run all the checks across the entire codebase with:
 
 ```bash
-python -m black src
+pre-commit run --all-files
 ```
 
 ## Adding dependencies
