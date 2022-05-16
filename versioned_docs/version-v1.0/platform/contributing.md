@@ -15,3 +15,7 @@ suggesting the next steps.
 - Keep the code style (indents, wrapping) consistent.
 - If your PR involves a lot of commits, squash them using `git rebase -i` as this makes it easier for us to review.
 - Keep lines under 80 characters.
+
+## Code Formatting/Linting
+
+Please check our [pre-commit setup](/deployment/locally-api#pre-commit).
