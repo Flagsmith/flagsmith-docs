@@ -331,11 +331,13 @@ The following table lists the configurable parameters of the chart and their def
 | `service.frontend.type`                            |                                                                | `ClusterIP`                    |
 | `service.frontend.port`                            |                                                                | `8080`                         |
 | `ingress.frontend.enabled`                         |                                                                | `false`                        |
+| `ingress.frontend.ingressClassName`                |                                                                |                                |
 | `ingress.frontend.annotations`                     |                                                                | `{}`                           |
 | `ingress.frontend.hosts[].host`                    |                                                                | `chart-example.local`          |
 | `ingress.frontend.hosts[].paths`                   |                                                                | `[]`                           |
 | `ingress.frontend.tls`                             |                                                                | `[]`                           |
 | `ingress.api.enabled`                              |                                                                | `false`                        |
+| `ingress.api.ingressClassName`                     |                                                                |                                |
 | `ingress.api.annotations`                          |                                                                | `{}`                           |
 | `ingress.api.hosts[].host`                         |                                                                | `chart-example.local`          |
 | `ingress.api.hosts[].paths`                        |                                                                | `[]`                           |
