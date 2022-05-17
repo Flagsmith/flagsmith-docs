@@ -47,13 +47,20 @@ is affected.
 
 ### 4. Segment your Users based on the Bug
 
+:::tip
+
+We can make use of [Semver Aware Operators](/basic-features/managing-segments#semver-aware-operators) to drive these
+Segment rules.
+
+:::
+
 From your work in #3, create a [Segment](/basic-features/managing-segments.md) in Flagsmith that captures the defined
-set of users from #3. Let's say we just shipped version 5.4.1, but we have figured out that the bug actually showed up
-in version 5.4.0. Also, this issue is only affecting iOS devices; Android users don't have the problem. So our Segment
+set of users from #3. Let's say we just shipped version `5.4.1`, but we have figured out that the bug actually showed up
+in version `5.4.0`. Also, this issue is only affecting iOS devices; Android users don't have the problem. So our Segment
 would contain 2 rules and read something like:
 
-- Trait `platform` _equals_ "iOS"
-- Trait `version` _contains_ "5.4.0" _OR_ "5.4.1"
+- Trait `platform` _equals_ `iOS`
+- Trait `version` _semver >=_ `5.4.0` **AND** _semver<=_ `5.4.1`
 
 ### 5. Override your Feature with your Segment
 
@@ -66,7 +73,7 @@ And breathe...
 
 We've done the hard work and isolated which precise subset of users are affected by this issue. We want the feature to
 continue to show and work for all our other users (in this case Android users and iOS users on versions older than
-5.4.0), but we want to disable it for the affected users.
+`5.4.0`), but we want to disable it for the affected users.
 
 So we created a Segment that precisely identified the affected users, and then used that Segment to override the
 feature, **_but just for those users_**.
