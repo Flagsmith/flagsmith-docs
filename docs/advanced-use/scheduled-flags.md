@@ -23,7 +23,7 @@ You will need to provide:
 - Optionally a description of the reason for the Change Request
 - The Date and Time that you want the flag change to take effect
 
-## Scheduled Flags and Change Request
+## Scheduled Flags and Change Requests
 
 Scheduled Flags pending go live will appear in the Change Request area.
 
