@@ -227,6 +227,12 @@ When running the application locally, you will also need [xmlsec1](https://comma
 
 :::
 
+#### SAML Environment Variables
+
+| Variable           | Example Value | Description                                                                            | Default Value |
+| ------------------ | ------------- | -------------------------------------------------------------------------------------- | ------------- |
+| **SAML_FORCE_SSL** | True          | Ignores X-Forwarded-Proto HTTP headers and forces SAML redirects to occur over `https` | False         |
+
 ### LDAP Authentication
 
 The application can be configured to use an LDAP based authentication backend using
