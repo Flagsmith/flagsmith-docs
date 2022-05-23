@@ -240,6 +240,16 @@ The list of the flags and remote config we're currently using in production is b
   "name": "oauth_google",
   "description": "OAuth with Google - Below is a sample value - you will need to create your own credentials",
   "value": "{\n \"clientId\":\"232959427810-br6ltnrgouktp0ngsbs04o14ueb9rch0.apps.googleusercontent.com\",\n \"apiKey\":\"AIzaSyCnHuN-y6BIEAM5vTISXaz3X9GpEPSxWjo\"\n}"
+ },
+ {
+  "name": "serverside_sdk_keys",
+  "description": "Enable Server-side Environment Keys",
+  "type": "FLAG"
+ },
+ {
+  "name": "compare_environments",
+  "description": "Compare feature flag changes across environments",
+  "type": "FLAG"
  }
 ]
 ```
