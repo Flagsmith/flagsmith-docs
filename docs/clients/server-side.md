@@ -213,7 +213,13 @@ $flagsmith = new Flagsmith('<FLAGSMITH_ENVIRONMENT_KEY>');
 </TabItem>
 <TabItem value="go" label="Go">
 
-:todo
+```go
+import (
+  "github.com/Flagsmith/flagsmith-go-client"
+)
+
+b := flagsmith.NewClient("<FLAGSMITH_ENVIRONMENT_KEY>", flagsmith.Config{})
+```
 
 </TabItem>
 <TabItem value="rust" label="Rust">
@@ -287,7 +293,9 @@ $flags->getFeatureValue('secret_button')
 </TabItem>
 <TabItem value="go" label="Go">
 
-:todo
+```go
+secret_button, err := b.FeatureEnabled("secret_button")
+```
 
 </TabItem>
 <TabItem value="rust" label="Rust">
@@ -899,12 +907,12 @@ https://github.com/Flagsmith/flagsmith-php-client
 </TabItem>
 <TabItem value="go" label="Go">
 
-:todo
+https://github.com/Flagsmith/flagsmith-go-client
 
 </TabItem>
 <TabItem value="rust" label="Rust">
 
-:todo
+https://github.com/Flagsmith/flagsmith-rust-client
 
 </TabItem>
 <TabItem value="elixir" label="Elixir">
