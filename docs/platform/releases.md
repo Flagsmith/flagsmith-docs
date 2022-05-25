@@ -11,6 +11,14 @@ We have a fairly simple tagging strategy:
 
 Please look out our [Github Releases](https://github.com/Flagsmith/flagsmith/releases) page for detailed updates.
 
+## v2.23
+
+Released **17 May 2022**
+
+- Security Audit Fixes
+- Add cache for returning 403 for unknown Environments in header
+- Semver and regex validation
+
 ## v2.22
 
 Released **25 April 2022**
