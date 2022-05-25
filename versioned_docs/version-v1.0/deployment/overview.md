@@ -174,85 +174,279 @@ the platform. For example, if you wanted to disable Google OAuth authentication,
 
 The list of the flags and remote config we're currently using in production is below:
 
+| Flag Name            | Description                                                                   | Text Value                                                                                                     |
+| -------------------- | ----------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `try_it`             | Whether to show the try it buttons                                            | None                                                                                                           |
+| `butter_bar`         | html to show at the top of the dashboard page                                 | None                                                                                                           |
+| `disable_create_org` | Turning this on will prevent users from creating any additional organisations | None                                                                                                           |
+| `scaleup_audit`      | Disables audit log for anyone under scale-up plan                             | None                                                                                                           |
+| `integration_data`   | Configures integrations                                                       | [See Below](#integration_data)                                                                                 |
+| `integrations`       | Whether to show the try it buttons                                            | `["amplitude","datadog","dynatrace","new-relic","segment","rudderstack","webhook","slack", "heap","mixpanel"]` |
+| `plan_based_access`  | Controls RBAC and 2FA based on organisation plan                              | None                                                                                                           |
+| `flag_analytics`     | Flag usage chart - requires InfluxDB                                          | None                                                                                                           |
+| `usage_chart`        | Organisation Analytics usage chart - requires InfluxDB                        | None                                                                                                           |
+| `dark_mode`          | Enables Dark Mode in UI [See Below](#dark-mode)                               | None                                                                                                           |
+| `scaleup_audit`      | Disables audit log for anyone under scale-up plan                             | None                                                                                                           |
+| `segment_operators`  | Determines what rules are shown when creating a segment                       | [See Below](#segment_operators)                                                                                |
+| `oauth_github`       | Disables audit log for anyone under scale-up plan                             | [See Below](#oauth_github)                                                                                     |
+| `oauth_google`       | Disables audit log for anyone under scale-up plan                             | [See Below](#oauth_google)                                                                                     |
+
+### `integration_data`
+
+```json
+{
+ "datadog": {
+  "perEnvironment": false,
+  "image": "https://app.flagsmith.com/static/images/integrations/datadog.svg",
+  "docs": "https://docs.flagsmith.com/integrations/datadog/",
+  "fields": [
+   {
+    "key": "base_url",
+    "label": "Base URL"
+   },
+   {
+    "key": "api_key",
+    "label": "API Key"
+   }
+  ],
+  "tags": ["logging"],
+  "title": "Datadog",
+  "description": "Sends events to Datadog for when flags are created, updated and removed. Logs are tagged with the environment they came from e.g. production."
+ },
+ "dynatrace": {
+  "perEnvironment": true,
+  "image": "/static/images/integrations/dynatrace.svg",
+  "docs": "https://docs.flagsmith.com/integrations/dynatrace/",
+  "fields": [
+   {
+    "key": "base_url",
+    "label": "Base URL"
+   },
+   {
+    "key": "api_key",
+    "label": "API Key"
+   },
+   {
+    "key": "entity_selector",
+    "label": "Entity Selector"
+   }
+  ],
+  "tags": ["logging"],
+  "title": "Dynatrace",
+  "description": "Sends events to Dynatrace for when flags are created, updated and removed. Logs are tagged with the environment they came from e.g. production."
+ },
+ "slack": {
+  "perEnvironment": true,
+  "isOauth": true,
+  "image": "https://app.flagsmith.com/static/images/integrations/slack.svg",
+  "docs": "https://docs.flagsmith.com/integrations/slack/",
+  "tags": ["messaging"],
+  "title": "Slack",
+  "description": "Sends messages to Slack when flags are created, updated and removed. Logs are tagged with the environment they came from e.g. production."
+ },
+ "amplitude": {
+  "perEnvironment": true,
+  "image": "https://app.flagsmith.com/static/images/integrations/amplitude.svg",
+  "docs": "https://docs.flagsmith.com/integrations/amplitude/",
+  "fields": [
+   {
+    "key": "api_key",
+    "label": "API Key"
+   }
+  ],
+  "tags": ["analytics"],
+  "title": "Amplitude",
+  "description": "Sends data on what flags served to each identity."
+ },
+ "new-relic": {
+  "perEnvironment": false,
+  "image": "https://app.flagsmith.com/static/images/integrations/new_relic.svg",
+  "docs": "https://docs.flagsmith.com/integrations/newrelic",
+  "fields": [
+   {
+    "key": "base_url",
+    "label": "New Relic Base URL"
+   },
+   {
+    "key": "api_key",
+    "label": "New Relic API Key"
+   },
+   {
+    "key": "app_id",
+    "label": "New Relic Application ID"
+   }
+  ],
+  "tags": ["analytics"],
+  "title": "New Relic",
+  "description": "Sends events to New Relic for when flags are created, updated and removed."
+ },
+ "segment": {
+  "perEnvironment": true,
+  "image": "https://app.flagsmith.com/static/images/integrations/segment.svg",
+  "docs": "https://docs.flagsmith.com/integrations/segment",
+  "fields": [
+   {
+    "key": "api_key",
+    "label": "API Key"
+   }
+  ],
+  "tags": ["analytics"],
+  "title": "Segment",
+  "description": "Sends data on what flags served to each identity."
+ },
+ "rudderstack": {
+  "perEnvironment": true,
+  "image": "https://app.flagsmith.com/static/images/integrations/rudderstack.svg",
+  "docs": "https://docs.flagsmith.com/integrations/rudderstack",
+  "fields": [
+   {
+    "key": "base_url",
+    "label": "Rudderstack Data Plane URL"
+   },
+   {
+    "key": "api_key",
+    "label": "API Key"
+   }
+  ],
+  "tags": ["analytics"],
+  "title": "Rudderstack",
+  "description": "Sends data on what flags served to each identity."
+ },
+ "webhook": {
+  "perEnvironment": true,
+  "image": "https://app.flagsmith.com/static/images/integrations/webhooks.svg",
+  "docs": "https://docs.flagsmith.com/integrations/webhook",
+  "fields": [
+   {
+    "key": "url",
+    "label": "Your Webhook URL Endpoint"
+   },
+   {
+    "key": "secret",
+    "label": "Your Webhook Secret"
+   }
+  ],
+  "tags": ["analytics"],
+  "title": "Webhook",
+  "description": "Sends data on what flags served to each identity to a Webhook Endpoint you provide."
+ },
+ "heap": {
+  "perEnvironment": true,
+  "image": "https://app.flagsmith.com/static/images/integrations/heap.svg",
+  "docs": "https://docs.flagsmith.com/integrations/heap",
+  "fields": [
+   {
+    "key": "api_key",
+    "label": "API Key"
+   }
+  ],
+  "tags": ["analytics"],
+  "title": "Heap Analytics",
+  "description": "Sends data on what flags served to each identity."
+ },
+ "mixpanel": {
+  "perEnvironment": true,
+  "image": "https://app.flagsmith.com/static/images/integrations/mp.svg",
+  "docs": "https://docs.flagsmith.com/integrations/mixpanel",
+  "fields": [
+   {
+    "key": "api_key",
+    "label": "Project Token"
+   }
+  ],
+  "tags": ["analytics"],
+  "title": "Mixpanel",
+  "description": "Sends data on what flags served to each identity."
+ }
+}
+```
+
+### `segment_operators`
+
 ```json
 [
  {
-  "description": "Whether to show the try it buttons",
-  "name": "try_it",
-  "type": "FLAG"
+  "value": "EQUAL",
+  "label": "Exactly Matches (=)"
  },
  {
-  "description": "Displays top area butter bar for in app messaging",
-  "name": "butter_bar",
-  "value": "<html> to show at the top of the dashboard page"
+  "value": "NOT_EQUAL",
+  "label": "Does not match (!=)"
  },
  {
-  "description": "Turning this on will prevent users from creating any additional organisations",
-  "name": "disable_create_org",
-  "type": "FLAG"
+  "value": "PERCENTAGE_SPLIT",
+  "label": "% Split"
  },
  {
-  "description": "Disables audit log for anyone under scale-up plan",
-  "name": "scaleup_audit",
-  "type": "FLAG"
+  "value": "GREATER_THAN",
+  "label": ">"
  },
  {
-  "description": "Configures integrations",
-  "name": "integration_data",
-  "value": "{\n    \"datadog\": {\n        \"perEnvironment\": false,\n        \"image\": \"https://app.flagsmith.com/static/images/integrations/datadog.svg\",\n        \"docs\": \"https://docs.flagsmith.com/integrations/datadog/\",\n        \"fields\": [{\n            \"key\": \"base_url\",\n            \"label\": \"Base URL\"\n        }, {\n            \"key\": \"api_key\",\n            \"label\": \"API Key\"\n        }],\n        \"tags\": [\"logging\"],\n        \"title\": \"Datadog\",\n        \"description\": \"Sends events to Datadog for when flags are created, updated and removed. Logs are tagged with the environment they came from e.g. production.\"\n    },   \n    \"dynatrace\": {\n        \"perEnvironment\": true,\n        \"image\": \"/static/images/integrations/dynatrace.svg\",\n        \"docs\": \"https://docs.flagsmith.com/integrations/dynatrace/\",\n        \"fields\": [\n            {\n                \"key\": \"base_url\",\n                \"label\": \"Base URL\"\n            },\n            {\n                \"key\": \"api_key\",\n                \"label\": \"API Key\"\n            },\n            {\n                \"key\": \"entity_selector\",\n                \"label\": \"Entity Selector\"\n            }\n        ],\n        \"tags\": [\n            \"logging\"\n        ],\n        \"title\": \"Dynatrace\",\n        \"description\": \"Sends events to Dynatrace for when flags are created, updated and removed. Logs are tagged with the environment they came from e.g. production.\"\n    },\n    \"slack\": {\n        \"perEnvironment\": true,        \n        \"isOauth\": true,\n        \"image\": \"https://app.flagsmith.com/static/images/integrations/slack.svg\",\n        \"docs\": \"https://docs.flagsmith.com/integrations/slack/\",\n        \"tags\": [\"messaging\"],\n        \"title\": \"Slack\",\n        \"description\": \"Sends messages to Slack when flags are created, updated and removed. Logs are tagged with the environment they came from e.g. production.\"\n    },\n    \"amplitude\": {\n        \"perEnvironment\": true,\n        \"image\": \"https://app.flagsmith.com/static/images/integrations/amplitude.svg\",\n        \"docs\": \"https://docs.flagsmith.com/integrations/amplitude/\",\n        \"fields\": [{\n            \"key\": \"api_key\",\n            \"label\": \"API Key\"\n        }],\n        \"tags\": [\"analytics\"],\n        \"title\": \"Amplitude\",\n        \"description\": \"Sends data on what flags served to each identity.\"\n    },\n    \"new-relic\": {\n        \"perEnvironment\": false,\n        \"image\": \"https://app.flagsmith.com/static/images/integrations/new_relic.svg\",\n        \"docs\": \"https://docs.flagsmith.com/integrations/newrelic\",\n        \"fields\": [{\n            \"key\": \"base_url\",\n            \"label\": \"New Relic Base URL\"\n        }, {\n            \"key\": \"api_key\",\n            \"label\": \"New Relic API Key\"\n        }, {\n            \"key\": \"app_id\",\n            \"label\": \"New Relic Application ID\"\n        }],\n        \"tags\": [\"analytics\"],\n        \"title\": \"New Relic\",\n        \"description\": \"Sends events to New Relic for when flags are created, updated and removed.\"\n    },\"segment\": {\n        \"perEnvironment\": true,\n        \"image\": \"https://app.flagsmith.com/static/images/integrations/segment.svg\",\n        \"docs\": \"https://docs.flagsmith.com/integrations/segment\",\n        \"fields\": [{\n            \"key\": \"api_key\",\n            \"label\": \"API Key\"\n        }],\n        \"tags\": [\"analytics\"],\n        \"title\": \"Segment\",\n        \"description\": \"Sends data on what flags served to each identity.\"\n    },\"rudderstack\": {\n        \"perEnvironment\": true,\n        \"image\": \"https://app.flagsmith.com/static/images/integrations/rudderstack.svg\",\n        \"docs\": \"https://docs.flagsmith.com/integrations/rudderstack\",\n        \"fields\": [            {\n                \"key\": \"base_url\",\n                \"label\": \"Rudderstack Data Plane URL\"\n            },\n            {\n                \"key\": \"api_key\",\n                \"label\": \"API Key\"\n            }\n        ],\n        \"tags\": [\n            \"analytics\"\n        ],\n        \"title\": \"Rudderstack\",\n        \"description\": \"Sends data on what flags served to each identity.\"\n    },\"webhook\": {\n        \"perEnvironment\": true,\n        \"image\": \"https://app.flagsmith.com/static/images/integrations/webhooks.svg\",\n        \"docs\": \"https://docs.flagsmith.com/integrations/webhook\",\n        \"fields\": [            {\n                \"key\": \"url\",\n                \"label\": \"Your Webhook URL Endpoint\"\n            },\n            {\n                \"key\": \"secret\",\n                \"label\": \"Your Webhook Secret\"\n            }\n        ],\n        \"tags\": [\n            \"analytics\"\n        ],\n        \"title\": \"Webhook\",\n        \"description\": \"Sends data on what flags served to each identity to a Webhook Endpoint you provide.\"\n    },\n\"heap\": {\n        \"perEnvironment\": true,\n        \"image\": \"https://app.flagsmith.com/static/images/integrations/heap.svg\",\n        \"docs\": \"https://docs.flagsmith.com/integrations/heap\",\n        \"fields\": [{\n            \"key\": \"api_key\",\n            \"label\": \"API Key\"\n        }],\n        \"tags\": [\"analytics\"],\n        \"title\": \"Heap Analytics\",\n        \"description\": \"Sends data on what flags served to each identity.\"\n    },\"mixpanel\": {\n        \"perEnvironment\": true,\n        \"image\": \"https://app.flagsmith.com/static/images/integrations/mp.svg\",\n        \"docs\": \"https://docs.flagsmith.com/integrations/mixpanel\",\n        \"fields\": [{\n            \"key\": \"api_key\",\n            \"label\": \"Project Token\"\n        }],\n        \"tags\": [\"analytics\"],\n        \"title\": \"Mixpanel\",\n        \"description\": \"Sends data on what flags served to each identity.\"\n    }\n}"
+  "value": "GREATER_THAN_INCLUSIVE",
+  "label": ">="
  },
  {
-  "description": "Determines what integrations show",
-  "name": "integrations",
-  "value": "[\"amplitude\",\"datadog\",\"dynatrace\",\"new-relic\",\"segment\",\"rudderstack\",\"webhook\",\"slack\", \"heap\",\"mixpanel\"]"
+  "value": "LESS_THAN",
+  "label": "<"
  },
  {
-  "description": "Controls RBAC and 2FA based on organisation plan",
-  "name": "plan_based_access",
-  "type": "FLAG"
+  "value": "LESS_THAN_INCLUSIVE",
+  "label": "<="
  },
  {
-  "description": "Flag usage chart - requires InfluxDB",
-  "name": "flag_analytics",
-  "type": "FLAG"
+  "value": "GREATER_THAN:semver",
+  "label": "SemVer >",
+  "append": ":semver"
  },
  {
-  "description": "Organisation Analytics usage chart - requires InfluxDB",
-  "name": "usage_chart",
-  "type": "FLAG"
+  "value": "GREATER_THAN_INCLUSIVE:semver",
+  "label": "SemVer >=",
+  "append": ":semver"
  },
  {
-  "description": "Enables Dark Mode in UI",
-  "name": "dark_mode",
-  "type": "FLAG"
+  "value": "LESS_THAN:semver",
+  "label": "SemVer <",
+  "append": ":semver"
  },
  {
-  "name": "segment_operators",
-  "description": "Determines what rules are shown when creating a segment",
-  "value": "[{\"value\":\"EQUAL\",\"label\":\"Exactly Matches (=)\"},{\"value\":\"NOT_EQUAL\",\"label\":\"Does not match (!=)\"},{\"value\":\"PERCENTAGE_SPLIT\",\"label\":\"% Split\"},{\"value\":\"GREATER_THAN\",\"label\":\">\"},{\"value\":\"GREATER_THAN_INCLUSIVE\",\"label\":\">=\"},{\"value\":\"LESS_THAN\",\"label\":\"<\"},{\"value\":\"LESS_THAN_INCLUSIVE\",\"label\":\"<=\"},{\"value\":\"GREATER_THAN\",\"label\":\"SemVer >\",\"append\":\":semver\"},{\"value\":\"GREATER_THAN_INCLUSIVE\",\"label\":\"SemVer >=\",\"append\":\":semver\"},{\"value\":\"LESS_THAN\",\"label\":\"SemVer <\",\"append\":\":semver\"},{\"value\":\"LESS_THAN_INCLUSIVE\",\"label\":\"SemVer <=\",\"append\":\":semver\"},{\"value\":\"CONTAINS\",\"label\":\"Contains\"},{\"value\":\"NOT_CONTAINS\",\"label\":\"Does not contain\"},{\"value\":\"REGEX\",\"label\":\"Matches regex\"}]"
+  "value": "LESS_THAN_INCLUSIVE:semver",
+  "label": "SemVer <=",
+  "append": ":semver"
+ },
+
+ {
+  "value": "CONTAINS",
+  "label": "Contains"
  },
  {
-  "name": "oauth_github",
-  "description": "OAuth with Github - Below is a sample value - you will need to create your own credentials",
-  "value": "{\n  \"url\": \"https://github.com/login/oauth/authorize?scope=user&client_id=b706a0da3e9d3115ea9d&redirect_uri=https%3A%2F%2Fapp.flagsmith.com%2Foauth%2Fgithub\"\n}"
+  "value": "NOT_CONTAINS",
+  "label": "Does not contain"
  },
  {
-  "name": "oauth_google",
-  "description": "OAuth with Google - Below is a sample value - you will need to create your own credentials",
-  "value": "{\n \"clientId\":\"232959427810-br6ltnrgouktp0ngsbs04o14ueb9rch0.apps.googleusercontent.com\",\n \"apiKey\":\"AIzaSyCnHuN-y6BIEAM5vTISXaz3X9GpEPSxWjo\"\n}"
- },
- {
-  "name": "serverside_sdk_keys",
-  "description": "Enable Server-side Environment Keys",
-  "type": "FLAG"
- },
- {
-  "name": "compare_environments",
-  "description": "Compare feature flag changes across environments",
-  "type": "FLAG"
+  "value": "REGEX",
+  "label": "Matches regex"
  }
 ]
 ```
+
+### `oauth_github`
+
+```json
+{
+ "url": "https://github.com/login/oauth/authorize?scope=user&client_id=b706a0da3e9d3115ea9d&redirect_uri=https%3A%2F%2Fapp.flagsmith.com%2Foauth%2Fgithub"
+}
+```
+
+### `oauth_google`
+
+```json
+{
+ "clientId": "232959427810-br6ltnrgouktp0ngsbs04o14ueb9rch0.apps.googleusercontent.com",
+ "apiKey": "AIzaSyCnHuN-y6BIEAM5vTISXaz3X9GpEPSxWjo"
+}
+```
+
+### Dark Mode
 
 We also have a Segment that manages the ui Dark Mode:
 
