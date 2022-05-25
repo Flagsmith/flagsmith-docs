@@ -40,7 +40,27 @@ Please contact us for the relevant source code for these projects.
 ## Docker Image Repository
 
 The Flagsmith API Enterprise Edition is hosted with a private Docker Hub repository. To access the Docker images in this
-repository you will need to provide a Docker Hub account.
+repository you will need to provide a Docker Hub account. Please get in touch if you need access to these repos.
+
+We have 2 different Enterprise Edition Images. You can choose to use either image.
+
+### "SaaS" image
+
+This image tracks our SaaS build and includes additional packages:
+
+- SAML and LDAP authentication
+- Workflows (Change Requests and Flag Scheduling)
+
+This image also bundles the front end into the python application, meaning you don't need to run a separate front end
+and back end.
+
+### Enterprise Edition image
+
+This image includes additions from the SaaS image above:
+
+- Oracle Support
+- MySQL Support
+- Appdynamics Integration
 
 ## Environment Variables
 
