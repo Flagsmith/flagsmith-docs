@@ -454,6 +454,23 @@ Segment Name: `dark_mode` Segment Rules: Trait `dark_mode` EXACTLY MATCHES `True
 
 Then use this rule to override the `dark_mode` Feature Flag.
 
+## Integrations
+
+Some [Integrations](../integrations/) require additional configuration
+
+### Slack Integration
+
+Create a private Slack app. You will then need to provide the following environment variables on the API side:
+
+- `SLACK_CLIENT_ID`
+- `SLACK_CLIENT_SECRET`
+
+You can retrieve these values from Slack. You will also need to add the following scopes:
+
+- channels:read
+- chat:write
+- chat:write.public
+
 ## Manual Installation
 
 If you want a more configurable environment, you can manually install both the Front End and the API.
