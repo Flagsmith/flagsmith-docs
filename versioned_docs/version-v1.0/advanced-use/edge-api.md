@@ -36,36 +36,14 @@ Check the docs for your language SDK on how to override the endpoint URL prefix.
 Whilst in beta, there are some limitations to the platform. These are being worked on and will be in place when we put
 the Edge API into production.
 
-### Identities are isolated between Edge and non-Edge endpoints
+### Identities are only synced from Core to Edge API
 
-If you have an existing Identity currently in Flagsmith, it will _not_ exist in our Edge API database. You have to
-create the Identity within the Edge API. This is done in the same way; Identities are lazily created when they are first
-seen.
-
-### You need to trigger a manual write of your Environment to DynamoDB
-
-We have not yet migrated Environments from our core database into DynamoDB yet. In order to get working with an
-Environment on Edge you will need to trigger a write-through; the easiest way to do this is just to toggle a flag on and
-off in the Environment you want to get into Edge. All subsequent state changes to the Environment will be written
-through.
-
-### Identities are not viewable in the Dashboard
-
-You wont see Edge Identities show up in the dashboard currently. This also means you cant currently specify a per
-Identity override. This is still being worked on.
-
-### Integrations are not currently implemented
-
-[Integrations](/integrations/overview.md) are not currently supported.
+If you cause a write to an Identity in our Core API, we will copy it to our Edge API data store. We will NOT copy data
+in the opposite direction: writes to Edge will not be copied to Core.
 
 ### Increment and Decrement endpoints are deprecated
 
 You probably didn't know these existed though, right?
-
-### You may experience cold starts in different regions
-
-Cold starts currently add around 400ms to service a request. We are building out a solution to this issue but whilst the
-platform is in beta and not serving a large volume of traffic, you will occasionally experience cold starts.
 
 ### The API responses have been slimmed down
 
