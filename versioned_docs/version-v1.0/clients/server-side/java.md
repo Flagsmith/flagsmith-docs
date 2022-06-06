@@ -107,8 +107,8 @@ FeatureUser user = new FeatureUser();
 user.setIdentifier(identifier);
 
 FlagsAndTraits flagsAndTraits = flagsmithClient.identifyUserWithTraits(FeatureUser user, Arrays.asList(
-    trait(null, "trait1", "some value1"),
-    trait(null, "trait2", "some value2")));
+    new Trait(null, "trait1", "some value1"),
+    new Trait(null, "trait2", "some value2")));
 
 // Since version 3.0, this method returns a FlagsAndTraits object, from which you can obtain the
 // returned flags and / or traits.
