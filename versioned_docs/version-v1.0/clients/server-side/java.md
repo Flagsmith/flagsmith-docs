@@ -79,7 +79,7 @@ Identifying users allows you to target specific users from the [Flagsmith dashbo
 To check if feature exists for given a user context:
 
 ```java
-User user = new User();
+FeatureUser user = new FeatureUser();
 user.setIdentifier("flagsmith_sample_user");
 boolean featureEnabled = flagsmithClient.hasFeatureFlag("my_test_feature", user);
 if (featureEnabled) {
