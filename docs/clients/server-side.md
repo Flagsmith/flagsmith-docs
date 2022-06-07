@@ -428,7 +428,7 @@ let traits = vec![Trait {
                 value_type: FlagsmithValueType::String,
             },
         }];
-        
+
 // The method below triggers a network request
 let identity_flags = flagsmith.get_identity_flags(identifier, Some(traits)).unwrap();
 
@@ -982,8 +982,8 @@ let flagsmith = Flagsmith::new(
         FLAGSMITH_ENVIRONMENT_KEY,
         options,
     );
-    
-    
+
+
 ```
 
 </TabItem>
