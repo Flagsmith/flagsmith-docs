@@ -21,16 +21,16 @@ be found here:
 npm i flagsmith --save
 ```
 
-### Via JavaScript CDN
-
-```html
-<script src="https://cdn.jsdelivr.net/npm/flagsmith/index.js"></script>
-```
-
 ### NPM for React Native
 
 ```bash
 npm i react-native-flagsmith --save
+```
+
+### Via JavaScript CDN
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/flagsmith/index.js"></script>
 ```
 
 ## Basic Usage
@@ -75,6 +75,8 @@ flagsmith.init({
 
 Identifying users allows you to target specific users from the Flagsmith dashboard and configure features and traits.
 You can call this before or after you initialise the project, calling it after will re-fetch features from the API.
+
+You can identify the users as part of initialising the client or after with the function `flagsmith.identify`.
 
 User features can be managed by navigating to users on [https://flagsmith.com](https://flagsmith.com) for your desired
 project. ![Image](/img/user-features.png)
@@ -184,24 +186,26 @@ See all available types [here](https://github.com/Flagsmith/flagsmith-js-client/
 | `preventFetch?: boolean`                                         |                                                                                     If you want to disable fetching flags and call getFlags later.                                                                                     |          |                             false |
 | `state?: IState`                                                 |                                                                                   Set a predefined state, useful for SSR / isomorphic applications.                                                                                    |          |                             false |
 | `api?: string`                                                   |                                                                   Use this property to define where you're getting feature flags from, e.g. if you're self hosting.                                                                    |          | https://api.flagsmith.com/api/v1/ |
+| `identity?: string`                                              |                                                                           Specifying an identity will fetch flags for that identity in the initial API call.                                                                           |  **YES** |                              null |
+| `traits?:Record<string, string or number or boolean>`            |                                                                           Specifying traits will send the traits for that identity in the initial API call.                                                                            |  **YES** |                              null |
 
 ### Available Functions
 
-| Property                                                                                                              |                                                                                                                                Description                                                                                                                                |
-| --------------------------------------------------------------------------------------------------------------------- | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| <code>init(initialisationOptions)=> Promise&lt;void&gt;</code>                                                        |                                                                                                            Initialise the sdk against a particular environment                                                                                                            |
-| <code>hasFeature(key:string)=> boolean</code>                                                                         |                                                                                       Get the value of a particular feature e.g. `flagsmith.hasFeature("powerUserFeature") // true`                                                                                       |
-| <code>getValue(key:string)=> string&#124;number&#124;boolean</code>                                                   |                                                                                            Get the value of a particular feature e.g. `flagsmith.getValue("font_size") // 10`                                                                                             |
-| <code>getTrait(key:string)=> string&#124;number&#124;boolean</code>                                                   |                                                               Once used with an identified user you can get the value of any trait that is set for them e.g. `flagsmith.getTrait("accepted_cookie_policy")`                                                               |
-| <code>getState()=>IState</code>                                                                                       |                                                                               Retrieves the current state of flagsmith, useful in NextJS / isomorphic applications. `flagsmith.getState()`                                                                                |
-| <code>setTrait(key:string, value:string&#124;number&#124;boolean)=> Promise&lt;IFlags&gt;</code>                      |                                                              Once used with an identified user you can set the value of any trait relevant to them e.g. `flagsmith.setTrait("accepted_cookie_policy", true)`                                                              |
-| <code>setTraits(values:Record<string, string&#124;number&#124;boolean>)=> Promise&lt;IFlags&gt;</code>                |                                                           Set multiple traits e.g. `flagsmith.setTraits({foo:"bar",numericProp:1,boolProp:true})`. Setting a value of null for a trait will remove that trait.                                                            |
-| <code>incrementTrait(key:string, value:number)=> Promise&lt;IFlags&gt;</code>                                         |                                                                                You can also increment/decrement a particular trait them e.g. `flagsmith.incrementTrait("click_count", 1)`                                                                                 |
-| <code>startListening(ticks=1000:number)=>void</code>                                                                  |                                                                                                               Poll the api for changes every x milliseconds                                                                                                               |
-| <code>stopListening()=>void</code>                                                                                    |                                                                                                                           Stop polling the api                                                                                                                            |
-| <code>getFlags()=> Promise&lt;IFlags&gt;</code>                                                                       |                                                         Trigger a manual fetch of the environment features, if a user is identified it will fetch their features. Resolves a promise when the flags are updated.                                                          |
-| <code>identify(userId:string, traits?:Record<string, string&#124;number&#124;boolean>)=> Promise&lt;IFlags&gt;</code> | Identify as a user, optionally with traits e.g. `{foo:"bar",numericProp:1,boolProp:true}`. This will create a user for your environment in the dashboard if they don't exist, it will also trigger a call to `getFlags()`, resolves a promise when the flags are updated. |
-| <code>logout()=>Promise&lt;IFlags&gt;</code>                                                                          |                                                                                                   Stop identifying as a user, this will trigger a call to `getFlags()`                                                                                                    |
+| Property                                                                                                          |                                                                                                                                Description                                                                                                                                |
+| ----------------------------------------------------------------------------------------------------------------- | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| <code>init(initialisationOptions)=> Promise&lt;void&gt;</code>                                                    |                                                                                                            Initialise the sdk against a particular environment                                                                                                            |
+| <code>hasFeature(key:string)=> boolean</code>                                                                     |                                                                                       Get the value of a particular feature e.g. `flagsmith.hasFeature("powerUserFeature") // true`                                                                                       |
+| <code>getValue(key:string)=> string&#124;number&#124;boolean</code>                                               |                                                                                            Get the value of a particular feature e.g. `flagsmith.getValue("font_size") // 10`                                                                                             |
+| <code>getTrait(key:string)=> string&#124;number&#124;boolean</code>                                               |                                                               Once used with an identified user you can get the value of any trait that is set for them e.g. `flagsmith.getTrait("accepted_cookie_policy")`                                                               |
+| <code>getState()=>IState</code>                                                                                   |                                                                               Retrieves the current state of flagsmith, useful in NextJS / isomorphic applications. `flagsmith.getState()`                                                                                |
+| <code>setTrait(key:string, value:string&#124;number&#124;boolean)=> Promise&lt;IFlags&gt;</code>                  |                                                              Once used with an identified user you can set the value of any trait relevant to them e.g. `flagsmith.setTrait("accepted_cookie_policy", true)`                                                              |
+| <code>setTraits(values:Record<string, string&#124;number&#124;boolean>)=> Promise&lt;IFlags&gt;</code>            |                                                           Set multiple traits e.g. `flagsmith.setTraits({foo:"bar",numericProp:1,boolProp:true})`. Setting a value of null for a trait will remove that trait.                                                            |
+| <code>incrementTrait(key:string, value:number)=> Promise&lt;IFlags&gt;</code>                                     |                                                                                You can also increment/decrement a particular trait them e.g. `flagsmith.incrementTrait("click_count", 1)`                                                                                 |
+| <code>startListening(ticks=1000:number)=>void</code>                                                              |                                                                                                               Poll the api for changes every x milliseconds                                                                                                               |
+| <code>stopListening()=>void</code>                                                                                |                                                                                                                           Stop polling the api                                                                                                                            |
+| <code>getFlags()=> Promise&lt;IFlags&gt;</code>                                                                   |                                                         Trigger a manual fetch of the environment features, if a user is identified it will fetch their features. Resolves a promise when the flags are updated.                                                          |
+| <code>identify(userId:string, traits?:Record<string, string or number or boolean>)=> Promise&lt;IFlags&gt;</code> | Identify as a user, optionally with traits e.g. `{foo:"bar",numericProp:1,boolProp:true}`. This will create a user for your environment in the dashboard if they don't exist, it will also trigger a call to `getFlags()`, resolves a promise when the flags are updated. |
+| <code>logout()=>Promise&lt;IFlags&gt;</code>                                                                      |                                                                                                   Stop identifying as a user, this will trigger a call to `getFlags()`                                                                                                    |
 
 ## Multiple SDK Instances
 
