@@ -60,16 +60,16 @@ React/Javascript and requires NodeJS.
 
 Once you are setup with the front and back end, you can integrate our client libraries within your apps.
 
-| Client Side SDKs                       | Server Side SDKs          |
-| -------------------------------------- | ------------------------- |
-| [Javascript](/clients/javascript)      | [Node.js](/clients/node)  |
-| [Android/Kotlin](/clients/android)     | [Java](/clients/java)     |
-| [Flutter](/clients/flutter)            | [.Net](/clients/dotnet)   |
-| [iOS/Swift](/clients/ios)              | [Python](/clients/python) |
-| [React & React Native](/clients/react) | [Ruby](/clients/ruby)     |
-| [Next.js and SSR](/clients/next-ssr)   | [Rust](/clients/rust)     |
-|                                        | [Go](/clients/go)         |
-|                                        | [Elixir](/clients/elixir) |
+| Client Side SDKs                       | Server Side SDKs                |
+| -------------------------------------- | ------------------------------- |
+| [Javascript](/clients/javascript)      | [Node.js](/clients/server-side) |
+| [Android/Kotlin](/clients/android)     | [Java](/clients/server-side)    |
+| [Flutter](/clients/flutter)            | [.Net](/clients/server-side)    |
+| [iOS/Swift](/clients/ios)              | [Python](/clients/server-side)  |
+| [React & React Native](/clients/react) | [Ruby](/clients/server-side)    |
+| [Next.js and SSR](/clients/next-ssr)   | [Rust](/clients/server-side)    |
+|                                        | [Go](/clients/server-side)      |
+|                                        | [Elixir](/clients/server-side)  |
 
 ## What Next
 
