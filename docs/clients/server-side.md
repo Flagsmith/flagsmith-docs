@@ -662,21 +662,11 @@ flagsmith = Flagsmith(
     # Defaults to None
     custom_headers: typing.Dict[str, typing.Any] = None,
 
-    # You can specify default Flag values on initialisation.
+    # You can specify a function to handle returning defaults in the case that
+    # the request to flagsmith fails or the flag requested is not included in the
+    # response
     # Optional
-    defaults = [
-        # Set a default flag which will be used if the "secret_button"
-        # feature is not returned by the API or if the API is not reachable
-        DefaultFlag(
-            enabled=False,
-            value=json.dumps({"colour": "#b8b8b8"}),
-            feature_name="secret_button",
-        ),
-        DefaultFlag(
-            enabled=True,
-            feature_name="secret_feature",
-        )
-    ],
+    default_flag_handler = lambda feature_name: return DefaultFlag(enabled=False, value=None)
 )
 ```
 
