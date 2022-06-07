@@ -143,7 +143,12 @@ go get github.com/Flagsmith/flagsmith-go-client
 </TabItem>
 <TabItem value="rust" label="Rust">
 
-:todo
+```bash
+# Cargo.toml
+[dependencies]
+flagsmith = "~1"
+
+```
 
 </TabItem>
 <TabItem value="elixir" label="Elixir">
@@ -224,7 +229,19 @@ b := flagsmith.NewClient("<FLAGSMITH_ENVIRONMENT_KEY>", flagsmith.Config{})
 </TabItem>
 <TabItem value="rust" label="Rust">
 
-:todo
+```rust
+
+use std::env;
+use flagsmith::{Flag, Flagsmith, FlagsmithOptions};
+
+let options = FlagsmithOptions {..Default::default()};
+let flagsmith = Flagsmith::new(
+        env::var("FLAGSMITH_ENVIRONMENT_KEY")
+            .expect("FLAGSMITH_ENVIRONMENT_KEY not found in environment"),
+        options,
+    );
+
+```
 
 </TabItem>
 <TabItem value="elixir" label="Elixir">
@@ -300,7 +317,14 @@ secret_button, err := b.FeatureEnabled("secret_button")
 </TabItem>
 <TabItem value="rust" label="Rust">
 
-:todo
+```rust
+// The method below triggers a network request
+let flags = flagsmith.get_environment_flags().unwrap();
+
+let show_button = flags.is_feature_enabled("secret_button").unwrap();
+
+let button_data = flags.get_feature_value_as_string("secret_button").unwrap();
+```
 
 </TabItem>
 <TabItem value="elixir" label="Elixir">
@@ -391,7 +415,27 @@ $buttonData = $flags->getFeatureValue('secret_button');
 </TabItem>
 <TabItem value="rust" label="Rust">
 
-:todo
+```rust
+use flagsmith_flag_engine::identities::Trait;
+use flagsmith_flag_engine::types::{FlagsmithValue, FlagsmithValueType};
+
+let identifier = "delboy@trotterstraders.co.uk";
+
+let traits = vec![Trait {
+            trait_key: "car_type".to_string(),
+            trait_value: FlagsmithValue {
+                value: "robin_reliant".to_string(),
+                value_type: FlagsmithValueType::String,
+            },
+        }];
+
+// The method below triggers a network request
+let identity_flags = flagsmith.get_identity_flags(identifier, Some(traits)).unwrap();
+
+let show_button = identity_flags.is_feature_enabled("secret_button").unwrap();
+let button_data = identity_flags.get_feature_value_as_string("secret_button").unwrap();
+
+```
 
 </TabItem>
 <TabItem value="elixir" label="Elixir">
@@ -512,7 +556,31 @@ $flagsmith = (new Flagsmith('<FLAGSMITH_ENVIRONMENT_KEY>'))
 </TabItem>
 <TabItem value="rust" label="Rust">
 
-:todo
+```rust
+
+use flagsmith::{Flag, Flagsmith, FlagsmithOptions};
+
+fn default_flag_handler(feature_name: &str) -> Flag {
+    let mut flag: Flag = Default::default();
+    if feature_name == "secret_button" {
+        flag.value.value_type = FlagsmithValueType::String;
+        flag.value.value = serde_json::json!({"colour": "#b8b8b8"}).to_string();
+    }
+    return flag;
+}
+
+let options = FlagsmithOptions {
+    default_flag_handler: Some(default_flag_handler),
+    ..Default::default()
+};
+
+let flagsmith = Flagsmith::new(
+        env::var("FLAGSMITH_ENVIRONMENT_KEY")
+            .expect("FLAGSMITH_ENVIRONMENT_KEY not found in environment"),
+        options,
+    );
+
+```
 
 </TabItem>
 <TabItem value="elixir" label="Elixir">
@@ -865,7 +933,58 @@ $flagsmith = new Flagsmith(
 </TabItem>
 <TabItem value="rust" label="Rust">
 
-:todo
+```rust
+use reqwest::header::{self, HeaderMap};
+// Optional Arguments
+let options = FlagsmithOptions {
+    // Override the default Flagsmith API URL if you are self-hosting.
+    // Defaults to https://edge.api.flagsmith.com/api/v1/
+    api_url: "https://edge.flagsmith.com/api/v1/".to_string(),
+
+    // You can pass custom headers to the Flagsmith API with this HashMap
+    // This can be helpful, for example, when sending request IDs to help trace requests.
+    // Defaults to an empty header::HeaderMap.
+    custom_headers: header::HeaderMap::new(),
+
+
+    // The network timeout in seconds.
+    // Defaults to 10 seconds
+    request_timeout_seconds: 10,
+
+    // Controls which mode to run in; local or remote evaluation.
+    // See the `SDKs Overview Page` for more info
+    // Defaults to False.
+    enable_local_evaluation: false,
+
+    // When running in local evaluation mode, defines
+    // how often to request an updated Environment document in milliseconds.
+    // Defaults to 60 seconds
+    environment_refresh_interval_mills: 60* 1000,
+
+    // Controls whether Flag Analytics data is sent to the Flagsmith API
+    // See https://docs.flagsmith.com/advanced-use/flag-analytics
+    // Defaults to False
+    enable_analytics: false,
+
+    //Function that will be used if the API doesn't respond, or an unknown
+    // feature is Requested
+    // Defaults to None
+    default_flag_handler: None
+};
+
+// Required Arguments
+// Your API Token.
+// Note that this is either the `Environment API` key or the `Server Side SDK Token`
+// depending on if you are using Local or Remote Evaluation
+let FLAGSMITH_ENVIRONMENT_KEY = "some_key".to_string();
+
+let flagsmith = Flagsmith::new(
+        FLAGSMITH_ENVIRONMENT_KEY,
+        options,
+    );
+
+
+```
 
 </TabItem>
 <TabItem value="elixir" label="Elixir">
