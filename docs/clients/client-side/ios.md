@@ -124,7 +124,7 @@ Flagsmith.shared.getTraits(forIdentity: "test_user@test.com") {(result) in
 
 ### Swift Concurrency
 
-When running with Swift version 5.5.2 and greater (Xcode 13.2), `async` versions of the Flagsmith api become available.
+When running with Swift version 5.5.2 and greater (Xcode 13.2), `async` versions of the Flagsmith API become available.
 These are provided using the generic
 [`withCheckedThrowingContinuation(function:_:)`](https://developer.apple.com/documentation/swift/3814989-withcheckedthrowingcontinuation)
 Swift api, to wrap the closure based syntax. The `async`/`await` syntax provides a streamlined execution flow leading to
