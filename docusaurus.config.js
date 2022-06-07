@@ -135,10 +135,10 @@ module.exports = {
                     routeBasePath: '/',
                     // Please change this to your repo.
                     editUrl: 'https://github.com/flagsmith/flagsmith-docs/tree/main',
-                    // includeCurrentVersion: false,
+                    lastVersion: 'current',
                     versions: {
                         current: {
-                            label: 'v2.0 🚧',
+                            label: 'v2.0',
                         },
                         'v1.0': {
                             label: 'v1.0',
