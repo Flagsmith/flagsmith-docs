@@ -79,7 +79,7 @@ Identifying users allows you to target specific users from the [Flagsmith dashbo
 To check if feature exists for given a user context:
 
 ```java
-User user = new User();
+FeatureUser user = new FeatureUser();
 user.setIdentifier("flagsmith_sample_user");
 boolean featureEnabled = flagsmithClient.hasFeatureFlag("my_test_feature", user);
 if (featureEnabled) {
@@ -106,9 +106,9 @@ To set user traits:
 FeatureUser user = new FeatureUser();
 user.setIdentifier(identifier);
 
-FlagsAndTraits flagsAndTraits = flagsmithClient.identifyUserWithTraits(FeatureUser user, Arrays.asList(
-    trait(null, "trait1", "some value1"),
-    trait(null, "trait2", "some value2")));
+FlagsAndTraits flagsAndTraits = flagsmithClient.identifyUserWithTraits(user, Arrays.asList(
+    new Trait(null, "trait1", "some value1"),
+    new Trait(null, "trait2", "some value2")));
 
 // Since version 3.0, this method returns a FlagsAndTraits object, from which you can obtain the
 // returned flags and / or traits.
