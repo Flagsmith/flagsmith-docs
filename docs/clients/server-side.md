@@ -126,7 +126,7 @@ npm i flagsmith-nodejs --save
 <TabItem value="ruby" label="Ruby">
 
 ```ruby
-
+gem install flagsmith
 ```
 
 </TabItem>
@@ -219,7 +219,9 @@ const flagsmith = new Flagsmith(
 <TabItem value="ruby" label="Ruby">
 
 ```ruby
-
+$flagsmith = Flagsmith::Client.new(
+  environment_key: '<FLAGSMITH_ENVIRONMENT_KEY>'
+)
 ```
 
 </TabItem>
@@ -318,7 +320,9 @@ var buttonData = flags.getFeatureValue('secret_button');
 <TabItem value="ruby" label="Ruby">
 
 ```ruby
-
+$flags = $flagsmith.get_environment_flags()
+$show_button = $flags.is_feature_enabled('secret_button')
+$button_data = $flags.get_feature_value('secret_button')
 ```
 
 </TabItem>
@@ -422,7 +426,12 @@ var buttonData = flags.getFeatureValue('secret_button');
 <TabItem value="ruby" label="Ruby">
 
 ```ruby
+$identifier = 'delboy@trotterstraders.co.uk'
+$traits = {'car_type': 'robin_reliant'}
 
+$flags = $flagsmith.get_identity_flags($identifier, **$traits)
+$show_button = $flags.is_feature_enabled('secret_button')
+$button_data = $flags.get_feature_value('secret_button')
 ```
 
 </TabItem>
@@ -566,7 +575,14 @@ const flagsmith = new Flagsmith({
 <TabItem value="ruby" label="Ruby">
 
 ```ruby
-
+$flagsmith = Flagsmith::Client.new(
+    environment_key: '<FLAGSMITH_ENVIRONMENT_KEY'>,
+    default_flag_handler: lambda { |feature_name|
+        Flagsmith::DefaultFlag.new(
+            enabled: false, value: {'colour': '#ababab'}.to_json
+        )
+    }
+)
 ```
 
 </TabItem>
@@ -830,7 +846,59 @@ _flagsmithClient = new(
 <TabItem value="ruby" label="Ruby">
 
 ```ruby
+$flagsmith = Flagsmith::Client.new(
+    # Your API Token.
+    # Note that this is either the `Environment API` key or the `Server Side SDK Token`
+    # depending on if you are using Local or Remote Evaluation
+    # Required.
+    environment_key = "FLAGSMITH_ENVIRONMENT_KEY",
 
+    # Controls which mode to run in; local or remote evaluation.
+    # See the `SDKs Overview Page` for more info
+    # Optional.
+    # Defaults to false.
+    enable_local_evaluation = false,
+
+    # Override the default Flagsmith API URL if you are self-hosting.
+    # Optional.
+    # Defaults to https://edge.api.flagsmith.com/api/v1/
+    api_url = "https://api.yourselfhostedflagsmith.com/api/v1/",
+
+    # The network timeout in seconds.
+    # Optional.
+    # Defaults to 10 seconds
+    request_timeout_seconds = 10,
+
+    # When running in local evaluation mode, defines
+    # how often to request an updated Environment document in seconds
+    # Optional
+    # Defaults to 60 seconds
+    environment_refresh_interval_seconds = 60,
+
+    # A faraday retry object to control network retry policy
+    # See https://www.rubydoc.info/gems/faraday/0.15.3/Faraday/Request/Retry
+    # Optional
+    # Defaults to nil
+    retries = nil,
+
+    # Controls whether Flag Analytics data is sent to the Flagsmith API
+    # See https://docs.flagsmith.com/advanced-use/flag-analytics
+    # Optional
+    # Defaults to Fflse
+    enable_analytics = false,
+
+    # You can pass custom headers to the Flagsmith API with this Dictionary.
+    # This can be helpful, for example, when sending request IDs to help trace requests.
+    # Optional
+    # Defaults to nill
+    custom_headers = nil,
+
+    # You can specify a function to handle returning defaults in the case that
+    # the request to flagsmith fails or the flag requested is not included in the
+    # response
+    # Optional
+    default_flag_handler = lambda { |feature_name| Flagsmith::DefaultFlag.new(enabled=false, value=nil) }
+)
 ```
 
 </TabItem>
