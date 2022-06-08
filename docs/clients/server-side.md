@@ -41,6 +41,11 @@ https://github.com/Flagsmith/flagsmith-dotnet-client
 https://github.com/Flagsmith/flagsmith-nodejs-client
 
 </TabItem>
+<TabItem value="ruby" label="Ruby">
+
+https://github.com/Flagsmith/flagsmith-ruby-client
+
+</TabItem>
 <TabItem value="php" label="PHP">
 
 https://github.com/Flagsmith/flagsmith-php-client
@@ -115,6 +120,13 @@ paket add Flagsmith --version 4.0.0
 ```bash
 # Via NPM
 npm i flagsmith-nodejs --save
+```
+
+</TabItem>
+<TabItem value="ruby" label="Ruby">
+
+```ruby
+
 ```
 
 </TabItem>
@@ -201,6 +213,13 @@ const Flagsmith = require('flagsmith-nodejs');
 const flagsmith = new Flagsmith(
     environmentKey: '<FLAGSMITH_ENVIRONMENT_KEY>'
 );
+```
+
+</TabItem>
+<TabItem value="ruby" label="Ruby">
+
+```ruby
+
 ```
 
 </TabItem>
@@ -293,6 +312,13 @@ var buttonData = await flags.GetFeatureValue("secret_button").Result;
 const flags = await flagsmith.getEnvironmentFlags();
 var showButton = flags.isFeatureEnabled('secret_button');
 var buttonData = flags.getFeatureValue('secret_button');
+```
+
+</TabItem>
+<TabItem value="ruby" label="Ruby">
+
+```ruby
+
 ```
 
 </TabItem>
@@ -390,6 +416,13 @@ const traitList = { car_type: 'robin_reliant' };
 const flags = await flagsmith.getIdentityFlags(identifier, traitList);
 var showButton = flags.isFeatureEnabled('secret_button');
 var buttonData = flags.getFeatureValue('secret_button');
+```
+
+</TabItem>
+<TabItem value="ruby" label="Ruby">
+
+```ruby
+
 ```
 
 </TabItem>
@@ -527,6 +560,13 @@ const flagsmith = new Flagsmith({
   return { enabled: false, isDefault: true, value: { colour: '#ababab' } };
  },
 });
+```
+
+</TabItem>
+<TabItem value="ruby" label="Ruby">
+
+```ruby
+
 ```
 
 </TabItem>
@@ -787,6 +827,13 @@ _flagsmithClient = new(
 ```
 
 </TabItem>
+<TabItem value="ruby" label="Ruby">
+
+```ruby
+
+```
+
+</TabItem>
 <TabItem value="nodejs" label="NodeJS">
 
 ```javascript
@@ -1004,6 +1051,11 @@ https://github.com/Flagsmith/flagsmith-dotnet-client
 <TabItem value="nodejs" label="NodeJS">
 
 https://github.com/Flagsmith/flagsmith-nodejs-client
+
+</TabItem>
+<TabItem value="ruby" label="Ruby">
+
+https://github.com/Flagsmith/flagsmith-ruby-client
 
 </TabItem>
 <TabItem value="php" label="PHP">
