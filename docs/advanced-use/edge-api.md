@@ -17,14 +17,14 @@ within 100 milliseconds, anywhere in the world. In order to achieve this, we are
 
 :::tip
 
-The Edge API is currently in Beta. If you want to join the beta programme, please connect with us in
-[Discord](https://discord.gg/hFhxNtXzgm), via the chat widget at the bottom of this page or by emailing
-support@flagsmith.com
+Existing Organisations created before **7th June 2022** have their Projects deployed to the Core API. Please get in
+touch in [Discord](https://discord.gg/hFhxNtXzgm), via the chat widget at the bottom of this page or by emailing
+support@flagsmith.com when you are ready to migrate your Projects over to the Edge API.
 
 :::
 
-Once you have had your Project added to the Beta, all you will need to do is point your SDK to a new Flagsmith Edge API
-URL. This URL will point to our Edge CDN. That's it!
+Once you have had your Projects migrated to Edge, all you will need to do is point your SDK to a new Flagsmith Edge API
+URL at `edge.api.flagsmith.com`. This domain points to our Edge CDN. That's it!
 
 The easiest way to do this is to upgrade to the latest version of the Flagsmith SDK for your language.
 
