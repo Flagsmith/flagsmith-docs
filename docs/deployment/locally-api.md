@@ -214,6 +214,8 @@ the below variables will be ignored.
 - [`OPENCENSUS_SAMPLING_RATE`](https://opencensus.io/tracing/sampling/probabilistic/): Float. The tracer sample rate.
 - `RESTRICT_ORG_CREATE_TO_SUPERUSERS`: Restricts all users from creating organisations unless they are
   [marked as a superuser](/deployment/django-admin#Authentication).
+- `FLAGSMITH_CORS_EXTRA_ALLOW_HEADERS`: Comma separated list of extra headers to allow when operating across domains.
+  e.g. `'my-custom-header-1,my-custom-header-2'`. Defaults to `'sentry-trace,'`.
 
 #### Security Environment Variables
 
