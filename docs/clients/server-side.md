@@ -297,14 +297,14 @@ Object value = flags.getFeatureValue(featureName);
 # Sync
 # The method below triggers a network request
 var flags = _flagsmithClient.GetEnvironmentFlags();  # This method triggers a network request
-var showButton = flags.IsFeatureEnabled("secret_button");
-var buttonData = flags.GetFeatureValue("secret_button").Result;
+var showButton = await flags.IsFeatureEnabled("secret_button");
+var buttonData = await flags.GetFeatureValue("secret_button");
 
 # Async
 # The method below triggers a network request
 var flags = await _flagsmithClient.GetEnvironmentFlags();  # This method triggers a network request
 var showButton = await flags.IsFeatureEnabled("secret_button");
-var buttonData = await flags.GetFeatureValue("secret_button").Result;
+var buttonData = await flags.GetFeatureValue("secret_button");
 ```
 
 </TabItem>
