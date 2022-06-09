@@ -578,7 +578,7 @@ const flagsmith = new Flagsmith({
 $flagsmith = Flagsmith::Client.new(
     environment_key: '<FLAGSMITH_ENVIRONMENT_KEY'>,
     default_flag_handler: lambda { |feature_name|
-        Flagsmith::DefaultFlag.new(
+        Flagsmith::Flags::DefaultFlag.new(
             enabled: false, value: {'colour': '#ababab'}.to_json
         )
     }
