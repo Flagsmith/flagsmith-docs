@@ -101,3 +101,10 @@ running in `Local Evaluation` mode.
 
 The benefit of running in Local Evaluation mode is that you can process flag evaluations much more efficiently as they
 are all computed locally.
+
+:::tip
+
+In circumstances where you need to target a specific identity, you can do this by creating a segment to target that
+specific user and subsequently adding a segment override for that segment.
+
+:::
