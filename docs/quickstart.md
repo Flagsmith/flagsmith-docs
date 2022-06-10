@@ -36,9 +36,10 @@ first Flag. This flag is simply going to control whether a button shows on our s
 
 <div style={{textAlign: 'center'}}><img width="75%" src="/img/quickstart/demo_create_3.png"/></div>
 
-Flags can either a `Boolean` value, a `String` value, or a combination of both. For now, we're just going to use the
-`Boolean` value of the flag to control whether the button shows. Let's go ahead and create a flag called
-`show_demo_button`. We're going to leave it as Disabled by default:
+Flags within Flagsmith are a combination of both: A Boolean value - the `Flag State` and then optionally: A
+String/Integer/Float value - the `Flag Value`. For now, we're just going to use the `Boolean` value of the flag to
+control whether the button shows. Let's go ahead and create a flag called `show_demo_button`. We're going to leave it as
+Disabled by default:
 
 <div style={{textAlign: 'center'}}><img width="75%" src="/img/quickstart/demo_create_4.png"/></div>
 
@@ -153,7 +154,7 @@ If we go back and refresh our browser, you will see that the button has now disa
 
 <div style={{textAlign: 'center'}}><img width="75%" src="/img/quickstart/demo_create_9.png"/></div>
 
-We've not put the control of the button visibility behind our Flagsmith Flag! You can now go back to the Flagsmith
+We've now put the control of the button visibility behind our Flagsmith Flag! You can now go back to the Flagsmith
 dashboard and enable the flag:
 
 <div style={{textAlign: 'center'}}><img width="75%" src="/img/quickstart/demo_create_10.png"/></div>
