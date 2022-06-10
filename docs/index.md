@@ -1,25 +1,54 @@
 ---
 id: intro
 slug: /
-title: Manage feature flags across web, mobile and server side applications
+title: Welcome to the Flagsmith Docs
 sidebar_position: 1
 sidebar_label: Overview
 ---
 
-# ![Flagsmith Documentation](/img/banner-logo-dark.png)
+[Flagsmith](https://flagsmith.com/) lets you manage features across web, mobile and server side applications.
 
-[Flagsmith](https://flagsmith.com/) lets you manage features across web, mobile and server side applications. Flagsmith
-is Open Source. Host yourself or let us take care of the hosting.
+[Flagsmith is Open Source](https://github.com/Flagsmith). Host yourself or let us take care of the hosting.
 
-The application consist of 3 components:
+## Getting Started
 
-1. [Server-Side REST API](https://github.com/Flagsmith/flagsmith/tree/main/api).
-2. [Front End Administration Web Interface](https://github.com/Flagsmith/flagsmith/tree/main/frontend).
-3. [Client Libraries](/#client-libraries).
+If you're new to Flagsmith or Feature Flags in general we would recommend:
 
-To get up and running, you can either use [https://flagsmith.com/](https://flagsmith.com/) for 1 and 2 above, or you can
-self host the API and Front End. Once you have these components up and running, you can add the client libraries to your
-apps and start managing your features remotely.
+- [Signing up for a free account on our SaaS platform](https://app.flagsmith.com/signup)
+- [Go through our 5 minute Quickstart Guide](quickstart.md)
+- [Set up an SDK for your Project](clients/overview.md)
+- [Dive into the Docs](basic-features/overview.md)
+
+## Digging Deeper
+
+- [Learn about our globally distributed Edge API](advanced-use/edge-api.md)
+- [Use Flagsmith to run A/B and Multivariate Tests](advanced-use/ab-testing.md)
+- [Integrate with 3rd party applications](integrations/overview.md)
+- [Use Change Requests and Scheduled Flags to manage your workflows](advanced-use/change-requests.md)
+
+## Check out our SDKs
+
+### Client Side SDKs
+
+- [Javascript](/clients/javascript)
+- [Android/Kotlin](/clients/android)
+- [Flutter](/clients/flutter)
+- [iOS/Swift](/clients/ios)
+- [React & React Native](/clients/react)
+- [Next.js and SSR](/clients/next-ssr)
+
+### Server Side SDKs
+
+Check out our [Server Side SDK architecture first!](clients/overview.md)
+
+- [Node.js](/clients/server-side)
+- [Java](/clients/server-side)
+- [.Net](/clients/server-side)
+- [Python](/clients/server-side)
+- [Ruby](/clients/server-side)
+- [Rust](/clients/server-side)
+- [Go](/clients/server-side)
+- [Elixir](/clients/server-side)
 
 ## Open Source vs SaaS vs Enterprise
 
@@ -32,46 +61,3 @@ Open Source, SaaS hosted and Enterprise plans:
 - The SaaS and Enterprise versions have [Change Requests and Flag Scheduling](advanced-use/change-requests.md)
 - The SaaS and Enterprise versions have [Role-Based Access Controls](advanced-use/permissions.md)
 - The SaaS and Enterprise versions have additional [Authentication Providers](/enterprise-edition)
-
-## Installation
-
-:::tip
-
-We also have a paid-for [Enterprise Edition](enterprise-edition.md) of the platform with a number of additional
-features. Please get in touch if you want to learn more.
-
-:::
-
-More information can be found on the [Self Hosted Page](/deployment/overview).
-
-### Server Side API
-
-The source code and installation instructions can be found at
-[the GitHub project](https://github.com/flagsmith/flagsmith). The API is written in Python and is based on Django and
-the Django Rest Framework.
-
-### Front End Website
-
-The source code and installation instructions can be found at
-[the GitHub project](https://github.com/flagsmith/flagsmith-frontend). The Front End Website is written in
-React/Javascript and requires NodeJS.
-
-## Client Libraries
-
-Once you are setup with the front and back end, you can integrate our client libraries within your apps.
-
-| Client Side SDKs                       | Server Side SDKs                |
-| -------------------------------------- | ------------------------------- |
-| [Javascript](/clients/javascript)      | [Node.js](/clients/server-side) |
-| [Android/Kotlin](/clients/android)     | [Java](/clients/server-side)    |
-| [Flutter](/clients/flutter)            | [.Net](/clients/server-side)    |
-| [iOS/Swift](/clients/ios)              | [Python](/clients/server-side)  |
-| [React & React Native](/clients/react) | [Ruby](/clients/server-side)    |
-| [Next.js and SSR](/clients/next-ssr)   | [Rust](/clients/server-side)    |
-|                                        | [Go](/clients/server-side)      |
-|                                        | [Elixir](/clients/server-side)  |
-
-## What Next
-
-Check out our [Quick Start Guide](quickstart.md) to get a high level overview of how to implement feature flags in your
-application.
