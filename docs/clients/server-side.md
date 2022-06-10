@@ -219,6 +219,8 @@ const flagsmith = new Flagsmith(
 <TabItem value="ruby" label="Ruby">
 
 ```ruby
+require "flagsmith"
+
 $flagsmith = Flagsmith::Client.new(
   environment_key: '<FLAGSMITH_ENVIRONMENT_KEY>'
 )
@@ -330,8 +332,8 @@ $button_data = $flags.get_feature_value('secret_button')
 
 ```php
 $flags = $flagsmith->getFlags();
-$flags->isFeatureEnabled('secret_button')
-$flags->getFeatureValue('secret_button')
+$flags->isFeatureEnabled('secret_button');
+$flags->getFeatureValue('secret_button');
 ```
 
 </TabItem>
