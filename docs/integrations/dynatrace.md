@@ -8,6 +8,13 @@ hide_title: true
 
 You can integrate Flagsmith with Dynatrace. Send flag change events from Flagsmith into your Dynatrace event stream.
 
+:::tip
+
+The Flagsmith Javascript SDK can also talk to the Dynatrace Javascript SDK.
+[More info available in our JS docs page](../clients/client-side/javascript.md#dynatrace-javascript-sdk-integration).
+
+:::
+
 ## Integration Setup
 
 1. Log into Dynatrace create a new Access Token with the following permissions:
