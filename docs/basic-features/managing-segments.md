@@ -59,6 +59,11 @@ the Segment rules:
 
 Now all users who log in with a `@solidstategroup.com` email address are automatically included in beta features.
 
+## Multi-Variate Values
+
+If you are using [Multi-Variate Flag Values](managing-features.md#multi-variate-flags), you can also override the
+individual value weightings as part of a Segment override.
+
 ## Rules Operators
 
 The full set of Flagsmith rule operators are as follows:
