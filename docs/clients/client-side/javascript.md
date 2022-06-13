@@ -262,8 +262,11 @@ enabled state, flag values and user traits via
 
 ### Step 2: Add the session properties to your Dynatrace application settings
 
-As with any other Dynatrace session properties, you need to also define session properties within the RUM application
-settings.
+[As with any other Dynatrace session properties](https://www.dynatrace.com/support/help/how-to-use-dynatrace/real-user-monitoring/setup-and-configuration/web-applications/additional-configuration/define-user-action-and-session-properties),
+you need to also define session properties within the RUM application settings.
+
+You can also add these properties via the
+[Dynatrace API](https://www.dynatrace.com/support/help/dynatrace-api/configuration-api/rum/mobile-custom-app-configuration/user-action-and-session-properties/post-property).
 
 ### Dynatrace Screenshots
 
