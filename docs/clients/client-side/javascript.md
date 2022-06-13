@@ -235,7 +235,7 @@ The Flagsmith JavaScript SDK can be configured so that feature enabled state, re
 stored as Dynatrace session properties. The integration requires a configured Dynatrace `dtrum` object that is already
 set up.
 
-### Step 1: Pass `dtrum` into `flagsmith.init()`
+### Step 1: Pass `enableDynatrace` into `flagsmith.init()`
 
 In order to configure the JavaScript SDK, you need to pass in an instance of
 [dtrum](https://www.dynatrace.com/support/help/how-to-use-dynatrace/real-user-monitoring/basic-concepts/js-tag-api).
@@ -243,11 +243,11 @@ In order to configure the JavaScript SDK, you need to pass in an instance of
 ```javascript
 flagsmith.init({
  //...Initialisation properties,
- dtrum: typeof dtrum === 'undefined' ? null : dtrum,
+ enableDynatrace:true,
 });
 ```
 
-When providing `dtrum` instance to `flagsmith.init`, Flagsmith will send session properties corresponding to flag
+When setting ``enableDynatrace`` to true `flagsmith.init`, Flagsmith will send session properties corresponding to flag
 enabled state, flag values and user traits via
 [dtrum.sendSessionProperties()](https://www.dynatrace.com/support/doc/javascriptapi/interfaces/dtrum_types.DtrumApi.html#sendSessionProperties)
 
