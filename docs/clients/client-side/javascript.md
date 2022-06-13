@@ -229,6 +229,56 @@ const flagsmithB = createFlagsmithInstance();
 // now you can use flagsmith as before but in its own instance
 ```
 
+## Dynatrace JavaScript SDK Integration
+
+The Flagsmith JavaScript SDK can be configured so that feature enabled state, remote config and user traits can be
+stored as Dynatrace session properties. The integration requires a configured Dynatrace `dtrum` object that is already
+set up.
+
+### Step 1: Pass `dtrum` into `flagsmith.init()`
+
+In order to configure the JavaScript SDK, you need to pass in an instance of
+[dtrum](https://www.dynatrace.com/support/help/how-to-use-dynatrace/real-user-monitoring/basic-concepts/js-tag-api).
+
+```javascript
+flagsmith.init({
+ //...Initialisation properties,
+ dtrum: typeof dtrum === 'undefined' ? null : dtrum,
+});
+```
+
+When providing `dtrum` instance to `flagsmith.init`, Flagsmith will send session properties corresponding to flag
+enabled state, flag values and user traits via
+[dtrum.sendSessionProperties()](https://www.dynatrace.com/support/doc/javascriptapi/interfaces/dtrum_types.DtrumApi.html#sendSessionProperties)
+
+- flag enabled state sends as a **shortString** as `true` or `false` with the prefix `flagsmith_enabled_`
+  - example: `flagsmith_enabled_hero: "true"`
+- Remote config values sends as value with the prefix flagsmith _value_, this value will be a **javaDouble** for numeric
+  values and a **shortString** for any other.
+  - example: `flagsmith_value_font_size: 21`, `flagsmith_value_hero_colour: "blue"`
+- Remote config values sends as value with the prefix flagsmith _value_, this value will be a **javaDouble** for numeric
+  values and a **shortString** for any other.
+  - example: `flagsmith_trait_age: 21`, `flagsmith_trait_favourite_colour: "blue"`
+
+### Step 2: Add the session properties to your Dynatrace application settings
+
+As with any other Dynatrace session properties, you need to also define session properties within the RUM application
+settings.
+
+### Dynatrace Screenshots
+
+Defining Dynatrace Properties:
+
+![Image](/img/dynatrace_1.png)
+
+Defining a Flagsmith and Dynatrace Property:
+
+![Image](/img/dynatrace_2.png)
+
+Filtering on a Flagsmith Flag:
+
+![Image](/img/dynatrace_3.png)
+
 ## FAQs
 
 **How do I call `identify`, `setTraits` etc alongside `init`?**
