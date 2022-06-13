@@ -199,7 +199,7 @@ The list of the flags and remote config we're currently using in production is b
 {
  "datadog": {
   "perEnvironment": false,
-  "image": "https://app.flagsmith.com/static/images/integrations/datadog.svg",
+  "image": "/static/images/integrations/datadog.svg",
   "docs": "https://docs.flagsmith.com/integrations/datadog/",
   "fields": [
    {
@@ -240,7 +240,7 @@ The list of the flags and remote config we're currently using in production is b
  "slack": {
   "perEnvironment": true,
   "isOauth": true,
-  "image": "https://app.flagsmith.com/static/images/integrations/slack.svg",
+  "image": "/static/images/integrations/slack.svg",
   "docs": "https://docs.flagsmith.com/integrations/slack/",
   "tags": ["messaging"],
   "title": "Slack",
@@ -248,7 +248,7 @@ The list of the flags and remote config we're currently using in production is b
  },
  "amplitude": {
   "perEnvironment": true,
-  "image": "https://app.flagsmith.com/static/images/integrations/amplitude.svg",
+  "image": "/static/images/integrations/amplitude.svg",
   "docs": "https://docs.flagsmith.com/integrations/amplitude/",
   "fields": [
    {
@@ -262,7 +262,7 @@ The list of the flags and remote config we're currently using in production is b
  },
  "new-relic": {
   "perEnvironment": false,
-  "image": "https://app.flagsmith.com/static/images/integrations/new_relic.svg",
+  "image": "/static/images/integrations/new_relic.svg",
   "docs": "https://docs.flagsmith.com/integrations/newrelic",
   "fields": [
    {
@@ -284,7 +284,7 @@ The list of the flags and remote config we're currently using in production is b
  },
  "segment": {
   "perEnvironment": true,
-  "image": "https://app.flagsmith.com/static/images/integrations/segment.svg",
+  "image": "/static/images/integrations/segment.svg",
   "docs": "https://docs.flagsmith.com/integrations/segment",
   "fields": [
    {
@@ -298,7 +298,7 @@ The list of the flags and remote config we're currently using in production is b
  },
  "rudderstack": {
   "perEnvironment": true,
-  "image": "https://app.flagsmith.com/static/images/integrations/rudderstack.svg",
+  "image": "/static/images/integrations/rudderstack.svg",
   "docs": "https://docs.flagsmith.com/integrations/rudderstack",
   "fields": [
    {
@@ -316,7 +316,7 @@ The list of the flags and remote config we're currently using in production is b
  },
  "webhook": {
   "perEnvironment": true,
-  "image": "https://app.flagsmith.com/static/images/integrations/webhooks.svg",
+  "image": "/static/images/integrations/webhooks.svg",
   "docs": "https://docs.flagsmith.com/integrations/webhook",
   "fields": [
    {
@@ -334,7 +334,7 @@ The list of the flags and remote config we're currently using in production is b
  },
  "heap": {
   "perEnvironment": true,
-  "image": "https://app.flagsmith.com/static/images/integrations/heap.svg",
+  "image": "/static/images/integrations/heap.svg",
   "docs": "https://docs.flagsmith.com/integrations/heap",
   "fields": [
    {
@@ -348,7 +348,7 @@ The list of the flags and remote config we're currently using in production is b
  },
  "mixpanel": {
   "perEnvironment": true,
-  "image": "https://app.flagsmith.com/static/images/integrations/mp.svg",
+  "image": "/static/images/integrations/mp.svg",
   "docs": "https://docs.flagsmith.com/integrations/mixpanel",
   "fields": [
    {
