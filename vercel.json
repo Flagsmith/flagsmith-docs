@@ -119,6 +119,42 @@
         {
             "source": "/advanced-use/audit-logs",
             "destination": "/advanced-use/system-administration"
+        },
+        {
+            "source": "/clients/python",
+            "destination": "/clients/server-side"
+        },
+        {
+            "source": "/clients/java",
+            "destination": "/clients/server-side"
+        },
+        {
+            "source": "/clients/dotnet",
+            "destination": "/clients/server-side"
+        },
+        {
+            "source": "/clients/node",
+            "destination": "/clients/server-side"
+        },
+        {
+            "source": "/clients/ruby",
+            "destination": "/clients/server-side"
+        },
+        {
+            "source": "/clients/php",
+            "destination": "/clients/server-side"
+        },
+        {
+            "source": "/clients/go",
+            "destination": "/clients/server-side"
+        },
+        {
+            "source": "/clients/rust",
+            "destination": "/clients/server-side"
+        },
+        {
+            "source": "/clients/elixir",
+            "destination": "/clients/server-side"
         }
     ]
 }
