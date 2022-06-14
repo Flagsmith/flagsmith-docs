@@ -243,11 +243,11 @@ In order to configure the JavaScript SDK, you need to pass in an instance of
 ```javascript
 flagsmith.init({
  //...Initialisation properties,
- enableDynatrace:true,
+ enableDynatrace: true,
 });
 ```
 
-When setting ``enableDynatrace`` to true `flagsmith.init`, Flagsmith will send session properties corresponding to flag
+When setting `enableDynatrace` to true `flagsmith.init`, Flagsmith will send session properties corresponding to flag
 enabled state, flag values and user traits via
 [dtrum.sendSessionProperties()](https://www.dynatrace.com/support/doc/javascriptapi/interfaces/dtrum_types.DtrumApi.html#sendSessionProperties)
 
