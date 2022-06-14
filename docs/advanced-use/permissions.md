@@ -1,5 +1,5 @@
 ---
-title: Permissions / Role Based Access Control
+title: Role Based Access Control
 description: Team member and group permissions.
 ---
 
