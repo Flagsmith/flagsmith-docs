@@ -925,10 +925,9 @@ const flagsmith = new Flagsmith({
     enableLocalEvaluation: true,
 
     /*
-    Controls which mode to run in; local or remote evaluation.
-    See the `SDKs Overview Page` for more info
+    Override the default Flagsmith API URL if you are self-hosting.
     Optional.
-    Defaults to false.
+    Defaults to https://edge.api.flagsmith.com/api/v1/
     */
     apiUrl: 'https://api.yourselfhostedflagsmith.com/api/v1/',
 
@@ -985,10 +984,9 @@ $flagsmith = new Flagsmith(
     string $apiKey,
 
     /*
-    Controls which mode to run in; local or remote evaluation.
-    See the `SDKs Overview Page` for more info
+    Override the default Flagsmith API URL if you are self-hosting.
     Optional.
-    Defaults to false.
+    Defaults to https://edge.api.flagsmith.com/api/v1/
     */
     string $host = self::DEFAULT_API_URL,
 
@@ -1049,7 +1047,6 @@ let options = FlagsmithOptions {
     // This can be helpful, for example, when sending request IDs to help trace requests.
     // Defaults to an empty header::HeaderMap.
     custom_headers: header::HeaderMap::new(),
-
 
     // The network timeout in seconds.
     // Defaults to 10 seconds
