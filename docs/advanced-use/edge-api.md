@@ -59,10 +59,11 @@ version of the SDK; by default they will point to `edge.api.flagsmith.com`.
 
 ### Step 2 - Migrate your data
 
-You can now trigger a one-way sync of data for each of your Flagsmith Projects within the Flagsmith Dashboard. Visit the
-Project Settings page in Flagsmith and hit the "Migrate Identity Data to Edge API" button. This will start a job that
-can take between 1 and 15 minutes, depending on how much data you have. Once the job is complete, all the Identities
-that were present in your Core API will be present in the Edge API.
+You can now trigger a one-way sync of data for each of your Flagsmith Projects within the Flagsmith Dashboard. Please
+get in touch in [Discord](https://discord.gg/hFhxNtXzgm), via the chat widget at the bottom of this page or by emailing
+support@flagsmith.com when you are ready to migrate your Projects over to the Edge API. This will start a job that can
+take between 1 and 15 minutes, depending on how much data you have. Once the job is complete, all the Identities that
+were present in your Core API will be present in the Edge API.
 
 ### Step 3 - Deploy your applications
 
