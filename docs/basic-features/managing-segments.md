@@ -38,9 +38,10 @@ You create a new Segment, call it `Beta Users`, and define a single rule:
 
 ![Image](/img/edit-segment.png)
 
-Once the Segment has been defined, you can then associate that Segment with a specific Feature Flag. To do this, edit
-the Feature Flag that you want to connect our Segment to. You then have the option of connecting a Segment to the
-Feature. If the Identified user is a member of that Segment, the flag will be overridden.
+Once the Segment has been defined, you can then associate that Segment with a specific Feature Flag. To do this, open
+the Feature Flag that you want to connect the Segment to and navigate to the **Segment Overrides** tab. You then have
+the option of connecting a Segment to the Feature. This then allows you to override the flag value for Users that are
+within that Segment. If the Identified user is a member of that Segment, the flag will be overridden.
 
 ![Image](/img/edit-feature-with-segment.png)
 
