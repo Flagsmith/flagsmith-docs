@@ -1114,37 +1114,44 @@ client := flagsmith.NewClient(os.Getenv("FLAGSMITH_API_KEY"),
         // Override the default Flagsmith API URL if you are self-hosting.
         // Defaults to https://edge.api.flagsmith.com/api/v1/
         flagsmith.WithBaseURL("http://localhost:8080/api/v1/"),
+
         // Controls which mode to run in; local or remote evaluation.
         // See the `SDKs Overview Page` for more info
         // Defaults to False
         flagsmith.WithLocalEvaluation(),
+
         // The network timeout in seconds.
         flagsmith.WithRequestTimeout(10*time.Second),
+
         // When running in local evaluation mode, defines
         // how often to request an updated Environment document
         // Defaults to 60 seconds
         flagsmith.WithEnvironmentRefreshInterval(60*time.Second),
+
         // Controls whether Flag Analytics data is sent to the Flagsmith API
         // See https://docs.flagsmith.com/advanced-use/flag-analytics
         flagsmith.WithAnalytics(),
+
         // Sets `resty.Client` options.  `SetRetryCount` and `SetRetryWaitTime`
         // Ref: https://pkg.go.dev/github.com/go-resty/resty/v2#Client.SetRetryCount
         // https://pkg.go.dev/github.com/go-resty/resty/v2#Client.SetRetryWaitTime
         flagsmith.WithRetries(3, 5*time.Second),
+
         // You can pass custom headers to the Flagsmith API with this Dictionary.
         // This can be helpful, for example, when sending request IDs to help trace requests.
         flagsmith.WithCustomHeaders(map[string]string{
           "Content-Type": "application/json",
           "Accept":       "application/json",
         }),
+
         // You can specify a function to handle returning defaults in the case that
         // the request to flagsmith fails or the flag requested is not included in the
         // response
         flagsmith.WithDefaultHandler(defaultFlagHandler),
+
         // You can specify the context to use.
         flagsmith.WithContext(ctx),
 )
-
 ```
 
 </TabItem>
