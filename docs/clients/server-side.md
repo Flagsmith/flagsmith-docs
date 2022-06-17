@@ -199,7 +199,7 @@ private static FlagsmithClient flagsmith = FlagsmithClient
 ```csharp
 using Flagsmith;
 
-static FlagsmithClient _flagsmithClient;
+FlagsmithClient _flagsmithClient;
 
 _flagsmithClient = new("<FLAGSMITH_ENVIRONMENT_KEY>");
 ```
@@ -303,9 +303,9 @@ Object value = flags.getFeatureValue(featureName);
 ```csharp
 # Sync
 # The method below triggers a network request
-var flags = _flagsmithClient.GetEnvironmentFlags();  # This method triggers a network request
-var showButton = await flags.IsFeatureEnabled("secret_button");
-var buttonData = await flags.GetFeatureValue("secret_button");
+var flags = _flagsmithClient.GetEnvironmentFlags().Result;  # This method triggers a network request
+var showButton = flags.IsFeatureEnabled("secret_button").Result;
+var buttonData = flags.GetFeatureValue("secret_button").Result;
 
 # Async
 # The method below triggers a network request
@@ -405,19 +405,19 @@ Object value = flags.getFeatureValue(featureName);
 <TabItem value="dotnet" label=".NET">
 
 ```csharp
-var Identifier = "delboy@trotterstraders.co.uk";
+var identifier = "delboy@trotterstraders.co.uk";
 var traitKey = "car_type";
 var traitValue = "robin_reliant";
 var traitList = new List<Trait> { new Trait(traitKey, traitValue) };
 
 # Sync
 # The method below triggers a network request
-var flags = _flagsmithClient.GetIdentityFlags(Identifier, traitList);
-var showButton = flags.IsFeatureEnabled("secret_button");
+var flags = _flagsmithClient.GetIdentityFlags(identifier, traitList).Result;
+var showButton = flags.IsFeatureEnabled("secret_button").Result;
 
 # Async
 # The method below triggers a network request
-var flags = await _flagsmithClient.GetIdentityFlags(Identifier, traitList);
+var flags = await _flagsmithClient.GetIdentityFlags(identifier, traitList);
 var showButton = await flags.IsFeatureEnabled("secret_button");
 ```
 
@@ -566,9 +566,9 @@ private static DefaultFlag defaultFlagHandler(String featureName) {
 ```csharp
 using Flagsmith;
 
-static FlagsmithClient _flagsmithClient;
-
+FlagsmithClient _flagsmithClient;
 _flagsmithClient = new("<FLAGSMITH_ENVIRONMENT_KEY>", defaultFlagHandler: defaultFlagHandler);
+
 static Flag defaultFlagHandler(string featureName)
 {
     // Function that will be used if the API doesn't respond, or an unknown
@@ -820,7 +820,7 @@ private static FlagsmithClient flagsmith = FlagsmithClient
 <TabItem value="dotnet" label=".NET">
 
 ```csharp
-_flagsmithClient = new(
+_flagsmithClient = new FlagsmithClient(
     # Your API Token.
     # Note that this is either the `Environment API` key or the `Server Side SDK Token`
     # depending on if you are using Local or Remote Evaluation
@@ -840,7 +840,7 @@ _flagsmithClient = new(
     # See the `SDKs Overview Page` for more info
     # Optional.
     # Defaults to False.
-    enableClientSideEvaluation = false;
+    enableClientSideEvaluation: false;
 
     # Controls whether Flag Analytics data is sent to the Flagsmith API
     # See https://docs.flagsmith.com/advanced-use/flag-analytics
@@ -868,7 +868,7 @@ _flagsmithClient = new(
     # The network timeout in seconds.
     # Optional.
     # Defaults to null (http client default)
-    requestTimeout = null,
+    requestTimeout: null,
 )
 ```
 
