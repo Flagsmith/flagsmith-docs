@@ -165,7 +165,13 @@ flagsmith = "~1"
 </TabItem>
 <TabItem value="elixir" label="Elixir">
 
-:todo
+```elixir
+def deps do
+  [
+    {:flagsmith_engine, "~> 0.1"}
+  ]
+end
+```
 
 </TabItem>
 </Tabs>
@@ -271,7 +277,25 @@ let flagsmith = Flagsmith::new(
 </TabItem>
 <TabItem value="elixir" label="Elixir">
 
-:todo
+```elixir
+client_configuration = Flagsmith.Client.new(environment_key: "MY_SDK_KEY")
+```
+
+Or use global configuration in which case you don't need to create a client or pass configuration options to requests.
+All configuration is optional with exception of the `:environment_key`. For instance in `config/config.exs`:
+
+```elixir
+config :flagsmith_engine, :configuration,
+       environment_key: "<YOUR SDK KEY>",
+       api_url: "https://edge.api.flagsmith.com/api/v1>",
+       default_flag_handler: function_defaults_to_not_found,
+       custom_headers: [{"to add to", "the requests"}],
+       request_timeout_milliseconds: 5000,
+       enable_local_evaluation: false,
+       environment_refresh_interval_milliseconds: 60_000,
+       retries: 0,
+       enable_analytics: false
+```
 
 </TabItem>
 </Tabs>
@@ -367,7 +391,13 @@ let button_data = flags.get_feature_value_as_string("secret_button").unwrap();
 </TabItem>
 <TabItem value="elixir" label="Elixir">
 
-:todo
+```elixir
+# The method below triggers a network request
+{:ok, %Flagsmith.Schemas.Flags{} = flags} = Flagsmith.Client.get_environment_flags(client_configuration)
+
+secret_button_enabled? = Flagsmith.Client.is_feature_enabled(flags, "secret_button")
+secret_button_feature_value = Flagsmith.Client.get_feature_value(flags, "secret_button")
+```
 
 </TabItem>
 </Tabs>
@@ -500,7 +530,17 @@ let button_data = identity_flags.get_feature_value_as_string("secret_button").un
 </TabItem>
 <TabItem value="elixir" label="Elixir">
 
-:todo
+```elixir
+# The method below triggers a network request
+{:ok, flags} = Flagsmith.Client.get_identity_flags(
+      client_configuration,
+      "user-a",
+      [%{trait_key: "is_subscribed", trait_value: false}]
+)
+
+secret_button_enabled? = Flagsmith.Client.is_feature_enabled(flags, "secret_button")
+secret_button_feature_value = Flagsmith.Client.get_feature_value(flags, "secret_butteon")
+```
 
 </TabItem>
 </Tabs>
@@ -668,7 +708,18 @@ let flagsmith = Flagsmith::new(
 </TabItem>
 <TabItem value="elixir" label="Elixir">
 
-:todo
+```elixir
+flag_handler =
+    fn name ->
+        case name == "special_feature" do
+            true ->
+            %Flagsmith.Schemas.Flag{feature_name: name, value: "special", enabled: true}
+            _ -> :not_found
+        end
+    end
+
+client_configuration = Flagsmith.Client.new(environment_key: "MY_SDK_KEY", default_flag_handler: flag_handler)
+```
 
 </TabItem>
 </Tabs>
@@ -1060,48 +1111,47 @@ $flagsmith = new Flagsmith(
 
 ```go
 client := flagsmith.NewClient(os.Getenv("FLAGSMITH_API_KEY"),
-		// Override the default Flagsmith API URL if you are self-hosting.
-		// Defaults to https://edge.api.flagsmith.com/api/v1/
-		flagsmith.WithBaseURL("http://localhost:8080/api/v1/"),
+        // Override the default Flagsmith API URL if you are self-hosting.
+        // Defaults to https://edge.api.flagsmith.com/api/v1/
+        flagsmith.WithBaseURL("http://localhost:8080/api/v1/"),
 
-		// Controls which mode to run in; local or remote evaluation.
-		// See the `SDKs Overview Page` for more info
-		// Defaults to False
-		flagsmith.WithLocalEvaluation(),
+        // Controls which mode to run in; local or remote evaluation.
+        // See the `SDKs Overview Page` for more info
+        // Defaults to False
+        flagsmith.WithLocalEvaluation(),
 
-		// The network timeout in seconds.
-		flagsmith.WithRequestTimeout(10*time.Second),
+        // The network timeout in seconds.
+        flagsmith.WithRequestTimeout(10*time.Second),
 
-		// When running in local evaluation mode, defines
-		// how often to request an updated Environment document
-		// Defaults to 60 seconds
-		flagsmith.WithEnvironmentRefreshInterval(60*time.Second),
+        // When running in local evaluation mode, defines
+        // how often to request an updated Environment document
+        // Defaults to 60 seconds
+        flagsmith.WithEnvironmentRefreshInterval(60*time.Second),
 
-		// Controls whether Flag Analytics data is sent to the Flagsmith API
-		// See https://docs.flagsmith.com/advanced-use/flag-analytics
-		flagsmith.WithAnalytics(),
+        // Controls whether Flag Analytics data is sent to the Flagsmith API
+        // See https://docs.flagsmith.com/advanced-use/flag-analytics
+        flagsmith.WithAnalytics(),
 
-		// Sets `resty.Client` options.  `SetRetryCount` and `SetRetryWaitTime`
-		// Ref: https://pkg.go.dev/github.com/go-resty/resty/v2#Client.SetRetryCount
-		// https://pkg.go.dev/github.com/go-resty/resty/v2#Client.SetRetryWaitTime
-		flagsmith.WithRetries(3, 5*time.Second),
+        // Sets `resty.Client` options.  `SetRetryCount` and `SetRetryWaitTime`
+        // Ref: https://pkg.go.dev/github.com/go-resty/resty/v2#Client.SetRetryCount
+        // https://pkg.go.dev/github.com/go-resty/resty/v2#Client.SetRetryWaitTime
+        flagsmith.WithRetries(3, 5*time.Second),
 
-		// You can pass custom headers to the Flagsmith API with this Dictionary.
-		// This can be helpful, for example, when sending request IDs to help trace requests.
-		flagsmith.WithCustomHeaders(map[string]string{
-			"Content-Type": "application/json",
-			"Accept":       "application/json",
-		}),
+        // You can pass custom headers to the Flagsmith API with this Dictionary.
+        // This can be helpful, for example, when sending request IDs to help trace requests.
+        flagsmith.WithCustomHeaders(map[string]string{
+          "Content-Type": "application/json",
+          "Accept":       "application/json",
+        }),
 
-		// You can specify a function to handle returning defaults in the case that
-		// the request to flagsmith fails or the flag requested is not included in the
-		// response
-		flagsmith.WithDefaultHandler(defaultFlagHandler),
+        // You can specify a function to handle returning defaults in the case that
+        // the request to flagsmith fails or the flag requested is not included in the
+        // response
+        flagsmith.WithDefaultHandler(defaultFlagHandler),
 
-		// You can specify the context to use.
-		flagsmith.WithContext(ctx),
-	)
-
+        // You can specify the context to use.
+        flagsmith.WithContext(ctx),
+)
 ```
 
 </TabItem>
@@ -1162,7 +1212,86 @@ let flagsmith = Flagsmith::new(
 </TabItem>
 <TabItem value="elixir" label="Elixir">
 
-:todo
+Application level Configuration
+
+```elixir
+# The only required option is the `:environment_key`
+
+config :flagsmith_engine, :configuration,
+       #
+       # Your API Token.
+       # Note that this is either the `Environment API` key or the
+       # `Server Side SDK Token` depending on if you are using Local or
+       # Remote Evaluation
+       environment_key: "<YOUR SDK KEY>",
+       #
+       # Override the default Flagsmith API URL if you are self-hosting.
+       # Defaults to https://edge.api.flagsmith.com/api/v1/
+       api_url: "https://api.flagsmith.com/api/v1>",
+       #
+       # You can specify a function to handle returning defaults in the case that
+       # the request to flagsmith fails or the flag requested is not included in the
+       # response, defaults to returning :not_found`
+       default_flag_handler: function_defaults_to_not_found,
+       #
+       # You can pass custom headers to the Flagsmith API as a list of `header` `value`
+       # tuples, for example, when sending request IDs to help trace requests, defaults
+       # to an empty list.
+       custom_headers: [{"to add to", "the requests"}],
+       #
+       # Network timeout in milliseconds, defaults to 5_000
+       request_timeout_milliseconds: 5000,
+       #
+       # Controls which mode to run in; local or remote evaluation.
+       # See the `SDKs Overview Page` for more info, defaults to false
+       enable_local_evaluation: false,
+       #
+       # When running in local evaluation mode, defines how often to request
+       # an updated Environment document in milliseconds, defaults to 1 minute
+       environment_refresh_interval_milliseconds: 60_000,
+       #
+       # Defines how many retries the HTTP adapter is allowed to execute before
+       # deeming the request failed, defaults to 0
+       retries: 0,
+       #
+       # Controls whether Flag Analytics data is sent to the Flagsmith API
+       # See https://docs.flagsmith.com/advanced-use/flag-analytics, defaults to false
+       enable_analytics: false
+
+```
+
+Or when starting a client or making a request, allows the exact same options as when configuring through the application
+configuration.
+
+```elixir
+client_configuration = Flagsmith.Client.new(
+        environment_key: "<YOUR SDK KEY>",
+        api_url: "https://api.flagsmith.com/api/v1>",
+        default_flag_handler: function_defaults_to_not_found,
+        custom_headers: [{"to add to", "the requests"}],
+        request_timeout_milliseconds: 5000,
+        enable_local_evaluation: false,
+        environment_refresh_interval_milliseconds: 60_000,
+        retries: 0,
+        enable_analytics: false
+)
+
+{:ok, flags} = Flagsmith.Client.get_environment_flags(client_configuration)
+
+# or
+
+{:ok, flags} = Flagsmith.Client.get_environment_flags(
+        environment_key: "<YOUR SDK KEY>",
+        api_url: "https://api.flagsmith.com/api/v1>",
+        default_flag_handler: function_defaults_to_not_found,
+        custom_headers: [{"to add to", "the requests"}],
+        request_timeout_milliseconds: 5000,
+        enable_local_evaluation: false,
+        environment_refresh_interval_milliseconds: 60_000,
+        retries: 0,
+        enable_analytics: false
+)
+```
 
 </TabItem>
 </Tabs>
