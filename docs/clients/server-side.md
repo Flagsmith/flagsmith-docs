@@ -720,7 +720,7 @@ flag_handler =
      	  case name == "special_feature" do
 	       true ->
 	         %Flagsmith.Schemas.Flag{feature_name: name, value: "special", enabled: true}
-	 
+
 	       _ -> :not_found
 	  end
      end
