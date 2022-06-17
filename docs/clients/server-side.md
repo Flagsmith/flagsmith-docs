@@ -278,9 +278,7 @@ let flagsmith = Flagsmith::new(
 <TabItem value="elixir" label="Elixir">
 
 ```elixir
-
 client_configuration = Flagsmith.Client.new(environment_key: "MY_SDK_KEY")
-
 ```
 
 Or use global configuration in which case you don't need to create a client or pass configuration options to requests.
@@ -399,7 +397,6 @@ let button_data = flags.get_feature_value_as_string("secret_button").unwrap();
 
 secret_button_enabled? = Flagsmith.Client.is_feature_enabled(flags, "secret_button")
 secret_button_feature_value = Flagsmith.Client.get_feature_value(flags, "secret_button")
-
 ```
 
 </TabItem>
@@ -534,7 +531,6 @@ let button_data = identity_flags.get_feature_value_as_string("secret_button").un
 <TabItem value="elixir" label="Elixir">
 
 ```elixir
-
 # The method below triggers a network request
 {:ok, flags} = Flagsmith.Client.get_identity_flags(
       client_configuration,
@@ -544,7 +540,6 @@ let button_data = identity_flags.get_feature_value_as_string("secret_button").un
 
 secret_button_enabled? = Flagsmith.Client.is_feature_enabled(flags, "secret_button")
 secret_button_feature_value = Flagsmith.Client.get_feature_value(flags, "secret_butteon")
-
 ```
 
 </TabItem>
@@ -714,19 +709,16 @@ let flagsmith = Flagsmith::new(
 <TabItem value="elixir" label="Elixir">
 
 ```elixir
-
 flag_handler =
-  fn name ->
-     	  case name == "special_feature" do
-	       true ->
-	         %Flagsmith.Schemas.Flag{feature_name: name, value: "special", enabled: true}
-
-	       _ -> :not_found
-	  end
-     end
+    fn name ->
+        case name == "special_feature" do
+            true ->
+            %Flagsmith.Schemas.Flag{feature_name: name, value: "special", enabled: true}
+            _ -> :not_found
+        end
+    end
 
 client_configuration = Flagsmith.Client.new(environment_key: "MY_SDK_KEY", default_flag_handler: flag_handler)
-
 ```
 
 </TabItem>
@@ -1273,35 +1265,33 @@ Or when starting a client or making a request, allows the exact same options as 
 configuration.
 
 ```elixir
-
 client_configuration = Flagsmith.Client.new(
-				environment_key: "<YOUR SDK KEY>",
-				api_url: "https://api.flagsmith.com/api/v1>",
-				default_flag_handler: function_defaults_to_not_found,
-				custom_headers: [{"to add to", "the requests"}],
-				request_timeout_milliseconds: 5000,
-				enable_local_evaluation: false,
-				environment_refresh_interval_milliseconds: 60_000,
-				retries: 0,
-				enable_analytics: false
-			)
+        environment_key: "<YOUR SDK KEY>",
+        api_url: "https://api.flagsmith.com/api/v1>",
+        default_flag_handler: function_defaults_to_not_found,
+        custom_headers: [{"to add to", "the requests"}],
+        request_timeout_milliseconds: 5000,
+        enable_local_evaluation: false,
+        environment_refresh_interval_milliseconds: 60_000,
+        retries: 0,
+        enable_analytics: false
+)
 
 {:ok, flags} = Flagsmith.Client.get_environment_flags(client_configuration)
 
 # or
 
 {:ok, flags} = Flagsmith.Client.get_environment_flags(
-			environment_key: "<YOUR SDK KEY>",
-			api_url: "https://api.flagsmith.com/api/v1>",
-			default_flag_handler: function_defaults_to_not_found,
-			custom_headers: [{"to add to", "the requests"}],
-			request_timeout_milliseconds: 5000,
-			enable_local_evaluation: false,
-			environment_refresh_interval_milliseconds: 60_000,
-			retries: 0,
-			enable_analytics: false
-		)
-
+        environment_key: "<YOUR SDK KEY>",
+        api_url: "https://api.flagsmith.com/api/v1>",
+        default_flag_handler: function_defaults_to_not_found,
+        custom_headers: [{"to add to", "the requests"}],
+        request_timeout_milliseconds: 5000,
+        enable_local_evaluation: false,
+        environment_refresh_interval_milliseconds: 60_000,
+        retries: 0,
+        enable_analytics: false
+)
 ```
 
 </TabItem>
