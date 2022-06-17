@@ -283,7 +283,8 @@ client_configuration = Flagsmith.Client.new(environment_key: "MY_SDK_KEY")
 
 ```
 
-Or use global configuration in which case you don't need to create a client or pass configuration options to requests. All configuration is optional with exception of the `:environment_key`. For instance in `config/config.exs`:
+Or use global configuration in which case you don't need to create a client or pass configuration options to requests.
+All configuration is optional with exception of the `:environment_key`. For instance in `config/config.exs`:
 
 ```elixir
 config :flagsmith_engine, :configuration,
@@ -1268,7 +1269,8 @@ config :flagsmith_engine, :configuration,
 
 ```
 
-Or when starting a client or making a request, allows the exact same options as when configuring through the application configuration.
+Or when starting a client or making a request, allows the exact same options as when configuring through the application
+configuration.
 
 ```elixir
 
