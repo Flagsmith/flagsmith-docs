@@ -108,3 +108,27 @@ Trait values can be stored as one of four different data types:
 
 If you need to store 64 bit integers or very high precision floats we suggest storing them as Strings and then doing the
 type conversion within the SDK.
+
+## Bulk Uploading Identities and Traits
+
+Identities are lazily created within Flagsmith. There might be instances where you want to push Identity and Trait data
+into the platform outside of a user session. You can achieve this with a `POST` to the `identities` endpoint:
+
+```bash
+curl -X "POST" "https://api.flagsmith.com/api/v1/identities/?identifier=<identity_id>" \
+     -H 'X-Environment-Key: <Your Environment Key>' \
+     -H 'Content-Type: application/json; charset=utf-8' \
+     -d $'{
+  "traits":   "traits": [
+    {
+      "trait_key": "this_key",
+      "trait_value": "this_value"
+    },
+    {
+      "trait_key": "this_key2",
+      "trait_value": "this_value2"
+    }
+  ],
+  "identifier": "<identity_id>"
+}'
+```
