@@ -168,7 +168,7 @@ flagsmith = "~1"
 ```elixir
 def deps do
   [
-    {:flagsmith_engine, "~> 0.1"}
+    {:flagsmith_engine, "~> 1.0"}
   ]
 end
 ```
@@ -1222,7 +1222,7 @@ config :flagsmith_engine, :configuration,
        #
        # Override the default Flagsmith API URL if you are self-hosting.
        # Defaults to https://edge.api.flagsmith.com/api/v1/
-       api_url: "https://api.flagsmith.com/api/v1>",
+       api_url: "https://api.yourselfhostedflagsmith.com/api/v1",
        #
        # You can specify a function to handle returning defaults in the case that
        # the request to flagsmith fails or the flag requested is not included in the
@@ -1261,7 +1261,7 @@ configuration.
 ```elixir
 client_configuration = Flagsmith.Client.new(
         environment_key: "<YOUR SDK KEY>",
-        api_url: "https://api.flagsmith.com/api/v1>",
+        api_url: "https://api.yourselfhostedflagsmith.com/api/v1",
         default_flag_handler: function_defaults_to_not_found,
         custom_headers: [{"to add to", "the requests"}],
         request_timeout_milliseconds: 5000,
@@ -1277,7 +1277,7 @@ client_configuration = Flagsmith.Client.new(
 
 {:ok, flags} = Flagsmith.Client.get_environment_flags(
         environment_key: "<YOUR SDK KEY>",
-        api_url: "https://api.flagsmith.com/api/v1>",
+        api_url: "https://api.yourselfhostedflagsmith.com/api/v1",
         default_flag_handler: function_defaults_to_not_found,
         custom_headers: [{"to add to", "the requests"}],
         request_timeout_milliseconds: 5000,
