@@ -216,9 +216,9 @@ _flagsmithClient = new("<FLAGSMITH_ENVIRONMENT_KEY>");
 ```javascript
 const Flagsmith = require('flagsmith-nodejs');
 
-const flagsmith = new Flagsmith(
-    environmentKey: '<FLAGSMITH_ENVIRONMENT_KEY>'
-);
+const flagsmith = new Flagsmith({
+ environmentKey: '<FLAGSMITH_ENVIRONMENT_KEY>',
+});
 ```
 
 </TabItem>
