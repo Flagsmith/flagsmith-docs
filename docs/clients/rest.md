@@ -29,16 +29,41 @@ Publicly accessible API calls need to have an environment key supplied with each
 header, with the name `X-Environment-Key` and the value of the Environment Key that you can find within the Flagsmith
 administrative area.
 
-### Curl Example
+### Curl Examples
+
+These are the two main endpoints that you need to consume the SDK aspect of the API.
+
+### Get Environment Flags
 
 ```bash
-curl 'https://api.flagsmith.com/api/v1/flags/' -H 'X-Environment-Key: TijpMX6ajA7REC4bf5suYg'
+curl 'https://edge.api.flagsmith.com/api/v1/flags/' -H 'X-Environment-Key: <Your Env Key>'
 ```
 
-### httpie Example
+### Send Identity with Traits and receive Flags
+
+This command will perform the entire SDK Identity workflow in a single call:
+
+1. Lazily create an Identity
+2. Setting Traits for the Identity
+3. Receiving the Flags for that Identity
 
 ```bash
-http GET 'https://api.flagsmith.com/api/v1/flags/' 'X-Environment-Key':'TijpMX6ajA7REC4bf5suYg'
+curl --request POST 'https://edge.api.flagsmith.com/api/v1/identities/' \
+--header 'X-Environment-Key: <Your Env Key>' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "identifier":"identifier_5",
+    "traits": [
+        {
+            "trait_key": "my_trait_key",
+            "trait_value": 123.5
+        },
+        {
+            "trait_key": "my_other_key",
+            "trait_value": true
+        }
+    ]
+}'
 ```
 
 ## Private Endpoints
@@ -58,32 +83,3 @@ curl 'https://api.flagsmith.com/api/v1/environments/' \
 
 You can find a complete list of endpoints via the Swagger REST API at
 [https://api.flagsmith.com/api/v1/docs/](https://api.flagsmith.com/api/v1/docs/).
-
-## Useful SDK Endpoints
-
-### Send Identity with Traits and receive Flags
-
-This `curl` command below will perform the entire SDK workflow in a single call:
-
-1. Creating an Identity
-2. Setting Traits for the Identity
-3. Receiving the Flags for that Identity
-
-```bash
-curl --request POST 'https://api.flagsmith.com/api/v1/identities/' \
---header 'X-Environment-Key: <Your Env Key>' \
---header 'Content-Type: application/json' \
---data-raw '{
-    "identifier":"identifier_5",
-    "traits": [
-        {
-            "trait_key": "my_trait_key",
-            "trait_value": 123.5
-        },
-        {
-            "trait_key": "my_other_key",
-            "trait_value": true
-        }
-    ]
-}'
-```
