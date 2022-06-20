@@ -249,19 +249,16 @@ import (
   flagsmith "github.com/Flagsmith/flagsmith-go-client"
 )
 ctx, cancel := context.WithCancel(context.Background())
-	defer cancel()
+defer cancel()
 
-	// Intialise the flagsmith client
-	client := flagsmith.NewClient('<FLAGSMITH_ENVIRONMENT_KEY>',
-		flagsmith.WithContext(ctx),
-	)
+// Initialise the Flagsmith client
+client := flagsmith.NewClient('<FLAGSMITH_ENVIRONMENT_KEY>', flagsmith.WithContext(ctx),)
 ```
 
 </TabItem>
 <TabItem value="rust" label="Rust">
 
 ```rust
-
 use std::env;
 use flagsmith::{Flag, Flagsmith, FlagsmithOptions};
 
@@ -271,7 +268,6 @@ let flagsmith = Flagsmith::new(
             .expect("FLAGSMITH_ENVIRONMENT_KEY not found in environment"),
         options,
     );
-
 ```
 
 </TabItem>
@@ -373,7 +369,6 @@ $flags->getFeatureValue('secret_button');
 flags, _ := client.GetEnvironmentFlags()
 showButton, _ := flags.IsFeatureEnabled("secret_button")
 buttonData, _ := flags.GetFeatureValue("secret_button")
-
 ```
 
 </TabItem>
