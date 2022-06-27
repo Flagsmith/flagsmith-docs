@@ -836,7 +836,7 @@ private static FlagsmithClient flagsmith = FlagsmithClient
     // See https://docs.flagsmith.com/advanced-use/flag-analytics
     // Optional
     // Defaults to False
-    .withEnableAnalytics(Boolean enable) {
+    .withEnableAnalytics(Boolean enable)
 
     // The network timeout in seconds.
     // See https://square.github.io/okhttp/4.x/okhttp/okhttp3/ for details
