@@ -9,22 +9,46 @@ sidebar_position: 1
 Flagsmith ships with SDKs for a bunch of different programming languages. We also have a [REST API](rest.md) that you
 can use if you want to consume the API directly.
 
+The SDKs are split into two different types: **Client-side** and **Server-side** sdks. These SDKs have different methods
+of operation due to the differences in their operating environment.
+
+## Client-Side SDKS
+
+Client-side SDKs run in web browsers or on mobile devices. These runtimes execute within _untrusted environments_.
+Anyone using the Javascript SDK in a web browser, for example, can find the Client-Side SDK, create a new Identity, look
+at their flags and
+[potentially write Traits to the Identity](../advanced-use/system-administration.md#preventing-client-sdks-to-set-traits).
+
+Client-Side SDKs are also limited to the
+[types of data that they have access to](../advanced-use/integration-approaches#segment-and-targeting-rules-are-not-leaked-to-the-client).
+
+Client-Side SDKs hit our [Edge API](../advanced-use/edge-api.md) directly to retrieve their flags.
+
+Read more about our Client-Side SDKs for your language/platform:
+
+- [Javascript](/clients/javascript)
+- [Android/Kotlin](/clients/android)
+- [Flutter](/clients/flutter)
+- [iOS/Swift](/clients/ios)
+- [React & React Native](/clients/react)
+- [Next.js and SSR](/clients/next-ssr)
+
+## Server-Side SDKs
+
+[Server-Side SDKs](/clients/server-side.md) run within _trusted environments_ - typically the server infrastructure that
+you have control over.
+
 :::tip
 
-The Server Side SDKs can operate in 2 different modes; Remote and Local evaluation modes. It's important to understand
-which mode is right for your use case. This is detailed below.
-
-:::
-
-## Remote and Local Evaluation Modes
-
-The Server Side SDKs (e.g Python, Ruby etc) can operate in 2 different modes:
+The Server Side SDKs can operate in 2 different modes:
 
 1. `Remote Evaluation`
 2. `Local Evaluation`
 
-In order to make the right choice, it's worth digging into how these two approaches are different, and what the pros and
-cons of each one are.
+It's important to understand which mode is right for your use case, and what the pros and cons of each one are. This is
+detailed below.
+
+:::
 
 ### 1 - Remote Evaluation
 
