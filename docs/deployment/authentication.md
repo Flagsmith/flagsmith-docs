@@ -88,7 +88,7 @@ Here's an example configuration from Google's SAML app creation flow.
 ## LDAP
 
 LDAP Authentication is available in our [Enterprise Edition](../enterprise-edition.md). Please contact us if this is of
-interest. We also support sync-ing of LDAP groups into [Flagsmith RBAC groups](permissions.md#groups).
+interest. We also support sync-ing of LDAP groups into [Flagsmith RBAC groups](../advanced-use/permissions.md#groups)).
 
 ## AD FS
 

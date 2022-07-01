@@ -8,7 +8,7 @@ Flagsmith is also provided as an "Enterprise Edition" which has additional featu
 Source product:
 
 - [Role Based Access Controls](advanced-use/permissions.md)
-- [SAML, LDAP, ADFS and Okta authentication](advanced-use/authentication-methods.md), as well as the ability to lock
+- [SAML, LDAP, ADFS and Okta authentication](deployment/authentication.md), as well as the ability to lock
   authentication to a single provider
 - Additional database engines: Oracle, SQL Server and MySQL
 - Additional deployment and orchestration options as detailed below
