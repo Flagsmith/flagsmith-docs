@@ -542,7 +542,8 @@ secret_button_feature_value = Flagsmith.Client.get_feature_value(flags, "secret_
 
 ## Managing Default Flags
 
-Default Flags are configured by passing in a function that is called when a Flag cannot be found.
+Default Flags are configured by passing in a function that is called when a Flag cannot be found or if the network
+request to the API fails when retrieving flags.
 
 <Tabs groupId="language">
 <TabItem value="py" label="Python">
