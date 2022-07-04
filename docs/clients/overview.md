@@ -31,7 +31,7 @@ Read more about our Client-Side SDKs for your language/platform:
 - [Flutter](/clients/flutter)
 - [iOS/Swift](/clients/ios)
 - [React & React Native](/clients/react)
-- [Next.js and SSR](/clients/next-ssr)
+- [Next.js, Svelte and SSR](/clients/next-ssr)
 
 ## Server-Side SDKs
 
