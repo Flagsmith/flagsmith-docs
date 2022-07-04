@@ -435,7 +435,7 @@ The list of the flags and remote config we're currently using in production is b
 
 ```json
 {
- "url": "https://github.com/login/oauth/authorize?scope=user&client_id=b706a0da3e9d3115ea9d&redirect_uri=https%3A%2F%2Fapp.flagsmith.com%2Foauth%2Fgithub"
+ "url": "<Your github redirect URL>"
 }
 ```
 
@@ -443,8 +443,8 @@ The list of the flags and remote config we're currently using in production is b
 
 ```json
 {
- "clientId": "232959427810-br6ltnrgouktp0ngsbs04o14ueb9rch0.apps.googleusercontent.com",
- "apiKey": "AIzaSyCnHuN-y6BIEAM5vTISXaz3X9GpEPSxWjo"
+ "clientId": "<Your Google oAuth Client ID>",
+ "apiKey": "<Your Google redirect URL>"
 }
 ```
 
