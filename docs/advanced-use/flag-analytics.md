@@ -2,19 +2,6 @@
 title: Flag Analytics
 ---
 
-:::note
-
-This feature is currently available in the following SDKs:
-
-- Javascript
-- iOS
-- Flutter
-- Python
-
-[We are working](https://github.com/Flagsmith/flagsmith/issues/293) on adding this feature to the other SDKs.
-
-:::
-
 ## Overview
 
 Flag Analytics allow you to track how often individual Flags are evaluated within the Flagsmith SDK.
