@@ -17,5 +17,12 @@ jobs:
               with:
                   fetch-depth: 0
 
-            - name: Pre-commit checks
-              uses: pre-commit/action@v2.0.3
+            - name: Use Node.js 16.x
+              uses: actions/setup-node@v2
+              with:
+                  node-version: 16.ah okx
+
+            - name: npm install
+              run: npm install
+            - name: npx prettier .
+              run: npx prettier .
