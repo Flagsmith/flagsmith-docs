@@ -99,12 +99,12 @@ docker-compose is running:
      [here](https://docs.influxdata.com/influxdb/v2.0/organizations/view-orgs/)
    - `INFLUXDB_BUCKET`: `flagsmith_api`
 5. Restart `docker-compose`
-6. Log into InfluxDB, create a new bucket called `flagsmith_api_downsampled_15m`
-7. Create a new task with the following query. This will downsample your per millisecond data down to 15 minute blocks
-   for faster queries. Set it to run every 15 minutes.
+6. Log into InfluxDB, create two new buckets called `flagsmith_api_downsampled_15m` and `api_prod_downsampled_1h`
+7. Create a new task with the following query. This will downsample your per millisecond api request data down to 15
+   minute blocks for faster queries. Set it to run every 15 minutes.
 
 ```text
-option task = {name: "Downsample", every: 15m}
+option task = {name: "Downsample (API Requests)", every: 15m}
 
 data = from(bucket: "flagsmith_api")
 	|> range(start: -duration(v: int(v: task.every) * 2))
@@ -120,8 +120,64 @@ data
 
 Once this task has run you will see data coming into the Organisation API Usage area.
 
-You will need to generate some flag evaluations within our SDKs to start to see
-[Flag Analytics](/advanced-use/flag-analytics.md) data coming into the influx database.
+8. Create another new task with the following query. This will downsample your per millisecond flag evaluation data down
+   to 15 minute blocks for faster queries. Set it to run every 15 minutes.
+
+```text
+option task = {name: "Downsample (Flag Evaluations)", every: 15m}
+
+data = from(bucket: "flagsmith_api")
+	|> range(start: -duration(v: int(v: task.every) * 2))
+	|> filter(fn: (r) =>
+		(r._measurement == "feature_evaluation"))
+
+data
+	|> aggregateWindow(fn: sum, every: 15m)
+	|> filter(fn: (r) =>
+		(exists r._value))
+	|> to(bucket: "flagsmith_api_downsampled_15m")
+```
+
+9. Create another new task with the following query. This will downsample your per millisecond api request data down to
+   1 hour blocks for faster queries. Set it to run every 1 hour.
+
+```text
+option task = {name: "Downsample API 1h", every: 4h}
+
+data = from(bucket: "api_prod")
+	|> range(start: -duration(v: int(v: task.every) * 2))
+	|> filter(fn: (r) =>
+		(r._measurement == "api_call"))
+
+data
+	|> aggregateWindow(fn: sum, every: 1h)
+	|> to(bucket: "api_prod_downsampled_1h")
+```
+
+10. Create another new task with the following query. This will downsample your per millisecond flag evaluation data
+    down to 1 hour blocks for faster queries. Set it to run every 1 hour.
+
+```text
+option task = {name: "Downsample API 1h - Flag Analytics", every: 30m}
+
+data = from(bucket: "api_prod")
+	|> range(start: -duration(v: int(v: task.every) * 2))
+	|> filter(fn: (r) =>
+		(r._measurement == "feature_evaluation"))
+	|> filter(fn: (r) =>
+		(r._field == "request_count"))
+	|> group(columns: ["feature_id", "environment_id"])
+
+data
+	|> aggregateWindow(fn: sum, every: 1h)
+	|> set(key: "_measurement", value: "feature_evaluation")
+	|> set(key: "_field", value: "request_count")
+	|> to(bucket: "api_prod_downsampled_1h")
+```
+
+Once this task has run, and you have made some flag evaluations with analytics enabled (see documentation
+[here](/advanced-use/flag-analytics.md) for information on this) you should see data in the 'Analytics' tab against each
+feature in your dashboard.
 
 ## API Telemetry
 
