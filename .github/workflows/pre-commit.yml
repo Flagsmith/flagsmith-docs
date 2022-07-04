@@ -17,8 +17,5 @@ jobs:
               with:
                   fetch-depth: 0
 
-            - name: Setup Python
-              uses: actions/setup-python@v2
-
             - name: Pre-commit checks
               uses: pre-commit/action@v2.0.3
