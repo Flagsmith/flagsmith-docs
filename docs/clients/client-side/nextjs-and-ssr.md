@@ -11,6 +11,9 @@ application with the resulting state.
 Example applications for a variety of Next.js and SSR can be found
 [here](https://github.com/flagsmith/flagsmith-js-client/tree/master/examples/nextjs).
 
+Example applications for Svelte be found
+[here](https://github.com/flagsmith/flagsmith-js-client/tree/master/examples/svelte).
+
 An example application for Next.js middleware can be found
 [here](https://github.com/flagsmith/flagsmith-js-client/tree/master/examples/nextjs-middleware).
 

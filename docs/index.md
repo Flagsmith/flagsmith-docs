@@ -35,7 +35,7 @@ If you're new to Flagsmith or Feature Flags in general we would recommend:
 - [Flutter](/clients/flutter)
 - [iOS/Swift](/clients/ios)
 - [React & React Native](/clients/react)
-- [Next.js and SSR](/clients/next-ssr)
+- [Next.js, Svelte and SSR](/clients/next-ssr)
 
 ### Server Side SDKs
 
