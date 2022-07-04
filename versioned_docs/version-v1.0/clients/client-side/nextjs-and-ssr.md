@@ -5,7 +5,7 @@ description: Manage your Feature Flags and Remote Config with NextJS and SSR.
 slug: /clients/next-ssr
 ---
 
- The JavaScript Library contains a bundled isomorphic library, allowing you to fetch flags in the server and hydrate your
+The JavaScript Library contains a bundled isomorphic library, allowing you to fetch flags in the server and hydrate your
 application with the resulting state.
 
 Example applications for a variety of Next.js and SSR can be found
