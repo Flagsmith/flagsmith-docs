@@ -53,27 +53,25 @@ state.
 import { FlagsmithProvider } from 'flagsmith/react';
 import flagsmith from 'flagsmith/isomorphic';
 function MyApp({ Component, pageProps, flagsmithState }) {
-    return (
-        <FlagsmithProvider flagsmith={flagsmith}
-                           serverState={flagsmithState}
->
-            <Component {...pageProps} />
-        </FlagsmithProvider>
-    );
+ return (
+  <FlagsmithProvider flagsmith={flagsmith} serverState={flagsmithState}>
+   <Component {...pageProps} />
+  </FlagsmithProvider>
+ );
 }
 
-
-MyApp.getInitialProps = async () => { // this could be getStaticProps too depending on your build flow
-  // calls page's `getInitialProps` and fills `appProps.pageProps`
-  await flagsmith.init({ // fetches flags on the server
-      environmentID: "<YOUR_ENVIRONMENT_ID>",
-      identity: 'my_user_id' // optionaly specify the identity of the user to get their specific flags
-  });
-  return { flagsmithState: flagsmith.getState() }
-}
+MyApp.getInitialProps = async () => {
+ // this could be getStaticProps too depending on your build flow
+ // calls page's `getInitialProps` and fills `appProps.pageProps`
+ await flagsmith.init({
+  // fetches flags on the server
+  environmentID: '<YOUR_ENVIRONMENT_ID>',
+  identity: 'my_user_id', // optionaly specify the identity of the user to get their specific flags
+ });
+ return { flagsmithState: flagsmith.getState() };
+};
 
 export default MyApp;
-
 ```
 
 ```javascript
@@ -92,36 +90,37 @@ export function MyComponent() {
 
 From that point the SDK usage is the same as the [React SDK Guide](/clients/react)
 
-### Example: Flagsmith with Next.js middleware 
+### Example: Flagsmith with Next.js middleware
 
-The Flagsmith JS client includes ``flagsmith/next-middleware``, it can be used just like the regular library within Next.js middleware.
+The Flagsmith JS client includes `flagsmith/next-middleware`, it can be used just like the regular library within
+Next.js middleware.
 
 ```javascript
 // middleware.ts
-import { NextResponse } from 'next/server'
-import type { NextRequest } from 'next/server'
-import flagsmith from "flagsmith/next-middleware";
+import { NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
+import flagsmith from 'flagsmith/next-middleware';
 
 export async function middleware(request: NextRequest) {
-    const identity = request.cookies.get("user");
+ const identity = request.cookies.get('user');
 
-    if (!identity) { // redirect to homepage
-        return NextResponse.redirect(new URL('/', request.url))
-    }
+ if (!identity) {
+  // redirect to homepage
+  return NextResponse.redirect(new URL('/', request.url));
+ }
 
-    await flagsmith.init({
-        environmentID:"<YOUR_ENVIRONMENT_ID>",
-        identity
-    })
+ await flagsmith.init({
+  environmentID: '<YOUR_ENVIRONMENT_ID>',
+  identity,
+ });
 
-    //redirect to an account page based on the multivariate flag
-    return NextResponse.redirect(new URL(`/account/${flagsmith.getValue("colour")}`, request.url))
+ //redirect to an account page based on the multivariate flag
+ return NextResponse.redirect(new URL(`/account/${flagsmith.getValue('colour')}`, request.url));
 }
 
 export const config = {
-    matcher: '/login',
-}
-
+ matcher: '/login',
+};
 ```
 
 ### Example: SSR without Next.js
@@ -131,11 +130,12 @@ The same can be accomplished without using Next.js.
 Step 1: Initialising the SDK and passing the resulting state to the client.
 
 ```javascript
-await flagsmith.init({ // fetches flags on the server
-    environmentID: "<YOUR_ENVIRONMENT_ID>",
-    identity: 'my_user_id' // optionaly specify the identity of the user to get their specific flags
+await flagsmith.init({
+ // fetches flags on the server
+ environmentID: '<YOUR_ENVIRONMENT_ID>',
+ identity: 'my_user_id', // optionaly specify the identity of the user to get their specific flags
 });
-const state = flagsmith.getState() // Pass this data to your client
+const state = flagsmith.getState(); // Pass this data to your client
 ```
 
 Step 2: Initialising the SDK on the client.
