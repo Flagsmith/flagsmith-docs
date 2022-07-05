@@ -989,7 +989,7 @@ const flagsmith = new Flagsmith({
     depending on if you are using Local or Remote Evaluation
     Required.
     */
-    '<FLAGSMITH_ENVIRONMENT_KEY>',
+    environmentKey: '<FLAGSMITH_ENVIRONMENT_KEY>',
 
     /*
     Controls which mode to run in; local or remote evaluation.
