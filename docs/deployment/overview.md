@@ -119,7 +119,7 @@ data
 
 Once this task has run you will see data coming into the Organisation API Usage area.
 
-8. Create another new task with the following query. This will downsample your per millisecond flag evaluation data down
+7. Create another new task with the following query. This will downsample your per millisecond flag evaluation data down
    to 15 minute blocks for faster queries. Set it to run every 15 minutes.
 
 ```text
@@ -141,7 +141,7 @@ Once this task has run, and you have made some flag evaluations with analytics e
 [here](/advanced-use/flag-analytics.md) for information on this) you should see data in the 'Analytics' tab against each
 feature in your dashboard.
 
-9. Create another new task with the following query. This will downsample your per millisecond api request data down to
+8. Create another new task with the following query. This will downsample your per millisecond api request data down to
    1 hour blocks for faster queries. Set it to run every 1 hour.
 
 ```text
@@ -159,8 +159,8 @@ data
 	|> to(bucket: "default_downsampled_1h")
 ```
 
-10. Create another new task with the following query. This will downsample your per millisecond flag evaluation data
-    down to 1 hour blocks for faster queries. Set it to run every 1 hour.
+9. Create another new task with the following query. This will downsample your per millisecond flag evaluation data down
+   to 1 hour blocks for faster queries. Set it to run every 1 hour.
 
 ```text
 option task = {name: "Downsample API 1h - Flag Analytics", every: 1h}
