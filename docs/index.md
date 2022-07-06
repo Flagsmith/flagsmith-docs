@@ -9,8 +9,7 @@ sidebar_label: Overview
 [Flagsmith](https://flagsmith.com/) lets you manage features across web, mobile and server side applications.
 
 [Flagsmith is Open Source](https://github.com/Flagsmith). Host yourself or let us take care of the hosting.
-#1
-#1
+
 ## Getting Started
 
 If you're new to Flagsmith or Feature Flags in general we would recommend:
