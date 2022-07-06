@@ -26,4 +26,4 @@ jobs:
             - name: npm install
               run: npm install --include=dev
             - name: Run Husky
-              run: npx prettier .
+              run: npx prettier --check docs/*
