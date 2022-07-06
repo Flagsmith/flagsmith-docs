@@ -88,8 +88,8 @@ platform, but SDK traffic and flag analytics will not work without it being set 
 docker-compose is running:
 
 1. Create a user account in influxdb. You can visit http://localhost:8086/
-2. Go into Data > Buckets and create three new buckets called `flagsmith_api`, `flagsmith_api_downsampled_15m` and
-   `flagsmith_api_downsampled_1h`
+2. Go into Data > Buckets and create three new buckets called `default`, `default_downsampled_15m` and
+   `default_downsampled_1h`
 3. Go into Data > Tokens and grab your access token.
 4. Edit the `docker-compose.yml` file and add the following `environment` variables in the api service to connect the
    api to InfluxDB:
@@ -97,7 +97,7 @@ docker-compose is running:
    - `INFLUXDB_URL`: `http://influxdb`
    - `INFLUXDB_ORG`: The organisation ID - you can find it
      [here](https://docs.influxdata.com/influxdb/v2.0/organizations/view-orgs/)
-   - `INFLUXDB_BUCKET`: `flagsmith_api`
+   - `INFLUXDB_BUCKET`: `default`
 5. Restart `docker-compose`
 6. Create a new task with the following query. This will downsample your per millisecond api request data down to 15
    minute blocks for faster queries. Set it to run every 15 minutes.
@@ -105,7 +105,7 @@ docker-compose is running:
 ```text
 option task = {name: "Downsample (API Requests)", every: 15m}
 
-data = from(bucket: "flagsmith_api")
+data = from(bucket: "default")
 	|> range(start: -duration(v: int(v: task.every) * 2))
 	|> filter(fn: (r) =>
 		(r._measurement == "api_call"))
@@ -114,7 +114,7 @@ data
 	|> aggregateWindow(fn: sum, every: 15m)
 	|> filter(fn: (r) =>
 		(exists r._value))
-	|> to(bucket: "flagsmith_api_downsampled_15m")
+	|> to(bucket: "default_downsampled_15m")
 ```
 
 Once this task has run you will see data coming into the Organisation API Usage area.
@@ -125,7 +125,7 @@ Once this task has run you will see data coming into the Organisation API Usage 
 ```text
 option task = {name: "Downsample (Flag Evaluations)", every: 15m}
 
-data = from(bucket: "flagsmith_api")
+data = from(bucket: "default")
 	|> range(start: -duration(v: int(v: task.every) * 2))
 	|> filter(fn: (r) =>
 		(r._measurement == "feature_evaluation"))
@@ -134,7 +134,7 @@ data
 	|> aggregateWindow(fn: sum, every: 15m)
 	|> filter(fn: (r) =>
 		(exists r._value))
-	|> to(bucket: "flagsmith_api_downsampled_15m")
+	|> to(bucket: "default_downsampled_15m")
 ```
 
 Once this task has run, and you have made some flag evaluations with analytics enabled (see documentation
@@ -147,7 +147,7 @@ feature in your dashboard.
 ```text
 option task = {name: "Downsample API 1h", every: 1h}
 
-data = from(bucket: "flagsmith_api")
+data = from(bucket: "default")
 	|> range(start: -duration(v: int(v: task.every) * 2))
 	|> filter(fn: (r) =>
 		(r._measurement == "api_call"))
@@ -156,7 +156,7 @@ data
 	|> aggregateWindow(fn: sum, every: 1h)
     |> filter(fn: (r) =>
       (exists r._value))
-	|> to(bucket: "flagsmith_api_downsampled_1h")
+	|> to(bucket: "default_downsampled_1h")
 ```
 
 10. Create another new task with the following query. This will downsample your per millisecond flag evaluation data
@@ -165,7 +165,7 @@ data
 ```text
 option task = {name: "Downsample API 1h - Flag Analytics", every: 1h}
 
-data = from(bucket: "flagsmith_api")
+data = from(bucket: "default")
 	|> range(start: -duration(v: int(v: task.every) * 2))
 	|> filter(fn: (r) =>
 		(r._measurement == "feature_evaluation"))
@@ -179,7 +179,7 @@ data
       (exists r._value))
 	|> set(key: "_measurement", value: "feature_evaluation")
 	|> set(key: "_field", value: "request_count")
-	|> to(bucket: "flagsmith_api_downsampled_1h")
+	|> to(bucket: "default_downsampled_1h")
 ```
 
 ## API Telemetry
