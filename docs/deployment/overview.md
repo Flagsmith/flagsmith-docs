@@ -87,9 +87,9 @@ Flagsmith has a soft dependency on InfluxDB to store time-series data. You don't
 platform, but SDK traffic and flag analytics will not work without it being set up and configured correctly. Once your
 docker-compose is running:
 
-1. Create a user account in influxdb. You can visit http://localhost:8086/ and do this. Create an Initial Bucket with
-   the name `flagsmith_api`
-2. Go into Data > Buckets and create a second bucket, `flagsmith_api_downsampled_15m`.
+1. Create a user account in influxdb. You can visit http://localhost:8086/
+2. Go into Data > Buckets and create three new buckets called `flagsmith_api`, `flagsmith_api_downsampled_15m` and
+   `flagsmith_api_downsampled_1h`
 3. Go into Data > Tokens and grab your access token.
 4. Edit the `docker-compose.yml` file and add the following `environment` variables in the api service to connect the
    api to InfluxDB:
@@ -99,8 +99,7 @@ docker-compose is running:
      [here](https://docs.influxdata.com/influxdb/v2.0/organizations/view-orgs/)
    - `INFLUXDB_BUCKET`: `flagsmith_api`
 5. Restart `docker-compose`
-6. Log into InfluxDB, create two new buckets called `flagsmith_api_downsampled_15m` and `api_prod_downsampled_1h`
-7. Create a new task with the following query. This will downsample your per millisecond api request data down to 15
+6. Create a new task with the following query. This will downsample your per millisecond api request data down to 15
    minute blocks for faster queries. Set it to run every 15 minutes.
 
 ```text
@@ -146,25 +145,27 @@ feature in your dashboard.
    1 hour blocks for faster queries. Set it to run every 1 hour.
 
 ```text
-option task = {name: "Downsample API 1h", every: 4h}
+option task = {name: "Downsample API 1h", every: 1h}
 
-data = from(bucket: "api_prod")
+data = from(bucket: "flagsmith_api")
 	|> range(start: -duration(v: int(v: task.every) * 2))
 	|> filter(fn: (r) =>
 		(r._measurement == "api_call"))
 
 data
 	|> aggregateWindow(fn: sum, every: 1h)
-	|> to(bucket: "api_prod_downsampled_1h")
+    |> filter(fn: (r) =>
+      (exists r._value))
+	|> to(bucket: "flagsmith_api_downsampled_1h")
 ```
 
 10. Create another new task with the following query. This will downsample your per millisecond flag evaluation data
     down to 1 hour blocks for faster queries. Set it to run every 1 hour.
 
 ```text
-option task = {name: "Downsample API 1h - Flag Analytics", every: 30m}
+option task = {name: "Downsample API 1h - Flag Analytics", every: 1h}
 
-data = from(bucket: "api_prod")
+data = from(bucket: "flagsmith_api")
 	|> range(start: -duration(v: int(v: task.every) * 2))
 	|> filter(fn: (r) =>
 		(r._measurement == "feature_evaluation"))
@@ -174,9 +175,11 @@ data = from(bucket: "api_prod")
 
 data
 	|> aggregateWindow(fn: sum, every: 1h)
+    |> filter(fn: (r) =>
+      (exists r._value))
 	|> set(key: "_measurement", value: "feature_evaluation")
 	|> set(key: "_field", value: "request_count")
-	|> to(bucket: "api_prod_downsampled_1h")
+	|> to(bucket: "flagsmith_api_downsampled_1h")
 ```
 
 ## API Telemetry
