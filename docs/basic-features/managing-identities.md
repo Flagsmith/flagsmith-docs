@@ -115,7 +115,7 @@ Identities are lazily created within Flagsmith. There might be instances where y
 into the platform outside of a user session. You can achieve this with a `POST` to the `identities` endpoint:
 
 ```bash
-curl -X "POST" "https://api.flagsmith.com/api/v1/identities/?identifier=<identity_id>" \
+curl -X "POST" "https://edge.api.flagsmith.com/api/v1/identities/?identifier=<identity_id>" \
      -H 'X-Environment-Key: <Your Environment Key>' \
      -H 'Content-Type: application/json; charset=utf-8' \
      -d $'{

@@ -52,7 +52,8 @@ You will need to run through the following steps to get set up:
    Variables. If you are using health-checks, make sure to use `/health` as the health-check endpoint.
 5. Create a new Organisation, Project, Environment and Flags via the Dashboard.
 6. When using our SDKs, you will need to override the API URL that they point to, otherwise they will default to connect
-   to our paid-for API at `https://api.flagsmith.com/api/v1`. See the SDK documentation for the library you are using.
+   to our paid-for API at `https://edge.api.flagsmith.com/api/v1`. See the SDK documentation for the library you are
+   using.
 
 ## Deployment Options
 
@@ -220,7 +221,7 @@ Once you have created the project, you need to set the following
 - `FLAGSMITH_ON_FLAGSMITH_API_URL`
   - The API URL which the Flagsmith front end dashboard should communicate with. This will most likely be the domain
     name of the Flagsmith API you are self hosting: Flagsmith runs on Flagsmith. E.g. For our SaaS hosted platform, the
-    variable is `https://api.flagsmith.com/api/v1/`. For example, if you were running everything locally using the
+    variable is `https://edge.api.flagsmith.com/api/v1/`. For example, if you were running everything locally using the
     standard [docker-compose setup](https://github.com/Flagsmith/flagsmith-docker), you would use
     `http://localhost:8000/api/v1/`
 
