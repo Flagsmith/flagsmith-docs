@@ -13,7 +13,8 @@ here, please get in touch to discuss your particular use case.
 
 <a href="/integrations/terraform" alt="Terraform"><img width="40%" src="/img/integrations/terraform/terraform-logo.svg"/></a>
 
-You can integrate Flagsmith with Terraform. Use our Terraform provider to drive flag management as part of your Infrastructure as Code tooling. [Learn more](/integrations/terraform)
+You can integrate Flagsmith with Terraform. Use our Terraform provider to drive flag management as part of your
+Infrastructure as Code tooling. [Learn more](/integrations/terraform)
 
 ## Analytics Platforms
 
