@@ -60,12 +60,13 @@ You can override each variable individually or add more by editing 'frontend/bin
 
 Current variables used between 'frontend/environment.js' and 'frontend/common/project.js':
 
-- `FLAGSMITH_API_URL`: The API to hit for requests. E.g. `https://api.flagsmith.com/api/v1/`
+- `FLAGSMITH_API_URL`: The API to hit for requests. E.g. `https://edge.api.flagsmith.com/api/v1/`
 - `FLAGSMITH_ON_FLAGSMITH_API_KEY`: The flagsmith environment key we use to manage features -
   [Flagsmith runs on Flagsmith](/deployment/overview#running-flagsmith-on-flagsmith).
 - `FLAGSMITH_ON_FLAGSMITH_API_URL`: The API URL which the flagsmith client should communicate with. Flagsmith runs on
-  flagsmith. E.g. `https://api.flagsmith.com/api/v1/`. If you are self hosting and using your own Flagsmith instance to
-  manage its own features, you would generally point this to the same domain name as your own Flagsmith instance.
+  flagsmith. E.g. `https://edge.api.flagsmith.com/api/v1/`. If you are self hosting and using your own Flagsmith
+  instance to manage its own features, you would generally point this to the same domain name as your own Flagsmith
+  instance.
 - `ENABLE_INFLUXDB_FEATURES`: Enables any features that rely on influxdb. API Usage charts, flag analytics. E.g.
   `ENABLE_INFLUXDB_FEATURES=1`.
 - `ENABLE_FLAG_EVALUATION_ANALYTICS`: Determines if the flagsmith sdk should send usage analytics, if you want to enable

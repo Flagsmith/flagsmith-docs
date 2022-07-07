@@ -39,7 +39,7 @@ Here's a demo user in Flagsmith:
 If we make the call to the Flagsmith API to get the flags for this user:
 
 ```bash
-curl 'https://api.flagsmith.com/api/v1/identities/?identifier=development_user_123456' \
+curl 'https://edge.api.flagsmith.com/api/v1/identities/?identifier=development_user_123456' \
   -H 'x-environment-key: 8KzETdDeMY7xkqkSkY3Gsg'
 ```
 
