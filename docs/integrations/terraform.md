@@ -61,5 +61,5 @@ resource "flagsmith_flag" "feature_1_prod" {
 Now, to bring a flagsmith feature into terraform(and start tracking it's state) you can go ahead and
 [import](https://registry.terraform.io/providers/Flagsmith/flagsmith/latest/docs/resources/flag#import) it.
 
-Once that is done, you can just simply update either disable/enable or the feature or update its value and do
+Once that is done, you can just simply update its value(i.e: `feature_state_value` or `enabled`) and do
 `terraform apply` to apply those changes.
