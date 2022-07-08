@@ -19,8 +19,8 @@ The process is as follows:
 
 ### [Terraform API Key](../advanced-use/system-administration.md#terraform-api-keys-for-organisations):
 
-In order to configure the Flagsmith Terraform provider we are going to need an API key. To generate that head over to the
-Organisation Settings page, and click on `Create Terraform API Key`.
+In order to configure the Flagsmith Terraform provider we are going to need an API key. To generate that head over to
+the Organisation Settings page, and click on `Create Terraform API Key`.
 
 > NOTE: Organisation Administrator permission is required to generate Terraform API Key
 
