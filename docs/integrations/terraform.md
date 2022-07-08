@@ -12,7 +12,8 @@ your Infrastructure as Code tooling.
 
 :::tip
 
-You can find the latest Hashicorp docs for using the Flagsmith provider [here](https://registry.terraform.io/providers/Flagsmith/flagsmith/latest/docs).
+You can find the latest Hashicorp docs for using the Flagsmith provider
+[here](https://registry.terraform.io/providers/Flagsmith/flagsmith/latest/docs).
 
 :::
 
