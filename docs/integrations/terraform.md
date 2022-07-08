@@ -19,14 +19,14 @@ The process is as follows:
 
 ### [Terraform API Key](../advanced-use/system-administration.md#terraform-api-keys-for-organisations):
 
-In order to configure flagsmith terraform provider we are going to need an API key, to generate that head over to the
-Organisation settings page, and click on `Create Terraform API Key`
+In order to configure the Flagsmith Terraform provider we are going to need an API key. To generate that head over to the
+Organisation Settings page, and click on `Create Terraform API Key`.
 
-> NOTE: Organisation admin permission is needed to generate Terraform API Key
+> NOTE: Organisation Administrator permission is required to generate Terraform API Key
 
-## Using Flagsmith Terraform Provider
+## Using the Flagsmith Terraform Provider
 
-Once you have the terraform provider key you can go ahead and create a terraform config file that will look something
+Once you have the Terraform Provider key you can go ahead and create a Terraform config file, which will look something
 like this:
 
 ```terraform
@@ -58,8 +58,8 @@ resource "flagsmith_flag" "feature_1_prod" {
 
 ```
 
-Now, to bring a flagsmith feature into terraform(and start tracking it's state) you can go ahead and
+To bring a Flagsmith feature into Terraform (and start tracking it's state) you can go ahead and
 [import](https://registry.terraform.io/providers/Flagsmith/flagsmith/latest/docs/resources/flag#import) it.
 
-Once that is done, you can just simply update its value(i.e: `feature_state_value` or `enabled`) and do
+Once that is done, you can just simply update its value (i.e: `feature_state_value` or `enabled`) and do
 `terraform apply` to apply those changes.
