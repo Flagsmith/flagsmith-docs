@@ -9,6 +9,13 @@ sidebar_position: 1
 Flagsmith Integrates with the following providers. If you are interested in an integration with a platform not listed
 here, please get in touch to discuss your particular use case.
 
+## CI/CD Platforms
+
+<a href="/integrations/terraform" alt="Terraform"><img width="40%" src="/img/integrations/terraform/terraform-logo.svg"/></a>
+
+You can integrate Flagsmith with Terraform. Use our Terraform provider to drive flag management as part of your
+Infrastructure as Code tooling. [Learn more](/integrations/terraform)
+
 ## Analytics Platforms
 
 <a href="/integrations/amplitude" alt="Amplitude"><img width="40%" src="/img/integrations/amplitude/amplitude-logo.svg"/></a>

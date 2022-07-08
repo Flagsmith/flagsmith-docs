@@ -2,7 +2,13 @@
 title: System Administration
 ---
 
-## Preventing Client SDKS to set Traits
+## Terraform API Keys for Organisations
+
+You can create Terraform API Keys from the Organisation Settings page. These are currently used with our
+[Terraform Provider](../integrations/terraform.md). You can create Terraform API Keys that have access over your entire
+Organisation for the endpoints required by Terraform to operate.
+
+## Preventing Client SDKS from setting Traits
 
 There may be use-cases where you want to prevent client-side SDKs from setting traits of users. For example, if you are
 setting `plan=silver` as a trait, and then enabling/disabling features based on that plan, a malicious user could, with
