@@ -10,8 +10,11 @@ You can integrate Flagsmith with Terraform. Use our
 [Terraform provider](https://registry.terraform.io/providers/Flagsmith/flagsmith) to drive flag management as part of
 your Infrastructure as Code tooling.
 
-> NOTE: You can find the latest docs for using the Flagsmith provider
-> [here](https://registry.terraform.io/providers/Flagsmith/flagsmith/latest/docs)
+:::tip
+
+You can find the latest Hashicorp docs for using the Flagsmith provider [here](https://registry.terraform.io/providers/Flagsmith/flagsmith/latest/docs).
+
+:::
 
 The process is as follows:
 
