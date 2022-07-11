@@ -78,8 +78,8 @@ If you have a product like a mobile app, where you cannot immediately force your
 app, for example), you will likely generate Identity writes to the old Core API.
 
 Following the migration, if we receive a request to an `Identity` endpoint that results in a write to the core API, we
-will persist the data in the Core API _and replay the request into the Edge API_. This will happen for 4 weeks following
-the migration. After that you should stop writing Identities to the core API.
+will persist the data in the Core API _and replay the request into the Edge API_. You can then update your API
+endpoints/SDKs in your own time to gradually move over the Edge API.
 
 This will give you time to migrate your users over to the new version of your application.
 
