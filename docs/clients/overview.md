@@ -14,7 +14,8 @@ of operation due to the differences in their operating environment.
 
 :::tip
 
-Environment Keys come in two different types: Client-side and Server-side keys. Make sure you use the correct key depending on the SDK you are using.
+Environment Keys come in two different types: Client-side and Server-side keys. Make sure you use the correct key
+depending on the SDK you are using.
 
 :::
 
@@ -28,7 +29,8 @@ at their flags and
 Client-Side SDKs are also limited to the
 [types of data that they have access to](../advanced-use/integration-approaches#segment-and-targeting-rules-are-not-leaked-to-the-client).
 
-Client-side Environment keys are designed to be shared publicly, for example in your HTML/JS code that is sent to a web browser.
+Client-side Environment keys are designed to be shared publicly, for example in your HTML/JS code that is sent to a web
+browser.
 
 Client-Side SDKs hit our [Edge API](../advanced-use/edge-api.md) directly to retrieve their flags.
 
@@ -44,7 +46,8 @@ Read more about our Client-Side SDKs for your language/platform:
 ## Server-Side SDKs
 
 [Server-Side SDKs](/clients/server-side.md) run within _trusted environments_ - typically the server infrastructure that
-you have control over. Because of this you need to should not share your Server-side Environment keys publicly - they should be treated as secrets.
+you have control over. Because of this you need to should not share your Server-side Environment keys publicly - they
+should be treated as secrets.
 
 :::tip
 
