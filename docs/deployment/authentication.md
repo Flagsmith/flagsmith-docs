@@ -21,6 +21,16 @@ As well as Email/Password and OAuth2 via Google or Github, we also provide the f
 The Flagsmith platform can be configured for a given organisation to use SAML authentication. To configure SAML login
 for your organisation please get in touch with us directly to help set it up.
 
+The steps we need to go through are something like:
+
+1. You contact us to enable SAML for your organisation.
+2. We create an XML file and provide it to you along with your SAML organisation name.
+3. You supply the XML to your SAML IDP and receive some XML in return. You might need to apply some
+   [attribute mappings](#attribute-mapping-information).
+4. You send us this XML and we add it to Flagsmith.
+5. You log in by visiting https://app.flagsmith.com/login clicking on "Single Sign On" and entering your SAML
+   organisation name from step 2.
+
 Note that users authenticated via SAML can only belong to one organisation, the one that the SAML configuration is tied
 to.
 
@@ -68,7 +78,7 @@ integration will not work.
 Now you can use this XML metadata to create the integration on your IDP. Once created on the IDP, you can add the IDP
 metadata into the **Idp metadata xml** field that we left blank earlier.
 
-### Mapping information
+## Attribute Mapping information
 
 To uniquely identify users, we attempt to retrieve a unique identifier from either the `subject-id` or `uid` claim, or
 we use the content of the `NameID` attribute.
