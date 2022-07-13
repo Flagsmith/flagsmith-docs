@@ -509,7 +509,7 @@ For example, our SaaS value looks like this (but with our Client ID redacted)
 
 ```json
 {
-  "url": "https://github.com/login/oauth/authorize?scope=user&client_id=999999999999&redirect_uri=https%3A%2F%2Fapp.flagsmith.com%2Foauth%2Fgithub"
+ "url": "https://github.com/login/oauth/authorize?scope=user&client_id=999999999999&redirect_uri=https%3A%2F%2Fapp.flagsmith.com%2Foauth%2Fgithub"
 }
 ```
 
