@@ -1,5 +1,6 @@
 ---
 title: Defensive Coding and Default Flags
+sidebar_label: Defensive Coding
 ---
 
 Introducing Feature Flags and Remote Config to your applications can provide a wealth of benefits, but there are also a
