@@ -29,8 +29,11 @@ The solution here really depends on which of our SDKs you are using. By default 
 application thread, and are designed to work around an asynchronous callback model.
 
 Where our Server Side SDKs are being used, it really depends on if you are using them in
-[local or remote evaluation mode](../clients/overview.md#server-side-sdks). When running in local evaluation mode, they
-will eventually time out and resort to
+[local or remote evaluation mode](../clients/overview.md#server-side-sdks). When running in local evaluation mode, once
+the SDKs have received a response from the API with the Environment related data, they will keep that data in memory. In
+the event of the SDKs then not receiving an update, they will continue to function.
+
+In the event that the SDKs aren't able to contact the API at all, they will time out and resort to
 [Default flags](#rule-2-progressively-enhance-your-application-with-default-flags). When running in remote evaluation
 mode, you will need to decide what the best approach is based on your particular application. Again,
 [Default flags](#rule-2-progressively-enhance-your-application-with-default-flags) can help here.
