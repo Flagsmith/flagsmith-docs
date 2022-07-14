@@ -2,7 +2,7 @@
 
 :::info
 
-The Edge API is only available with our paid-for SaaS platform. It does not form part of our Open Source project.
+The Edge API is only available with on our SaaS platform. It does not form part of our Open Source project.
 
 :::
 
@@ -17,9 +17,12 @@ within 100 milliseconds, anywhere in the world. In order to achieve this, we are
 
 :::tip
 
-Existing Organisations created before **7th June 2022** have their Projects deployed to the Core API. Please get in
-touch in [Discord](https://discord.gg/hFhxNtXzgm), via the chat widget at the bottom of this page or by emailing
-support@flagsmith.com when you are ready to migrate your Projects over to the Edge API.
+Existing Organisations created before **7th June 2022** have their Projects deployed to the Core API. You can migrate
+your Project over to our Edge API by going to the Project Settings page and hitting the "Start Migration" button. The
+migration will take between 1 minute and an hour depending on how many Identities your Project has.
+
+The Core API will continue to work normally during and following the migration. See the
+[Migration Steps](#migration-steps) for more info.
 
 :::
 
@@ -59,11 +62,23 @@ version of the SDK; by default they will point to `edge.api.flagsmith.com`.
 
 ### Step 2 - Migrate your data
 
-You can now trigger a one-way sync of data for each of your Flagsmith Projects within the Flagsmith Dashboard. Please
-get in touch in [Discord](https://discord.gg/hFhxNtXzgm), via the chat widget at the bottom of this page or by emailing
-support@flagsmith.com when you are ready to migrate your Projects over to the Edge API. This will start a job that can
-take between 1 and 15 minutes, depending on how much data you have. Once the job is complete, all the Identities that
-were present in your Core API will be present in the Edge API.
+You can now trigger a one-way sync of data for each of your Flagsmith Projects within the Flagsmith Dashboard. You can
+migrate your Project over to our Edge API by going to the Project Settings page and hitting the "Start Migration"
+button. This will start a job that can take between 1 minute and 1 hour, depending on how much data you have. Once the
+job is complete, all the Identities that were present in your Core API will be present in the Edge API.
+
+The Core API will continue to work normally during and following the migration.
+
+If you have a product like a mobile app, where you cannot immediately force your users to upgrade (as opposed to a web
+app, for example), you will likely generate Identity writes to the old Core API.
+
+Following the migration, if we receive a request to an `Identity` endpoint that results in a write to the core API, we
+will persist the data in the Core API _and replay the request into the Edge API_. You can then update your API
+endpoints/SDKs in your own time to gradually move over the Edge API. This will give you time to migrate your users over
+to the new version of your application.
+
+Note that writes to the Core API will still work into the future, but the data will not be synchronised across the two
+platforms (Core and Edge).
 
 ### Step 3 - Deploy your applications
 
@@ -71,20 +86,6 @@ Once your data has been copied onto the Edge API datastore, you can now deploy y
 endpoint `edge.api.flagsmith.com` and benefit from global low latency!
 
 ## Things you should know
-
-### Identity Syncing from Core to Edge
-
-If you have a product like a mobile app, where you cannot immediately force your users to upgrade (as opposed to a web
-app, for example), you will likely generate Identity writes to the old Core API.
-
-Following the migration, if we receive a request to an `Identity` endpoint that results in a write to the core API, we
-will persist the data in the Core API _and replay the request into the Edge API_. You can then update your API
-endpoints/SDKs in your own time to gradually move over the Edge API.
-
-This will give you time to migrate your users over to the new version of your application.
-
-Note that writes to the Core API will still work into the future, but the data will not be synchronised across the two
-platforms (Core and Edge).
 
 ### Increment and Decrement endpoints are deprecated
 
