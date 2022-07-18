@@ -47,27 +47,47 @@ settings page.
 import flagsmith from 'flagsmith or react-native-flagsmith'; //Add this line if you're using flagsmith via npm
 
 flagsmith.init({
- environmentID: '<YOUR_ENVIRONMENT_KEY>',
- // api:"http://localhost:8000/api/v1/" set this if you are self hosting, and point it to your API
- cacheFlags: true, // stores flags in localStorage cache
- enableAnalytics: true, // See https://docs.flagsmith.com/flag-analytics/ for more info
- onChange: (oldFlags, params) => {
-  //Occurs whenever flags are changed
-  const { isFromServer } = params; //determines if the update came from the server or local cached storage
+    environmentID: '<YOUR_CLIENT_SIDE_ENVIRONMENT_KEY>',
+    // api:"http://localhost:8000/api/v1/" set this if you are self hosting, and point it to your API
+    cacheFlags: true, // stores flags in localStorage cache
+    enableAnalytics: true, // See https://docs.flagsmith.com/flag-analytics/ for more info
+    onChange: (oldFlags, params) => {
+        //Occurs whenever flags are changed
+        const { isFromServer } = params; //determines if the update came from the server or local cached storage
 
-  //Check for a feature
-  if (flagsmith.hasFeature('my_cool_feature')) {
-   myCoolFeature();
-  }
+        //Check for a feature
+        if (flagsmith.hasFeature('my_cool_feature')) {
+            myCoolFeature();
+        }
 
-  //Or, use the value of a feature
-  const bannerSize = flagsmith.getValue('banner_size');
+        //Or, use the value of a feature
+        const bannerSize = flagsmith.getValue('banner_size');
 
-  //Check whether value has changed
-  const bannerSizeOld = oldFlags['banner_size'] && oldFlags['banner_size'].value;
-  if (bannerSize !== bannerSizeOld) {
-  }
- },
+        //Check whether value has changed
+        const bannerSizeOld = oldFlags['banner_size'] && oldFlags['banner_size'].value;
+        if (bannerSize !== bannerSizeOld) {
+            // Do something!
+        }
+    },
+});
+```
+
+### Providing Default Flags
+
+You can define default flag values when initialising the SDK. This ensures that your application works as intended in the event that it [cannot receive a response from our API](/guides-and-examples/defensive-coding).
+
+```javascript
+import flagsmith from 'flagsmith or react-native-flagsmith'; //Add this line if you're using flagsmith via npm
+
+flagsmith.init({
+    environmentID: '<YOUR_CLIENT_SIDE_ENVIRONMENT_KEY>',
+    defaultFlags: {
+        feature_a: { enabled: false},
+        font_size: { enabled: true, value: 12 },
+    }
+    onChange: (oldFlags, params) => {
+        ...
+    },
 });
 ```
 
@@ -90,33 +110,34 @@ When you initialise the client without an identity, it will fetch the flags for 
 import flagsmith from 'flagsmith';
 
 flagsmith.init({
- environmentID: 'QjgYur4LQTwe5HpvbvhpzK',
- onChange: (oldFlags, params) => {
-  //Occurs whenever flags are changed
+    environmentID: '<YOUR_CLIENT_SIDE_ENVIRONMENT_KEY>',
+    onChange: (oldFlags, params) => {
+        //Occurs whenever flags are changed
 
-  const { isFromServer } = params; //determines if the update came from the server or local cached storage
+        const { isFromServer } = params; //determines if the update came from the server or local cached storage
 
-  //Set a trait against the Identity
-  flagsmith.setTrait('favourite_colour', 'blue'); //This save the trait against the user, it can be queried with flagsmith.getTrait
+        //Set a trait against the Identity
+        flagsmith.setTrait('favourite_colour', 'blue'); //This save the trait against the user, it can be queried with flagsmith.getTrait
 
-  //Check for a feature
-  if (flagsmith.hasFeature('my_power_user_feature')) {
-   myPowerUserFeature();
-  }
+        //Check for a feature
+        if (flagsmith.hasFeature('my_power_user_feature')) {
+            myPowerUserFeature();
+        }
 
-  //Check for a trait
-  if (!flagsmith.getTrait('accepted_cookie_policy')) {
-   showCookiePolicy();
-  }
+        //Check for a trait
+        if (!flagsmith.getTrait('accepted_cookie_policy')) {
+            showCookiePolicy();
+        }
 
-  //Or, use the value of a feature
-  const myPowerUserFeature = flagsmith.getValue('my_power_user_feature');
+        //Or, use the value of a feature
+        const myPowerUserFeature = flagsmith.getValue('my_power_user_feature');
 
-  //Check whether value has changed
-  const myPowerUserFeatureOld = oldFlags['my_power_user_feature'] && oldFlags['my_power_user_feature'].value;
-  if (myPowerUserFeature !== myPowerUserFeatureOld) {
-  }
- },
+        //Check whether value has changed
+        const myPowerUserFeatureOld = oldFlags['my_power_user_feature'] && oldFlags['my_power_user_feature'].value;
+        if (myPowerUserFeature !== myPowerUserFeatureOld) {
+            // Do something!
+        }
+    },
 });
 
 /*
@@ -135,35 +156,35 @@ You can also specify traits at this point which could determine the flags that c
 import flagsmith from 'flagsmith';
 
 flagsmith.init({
- environmentID: 'QjgYur4LQTwe5HpvbvhpzK',
- identity: 'flagsmith_sample_user',
- traits: { age: 21, country: 'England' }, // these will add to the user's existing traits
- onChange: (oldFlags, params) => {
-  //Occurs whenever flags are changed
+    environmentID: '<YOUR_CLIENT_SIDE_ENVIRONMENT_KEY>',
+    identity: 'flagsmith_sample_user',
+    traits: { age: 21, country: 'England' }, // these will add to the user's existing traits
+    onChange: (oldFlags, params) => {
+        //Occurs whenever flags are changed
 
-  const { isFromServer } = params; //determines if the update came from the server or local cached storage
+        const { isFromServer } = params; //determines if the update came from the server or local cached storage
 
-  //Set a trait against the Identity
-  flagsmith.setTrait('favourite_colour', 'blue'); //This save the trait against the user, it can be queried with flagsmith.getTrait
+        //Set a trait against the Identity
+        flagsmith.setTrait('favourite_colour', 'blue'); //This save the trait against the user, it can be queried with flagsmith.getTrait
 
-  //Check for a feature
-  if (flagsmith.hasFeature('my_power_user_feature')) {
-   myPowerUserFeature();
-  }
+        //Check for a feature
+        if (flagsmith.hasFeature('my_power_user_feature')) {
+            myPowerUserFeature();
+        }
 
-  //Check for a trait
-  if (!flagsmith.getTrait('accepted_cookie_policy')) {
-   showCookiePolicy();
-  }
+        //Check for a trait
+        if (!flagsmith.getTrait('accepted_cookie_policy')) {
+            showCookiePolicy();
+        }
 
-  //Or, use the value of a feature
-  const myPowerUserFeature = flagsmith.getValue('my_power_user_feature');
+        //Or, use the value of a feature
+        const myPowerUserFeature = flagsmith.getValue('my_power_user_feature');
 
-  //Check whether value has changed
-  const myPowerUserFeatureOld = oldFlags['my_power_user_feature'] && oldFlags['my_power_user_feature'].value;
-  if (myPowerUserFeature !== myPowerUserFeatureOld) {
-  }
- },
+        //Check whether value has changed
+        const myPowerUserFeatureOld = oldFlags['my_power_user_feature'] && oldFlags['my_power_user_feature'].value;
+        if (myPowerUserFeature !== myPowerUserFeatureOld) {
+        }
+    },
 });
 ```
 
