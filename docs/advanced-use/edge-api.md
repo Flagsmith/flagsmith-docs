@@ -87,6 +87,10 @@ endpoint `edge.api.flagsmith.com` and benefit from global low latency!
 
 ## Things you should know
 
+### New Identity Overrides will only apply to the Edge API
+
+After the migration, any new Identity Overrides you apply to flag values for specific Identities will only be applied to the Edge API.
+
 ### Increment and Decrement endpoints are deprecated
 
 You probably didn't know these existed though, right?
