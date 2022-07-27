@@ -93,7 +93,7 @@ services:
    - '/tmp/flagsmith-exporter:/tmp/flagsmith-exporter'
 ```
 
-### Option 3 - S3 bucket
+### Option 2 - S3 bucket
 
 The command you will need to run for this is slightly different as per the following.
 
