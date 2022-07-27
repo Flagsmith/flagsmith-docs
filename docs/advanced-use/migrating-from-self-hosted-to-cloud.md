@@ -10,7 +10,7 @@ The process looks something like:
 - **Step 1.** Contact Flagsmith support to confirm you would like to migrate from self hosted to cloud
 - **Step 2.** Generate a JSON file from your self hosted instance (more information below)
 - **Step 3.** Send the JSON file to Flagsmith support
-- **Step 4.** Flagsmith support import the JSON file into our cloud offering
+- **Step 4.** Flagsmith support will import the JSON file into our cloud offering
 - **Step 5.** Register and re-add your users and passwords (Flagsmith support will need to assign at least one
   organisation administrator to the newly imported organisation)
 
