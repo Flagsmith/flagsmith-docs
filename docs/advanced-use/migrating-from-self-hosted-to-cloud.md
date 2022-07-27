@@ -34,13 +34,13 @@ These options are detailed below.
 ### Option 1 - Local File System
 
 ```bash
-python manage.py dump-organisation-to-local-fs <organisation-id> <local-file-system-path>
+python manage.py dumporganisationtolocalfs <organisation-id> <local-file-system-path>
 ```
 
 e.g.
 
 ```bash
-python manage.py dump-organisation-to-local-fs 1 /tmp/organisation-1.json
+python manage.py dumporganisationtolocalfs 1 /tmp/organisation-1.json
 ```
 
 Since this will write to your local file system, you may need to attach a volume to your docker container to be able to
@@ -98,13 +98,13 @@ services:
 The command you will need to run for this is slightly different as per the following.
 
 ```bash
-python manage.py dump-organisation-to-s3 <organisation-id> <bucket-name> <key>
+python manage.py dumporganisationtos3 <organisation-id> <bucket-name> <key>
 ```
 
 e.g.
 
 ```bash
-python manage.py dump-organisation-to-s3 1 my-export-bucket exports/organisation-1.json
+python manage.py dumporganisationtos3 1 my-export-bucket exports/organisation-1.json
 ```
 
 This requires the application to be running with access to an AWS account. If you're running the application in AWS,
