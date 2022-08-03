@@ -54,7 +54,7 @@ export function AppRoot() {
   }} flagsmith={flagsmith}>
     {...}
   </FlagsmithProvider>
-);
+};
 ```
 
 Providing options to the Flagsmith provider will initialise the client, the API reference for these options can be found
