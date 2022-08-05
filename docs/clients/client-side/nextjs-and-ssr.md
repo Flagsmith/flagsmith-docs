@@ -9,13 +9,13 @@ The JavaScript Library contains a bundled isomorphic library, allowing you to fe
 application with the resulting state.
 
 Example applications for a variety of Next.js and SSR can be found
-[here](https://github.com/flagsmith/flagsmith-js-client/tree/master/examples/nextjs).
+[here](https://github.com/flagsmith/flagsmith-js-client/tree/main/examples/nextjs).
 
 Example applications for Svelte be found
-[here](https://github.com/flagsmith/flagsmith-js-client/tree/master/examples/svelte).
+[here](https://github.com/flagsmith/flagsmith-js-client/tree/main/examples/svelte).
 
 An example application for Next.js middleware can be found
-[here](https://github.com/flagsmith/flagsmith-js-client/tree/master/examples/nextjs-middleware).
+[here](https://github.com/flagsmith/flagsmith-js-client/tree/main/examples/nextjs-middleware).
 
 ## Installation
 

@@ -145,7 +145,7 @@ databaseExternal:
 ### Environment variables
 
 The chart handles most environment variables required, but see the
-[API readme](https://github.com/Flagsmith/flagsmith-api/blob/master/readme.md#environment-variables) for all available
+[API readme](https://github.com/Flagsmith/flagsmith-api/blob/main/readme.md#environment-variables) for all available
 configuration options. These can be set using `api.extraEnv`, eg:
 
 ```yaml
