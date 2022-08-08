@@ -98,6 +98,41 @@ Flagsmith and then create a rule that looks like, for example:
 
 This Segment rule will include all users running version `4.2.52` or greater of your application.
 
+### Rule Typing
+
+When you store Trait values against an Identity, they are stored in our API with an associated type:
+
+- String
+- Boolean
+- Integer
+
+When you define a Segment rule, the value is stored as a String. When the Segment engine runs, the rule value will be
+coerced into the type of the Trait value. Here are some examples.
+
+You store a Trait, here with an example in Javascript:
+
+```javascript
+flagsmith.identify('flagsmith_sample_user');
+flagsmith.setTrait('accepted_cookies', true);
+```
+
+So here you are storing a native `boolean` value against the Identity. You can then define a Segment rule, e.g.
+`accepted_cookies=true`. Because the Identity trait named `accepted_cookies` is a boolean, the Segment engine will
+coerce the string value from `accepted_cookies=true` into a boolean, and things will work as expected.
+
+If you were to then change the trait value to a String at a later point the Segment engine will continue to work,
+because the Identity's Trait value has been stored as a String
+
+```javascript
+flagsmith.setTrait('accepted_cookies', 'true');
+```
+
+For evaluating booleans, we evaluate the following 'truthy' String values as `true`:
+
+- `True`
+- `true`
+- `1`
+
 ### Percentage Split Operator
 
 :::important
