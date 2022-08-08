@@ -16,6 +16,7 @@ pip install pip-tools
 cd api
 pip-sync requirements.txt requirements-dev.txt
 python manage.py migrate
+python manage.py createcachetable
 python manage.py runserver --nostatic
 ```
 
