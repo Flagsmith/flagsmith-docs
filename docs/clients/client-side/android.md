@@ -96,8 +96,8 @@ If you would like to change the default settings, you can overwrite them by usin
 
 ```kotlin
 val client: FlagsmithClient = FlagsmithClient.Builder()
-            .apiKey("YOUR_ENV_API_KEY")
-            .apiUrl("http://yoururl.com")
-            .customHeaders(hashMapOf("headerKey" to "headerVal"))
-            .build()
+    .apiKey("YOUR_ENV_API_KEY")
+    .apiUrl("http://yoururl.com")
+    .customHeaders(hashMapOf("headerKey" to "headerVal"))
+    .build()
 ```
