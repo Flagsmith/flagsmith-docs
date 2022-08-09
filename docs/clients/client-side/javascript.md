@@ -1,14 +1,14 @@
 ---
-title: Flagsmith Javascript SDK
-sidebar_label: Javascript
-description: Manage your Feature Flags and Remote Config in your Javascript applications.
+title: Flagsmith JavaScript SDK
+sidebar_label: JavaScript
+description: Manage your Feature Flags and Remote Config in your JavaScript applications.
 slug: /clients/javascript
 ---
 
-This library can be used with pure Javascript, React (and all other popular frameworks/libraries) and React Native
+This library can be used with pure JavaScript, React (and all other popular frameworks/libraries) and React Native
 projects. The source code for the client is available on [Github](https://github.com/flagsmith/flagsmith-js-client).
 
-Example applications for a variety of Javascript frameworks such as React, Vue and Angular, as well as React Native, can
+Example applications for a variety of JavaScript frameworks such as React, Vue and Angular, as well as React Native, can
 be found here:
 
 - [Flagsmith Framework Examples](https://github.com/flagsmith/flagsmith-js-client/tree/main/examples)
@@ -251,6 +251,33 @@ const flagsmith = createFlagsmithInstance();
 const flagsmithB = createFlagsmithInstance();
 
 // now you can use flagsmith as before but in its own instance
+```
+
+## TypeScript Support
+
+Flagsmith has full TypeScript support for its JavaScript clients, you can find our main type definition file
+[here](https://github.com/Flagsmith/flagsmith-js-client/blob/main/types.d.ts#L35). You can also enforce type safety of
+feature and trait names using generics:
+
+Given that we type our flags and traits:
+
+```typescript
+type FlagOptions = 'font_size' | 'hero';
+type TraitOptions = 'example_trait';
+```
+
+We can now enforce these types:
+
+```typescript
+// enforces you passing the correct key to flagsmith.getValue(flag:FlagOptions), flagsmith.getTrait(trait:TraitOptions)
+import flagsmith from 'flagsmith';
+const typedFlagsmith = flagsmith as IFlagsmith<FlagOptions, TraitOptions>;
+
+// Similarly for the useFlagsmith hook is typed with useFlagsmith(flags:FlagOptions[],traits:TraitOptions[])
+const flagsmith = useFlagsmith<FlagOptions, TraitOptions>(); // enforces flagsmith.getValue()
+
+// for useFlags this will ensure you only can pass correct keys also
+const flags = useFlags<FlagOptions, TraitOptions>(['font_size'], ['example_trait']);
 ```
 
 ## Dynatrace JavaScript SDK Integration
