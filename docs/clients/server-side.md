@@ -1005,7 +1005,7 @@ val flagsmith: FlagsmithClient = FlagsmithClient
     // depending on if you are using Local or Remote Evaluation
     // Required.
     .apiKey(System.getenv("FLAGSMITH_API_KEY"))
-    
+
     // Set your configuration
     .configuration(config)
 
