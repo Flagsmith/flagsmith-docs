@@ -1,14 +1,14 @@
 ---
-title: Flagsmith Javascript SDK
-sidebar_label: Javascript
-description: Manage your Feature Flags and Remote Config in your Javascript applications.
+title: Flagsmith JavaScript SDK
+sidebar_label: JavaScript
+description: Manage your Feature Flags and Remote Config in your JavaScript applications.
 slug: /clients/javascript
 ---
 
-This library can be used with pure Javascript, React (and all other popular frameworks/libraries) and React Native
+This library can be used with pure JavaScript, React (and all other popular frameworks/libraries) and React Native
 projects. The source code for the client is available on [Github](https://github.com/flagsmith/flagsmith-js-client).
 
-Example applications for a variety of Javascript frameworks such as React, Vue and Angular, as well as React Native, can
+Example applications for a variety of JavaScript frameworks such as React, Vue and Angular, as well as React Native, can
 be found here:
 
 - [Flagsmith Framework Examples](https://github.com/flagsmith/flagsmith-js-client/tree/main/examples)
