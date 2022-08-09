@@ -255,28 +255,29 @@ const flagsmithB = createFlagsmithInstance();
 
 ## TypeScript Support
 
-Flagsmith has full TypeScript support for its JavaScript clients, you can find our main type definition file [here](https://github.com/Flagsmith/flagsmith-js-client/blob/main/types.d.ts#L35). You can also enforce type safety of feature and trait names using generics:
+Flagsmith has full TypeScript support for its JavaScript clients, you can find our main type definition file
+[here](https://github.com/Flagsmith/flagsmith-js-client/blob/main/types.d.ts#L35). You can also enforce type safety of
+feature and trait names using generics:
 
 Given that we type our flags and traits:
 
 ```typescript
-
- type FlagOptions = "font_size" | "hero"
- type TraitOptions = "example_trait"
+type FlagOptions = 'font_size' | 'hero';
+type TraitOptions = 'example_trait';
 ```
 
 We can now enforce these types:
 
 ```typescript
-  // enforces you passing the correct key to flagsmith.getValue(flag:FlagOptions), flagsmith.getTrait(trait:TraitOptions)
-  import flagsmith from "flagsmith"
-  const typedFlagsmith = flagsmith as IFlagsmith<FlagOptions,TraitOptions> 
+// enforces you passing the correct key to flagsmith.getValue(flag:FlagOptions), flagsmith.getTrait(trait:TraitOptions)
+import flagsmith from 'flagsmith';
+const typedFlagsmith = flagsmith as IFlagsmith<FlagOptions, TraitOptions>;
 
-  // Similarly for the useFlagsmith hook is typed with useFlagsmith(flags:FlagOptions[],traits:TraitOptions[])
-  const flagsmith = useFlagsmith<FlagOptions, TraitOptions>(); // enforces flagsmith.getValue()
-  
-  // for useFlags this will ensure you only can pass correct keys also
-  const flags = useFlags<FlagOptions, TraitOptions>(["font_size"],["example_trait"]);
+// Similarly for the useFlagsmith hook is typed with useFlagsmith(flags:FlagOptions[],traits:TraitOptions[])
+const flagsmith = useFlagsmith<FlagOptions, TraitOptions>(); // enforces flagsmith.getValue()
+
+// for useFlags this will ensure you only can pass correct keys also
+const flags = useFlags<FlagOptions, TraitOptions>(['font_size'], ['example_trait']);
 ```
 
 ## Dynatrace JavaScript SDK Integration
