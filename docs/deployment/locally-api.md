@@ -4,7 +4,7 @@ title: Flagsmith REST API
 sidebar_position: 10
 ---
 
-## Development Environment
+## Setting Up
 
 Before running the application, you'll need to configure a database for the application. The steps to do this can be
 found in the following section entitled 'Databases'.
