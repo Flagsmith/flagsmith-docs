@@ -354,8 +354,6 @@ Object value = flags.getFeatureValue(featureName);
 
 ```kotlin
 val flags: Flags = flagsmith.getEnvironmentFlags();
-val showButton: Boolean = flags.isFeatureEnabled(featureName);
-val value: Object = flags.getFeatureValue(featureName);
 ```
 
 </TabItem>
@@ -477,8 +475,6 @@ val traits = hashMapOf("car_type" to "robin_reliant");
 
 // The method below triggers a network request
 val flags: Flags = flagsmith.getIdentityFlags(identifier, traits);
-val showButton: Boolean = flags.isFeatureEnabled(featureName);
-val value: Object = flags.getFeatureValue(featureName);
 ```
 
 </TabItem>
@@ -659,7 +655,7 @@ private static DefaultFlag defaultFlagHandler(String featureName) {
 ```kotlin
 val flagsmith: FlagsmithClient = FlagsmithClient
     .Builder()
-    .defaultFlagHandler(defaultFlagHandler)
+    .defaultFlagHandler(::defaultFlagHandler)
     .apiKey(System.getenv("<FLAGSMITH_ENVIRONMENT_KEY>"))
     .build();
 
