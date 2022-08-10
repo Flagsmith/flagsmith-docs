@@ -61,34 +61,23 @@ for (flag in flags.allFlags) {
 }
 ```
 
-To retrieve a feature flag boolean value by its name:
+To retrieve flags by an identity and specified traits use this:
 
 ```kotlin
-val result = client.hasFeatureFlag("test_feature1", forIdentity = null)
-println(result)
-```
-
-To retrieve a config value by its name:
-
-```kotlin
-val result = client.getFeatureValue("test_feature2", forIdentity = null)
-println(result)
-```
-
-These methods can also specify a particular identity to retrieve the values for a user registration. See
-[Identities](https://docs.flagsmith.com/managing-identities/) , using the **forIdentity** parameter.
-
-To retrieve a trait for a particular identity (see
-[Traits](https://docs.flagsmith.com/managing-identities/#identity-traits)):
-
-```kotlin
-val traits: Traits = client.getTraits(forIdentity: "test_user@test.com")
-for(trait in traits.allTraits){
-    val name = trait.key
-    val value = trait.value
-    println("$name = $value")
+val result = client.getIdentityFlags("development_user_identity", traits = hasMapOf("fav_colour" to "color_hex"))
+for (flag in flags.allFlags) {
+    val name = flag.featureName
+    val value = flag.value
+    val enabled = flag.enabled
+    println("$name = enabled: $enabled value: $value")
 }
 ```
+
+For more info about managing identities check out this article:
+[Identities](https://docs.flagsmith.com/managing-identities/)
+
+For more info about identity traits follow this article:
+[Traits](https://docs.flagsmith.com/managing-identities/#identity-traits)
 
 ## Override default configuration
 
@@ -101,3 +90,20 @@ val client: FlagsmithClient = FlagsmithClient.Builder()
     .customHeaders(hashMapOf("headerKey" to "headerVal"))
     .build()
 ```
+
+or by using the `FlagsmithConfig` you're able to define more advanced settings:
+
+```kotlin
+val config: FlagsmithConfig = FlagsmithConfig.Builder()
+    .baseUri("http://yoururl.com")
+    .addHttpInterceptor(interceptor)
+    .environmentRefreshIntervalSeconds(10)
+    .build()
+
+val client: FlagsmithClient = FlagsmithClient.Builder()
+    .apiKey("YOUR_ENV_API_KEY")
+    .configuration(config)
+    .build()
+```
+
+For more info about the available `FlagsmithConfig`'s builder methods see the [Configuring the SDK](https://docs.flagsmith.com/clients/server-side#configuring-the-sdk) article.
