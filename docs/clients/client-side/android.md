@@ -106,4 +106,5 @@ val client: FlagsmithClient = FlagsmithClient.Builder()
     .build()
 ```
 
-For more info about the available `FlagsmithConfig`'s builder methods see the [Configuring the SDK](https://docs.flagsmith.com/clients/server-side#configuring-the-sdk) article.
+For more info about the available `FlagsmithConfig`'s builder methods see the
+[Configuring the SDK](https://docs.flagsmith.com/clients/server-side#configuring-the-sdk) article.
