@@ -11,6 +11,55 @@ We have a fairly simple tagging strategy:
 
 Please look out our [Github Releases](https://github.com/Flagsmith/flagsmith/releases) page for detailed updates.
 
+## v2.29
+
+Released **8 August 2022**
+
+- Async processor core engine
+- Allow Segment overrides when viewing associated Features for a Segment
+- Allow users with CREATE_FEATURE permission to manage multivariate options
+
+## v2.28
+
+Released **8 July 2022**
+
+- Import/Export data improvements
+- Export organisation to AWS S3
+- Show associated Segments in Features
+- Add management command to import organisation
+- Add manage Segments permissions
+- Show Segment Identity Sampling
+- Prevent null feature type
+
+## v2.27
+
+Released **1 July 2022**
+
+- Add ability to export and import data for an organisation
+- Allow Environments to prevent clients from setting Traits
+
+## v2.26
+
+Released **22 June 2022**
+
+- Bug Fixes
+
+## v2.25
+
+Released **17 June 2022**
+
+- Filter tags
+- Added user-managed "Beta Features"
+- Prevent users on free plans from setting minimum_change_request_approvals
+
+## v2.24
+
+Released **1 June 2022**
+
+- Segments overrides can now take Multi-Variate percentages
+- RBAC updates
+- Allow custom headers in CORS restrictions
+
 ## v2.23
 
 Released **17 May 2022**
