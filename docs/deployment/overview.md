@@ -234,24 +234,24 @@ the platform. For example, if you wanted to disable Google OAuth authentication,
 
 The list of the flags and remote config we're currently using in production is below:
 
-| Flag Name              | Description                                                                   | Text Value                                                                                                     |
-| ---------------------- | ----------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| `try_it`               | Whether to show the try it buttons                                            | None                                                                                                           |
-| `butter_bar`           | html to show at the top of the dashboard page                                 | None                                                                                                           |
-| `disable_create_org`   | Turning this on will prevent users from creating any additional organisations | None                                                                                                           |
-| `scaleup_audit`        | Disables audit log for anyone under scale-up plan                             | None                                                                                                           |
-| `integration_data`     | Configures integrations                                                       | [See Below](#integration_data)                                                                                 |
-| `integrations`         | Which third party integrations are displayed                                  | `["amplitude","datadog","dynatrace","heap","mixpanel","new-relic","rudderstack","segment","slack","webhook"]`  |
-| `plan_based_access`    | Controls RBAC and 2FA based on organisation plan                              | None                                                                                                           |
-| `flag_analytics`       | Flag usage chart - requires InfluxDB                                          | None                                                                                                           |
-| `usage_chart`          | Organisation Analytics usage chart - requires InfluxDB                        | None                                                                                                           |
-| `dark_mode`            | Enables Dark Mode in UI [See Below](#dark-mode)                               | None                                                                                                           |
-| `scaleup_audit`        | Disables audit log for anyone under scale-up plan                             | None                                                                                                           |
-| `serverside_sdk_keys`  | Enable Server-side Environment Keys                                           | None                                                                                                           |
-| `compare_environments` | Compare feature flag changes across environments                              | None                                                                                                           |
-| `segment_operators`    | Determines what rules are shown when creating a segment                       | [See Below](#segment_operators)                                                                                |
-| `oauth_github`         | Disables audit log for anyone under scale-up plan                             | [See Below](#oauth_github)                                                                                     |
-| `oauth_google`         | Disables audit log for anyone under scale-up plan                             | [See Below](#oauth_google)                                                                                     |
+| Flag Name              | Description                                                                   | Text Value                                                                                                    |
+| ---------------------- | ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `try_it`               | Whether to show the try it buttons                                            | None                                                                                                          |
+| `butter_bar`           | html to show at the top of the dashboard page                                 | None                                                                                                          |
+| `disable_create_org`   | Turning this on will prevent users from creating any additional organisations | None                                                                                                          |
+| `scaleup_audit`        | Disables audit log for anyone under scale-up plan                             | None                                                                                                          |
+| `integration_data`     | Configures integrations                                                       | [See Below](#integration_data)                                                                                |
+| `integrations`         | Which third party integrations are displayed                                  | `["amplitude","datadog","dynatrace","heap","mixpanel","new-relic","rudderstack","segment","slack","webhook"]` |
+| `plan_based_access`    | Controls RBAC and 2FA based on organisation plan                              | None                                                                                                          |
+| `flag_analytics`       | Flag usage chart - requires InfluxDB                                          | None                                                                                                          |
+| `usage_chart`          | Organisation Analytics usage chart - requires InfluxDB                        | None                                                                                                          |
+| `dark_mode`            | Enables Dark Mode in UI [See Below](#dark-mode)                               | None                                                                                                          |
+| `scaleup_audit`        | Disables audit log for anyone under scale-up plan                             | None                                                                                                          |
+| `serverside_sdk_keys`  | Enable Server-side Environment Keys                                           | None                                                                                                          |
+| `compare_environments` | Compare feature flag changes across environments                              | None                                                                                                          |
+| `segment_operators`    | Determines what rules are shown when creating a segment                       | [See Below](#segment_operators)                                                                               |
+| `oauth_github`         | Disables audit log for anyone under scale-up plan                             | [See Below](#oauth_github)                                                                                    |
+| `oauth_google`         | Disables audit log for anyone under scale-up plan                             | [See Below](#oauth_google)                                                                                    |
 
 ### `integration_data`
 
