@@ -149,7 +149,7 @@ composer require flagsmith/flagsmith-php-client symfony/http-client nyholm/psr7 
 <TabItem value="go" label="Go">
 
 ```bash
-go get github.com/Flagsmith/flagsmith-go-client
+go get github.com/Flagsmith/flagsmith-go-client/v2
 ```
 
 </TabItem>
