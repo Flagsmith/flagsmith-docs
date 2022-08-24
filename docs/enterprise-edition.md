@@ -59,7 +59,7 @@ and back end.
 This image includes additions from the SaaS image above:
 
 - Oracle Support
-- MySQL Support
+- MySQL Support (v8+)
 - Appdynamics Integration
 
 ## Environment Variables
