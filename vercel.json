@@ -90,11 +90,23 @@
         },
         {
             "source": "/integration-approaches/",
-            "destination": "/advanced-use/integration-approaches"
+            "destination": "/guides-and-examples/integration-approaches"
+        },
+        {
+            "source": "/advanced-use/integration-approaches/",
+            "destination": "/guides-and-examples/integration-approaches"
+        },
+        {
+            "source": "/advanced-use/integration-approaches",
+            "destination": "/guides-and-examples/integration-approaches"
+        },
+        {
+            "source": "/advanced-use/migrating-from-self-hosted-to-cloud",
+            "destination": "/deployment/migrating-from-self-hosted-to-cloud"
         },
         {
             "source": "/advanced-use/staged-feature-rollouts/",
-            "destination": "//guides-and-examples/staged-feature-rollouts"
+            "destination": "/guides-and-examples/staged-feature-rollouts"
         },
         {
             "source": "/managing-segments/",
