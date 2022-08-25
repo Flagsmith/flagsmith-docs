@@ -96,6 +96,10 @@ the Edge API.
 
 You probably didn't know these existed though, right?
 
+### Bulk Trait endpoint is deprecated
+
+But you can still achieve the same functionality using our POST /identities endpoints.
+
 ### The API responses have been slimmed down
 
 Our core API responses are quite verbose, and the SDKs ignore a lot of the fields they receive. We've taken the
