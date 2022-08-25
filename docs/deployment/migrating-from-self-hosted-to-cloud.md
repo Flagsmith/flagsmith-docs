@@ -1,5 +1,6 @@
 ---
 title: Migrating from Self Hosted to Cloud
+sidebar_position: 110
 ---
 
 Flagsmith offers some helpful utilities if you want to migrate your application from your self hosted instance to our
