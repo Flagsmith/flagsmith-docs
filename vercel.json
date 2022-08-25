@@ -97,6 +97,10 @@
             "destination": "/guides-and-examples/integration-approaches"
         },
         {
+            "source": "/advanced-use/integration-approaches",
+            "destination": "/guides-and-examples/integration-approaches"
+        },
+        {
             "source": "/advanced-use/migrating-from-self-hosted-to-cloud",
             "destination": "/deployment/migrating-from-self-hosted-to-cloud"
         },
