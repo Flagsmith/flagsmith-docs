@@ -7,4 +7,4 @@ slug: /clients/android
 
 You can use the [Java Client](/v1.0/clients/java/) to run Flagsmith within native Android applications.
 
-We are working on a [Kotlin Client](https://github.com/Flagsmith/flagsmith-kotlin-client)!
+We are working on a [Kotlin Client](https://github.com/Flagsmith/flagsmith-kotlin-android-client)!
