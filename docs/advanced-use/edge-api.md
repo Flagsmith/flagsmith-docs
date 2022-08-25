@@ -6,9 +6,9 @@ The Edge API is only available with on our SaaS platform. It does not form part 
 
 :::
 
-[The Flagsmith Architecture](/advanced-use/integration-approaches#flags-are-evaluated-server-side) is based around a
-server-side flag engine. This comes with a number of benefits, but it can increase latency, especially when the calls
-are being made from a location that is far from the EU; the location of our current API.
+[The Flagsmith Architecture](/guides-and-examples/integration-approaches#flags-are-evaluated-server-side) is based
+around a server-side flag engine. This comes with a number of benefits, but it can increase latency, especially when the
+calls are being made from a location that is far from the EU; the location of our current API.
 
 In order to solve this problem we have developed a Global Edge API. Our aim for this API is to serve all SDK requests
 within 100 milliseconds, anywhere in the world. In order to achieve this, we are using the following AWS components.
