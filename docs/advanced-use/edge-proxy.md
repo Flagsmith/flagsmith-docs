@@ -24,20 +24,18 @@ stateless and hence close to perfectly scalable being deployed behind a load bal
 
 ## Configuration
 
-Edge proxy can be configured using a json configuration file(named `config.json` in this article).
+The Edge Proxy can be configured using a json configuration file (named `config.json` here).
 
-You can set the following configuration(in `config.json`) to control the behaviour of edge-proxy
+You can set the following configuration in `config.json` to control the behaviour of the Edge Proxy:
 
 - **environment_key_pairs**: An array of environment key pair objects, e.g:
   `"environment_key_pairs":[{"server_side_key":"your_server_side_key", "client_side_key":"your_client_side_environment_key"}]`
+- **[optional] api_poll_frequency(seconds)**: Control how often the Edge Proxy is going to ping the server for changes,
+  e.g: `"api_poll_frequency":10`
+- **[optional] api_url**: If you are running a self hosted version of flagsmith you can set the self hosted url here for
+  edge-proxy in order to connect to your server, e.g: `"api_url":"https://self.hosted.flagsmith.domain/api/v1"`
 
-- **[Optional]api_poll_frequency(seconds)**: it is used to control how often the proxy is going to ping the server for
-  changes, e.g: `"api_poll_frequency":10`
-
-- **[Optional]api_url**: If you are running a self hosted version of flagsmith you can set the self hosted url here for
-  edge-proxy in order to connect to your server, e.g: `"api_url":"https://self.hosted.flagsmith.com/api/v1"`
-
-After setting up all of the above configuration the `config.json` is going to look something like this:
+After setting up the above configuration the `config.json` is going to look something like this:
 
 ```json
 {
