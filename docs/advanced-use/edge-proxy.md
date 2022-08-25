@@ -50,6 +50,13 @@ After setting up the above configuration the `config.json` is going to look some
 }
 ```
 
+### Environment Variables
+
+You can configure the Edge Proxy with the following Environment Variables:
+
+- `WEB_CONCURRENCY` The number of [Uvicorn](https://www.uvicorn.org/) workers. Defaults to `1`. Set to the number of
+  available CPU cores.
+
 ## Running the Edge Proxy
 
 The Edge Proxy runs as a docker container. It is currently available at the
