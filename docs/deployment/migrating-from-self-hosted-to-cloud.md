@@ -21,6 +21,22 @@ The process looks something like:
 - **Step 5.** Register and re-add your users and passwords (Flagsmith support will need to assign at least one
   organisation administrator to the newly imported organisation)
 
+## What is exported?
+
+We **will** export the following entities:
+
+- Flags
+- Segments
+- Identities
+- Integrations
+
+We **will not** export the following entities:
+
+- Flagsmith Users that log into the Dashboard and manage Flagsmith
+- Audit logs
+- Change requests
+- Scheduled flag changes
+
 ## The export process
 
 The export process involves running a command from a terminal window. This must either be run from a running container
