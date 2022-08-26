@@ -28,3 +28,19 @@ You can specify members of your team as owners of individual Flags. This helps i
 who is responsible for a particular flag.
 
 <img width="75%" src="/img/flag-owners.png"/>
+
+## Comparing Flags
+
+You can compare Flags both across Environments and for individual Flags.
+
+### Environment Comparison
+
+Use the "Compare" menu item to get an overview of how flag values differ between any two Environments:
+
+![Image](/img/flag-compare-environment.png)
+
+### Flag Comparison
+
+You can also view a the values of a single Flag against all the Environments within the Project:
+
+![Image](/img/flag-compare-flag.png)
