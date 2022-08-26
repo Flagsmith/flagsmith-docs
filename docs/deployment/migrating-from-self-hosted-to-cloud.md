@@ -3,6 +3,12 @@ title: Migrating from Self Hosted to Cloud
 sidebar_position: 110
 ---
 
+:::tip
+
+You need to be running Flagsmith version `2.28.2` or greater to be able to export and import your Flagsmith data.
+
+:::
+
 Flagsmith offers some helpful utilities if you want to migrate your application from your self hosted instance to our
 cloud offering.
 
