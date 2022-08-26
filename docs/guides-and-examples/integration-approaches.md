@@ -22,6 +22,12 @@ own HTTP client within your application its just a simple HTTP GET and you're go
 
 ### Build Time Flag Retrieval
 
+:::tip
+
+We have a [Flagsmith CLI](https://github.com/Flagsmith/flagsmith-cli) which can be helpful here!
+
+:::
+
 A more advanced technique is to grab the Flag defaults from the Flagsmith API at build time and include them on your
 application build. The steps for this might look something like this:
 
