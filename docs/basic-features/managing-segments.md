@@ -8,13 +8,6 @@ Segments allow you to group your users based on a set of rules, and then control
 those groups. You can create a Segment and then override a Feature Flag state or Remote Config value for that segment of
 users.
 
-:::important
-
-Segment definitions are shared amongst your Project's Environments. If you modify a Segment in one Environment, that
-change will reflect in all the Environments for that Project.
-
-:::
-
 Segments for Flags and Config are overridden at the Environment level, meaning that different Environments can define
 their own Segment overrides.
 
@@ -27,6 +20,14 @@ never sent back to our SDKs from the API.
 :::
 
 ## Example - Beta Users
+
+:::important
+
+Segment definitions can be defined at the **Project** or **Flag** level. **Project** level Segments are defined at the
+Project level and can be used with any number of Flags within that Project. **Flag Specific** Segments can only affect
+the Flag they are defined within.
+
+:::
 
 Let's say that you want all your team to automatically be defined as `Beta Users`. Right now, all your logged in users
 are [identified](/basic-features/managing-identities.md) with their email address along with some other
@@ -59,6 +60,14 @@ the Segment rules:
 - `email_address` contains `@solidstategroup.com`
 
 Now all users who log in with a `@solidstategroup.com` email address are automatically included in beta features.
+
+## Feature-Specific Segments
+
+You can also create Segments _within_ a Feature. This means that only that Feature can make use of that Segment. Feature
+Specific Segments are useful when you know you will only need to use that Segment definition once. Go to the Feature,
+then the Segment Overrides Tab, and click the "Create Feature-Specific Segment" button.
+
+![Image](/img/feature-specific-segment.png)
 
 ## Multi-Variate Values
 
