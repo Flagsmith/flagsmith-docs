@@ -116,7 +116,9 @@ Then access `http://flagsmith.local` in a browser.
 
 ### Provided Database configuration
 
-By default, the chart creates its own PostgreSQL server within the cluster.
+By default, the chart creates its own PostgreSQL server within the cluster, referencing
+[https://github.com/helm/charts/tree/master/stable/postgresql](https://github.com/helm/charts/tree/master/stable/postgresql)
+for the service.
 
 :::caution
 
