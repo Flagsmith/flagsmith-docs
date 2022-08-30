@@ -737,6 +737,26 @@ The Server Side SDKS share the same network behaviour across the different langu
 - Every 60 seconds (by default), it will repeat this aysnchronous request to ensure that the Environment information it
   has is up to date.
 
+:::caution
+
+To use local evaluation mode, you must use a server side key.
+
+:::
+
+To achieve local evaluation, in most languages, the SDK spawns a separate thread (or equivalent) to poll the API for
+changes to the environment. In certain languages, you may be required to terminate this thread before cleaning up the
+instance of the flagsmith client. Languages in which this is necessary are provided below.
+
+<Tabs groupId="language">
+<TabItem value="nodejs" label = "NodeJS">
+
+```javascript
+flagsmith.close();
+```
+
+</TabItem>
+</Tabs>
+
 ## Configuring the SDK
 
 You can modify the behaviour of the SDK during initialisation. Full configuration options are shown below.
