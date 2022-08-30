@@ -127,7 +127,8 @@ your cluster, or using a service like [AWS RDS](https://aws.amazon.com/rds/postg
 
 :::
 
-You can provide configuration options to the postgres database by modifying the values:
+You can provide configuration options to the postgres database by modifying the values, for example the below changes
+the max_connections:
 
 ```yaml
 postgresql:
