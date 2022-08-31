@@ -104,7 +104,7 @@ The main steps to achieving this are as follows:
    done by either:
 
    - Using an environment variable ` export FLAGSMITH_ENVIRONMENT=<YOUR_CLIENT_SIDE_ENVIRONMENT_KEY> flagsmith get`
-   - Alternatively specifying your environment key manually `flagsmith get <YOUR_CLIENT_SIDE_ENVIRONMENT_KEY>`.
+   - Manually specifying your environment key `flagsmith get <YOUR_CLIENT_SIDE_ENVIRONMENT_KEY>`.
 
 3. In your application, initialise Flagsmith with the resulting JSON, this will set default flags before attempting to
    use local storage or call the API. `flagsmith.init({environmentID: json.environmentID, state:json})`
