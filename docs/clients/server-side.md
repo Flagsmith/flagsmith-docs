@@ -751,6 +751,15 @@ instance of the Flagsmith client. Languages in which this is necessary are provi
 <TabItem value="nodejs" label = "NodeJS">
 
 ```javascript
+// available from v2.2.1
+flagsmith.close();
+```
+
+</TabItem>
+<TabItem value="java" label = "Java">
+
+```javascript
+// available from v5.0.5
 flagsmith.close();
 ```
 
