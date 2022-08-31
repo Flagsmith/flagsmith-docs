@@ -103,7 +103,7 @@ The main steps to achieving this are as follows:
 2. Call the CLI as part of npm postinstall to create a `flagsmith.json` each time you run `npm install`. This can be
    done by either:
 
-   - Using an environment variable ` export FLAGSMITH_ENVIRONMENT=<YOUR_CLIENT_SIDE_ENVIRONMENT_KEY> flagsmith get`
+   - Using an environment variable `export FLAGSMITH_ENVIRONMENT=<YOUR_CLIENT_SIDE_ENVIRONMENT_KEY> flagsmith get`
    - Manually specifying your environment key `flagsmith get <YOUR_CLIENT_SIDE_ENVIRONMENT_KEY>`.
 
 3. In your application, initialise Flagsmith with the resulting JSON, this will set default flags before attempting to
