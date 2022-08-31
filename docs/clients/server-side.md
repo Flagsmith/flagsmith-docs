@@ -1321,6 +1321,170 @@ client_configuration = Flagsmith.Client.new(
 </TabItem>
 </Tabs>
 
+## Caching
+
+The following SDKs have code and functionality related to caching flags.
+
+<Tabs groupId="language">
+<TabItem value="java" label="Java">
+
+If you would like to use in-memory caching, you will need to enable it (it is disabled by default). The main advantage
+of using in-memory caching is that you can reduce the number of HTTP calls performed to fetch flags.
+
+Flagsmith uses [Caffeine](https://github.com/ben-manes/caffeine), a high performance, near optimal caching library.
+
+If you enable caching on the Flagsmith client without setting any values (as shown below), the following default values
+will be set for you:
+
+- maxSize(10)
+- expireAfterWrite(5, TimeUnit.MINUTES)
+- project level caching will be disabled by default (i.e. only enabled if you configure a caching key)
+
+```java
+// use in-memory caching with Flagsmith defaults as described above
+final FlagsmithClient flagsmithClient = FlagsmithClient.newBuilder()
+                .setApiKey("YOUR_ENV_API_KEY")
+                .withConfiguration(FlagsmithConfig
+                        .newBuilder()
+                        .baseURI("http://yoururl.com")
+                        .build())
+                .withCache(FlagsmithCacheConfig
+                        .newBuilder()
+                        .build())
+                .build();
+```
+
+If you would like to change the default settings, you can overwrite them by using the available builder methods:
+
+```java
+// use in-memory caching with custom configuration
+final FlagsmithClient flagsmithClient = FlagsmithClient.newBuilder()
+                .setApiKey("YOUR_ENV_API_KEY")
+                .withConfiguration(FlagsmithConfig
+                        .newBuilder()
+                        .baseURI("http://yoururl.com")
+                        .build())
+                .withCache(FlagsmithCacheConfig
+                        .newBuilder()
+                        .maxSize(100)
+                        .expireAfterWrite(10, TimeUnit.MINUTES)
+                        .recordStats()
+                        .enableEnvLevelCaching("some-key-to-avoid-clashing-with-user-identifiers")
+                        .build())
+                .build();
+```
+
+The user identifier is used as the cache key, this provides granular control over the cache should you require it. If
+you would like to manipulate the cache:
+
+```java
+// this will return null if caching is disabled
+final FlagsmithCache cache = flagsmithClient.getCache();
+// you can now discard a single or all entries in the cache
+cache.invalidate("user-identifier");
+// or
+cache.invalidateAll();
+// get stats (if you have enabled them in the cache configuration, otherwise all values will be zero)
+final CacheStats stats = cache.stats();
+// check if flags for a user identifier are cached
+final FlagsAndTraits flags = cache.getIfPresent("user-identifier");
+```
+
+Since the user identifier is used as the cache key, you need to configure a cache key to enable project level caching.
+Make sure you select a project level cache key that will never be a user identifier.
+
+```java
+// use in-memory caching with Flagsmith defaults and project level caching enabled
+final String projectLevelCacheKey = "some-key-to-avoid-clashing-with-user-identifiers";
+final FlagsmithClient flagsmithClient = FlagsmithClient.newBuilder()
+                .setApiKey("YOUR_ENV_API_KEY")
+                .withConfiguration(FlagsmithConfig
+                        .newBuilder()
+                        .baseURI("http://yoururl.com")
+                        .build())
+                .withCache(FlagsmithCacheConfig
+                        .newBuilder()
+                        .enableEnvLevelCaching(projectLevelCacheKey)
+                        .build())
+                .build();
+
+// if you need to access the cache directly, you can do this:
+final FlagsmithCache cache = flagsmithClient.getCache();
+// invalidate project level cache
+cache.invalidate(projectLevelCacheKey);
+// check if project level flags have been cached
+final FlagsAndTraits flags = cache.getIfPresent(projectLevelCacheKey);
+```
+
+</TabItem>
+<TabItem value="nodejs" label="NodeJS">
+
+You can initialise the SDK with something like this:
+
+```javascript
+flagsmith.init({
+ cache: {
+   has:(key)=> return Promise.resolve(!!cache[key]) , // true | false
+   get: (k)=> cache[k] // return flags or flags for user
+   set: (k,v)=> cache[k] = v // gets called if has returns false with response from API for Identify or getFlags
+  }
+})
+```
+
+The core concept is that if `has` returns false, the SDK will make the required API calls under the hood. The keys are
+either `flags` or `flags_traits-${identity}`.
+
+An example of a concrete implemention is below.
+
+```javascript
+const flagsmith = require('flagsmith-nodejs');
+const redis = require('redis');
+
+const redisClient = redis.createClient({
+ host: 'localhost',
+ port: 6379,
+});
+
+flagsmith.init({
+ environmentID: '<Flagsmith Environment API Key>',
+ cache: {
+  has: (key) =>
+   new Promise((resolve, reject) => {
+    redisClient.exists(key, (err, reply) => {
+     console.log('check ' + key + ' from cache', err, reply);
+     resolve(reply === 1);
+    });
+   }),
+  get: (key) =>
+   new Promise((resolve) => {
+    redisClient.get(key, (err, cacheValue) => {
+     console.log('get ' + key + ' from cache');
+     resolve(cacheValue && JSON.parse(cacheValue));
+    });
+   }),
+  set: (key, value) =>
+   new Promise((resolve) => {
+    // Expire the key after 60 seconds
+    redisClient.set(key, JSON.stringify(value), 'EX', 60, (err, reply) => {
+     console.log('set ' + key + ' to cache', err);
+     resolve();
+    });
+   }),
+ },
+});
+
+router.get('/', function (req, res, next) {
+ flagsmith.getValue('background_colour').then((value) => {
+  res.render('index', {
+   title: value,
+  });
+ });
+});
+```
+
+</TabItem>
+</Tabs>
+
 ## Contribute to the SDKs
 
 All our SDKs are Open Source.
