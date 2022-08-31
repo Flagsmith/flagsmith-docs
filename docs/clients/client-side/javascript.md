@@ -92,6 +92,25 @@ flagsmith.init({
 });
 ```
 
+### Providing Default Flags as part of CI/CD
+
+You can automatically populate your frontend application with sane defaults by using our
+[CLI](https://github.com/Flagsmith/flagsmith-cli). This is recommended as part of
+[defensive coding](../../guides-and-examples/defensive-coding.md) and allows for offline applications to function.
+
+The main steps to achieving this are as follows:
+
+1. Install the CLI `npm i flagsmith-cli --save-dev`
+2. Call the CLI as part of npm postinstall to create a `flagsmith.json` every build and local `npm install`. This can be
+   done by either ` export FLAGSMITH_ENVIRONMENT=<YOUR_CLIENT_SIDE_ENVIRONMENT_KEY> flagsmith get` or
+   `flagsmith get <YOUR_CLIENT_SIDE_ENVIRONMENT_KEY>`.
+
+3. In your application, initialise Flagsmith with the resulting JSON, this will set default flags before attempting to
+   use local storage or call the API. `flagsmith.init({environmentID: json.environmentID, state:json})`
+
+A working example of this can be found [here](https://github.com/Flagsmith/flagsmith-cli/tree/main/example). A list of
+cli commands can be found [here](https://github.com/Flagsmith/flagsmith-cli).
+
 ## Identifying users
 
 Identifying users allows you to target specific users from the Flagsmith dashboard and configure features and traits.
