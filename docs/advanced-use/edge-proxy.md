@@ -131,6 +131,11 @@ curl "http://localhost:8000/api/v1/flags" -H "x-environment-key: 95DybY5oJoRNhxP
 ]
 ```
 
+## Monitoring
+
+When making a request to `/health` the proxy will respond with a HTTP `200` and `{"status": "ok"}`. You can point your
+orchestration health checks to this endpoint.
+
 ## Managing Traits
 
 There is one caveat with the Edge Proxy. Because it is entirely stateless, it is not able to persist Trait data into any
