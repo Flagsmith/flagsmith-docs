@@ -892,6 +892,21 @@ private static FlagsmithClient flagsmith = FlagsmithClient
     .build();
 ```
 
+### Custom HTTP Headers
+
+Adding custom headers to all HTTP calls:
+
+```java
+final HashMap<String, String> customHeaders = new HashMap(){{
+    put("x-custom-header", "value1");
+    put("x-my-key", "value2");
+}};
+FlagsmithClient flagsmithClient = FlagsmithClient.newBuilder()
+    // other configuration as shown above
+    .withCustomHttpHeaders(customHeaders)
+    .build();
+```
+
 </TabItem>
 <TabItem value="dotnet" label=".NET">
 
@@ -1480,6 +1495,36 @@ router.get('/', function (req, res, next) {
   });
  });
 });
+```
+
+</TabItem>
+</Tabs>
+
+## Logging
+
+The following SDKs have code and functionality related to logging.
+
+<Tabs groupId="language">
+<TabItem value="java" label="Java">
+
+Logging is disabled by default. If you would like to enable it then call `.enableLogging()` on the client builder:
+
+```java
+FlagsmithClient flagsmithClient = FlagsmithClient.newBuilder()
+                // other configuration as shown above
+                .enableLogging()
+                .build();
+```
+
+Flagsmith uses [SLF4J](http://www.slf4j.org) and we only implement its API. If your project does not already have SLF4J,
+then include an implementation, i.e.:
+
+```xml
+<dependency>
+    <groupId>org.slf4j</groupId>
+    <artifactId>slf4j-simple</artifactId>
+    <version>${slf4j.version}</version>
+</dependency>
 ```
 
 </TabItem>
