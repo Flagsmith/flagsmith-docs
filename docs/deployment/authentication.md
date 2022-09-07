@@ -67,10 +67,9 @@ For now, we'll leave **Idp metadata xml** empty.
 Once you've completed these fields, hit the **Save** button to create the SAML configuration.
 
 Now, we need to grab the Flagsmith service provider metadata to configure the integration on your IDP. To do this, open
-a new browser tab and head to [https://api.flagsmith.com/api/v1/auth/saml/\<organisation
-name\>/metadata/](https://api.flagsmith.com/api/v1/auth/saml/\<organisation name\>/metadata/) where _\<organisation
-name\>_ is the name you provided above. From here, copy and paste what you see in the web page into a new text file and
-save that file as `flagsmith-sp-metadata.xml` or similar.
+a new browser tab and head to `https://<your Flagsmith API>/api/v1/auth/saml/<organisation_name>/metadata/` where
+`<organisation_name>` is the name you provided above. From here, copy and paste what you see in the web page into a new
+text file and save that file as `flagsmith-sp-metadata.xml` or similar.
 
 Note: do not use 'save page as' from your browser as this will likely result in the metadata being incorrect and the
 integration will not work.
