@@ -62,10 +62,16 @@ final flagsmithClient = await FlagsmithClient.init(
 await flagsmithClient.getFeatureFlags(reload: true) // fetch updates from api
 ```
 
-To check if a feature flag exists and is enabled:
+To check if a feature flag exists:
 
 ```dart
-bool featureEnabled = await flagsmithClient.hasFeatureFlag("my_test_feature");
+bool featureExists = await flagsmithClient.hasFeatureFlag("my_test_feature");
+```
+
+Check if Feature flag exist and is enabled:
+
+```dart
+bool featureEnabled = await flagsmithClient.isFeatureFlagEnabled("my_test_feature");
 if (featureEnabled) {
     // run the code to execute enabled feature
 } else {
