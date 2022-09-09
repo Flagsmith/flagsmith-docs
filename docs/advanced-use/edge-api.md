@@ -59,7 +59,7 @@ as well as multi-region failover and fault tolerance.
 
 Set your applications up to point to the Flagsmith Edge API. This means going from `api.flagsmith.com` to
 `edge.api.flagsmith.com`. You can either set this explicitly in our SDK or just ensure you are running the latest
-version of the SDK; by default they will point to `edge.api.flagsmith.com`.
+version of the SDK; by default the _latest version_ of the SDKs will point to `edge.api.flagsmith.com`.
 
 ### Step 2 - Migrate your data
 
