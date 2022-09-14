@@ -86,6 +86,8 @@ You can find a complete list of endpoints via the Swagger REST API at
 
 ### Code Examples
 
+#### Update the value / state of a feature in an environment
+
 Here is a simple python example for updating the value of a feature state in a particular environment.
 
 ```python
