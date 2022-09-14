@@ -83,3 +83,39 @@ curl 'https://api.flagsmith.com/api/v1/environments/' \
 
 You can find a complete list of endpoints via the Swagger REST API at
 [https://api.flagsmith.com/api/v1/docs/](https://api.flagsmith.com/api/v1/docs/).
+
+### Code Examples
+
+#### Update the value / state of a feature in an environment
+
+Here is a simple python example for updating the value of a feature state in a particular environment.
+
+```python
+import json
+import os
+
+import requests
+
+TOKEN = os.environ.get("API_TOKEN")  # ontained from Account section in dashboard
+ENV_KEY = os.environ.get("ENV_KEY")  # obtained from environment settings in dashboard
+BASE_URL = "https://api.flagsmith.com/api/v1"  # update this if self hosting
+FEATURE_STATES_URL = f"{BASE_URL}/environments/{ENV_KEY}/featurestates"
+FEATURE_NAME = os.environ.get("FEATURE_NAME")
+
+session = requests.Session()
+session.headers.update(
+    {"Authorization": f"Token {TOKEN}", "Content-Type": "application/json"}
+)
+
+# get the existing feature state id based on the feature name
+get_feature_states_response = session.get(
+    f"{FEATURE_STATES_URL}/?feature_name={FEATURE_NAME}"
+)
+feature_state_id = get_feature_states_response.json()["results"][0]["id"]
+
+# update the feature state
+data = {"enabled": True, "feature_state_value": "new value"}  # `feature_state_value` can be str, int, bool or float
+update_feature_state_response = session.patch(
+    f"{FEATURE_STATES_URL}/{feature_state_id}/", data=json.dumps(data)
+)
+```
