@@ -69,7 +69,7 @@ access to it.
 
 :::
 
-### With docker run:
+### With docker run
 
 ```bash
 # Download the Docker Image
@@ -82,7 +82,7 @@ docker run \
     flagsmith/edge-proxy:latest
 ```
 
-### With docker compose:
+### With docker compose
 
 ```yml
 version: '3.9'
