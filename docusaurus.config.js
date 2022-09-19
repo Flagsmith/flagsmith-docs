@@ -52,6 +52,7 @@ module.exports = {
                     position: 'left',
                     label: 'Docs',
                 },
+                { to: '/api', label: 'API', position: 'left' },
                 {
                     href: 'https://flagsmith.com',
                     label: 'Flagsmith.com',
@@ -128,7 +129,7 @@ module.exports = {
     },
     presets: [
         [
-            '@docusaurus/preset-classic',
+            'docusaurus-preset-openapi',
             {
                 docs: {
                     sidebarPath: require.resolve('./sidebars.js'),
@@ -149,6 +150,9 @@ module.exports = {
                 },
                 theme: {
                     customCss: require.resolve('./src/css/custom.css'),
+                },
+                api: {
+                    path: 'openapi.json.bak',
                 },
             },
         ],
