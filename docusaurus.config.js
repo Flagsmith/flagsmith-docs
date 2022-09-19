@@ -52,7 +52,11 @@ module.exports = {
                     position: 'left',
                     label: 'Docs',
                 },
-                { to: '/api', label: 'API', position: 'left' },
+                {
+                    to: '/api',
+                    label: 'API',
+                    position: 'left',
+                },
                 {
                     href: 'https://flagsmith.com',
                     label: 'Flagsmith.com',
@@ -152,7 +156,7 @@ module.exports = {
                     customCss: require.resolve('./src/css/custom.css'),
                 },
                 api: {
-                    path: 'openapi.json.bak',
+                    path: 'openapi.json',
                 },
             },
         ],
