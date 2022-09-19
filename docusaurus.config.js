@@ -156,7 +156,7 @@ module.exports = {
                     customCss: require.resolve('./src/css/custom.css'),
                 },
                 api: {
-                    path: 'openapi.json',
+                    path: 'api_spec',
                 },
             },
         ],
