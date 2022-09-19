@@ -29,6 +29,12 @@ who is responsible for a particular flag.
 
 <img width="75%" src="/img/flag-owners.png"/>
 
+## Flag Defaults
+
+By default, when you create a feature with a value and enabled state it acts as a default for your other Environments.
+In the Project Settings page, you have the option of enabling this setting. It forces the user to create a Feature
+before setting its values per Environment.
+
 ## Comparing Flags
 
 You can compare Flags both across Environments and for individual Flags.
