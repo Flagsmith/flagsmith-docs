@@ -11,12 +11,15 @@ testing purposes. See running in production for notes on how to deploy the proje
 
 ## Prerequisites
 
-What things you need to install the software and how to install them
+What things you need to install the software and how to install them. Installing nvm and their bash script will ensure
+developers are on the same NodeJS version.
 
-| Location                                    | Suggested Version |
-| ------------------------------------------- | :---------------: |
-| <a href="https://nodejs.org/en/">NodeJS</a> |     >= 16.0.0     |
-| <a href="https://nodejs.org/en/">npm</a>    |     >= 8.0.0      |
+| Location                                                                | Suggested Version |
+| ----------------------------------------------------------------------- | :---------------: |
+| <a href="https://nodejs.org/en/">NodeJS</a>                             |     >= 16.0.0     |
+| <a href="https://nodejs.org/en/">npm</a>                                |     >= 8.0.0      |
+| <a href="https://github.com/nvm-sh/nvm#installing-and-updating">nvm</a> |     >= 0.39.0     |
+| <a href="https://github.com/nvm-sh/nvm#zsh">nvm zshrc setup</a>         |        n/a        |
 
 ## Installing
 
