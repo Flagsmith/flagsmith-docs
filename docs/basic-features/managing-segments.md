@@ -158,11 +158,13 @@ This is the only operator that does not require a Trait. You can use the percent
 
 ### Modulo Operator
 
-This operator performs [modulo operation](https://en.wikipedia.org/wiki/Modulo_operation). This operator accepts rule value in `divisor|remainder` format and is applicable for Traits having `integer` or `float` values. For example:
+This operator performs [modulo operation](https://en.wikipedia.org/wiki/Modulo_operation). This operator accepts rule
+value in `divisor|remainder` format and is applicable for Traits having `integer` or `float` values. For example:
 
 `userId` `%` `2|0`
 
-This segment rule will include all identities having `int` or `float` `userId` trait and having a remainder equal to 0 after being divided by 2.
+This segment rule will include all identities having `int` or `float` `userId` trait and having a remainder equal to 0
+after being divided by 2.
 
 `userId % 2 == 0`
 

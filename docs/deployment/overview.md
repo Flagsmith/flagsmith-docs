@@ -490,8 +490,8 @@ The list of the flags and remote config we're currently using in production is b
   "label": "Matches regex"
  },
  {
-   "value": "MODULO",
-   "label": "Modulo operation"
+  "value": "MODULO",
+  "label": "Modulo operation"
  }
 ]
 ```
