@@ -133,8 +133,18 @@ curl "http://localhost:8000/api/v1/flags" -H "x-environment-key: 95DybY5oJoRNhxP
 
 ## Monitoring
 
-When making a request to `/health` the proxy will respond with a HTTP `200` and `{"status": "ok"}`. You can point your
-orchestration health checks to this endpoint.
+There are 2 health check endpoints for the Edge Proxy.
+
+### SDK Proxy Health Check
+
+When making a request to `/proxy/health` the proxy will respond with a HTTP `200` and `{"status": "ok"}`. You can point
+your orchestration health checks to this endpoint. This endpoint checks that the Environment document is not stale, and
+that the proxy is serving SDK requests.
+
+### Realtime Flags/Server Sent Events Health Check
+
+If you are using the Proxy to power Server Sent Events for realtime flag updates. When making a request to `/sse/health`
+the proxy will respond with a HTTP `200` and `{"status": "ok"}`.
 
 ## Managing Traits
 
