@@ -217,7 +217,7 @@ your app and retain access to getValue, hasFeature etc for each user.
 Type:
 
 ```javascript
-export function createFlagsmithInstance (): IFlagsmith<br class="Apple-interchange-newline">
+export function createFlagsmithInstance (): IFlagsmith
 ```
 
 Usage:
