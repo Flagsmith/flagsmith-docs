@@ -1,6 +1,6 @@
 {
     "openapi": "3.0.3",
-    "info": { "title": "SDK endpoints", "version": "1" },
+    "info": { "title": "Edge API", "version": "1" },
 
     "paths": {
         "/flags": {
