@@ -72,7 +72,7 @@ python manage.py checktaskprocessorthreadhealth
 
 The command will exit with either a success exit code (0) or a failure exit code (1).
 
-### API <-> Task Processor health
+### API to Task Processor health
 
 To monitor that the API can send tasks to the processor and that they are successfully run, there is a custom health
 check which can be enabled on the general health endpoint (`GET /health?format=json`). This health check needs to be
