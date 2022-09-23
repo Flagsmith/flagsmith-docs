@@ -47,7 +47,7 @@ A basic docker-compose setup might look like:
            - postgres
 ```
 
-## Configuring the processor
+## Configuring the Processor
 
 The processor exposes a number of configuration options to tune the processor to your needs / setup. These configuration
 options are via command line arguments when starting the processor.
@@ -57,3 +57,38 @@ options are via command line arguments when starting the processor.
 | `--sleepintervalms` | The amount of ms each worker should sleep between checking for a new task | 2000    |
 | `--numthreads`      | The number of worker threads to run per task processor instance           | 5       |
 | `--graceperiodms`   | The amount of ms before a worker thread is considered 'stuck'.            | 3000    |
+
+## Monitoring
+
+There are a number of options for monitoring the task processor's health.
+
+### Checking Thread / Worker Health
+
+The task processor includes a management command which checks the health of the worker threads which are running tasks.
+
+```
+python manage.py checktaskprocessorthreadhealth
+```
+
+The command will exit with either a success exit code (0) or a failure exit code (1).
+
+### API <-> Task Processor health
+
+To monitor that the API can send tasks to the processor and that they are successfully run, there is a custom health
+check which can be enabled on the general health endpoint (`GET /health?format=json`). This health check needs to be
+enabled manually, which can be done by setting the `ENABLE_TASK_PROCESSOR_HEALTH_CHECK` environment variable to `True`.
+Note that this health check is not considered "critical" and hence, the endpoint will return a 200 OK regardless of
+whether the task processor is sucessfully processing tasks or not.
+
+### Task statistics
+
+Within the API, there is an endpoint which returns, in JSON format, statistics about the tasks consumed / to be consumed
+by the processor. This endpoint is available at `GET /processor/monitoring`. This will respond with the following data:
+
+```json
+{
+ "waiting": 1,
+ "completed": 43,
+ "failed": 3
+}
+```
