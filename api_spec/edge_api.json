@@ -7,16 +7,154 @@
             "get": {
                 "tags": [],
                 "summary": "Get flags",
-                "description": "A `GET` request sent to the flags endpoint returns a list of feature flags for the authenticated environment.",
-                "responses": { "200": { "description": "ok" } }
+                "description": "USING THIS ENDPOINT WITH AN IDENTIFIER IS DEPRECATED.\n\n Please use `/identities/?identifier=<identifier>` instead. \n\n Note that when providing the `feature` query argument, this endpoint will return either a single object or a 404 (if the feature does not exist) rather than a list.",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "id": {
+                        "description": "integer \n\ntitle: `ID`\n\nreadOnly: `true`"
+                    },
+                    "name": {
+                        "description": "string \n\ntitle: `Name`\n\nmaxLength: `2000`\n\nminLength: `1`"
+                    },
+                    "created_date": {
+                        "description": "string($date-time) \n\ntitle: `DateCreated`\n\nreadOnly: `true`"
+                    },
+                    "description": {
+                        "description": "string \n\ntitle: `Description`\n\nx-nullable: `true`"
+                    },
+                    "initial_value": {
+                        "description": "string \n\ntitle: `Initial value`\n\nmaxLength: `2000`\n\nx-nullable: `true`"
+                    },
+                    "default_enabled": {
+                        "description": "boolean \n\ntitle: `Default enabled`"
+                    },
+                    "type": {
+                        "description": "string \n\ntitle: `Type`\n\nmaxLength: `50`"
+                    },
+                    "feature_state_value": {
+                        "description": "string \n\ntitle: `Feature state value`\n\nreadOnly: `true`"
+                    },
+                    "environment": {
+                        "description": "integer \n\ntitle: `Environment`\n\nx-nullable: `true`"
+                    },
+                    "identity": {
+                        "description": "integer \n\ntitle: `Identity`\n\nx-nullable: `true`"
+                    },
+                    "feature_segment": {
+                        "description": "integer \n\ntitle: `Feature segment`\n\nx-nullable: `true`"
+                    },
+                    "enabled": {
+                        "description": "boolean \n\ntitle: `Type`\n\ntittle: `Enabled`"
+                    }
+                }
             }
         },
         "/identities": {
             "get": {
-                "summary": "Get identity flags"
+                "tags": [],
+                "summary": "Get identities",
+                "description": " ",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "id": {
+                        "description": "integer \n\ntitle: `ID`\n\nreadOnly: `true`"
+                    },
+                    "name": {
+                        "description": "string \n\ntitle: `Name`\n\nmaxLength: `2000`\n\nminLength: `1`"
+                    },
+                    "created_date": {
+                        "description": "string($date-time) \n\ntitle: `DateCreated`\n\nreadOnly: `true`"
+                    },
+                    "description": {
+                        "description": "string \n\ntitle: `Description`\n\nx-nullable: `true`"
+                    },
+                    "initial_value": {
+                        "description": "string \n\ntitle: `Initial value`\n\nmaxLength: `2000`\n\nx-nullable: `true`"
+                    },
+                    "default_enabled": {
+                        "description": "boolean \n\ntitle: `Default enabled`"
+                    },
+                    "type": {
+                        "description": "string \n\ntitle: `Type`\n\nmaxLength: `50`"
+                    },
+                    "feature_state_value": {
+                        "description": "string \n\ntitle: `Feature state value`\n\nreadOnly: `true`"
+                    },
+                    "environment": {
+                        "description": "integer \n\ntitle: `Environment`\n\nx-nullable: `true`"
+                    },
+                    "identity": {
+                        "description": "integer \n\ntitle: `Identity`\n\nx-nullable: `true`"
+                    },
+                    "feature_segment": {
+                        "description": "integer \n\ntitle: `Feature segment`\n\nx-nullable: `true`"
+                    },
+                    "enabled": {
+                        "description": "boolean \n\ntitle: `Type`\n\ntittle: `Enabled`"
+                    },
+                    "trait_key": {
+                        "description": "string \n\ntitle: `Trait key`\n\nminLength: `1`"
+                    },
+                    "trait_value": {
+                        "description": "string \n\ntitle: `Trait value`"
+                    }
+                }
             },
             "post": {
-                "summary": "Get identities flags (with traits)"
+                "tags": [],
+                "summary": "Post identities",
+                "description": " ",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "id": {
+                        "description": "integer \n\ntitle: `ID`\n\nreadOnly: `true`"
+                    },
+                    "name": {
+                        "description": "string \n\ntitle: `Name`\n\nmaxLength: `2000`\n\nminLength: `1`"
+                    },
+                    "created_date": {
+                        "description": "string($date-time) \n\ntitle: `DateCreated`\n\nreadOnly: `true`"
+                    },
+                    "description": {
+                        "description": "string \n\ntitle: `Description`\n\nx-nullable: `true`"
+                    },
+                    "initial_value": {
+                        "description": "string \n\ntitle: `Initial value`\n\nmaxLength: `2000`\n\nx-nullable: `true`"
+                    },
+                    "default_enabled": {
+                        "description": "boolean \n\ntitle: `Default enabled`"
+                    },
+                    "type": {
+                        "description": "string \n\ntitle: `Type`\n\nmaxLength: `50`"
+                    },
+                    "feature_state_value": {
+                        "description": "string \n\ntitle: `Feature state value`\n\nreadOnly: `true`"
+                    },
+                    "environment": {
+                        "description": "integer \n\ntitle: `Environment`\n\nx-nullable: `true`"
+                    },
+                    "identity": {
+                        "description": "integer \n\ntitle: `Identity`\n\nx-nullable: `true`"
+                    },
+                    "feature_segment": {
+                        "description": "integer \n\ntitle: `Feature segment`\n\nx-nullable: `true`"
+                    },
+                    "enabled": {
+                        "description": "boolean \n\ntitle: `Type`\n\ntittle: `Enabled`"
+                    },
+                    "trait_key": {
+                        "description": "string \n\ntitle: `Trait key`\n\nminLength: `1`"
+                    },
+                    "trait_value": {
+                        "description": "string \n\ntitle: `Trait value`"
+                    }
+                }
             }
         }
     },

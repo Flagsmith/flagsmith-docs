@@ -21,7 +21,7 @@
         "@docusaurus/theme-search-algolia": "^2.1.0",
         "@ionic-internal/docusaurus-plugin-tag-manager": "github:ionic-team/docusaurus-plugin-tag-manager",
         "@mdx-js/react": "^1.6.21",
-        "@svgr/webpack": "^5.5.0",
+        "@svgr/webpack": "^6.3.1",
         "clsx": "^1.1.1",
         "docusaurus-preset-openapi": "^0.6.2",
         "file-loader": "^6.2.0",
@@ -44,6 +44,7 @@
     },
     "devDependencies": {
         "husky": "^8.0.1",
+        "prettier": "^2.7.1",
         "pretty-quick": "^3.1.3"
     }
 }
