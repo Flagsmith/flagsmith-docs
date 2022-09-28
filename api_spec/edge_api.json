@@ -15,10 +15,11 @@
                 "description": "USING THIS ENDPOINT WITH AN IDENTIFIER IS DEPRECATED.\n\n Please use `/identities/?identifier=<identifier>` instead. \n\n Note that when providing the `feature` query argument, this endpoint will return either a single object or a 404 (if the feature does not exist) rather than a list.",
                 "parameters": [
                     {
-                        "name": "Feature",
+                        "name": "x-environment-key",
                         "in": "header",
-                        "description": "Name of the feature to get the state of",
-                        "required": true
+                        "description": "Environment Key",
+                        "required": true,
+                        "schema": { "type": "string" }
                     }
                 ],
                 "responses": {
@@ -27,7 +28,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
+                                    "type": "object",
                                     "items": {
                                         "$ref": "#/components/schemas/Flag"
                                     }
@@ -45,9 +46,15 @@
                 "description": " ",
                 "parameters": [
                     {
-                        "name": "Feature",
+                        "name": "x-environment-key",
                         "in": "header",
-                        "description": "Name of the feature to get the state of",
+                        "description": "Environment Key",
+                        "required": true
+                    },
+                    {
+                        "name": "identity-token",
+                        "in": "header",
+                        "description": "Identity Key",
                         "required": true
                     }
                 ],
@@ -57,9 +64,9 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "type": "array",
+                                    "type": "object",
                                     "items": {
-                                        "$ref": "#/components/schemas/Identities"
+                                        "$ref": "#/components/schemas/Flag"
                                     }
                                 }
                             }
@@ -73,24 +80,30 @@
                 "description": " ",
                 "parameters": [
                     {
-                        "name": "Identifier",
+                        "name": "x-environment-key",
                         "in": "header",
-                        "description": "Name of the feature to get the state of",
+                        "description": "Environment Key",
                         "required": true
                     },
                     {
-                        "name": "Trait Key",
+                        "name": "identity-token",
                         "in": "header",
-                        "description": "",
-                        "required": true
-                    },
-                    {
-                        "name": "Trait Value",
-                        "in": "header",
-                        "description": "",
+                        "description": "Identity Key",
                         "required": true
                     }
                 ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "items": {
+                                    "$ref": "#/components/schemas/createBodyRequest"
+                                }
+                            }
+                        }
+                    }
+                },
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -99,7 +112,7 @@
                                 "schema": {
                                     "type": "array",
                                     "items": {
-                                        "$ref": "#/components/schemas/Identities"
+                                        "$ref": "#/components/schemas/Flag"
                                     }
                                 }
                             }
@@ -130,24 +143,9 @@
                     }
                 }
             },
-            "Identities": {
-                "required": [],
+            "FeatureStateValue": {
                 "type": "object",
-                "properties": {
-                    "feature": {
-                        "$ref": "#/components/schemas/Feature"
-                    },
-                    "feature_state_value": {
-                        "$ref": "#/components/schemas/FeatureStateValue"
-                    },
-                    "feature_trait_value": {
-                        "$ref": "#/components/schemas/FeatureTraitValue"
-                    },
-                    "enabled": {
-                        "title": "Enabled",
-                        "type": "boolean"
-                    }
-                }
+                "description": "Can be any of the following types: string, integer, boolean, float"
             },
             "Feature": {
                 "title": "Feature",
@@ -160,30 +158,10 @@
                         "readOnly": true
                     },
                     "name": {
-                        "title": "DateCreated",
+                        "title": "Name",
                         "type": "string",
                         "maxLength": 2000,
                         "minLength": 1
-                    },
-                    "created_date": {
-                        "title": "Name",
-                        "type": "string",
-                        "readOnly": true
-                    },
-                    "description": {
-                        "title": "Description",
-                        "type": "string",
-                        "x-nullable": true
-                    },
-                    "initial_value": {
-                        "title": "Initial Value",
-                        "type": "string",
-                        "maxLength": 2000,
-                        "x-nullable": true
-                    },
-                    "default_enable": {
-                        "title": "Default Enable",
-                        "type": "boolean"
                     },
                     "type": {
                         "title": "Type",
@@ -192,40 +170,31 @@
                     }
                 }
             },
-            "FeatureStateValue": {
+            "createBodyRequest": {
+                "title": "object",
+                "required": true,
                 "type": "object",
-                "description": "Can be any of the following types: string, integer, boolean, float",
                 "properties": {
-                    "environment": {
-                        "title": "Environment",
-                        "type": "integer",
-                        "x-nullable": true
-                    },
-                    "identity": {
-                        "title": "Identity",
-                        "type": "integer",
-                        "x-nullable": true
-                    },
-                    "feature_segment": {
-                        "title": "Feature Segment",
-                        "type": "integer",
-                        "x-nullable": true
-                    }
-                }
-            },
-            "FeatureTraitValue": {
-                "type": "object",
-                "description": "Can be any of the following types: string, integer, boolean, float",
-                "required": ["trait_key", "trait_value"],
-                "properties": {
-                    "trait_key": {
-                        "title": "Trait Key",
+                    "Identifier": {
+                        "title": "identifier",
                         "type": "string",
-                        "minLength": 1
+                        "maxLength": 50
                     },
-                    "trait_value": {
-                        "title": "Trait Value",
-                        "type": "string"
+                    "Traits": {
+                        "title": "Traits",
+                        "type": "object",
+                        "properties": {
+                            "Trait key": {
+                                "title": "trait_key",
+                                "type": "string",
+                                "maxLength": 50
+                            },
+                            "Trait Value": {
+                                "title": "trait_value",
+                                "type": "string",
+                                "maxLength": 50
+                            }
+                        }
                     }
                 }
             }
