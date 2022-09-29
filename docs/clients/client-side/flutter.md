@@ -62,10 +62,16 @@ final flagsmithClient = await FlagsmithClient.init(
 await flagsmithClient.getFeatureFlags(reload: true) // fetch updates from api
 ```
 
-To check if a feature flag exists and is enabled:
+To check if a feature flag exists:
 
 ```dart
-bool featureEnabled = await flagsmithClient.hasFeatureFlag("my_test_feature");
+bool featureExists = await flagsmithClient.hasFeatureFlag("my_test_feature");
+```
+
+Check if Feature flag exist and is enabled:
+
+```dart
+bool featureEnabled = await flagsmithClient.isFeatureFlagEnabled("my_test_feature");
 if (featureEnabled) {
     // run the code to execute enabled feature
 } else {
@@ -247,3 +253,9 @@ final flagsmithClient = FlagsmithClient(
           caches: true,
       ), apiKey: 'YOUR_ENV_API_KEY');
 ```
+
+## Known issues
+
+- If using the package Dio, you may encounter an error saying `Bad state: Future already completed`. There is a bug in
+  the Dio package, introduced in 4.0.5 (and as of writing this on 12/09/2022, is unresolved). To resolve, you'll need to
+  pin your Dio version in pubspec.yaml to 4.0.4 or earlier.

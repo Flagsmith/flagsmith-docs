@@ -114,9 +114,31 @@ Run `minikube ip`. Set this ip and `flagsmith.local` in your `/etc/hosts`, eg:
 
 Then access `http://flagsmith.local` in a browser.
 
-### Database configuration
+### Provided Database configuration
 
-By default, the chart creates its own PostgreSQL server within the cluster.
+By default, the chart creates its own PostgreSQL server within the cluster, referencing
+[https://github.com/helm/charts/tree/master/stable/postgresql](https://github.com/helm/charts/tree/master/stable/postgresql)
+for the service.
+
+:::caution
+
+We recommend running an externally managed database in production, either by deploying your own Postgres instance in
+your cluster, or using a service like [AWS RDS](https://aws.amazon.com/rds/postgresql/).
+
+:::
+
+You can provide configuration options to the postgres database by modifying the values, for example the below changes
+the max_connections:
+
+```yaml
+postgresql:
+ enabled: true
+
+ postgresqlConfiguration:
+  max_connections: '200' # override the default max_connections of 100
+```
+
+### External Database configuration
 
 To connect the Flagsmith API to an external PostgreSQL server set the values under `databaseExternal`, eg:
 

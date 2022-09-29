@@ -7,104 +7,174 @@ slug: /clients/android
 
 ## Installation
 
-The client library is available from the Central Maven Repository and can be added to your project by many tools:
+### Gradle (app)
 
-### Maven
+In path "{{root}}/app/build.gradle" add new dependence
 
-Add following dependencies to your project in `pom.xml`
-
-```xml
-<dependency>
-    <groupId>com.flagsmith</groupId>
-    <artifactId>flagsmith-kotlin-client</artifactId>
-    <version>5.0.0</version>
-</dependency>
+```gradle
+//flagsmith
+implementation 'com.github.Flagsmith/flagsmith-kotlin-android-client:0.1.0'
 ```
 
-### Gradle
+### Gradle (Project)
 
-```groovy
-implementation 'com.flagsmith:flagsmith-kotlin-client:5.0.0'
+In new gradle version 7+ write at file "settings.gradle"
+
+```gradle
+repositories {
+    google()
+    mavenCentral()
+
+    maven { url "https://jitpack.io" }
+
+}
 ```
+
+## Tutorial
+
+### Android App Screens
+
+### Dashboard Flagsmith.com with Android Application
+
+<img src="/screens/00.png" height="300"/>
 
 ## Basic Usage
 
-The SDK is initialised against a single environment within a project on [https://flagsmith.com](https://flagsmith.com),
-for example the Development or Production environment. You can find your Client-side Environment Key in the Environment
-settings page.
+The SDK is initialised against a single environment within a project on <https://flagsmith.com>, for example the
+Development or Production environment. You can find your Client-side Environment Key in the Environment settings page.
 
-![Image](/img/api-key.png)
+<img src="https://docs.flagsmith.com/assets/images/api-key-e495cbc55f0a0fcf19dabab16bd7507e.png" height="500"/>
 
-### Initialization
+## Initialization
 
-Within your application delegate (usually _App.kt_) add:
+### Create class "Helper" to set the constant key
 
-```kotlin
-import com.flagsmith.kotlin.FlagsmithClient
-```
-
-```kotlin
-val client: FlagsmithClient = FlagsmithClient.Builder()
-    .apiKey("YOUR_ENV_API_KEY")
-    .build()
-```
-
-Now you are all set to retrieve feature flags from your project. For example to list and print all flags:
+- This key generated from Dashboard Website
+- By default, the client uses a default configuration. You can override the configuration as follows Override just the
+  default API URI with your own:
 
 ```kotlin
-val flags: Flags = client.getEnvironmentFlags()
-for (flag in flags.allFlags) {
-    val name = flag.featureName
-    val value = flag.value
-    val enabled = flag.enabled
-    println("$name = enabled: $enabled value: $value")
+object Helper {
+
+   var tokenApiKey: String = "a97c6f022fe7b736f7bcf6f99019337a7ff2f7d3"
+   var environmentDevelopmentKey = "DaeCHJMjZtSmNuuzhV9UWy"
+   var identifierUserKey: String = "development_test_user_123456";
 }
 ```
 
-To retrieve flags by an identity and specified traits use this:
+### Within your Activity inside "onCreate()"
 
 ```kotlin
-val result = client.getIdentityFlags("development_user_identity", traits = hasMapOf("fav_colour" to "color_hex"))
-for (flag in flags.allFlags) {
-    val name = flag.featureName
-    val value = flag.value
-    val enabled = flag.enabled
-    println("$name = enabled: $enabled value: $value")
+lateinit var flagBuilder : FlagsmithBuilder
+
+override fun onCreate(savedInstanceState: Bundle?) {
+    initBuilder();
+}
+
+private fun initBuilder() {
+    flagBuilder = FlagsmithBuilder.Builder()
+        .tokenApi( Helper.tokenApiKey)
+        .environmentId(Helper.environmentDevelopmentKey)
+        .identifierUser( Helper.identifierUserKey)
+        .build();
 }
 ```
 
-For more info about managing identities check out this article:
-[Identities](https://docs.flagsmith.com/managing-identities/)
+## Flags
 
-For more info about identity traits follow this article:
-[Traits](https://docs.flagsmith.com/managing-identities/#identity-traits)
-
-## Override default configuration
-
-If you would like to change the default settings, you can overwrite them by using the available builder methods:
+### Flag Object Data
 
 ```kotlin
-val client: FlagsmithClient = FlagsmithClient.Builder()
-    .apiKey("YOUR_ENV_API_KEY")
-    .apiUrl("http://yoururl.com")
-    .customHeaders(hashMapOf("headerKey" to "headerVal"))
-    .build()
+data class ResponseFlagElement (
+    val id: Long,
+    val feature: Feature,
+    val featureStateValue: String,
+    val environment: Long,
+    val identity: Any? = null,
+    val featureSegment: Any? = null,
+    val enabled: Boolean
+)
+
+data class Feature (
+    val id: Long,
+    val name: String,
+    val description: String,
+    val type: String
+)
 ```
 
-or by using the `FlagsmithConfig` you're able to define more advanced settings:
+### Now you are all set to retrieve feature flags from your project. For example to list and print all flags
 
 ```kotlin
-val config: FlagsmithConfig = FlagsmithConfig.Builder()
-    .baseUri("http://yoururl.com")
-    .addHttpInterceptor(interceptor)
-    .environmentRefreshIntervalSeconds(10)
-    .build()
+//listener
+flagBuilder.getAllFlag(
+    object : IFlagArrayResult {
+        override fun success(list: ArrayList<ResponseFlagElement>) {
+        }
 
-val client: FlagsmithClient = FlagsmithClient.Builder()
-    .apiKey("YOUR_ENV_API_KEY")
-    .configuration(config)
-    .build()
+    override fun failed(str: String) {
+    }
+});
 ```
 
-For more info about the available `FlagsmithConfig`'s builder methods see the
-[Configuring the SDK](https://docs.flagsmith.com/clients/server-side#configuring-the-sdk) article.
+### Check Flag key is found
+
+```kotlin
+flagBuilder.hasFeatureFlag(keyFlag, object  : IFeatureFoundChecker {
+    override fun found() {
+
+    }
+
+    override fun notFound() {
+
+    }
+})
+```
+
+### Get Flag Object by featureId
+
+To retrieve a config value by its name
+
+```kotlin
+flagBuilder.getFeatureByIdAPi(   searchText, object  : IFlagSingle{
+    override fun success(flag: ResponseFlagElement) {
+
+    }
+
+    override fun failed(str: String) {
+
+    }
+});
+```
+
+### Create Tait by "keyTrait" and "valueTrait"
+
+```kotlin
+flagBuilder.createTrait(  key, value, object  : ITraitUpdate {
+    override fun success(response: ResponseTraitUpdate) {
+
+    }
+
+    override fun failed(str: String) {
+
+    }
+})
+```
+
+### Get all Traits
+
+To retrieve a trait for a particular identity
+[( See Traits )](https://docs.flagsmith.com/basic-features/managing-identities#identity-traits):
+
+```kotlin
+flagBuilder.getAllTrait(   object : ITraitArrayResult {
+    override fun success(list: ArrayList<Trait>) {
+
+    }
+
+    override fun failed(str: String) {
+
+
+    }
+})
+```

@@ -6,12 +6,13 @@ The Edge API is only available with on our SaaS platform. It does not form part 
 
 :::
 
-[The Flagsmith Architecture](/advanced-use/integration-approaches#flags-are-evaluated-server-side) is based around a
-server-side flag engine. This comes with a number of benefits, but it can increase latency, especially when the calls
-are being made from a location that is far from the EU; the location of our current API.
+[The Flagsmith Architecture](/guides-and-examples/integration-approaches#flags-are-evaluated-server-side) is based
+around a server-side flag engine. This comes with a number of benefits, but it can increase latency, especially when the
+calls are being made from a location that is far from the EU; the location of our current API. It also provides a single
+point of failure in the event of an AWS region-wide outage.
 
-In order to solve this problem we have developed a Global Edge API. Our aim for this API is to serve all SDK requests
-within 100 milliseconds, anywhere in the world. In order to achieve this, we are using the following AWS components.
+The Edge API solves both of these issues. It provides a datastore and Edge compute API that is replicated across 8 AWS
+regions, with latency-based routing and global failover in the event of a region outage.
 
 ## Enabling the Edge API
 
@@ -58,7 +59,7 @@ as well as multi-region failover and fault tolerance.
 
 Set your applications up to point to the Flagsmith Edge API. This means going from `api.flagsmith.com` to
 `edge.api.flagsmith.com`. You can either set this explicitly in our SDK or just ensure you are running the latest
-version of the SDK; by default they will point to `edge.api.flagsmith.com`.
+version of the SDK; by default the _latest version_ of the SDKs will point to `edge.api.flagsmith.com`.
 
 ### Step 2 - Migrate your data
 
@@ -95,6 +96,10 @@ the Edge API.
 ### Increment and Decrement endpoints are deprecated
 
 You probably didn't know these existed though, right?
+
+### Bulk Trait endpoint is deprecated
+
+But you can still achieve the same functionality using our POST /identities endpoints.
 
 ### The API responses have been slimmed down
 

@@ -1,14 +1,14 @@
 ---
-title: Flagsmith Javascript SDK
-sidebar_label: Javascript
-description: Manage your Feature Flags and Remote Config in your Javascript applications.
+title: Flagsmith JavaScript SDK
+sidebar_label: JavaScript
+description: Manage your Feature Flags and Remote Config in your JavaScript applications.
 slug: /clients/javascript
 ---
 
-This library can be used with pure Javascript, React (and all other popular frameworks/libraries) and React Native
+This library can be used with pure JavaScript, React (and all other popular frameworks/libraries) and React Native
 projects. The source code for the client is available on [Github](https://github.com/flagsmith/flagsmith-js-client).
 
-Example applications for a variety of Javascript frameworks such as React, Vue and Angular, as well as React Native, can
+Example applications for a variety of JavaScript frameworks such as React, Vue and Angular, as well as React Native, can
 be found here:
 
 - [Flagsmith Framework Examples](https://github.com/flagsmith/flagsmith-js-client/tree/main/examples)
@@ -91,6 +91,26 @@ flagsmith.init({
     },
 });
 ```
+
+### Providing Default Flags as part of CI/CD
+
+You can automatically set default flags for your frontend application in CI/CD by using our
+[CLI](https://github.com/Flagsmith/flagsmith-cli) in your build pipelines.
+
+The main steps to achieving this are as follows:
+
+1. Install the CLI `npm i flagsmith-cli --save-dev`
+2. Call the CLI as part of npm postinstall to create a `flagsmith.json` each time you run `npm install`. This can be
+   done by either:
+
+   - Using an environment variable `export FLAGSMITH_ENVIRONMENT=<YOUR_CLIENT_SIDE_ENVIRONMENT_KEY> flagsmith get`
+   - Manually specifying your environment key `flagsmith get <YOUR_CLIENT_SIDE_ENVIRONMENT_KEY>`.
+
+3. In your application, initialise Flagsmith with the resulting JSON, this will set default flags before attempting to
+   use local storage or call the API. `flagsmith.init({environmentID: json.environmentID, state:json})`
+
+A working example of this can be found [here](https://github.com/Flagsmith/flagsmith-cli/tree/main/example). A list of
+cli commands can be found [here](https://github.com/Flagsmith/flagsmith-cli).
 
 ## Identifying users
 
@@ -210,6 +230,7 @@ All function and property types can be seen
 | `preventFetch?: boolean`                                                       |                                                                                     If you want to disable fetching flags and call getFlags later.                                                                                     |          |                                  false |
 | `state?: IState`                                                               |                                                                                   Set a predefined state, useful for SSR / isomorphic applications.                                                                                    |          |                                  false |
 | `api?: string`                                                                 |                                                                   Use this property to define where you're getting feature flags from, e.g. if you're self hosting.                                                                    |          | https://edge.api.flagsmith.com/api/v1/ |
+| `eventSourceUrl?: string`                                                      |                                                 Use this property to define where you're getting real-time flag update events (server sent events) from, e.g. if you're self hosting.                                                  |          | https://edge.api.flagsmith.com/api/v1/ |
 | `identity?: string`                                                            |                                                                           Specifying an identity will fetch flags for that identity in the initial API call.                                                                           |  **YES** |                                   null |
 | `traits?:Record<string, string or number or boolean>`                          |                                                                           Specifying traits will send the traits for that identity in the initial API call.                                                                            |  **YES** |                                   null |
 
@@ -240,7 +261,7 @@ your app and retain access to getValue, hasFeature etc for each user.
 Type:
 
 ```javascript
-export function createFlagsmithInstance (): IFlagsmith<br class="Apple-interchange-newline">
+export function createFlagsmithInstance (): IFlagsmith
 ```
 
 Usage:
@@ -251,6 +272,33 @@ const flagsmith = createFlagsmithInstance();
 const flagsmithB = createFlagsmithInstance();
 
 // now you can use flagsmith as before but in its own instance
+```
+
+## TypeScript Support
+
+Flagsmith has full TypeScript support for its JavaScript clients, you can find our main type definition file
+[here](https://github.com/Flagsmith/flagsmith-js-client/blob/main/types.d.ts#L35). You can also enforce type safety of
+feature and trait names using generics:
+
+Given that we type our flags and traits:
+
+```typescript
+type FlagOptions = 'font_size' | 'hero';
+type TraitOptions = 'example_trait';
+```
+
+We can now enforce these types:
+
+```typescript
+// enforces you passing the correct key to flagsmith.getValue(flag:FlagOptions), flagsmith.getTrait(trait:TraitOptions)
+import flagsmith from 'flagsmith';
+const typedFlagsmith = flagsmith as IFlagsmith<FlagOptions, TraitOptions>;
+
+// Similarly for the useFlagsmith hook is typed with useFlagsmith(flags:FlagOptions[],traits:TraitOptions[])
+const flagsmith = useFlagsmith<FlagOptions, TraitOptions>(); // enforces flagsmith.getValue()
+
+// for useFlags this will ensure you only can pass correct keys also
+const flags = useFlags<FlagOptions, TraitOptions>(['font_size'], ['example_trait']);
 ```
 
 ## Dynatrace JavaScript SDK Integration

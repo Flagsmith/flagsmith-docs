@@ -11,7 +11,8 @@ Think if it in the same way you would a Google Analytics key.
 
 If flags are evaluated within the client-side SDKs (Web Browser, Mobile App), the entire set of rules for targeting
 users based on Segments etc need to be sent to the client. Given these endpoints are public by default, we think this is
-a leak of potentially sensitive information. We think the best place for your flags to be evaluated is on our server.
+a leak of potentially sensitive information. We think the best place for your flags to be evaluated is on our server or
+your server. Not on the client.
 
 ### You can get your flags with a single HTTP GET
 
@@ -20,6 +21,12 @@ flags. You won't receive any information on Segments or rollout rules, and this 
 own HTTP client within your application its just a simple HTTP GET and you're good.
 
 ### Build Time Flag Retrieval
+
+:::tip
+
+We have a [Flagsmith CLI](https://github.com/Flagsmith/flagsmith-cli) which can be helpful here!
+
+:::
 
 A more advanced technique is to grab the Flag defaults from the Flagsmith API at build time and include them on your
 application build. The steps for this might look something like this:

@@ -1,6 +1,13 @@
 ---
 title: Migrating from Self Hosted to Cloud
+sidebar_position: 110
 ---
+
+:::tip
+
+You need to be running Flagsmith version `2.28.2` or greater to be able to export and import your Flagsmith data.
+
+:::
 
 Flagsmith offers some helpful utilities if you want to migrate your application from your self hosted instance to our
 cloud offering.
@@ -13,6 +20,22 @@ The process looks something like:
 - **Step 4.** Flagsmith support will import the JSON file into our cloud offering
 - **Step 5.** Register and re-add your users and passwords (Flagsmith support will need to assign at least one
   organisation administrator to the newly imported organisation)
+
+## What is exported?
+
+We **will** export the following entities:
+
+- Flags
+- Segments
+- Identities
+- Integrations
+
+We **will not** export the following entities:
+
+- Flagsmith Users that log into the Dashboard and manage Flagsmith
+- Audit logs
+- Change requests
+- Scheduled flag changes
 
 ## The export process
 

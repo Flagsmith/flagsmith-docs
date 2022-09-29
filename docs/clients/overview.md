@@ -27,7 +27,7 @@ at their flags and
 [potentially write Traits to the Identity](../advanced-use/system-administration.md#preventing-client-sdks-to-set-traits).
 
 Client-Side SDKs are also limited to the
-[types of data that they have access to](../advanced-use/integration-approaches#segment-and-targeting-rules-are-not-leaked-to-the-client).
+[types of data that they have access to](/guides-and-examples/integration-approaches#segment-and-targeting-rules-are-not-leaked-to-the-client).
 
 Client-side Environment keys are designed to be shared publicly, for example in your HTML/JS code that is sent to a web
 browser.

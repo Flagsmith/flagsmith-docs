@@ -10,7 +10,7 @@ The Edge Proxy is only available as part of our Enterprise Plans. Please
 The Flagsmith Edge Proxy allows you to run an instance of the Flagsmith Engine close to your servers. If you are running
 Flagsmith within a server-side environment, and you need very low latency response times, the Edge Proxy is for you!
 
-The Edge Proxy runs as a lightweight Docker container. It connects to the core Flagsmith API (either powered by us at
+The Edge Proxy runs as a lightweight Docker container. It connects to the Flagsmith API (either powered by us at
 api.flagsmith.com or self hosted by you) to get Environment Flags and Segment rules. You can then point the Flagsmith
 SDKs to your Edge Proxy; it implements all the current SDK endpoints. This means you can serve a very large number of
 requests close to your infrastructure and users, at very low latency. Check out the [architecture below](#architecture).
@@ -21,6 +21,41 @@ The Proxy also acts as a local cache, allowing you to make requests to the Proxy
 
 The Edge Proxy can currently serve ~2,000 requests per second at a mean latency of ~7ms on a single, 4-core VM. It is
 stateless and hence close to perfectly scalable being deployed behind a load balancer.
+
+## Configuration
+
+The Edge Proxy can be configured using a json configuration file (named `config.json` here).
+
+You can set the following configuration in `config.json` to control the behaviour of the Edge Proxy:
+
+- **environment_key_pairs**: An array of environment key pair objects, e.g:
+  `"environment_key_pairs":[{"server_side_key":"your_server_side_key", "client_side_key":"your_client_side_environment_key"}]`
+- **[optional] api_poll_frequency(seconds)**: Control how often the Edge Proxy is going to ping the server for changes,
+  e.g: `"api_poll_frequency":10`
+- **[optional] api_url**: If you are running a self hosted version of flagsmith you can set the self hosted url here for
+  edge-proxy in order to connect to your server, e.g: `"api_url":"https://self.hosted.flagsmith.domain/api/v1"`
+
+After setting up the above configuration the `config.json` is going to look something like this:
+
+```json
+{
+ "environment_key_pairs": [
+  {
+   "server_side_key": "your_server_side_environment_key",
+   "client_side_key": "your_client_side_environment_key"
+  }
+ ],
+ "api_poll_frequency": 10,
+ "api_url": "https://api.flagsmith.com/api/v1"
+}
+```
+
+### Environment Variables
+
+You can configure the Edge Proxy with the following Environment Variables:
+
+- `WEB_CONCURRENCY` The number of [Uvicorn](https://www.uvicorn.org/) workers. Defaults to `1`. Set to the number of
+  available CPU cores.
 
 ## Running the Edge Proxy
 
@@ -34,34 +69,36 @@ access to it.
 
 :::
 
+### With docker run
+
 ```bash
 # Download the Docker Image
 docker pull flagsmith/edge-proxy
 
 # Run it
 docker run \
-    -e FLAGSMITH_API_URL='https://api.flagsmith.com/api/v1/' \
-    -e FLAGSMITH_API_TOKEN='<API Token - see below>' \
-    -e ENVIRONMENT_API_KEYS='<Flagsmith Environment Key - see below>' \
+    -v /<path-to-local>/config.json:/app/config.json \
     -p 8000:8000 \
     flagsmith/edge-proxy:latest
 ```
 
+### With docker compose
+
+```yml
+version: '3.9'
+services:
+ edge_proxy:
+  image: flagsmith/edge-proxy:latest
+  volumes:
+   - type: bind
+     source: ./config.json
+     target: /app/config.json
+  ports:
+   - target: 8000
+   - published: 8000
+```
+
 The Proxy is now running and available on port 8000.
-
-### Environment Variables
-
-You can configure the Edge Proxy with the following Environment Variables:
-
-- `FLAGSMITH_API_URL` **Required**. The URL of the API to proxy e.g. `https://api.flagsmith.com/api/v1/` or your own
-  domain name if you are self hosting the Flagsmith API.
-- `ENVIRONMENT_API_KEYS` **Required**. A list of Environment keys to serve. Provided as a comma-separated String e.g.
-  `4vfqhypYjcPoGGu8ByrBaj, EmJFz265Q6CAXuGRZYnkeE, "8KzETdDeMY7xkqkSkY3Gsg`
-- `FLAGSMITH_API_TOKEN` **Required**. Can be retrieved as per [these instructions](/clients/rest.md##private-endpoints).
-- `API_POLL_FREQUENCY` set in seconds. The number of seconds to wait before polling `FLAGSMITH_API_URL` to update the
-  Environments currently in use. Defaults to `10` seconds.
-- `WEB_CONCURRENCY` The number of [Uvicorn](https://www.uvicorn.org/) workers. Defaults to `1`. Set to the number of
-  available CPU cores.
 
 ## Consuming the Edge Proxy
 
@@ -72,45 +109,42 @@ instructions above, you could simply do:
 ```bash
 curl "http://localhost:8000/api/v1/flags" -H "x-environment-key: 95DybY5oJoRNhxPZYLrxk4" | jq
 
-{
-  "flags": [
-    {
-      "id": 78978,
-      "feature": {
-        "id": 15058,
-        "name": "string_feature",
-        "created_date": "2021-11-29T17:15:51.694223Z",
-        "description": null,
-        "initial_value": "foo",
-        "default_enabled": true,
-        "type": "STANDARD"
-      },
-      "feature_state_value": "foo",
-      "enabled": true,
-      "environment": 12561,
-      "identity": null,
-      "feature_segment": null
-    },
-    {
-      "id": 78980,
-      "feature": {
-        "id": 15059,
-        "name": "integer_feature",
-        "created_date": "2021-11-29T17:16:11.288134Z",
-        "description": null,
-        "initial_value": "1234",
-        "default_enabled": true,
-        "type": "STANDARD"
-      },
-      "feature_state_value": 1234,
-      "enabled": true,
-      "environment": 12561,
-      "identity": null,
-      "feature_segment": null
+[
+  {
+    "enabled": true,
+    "feature_state_value": 5454,
+    "feature": {
+      "name": "feature_1",
+      "id": 2,
+      "type": "MULTIVARIATE"
     }
-  ]
-}
+  },
+  {
+    "enabled": true,
+    "feature_state_value": "some_value",
+    "feature": {
+      "name": "feature_2",
+      "id": 9,
+      "type": "STANDARD"
+    }
+  },
+]
 ```
+
+## Monitoring
+
+There are 2 health check endpoints for the Edge Proxy.
+
+### SDK Proxy Health Check
+
+When making a request to `/proxy/health` the proxy will respond with a HTTP `200` and `{"status": "ok"}`. You can point
+your orchestration health checks to this endpoint. This endpoint checks that the Environment document is not stale, and
+that the proxy is serving SDK requests.
+
+### Realtime Flags/Server Sent Events Health Check
+
+If you are using the Proxy to power Server Sent Events for realtime flag updates. When making a request to `/sse/health`
+the proxy will respond with a HTTP `200` and `{"status": "ok"}`.
 
 ## Managing Traits
 

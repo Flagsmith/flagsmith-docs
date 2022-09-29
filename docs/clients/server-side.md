@@ -172,7 +172,7 @@ composer require flagsmith/flagsmith-php-client symfony/http-client nyholm/psr7 
 <TabItem value="go" label="Go">
 
 ```bash
-go get github.com/Flagsmith/flagsmith-go-client
+go get github.com/Flagsmith/flagsmith-go-client/v2
 ```
 
 </TabItem>
@@ -815,6 +815,35 @@ The Server Side SDKS share the same network behaviour across the different langu
 - Every 60 seconds (by default), it will repeat this aysnchronous request to ensure that the Environment information it
   has is up to date.
 
+:::caution
+
+To use Local Evaluation mode, you must use a Server Side key.
+
+:::
+
+To achieve Local Evaluation, in most languages, the SDK spawns a separate thread (or equivalent) to poll the API for
+changes to the Environment. In certain languages, you may be required to terminate this thread before cleaning up the
+instance of the Flagsmith client. Languages in which this is necessary are provided below.
+
+<Tabs groupId="language">
+<TabItem value="nodejs" label = "NodeJS">
+
+```javascript
+// available from v2.2.1
+flagsmith.close();
+```
+
+</TabItem>
+<TabItem value="java" label = "Java">
+
+```javascript
+// available from v5.0.5
+flagsmith.close();
+```
+
+</TabItem>
+</Tabs>
+
 ## Configuring the SDK
 
 You can modify the behaviour of the SDK during initialisation. Full configuration options are shown below.
@@ -938,6 +967,21 @@ private static FlagsmithClient flagsmith = FlagsmithClient
     // Optional.
     .retries(Retry retries)
 
+    .build();
+```
+
+### Custom HTTP Headers
+
+Adding custom headers to all HTTP calls:
+
+```java
+final HashMap<String, String> customHeaders = new HashMap(){{
+    put("x-custom-header", "value1");
+    put("x-my-key", "value2");
+}};
+FlagsmithClient flagsmithClient = FlagsmithClient.newBuilder()
+    // other configuration as shown above
+    .withCustomHttpHeaders(customHeaders)
     .build();
 ```
 
@@ -1437,6 +1481,200 @@ client_configuration = Flagsmith.Client.new(
         retries: 0,
         enable_analytics: false
 )
+```
+
+</TabItem>
+</Tabs>
+
+## Caching
+
+The following SDKs have code and functionality related to caching flags.
+
+<Tabs groupId="language">
+<TabItem value="java" label="Java">
+
+If you would like to use in-memory caching, you will need to enable it (it is disabled by default). The main advantage
+of using in-memory caching is that you can reduce the number of HTTP calls performed to fetch flags.
+
+Flagsmith uses [Caffeine](https://github.com/ben-manes/caffeine), a high performance, near optimal caching library.
+
+If you enable caching on the Flagsmith client without setting any values (as shown below), the following default values
+will be set for you:
+
+- maxSize(10)
+- expireAfterWrite(5, TimeUnit.MINUTES)
+- project level caching will be disabled by default (i.e. only enabled if you configure a caching key)
+
+```java
+// use in-memory caching with Flagsmith defaults as described above
+final FlagsmithClient flagsmithClient = FlagsmithClient.newBuilder()
+                .setApiKey("YOUR_ENV_API_KEY")
+                .withConfiguration(FlagsmithConfig
+                        .newBuilder()
+                        .baseURI("http://yoururl.com")
+                        .build())
+                .withCache(FlagsmithCacheConfig
+                        .newBuilder()
+                        .build())
+                .build();
+```
+
+If you would like to change the default settings, you can overwrite them by using the available builder methods:
+
+```java
+// use in-memory caching with custom configuration
+final FlagsmithClient flagsmithClient = FlagsmithClient.newBuilder()
+                .setApiKey("YOUR_ENV_API_KEY")
+                .withConfiguration(FlagsmithConfig
+                        .newBuilder()
+                        .baseURI("http://yoururl.com")
+                        .build())
+                .withCache(FlagsmithCacheConfig
+                        .newBuilder()
+                        .maxSize(100)
+                        .expireAfterWrite(10, TimeUnit.MINUTES)
+                        .recordStats()
+                        .enableEnvLevelCaching("some-key-to-avoid-clashing-with-user-identifiers")
+                        .build())
+                .build();
+```
+
+The user identifier is used as the cache key, this provides granular control over the cache should you require it. If
+you would like to manipulate the cache:
+
+```java
+// this will return null if caching is disabled
+final FlagsmithCache cache = flagsmithClient.getCache();
+// you can now discard a single or all entries in the cache
+cache.invalidate("user-identifier");
+// or
+cache.invalidateAll();
+// get stats (if you have enabled them in the cache configuration, otherwise all values will be zero)
+final CacheStats stats = cache.stats();
+// check if flags for a user identifier are cached
+final FlagsAndTraits flags = cache.getIfPresent("user-identifier");
+```
+
+Since the user identifier is used as the cache key, you need to configure a cache key to enable project level caching.
+Make sure you select a project level cache key that will never be a user identifier.
+
+```java
+// use in-memory caching with Flagsmith defaults and project level caching enabled
+final String projectLevelCacheKey = "some-key-to-avoid-clashing-with-user-identifiers";
+final FlagsmithClient flagsmithClient = FlagsmithClient.newBuilder()
+                .setApiKey("YOUR_ENV_API_KEY")
+                .withConfiguration(FlagsmithConfig
+                        .newBuilder()
+                        .baseURI("http://yoururl.com")
+                        .build())
+                .withCache(FlagsmithCacheConfig
+                        .newBuilder()
+                        .enableEnvLevelCaching(projectLevelCacheKey)
+                        .build())
+                .build();
+
+// if you need to access the cache directly, you can do this:
+final FlagsmithCache cache = flagsmithClient.getCache();
+// invalidate project level cache
+cache.invalidate(projectLevelCacheKey);
+// check if project level flags have been cached
+final FlagsAndTraits flags = cache.getIfPresent(projectLevelCacheKey);
+```
+
+</TabItem>
+<TabItem value="nodejs" label="NodeJS">
+
+You can initialise the SDK with something like this:
+
+```javascript
+flagsmith.init({
+ cache: {
+   has:(key)=> return Promise.resolve(!!cache[key]) , // true | false
+   get: (k)=> cache[k] // return flags or flags for user
+   set: (k,v)=> cache[k] = v // gets called if has returns false with response from API for Identify or getFlags
+  }
+})
+```
+
+The core concept is that if `has` returns false, the SDK will make the required API calls under the hood. The keys are
+either `flags` or `flags_traits-${identity}`.
+
+An example of a concrete implemention is below.
+
+```javascript
+const flagsmith = require('flagsmith-nodejs');
+const redis = require('redis');
+
+const redisClient = redis.createClient({
+ host: 'localhost',
+ port: 6379,
+});
+
+flagsmith.init({
+ environmentID: '<Flagsmith Environment API Key>',
+ cache: {
+  has: (key) =>
+   new Promise((resolve, reject) => {
+    redisClient.exists(key, (err, reply) => {
+     console.log('check ' + key + ' from cache', err, reply);
+     resolve(reply === 1);
+    });
+   }),
+  get: (key) =>
+   new Promise((resolve) => {
+    redisClient.get(key, (err, cacheValue) => {
+     console.log('get ' + key + ' from cache');
+     resolve(cacheValue && JSON.parse(cacheValue));
+    });
+   }),
+  set: (key, value) =>
+   new Promise((resolve) => {
+    // Expire the key after 60 seconds
+    redisClient.set(key, JSON.stringify(value), 'EX', 60, (err, reply) => {
+     console.log('set ' + key + ' to cache', err);
+     resolve();
+    });
+   }),
+ },
+});
+
+router.get('/', function (req, res, next) {
+ flagsmith.getValue('background_colour').then((value) => {
+  res.render('index', {
+   title: value,
+  });
+ });
+});
+```
+
+</TabItem>
+</Tabs>
+
+## Logging
+
+The following SDKs have code and functionality related to logging.
+
+<Tabs groupId="language">
+<TabItem value="java" label="Java">
+
+Logging is disabled by default. If you would like to enable it then call `.enableLogging()` on the client builder:
+
+```java
+FlagsmithClient flagsmithClient = FlagsmithClient.newBuilder()
+                // other configuration as shown above
+                .enableLogging()
+                .build();
+```
+
+Flagsmith uses [SLF4J](http://www.slf4j.org) and we only implement its API. If your project does not already have SLF4J,
+then include an implementation, i.e.:
+
+```xml
+<dependency>
+    <groupId>org.slf4j</groupId>
+    <artifactId>slf4j-simple</artifactId>
+    <version>${slf4j.version}</version>
+</dependency>
 ```
 
 </TabItem>
