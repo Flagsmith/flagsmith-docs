@@ -5,18 +5,21 @@ description: Manage your Feature Flags and Remote Config in your Android applica
 slug: /clients/android
 ---
 
+This SDK can be used for Android applications written in Kotlin. The source code for the client is available on
+[Github](https://github.com/Flagsmith/flagsmith-kotlin-android-client/).
+
 ## Installation
 
-### Gradle (app)
+### Gradle - App
 
-In path "{{root}}/app/build.gradle" add new dependence
+In your project path `app/build.gradle` add a new dependence
 
 ```gradle
 //flagsmith
 implementation 'com.github.Flagsmith/flagsmith-kotlin-android-client:0.1.0'
 ```
 
-### Gradle (Project)
+### Gradle - Project
 
 In new gradle version 7+ write at file "settings.gradle"
 
@@ -34,20 +37,17 @@ repositories {
 
 ### Android App Screens
 
-### Dashboard Flagsmith.com with Android Application
-
-<img src="/screens/00.png" height="300"/>
+![Android App Screens](/img/languages/kotlin-java-1.png)
 
 ## Basic Usage
 
-The SDK is initialised against a single environment within a project on <https://flagsmith.com>, for example the
-Development or Production environment. You can find your Client-side Environment Key in the Environment settings page.
-
-<img src="https://docs.flagsmith.com/assets/images/api-key-e495cbc55f0a0fcf19dabab16bd7507e.png" height="500"/>
+The SDK is initialised against a single environment within a project on [https://flagsmith.com](https://flagsmith.com),
+for example the Development or Production environment. You can find your Client-side Environment Key in the Environment
+settings page.
 
 ## Initialization
 
-### Create class "Helper" to set the constant key
+### Create class `Helper` to set the constant key
 
 - This key generated from Dashboard Website
 - By default, the client uses a default configuration. You can override the configuration as follows Override just the
@@ -62,7 +62,7 @@ object Helper {
 }
 ```
 
-### Within your Activity inside "onCreate()"
+### Within your Activity inside `onCreate()`
 
 ```kotlin
 lateinit var flagBuilder : FlagsmithBuilder
@@ -103,7 +103,7 @@ data class Feature (
 )
 ```
 
-### Now you are all set to retrieve feature flags from your project. For example to list and print all flags
+Now you are all set to retrieve feature flags from your project. For example to list and print all flags
 
 ```kotlin
 //listener
@@ -117,7 +117,7 @@ flagBuilder.getAllFlag(
 });
 ```
 
-### Check Flag key is found
+Check Flag key is found
 
 ```kotlin
 flagBuilder.hasFeatureFlag(keyFlag, object  : IFeatureFoundChecker {
@@ -131,7 +131,7 @@ flagBuilder.hasFeatureFlag(keyFlag, object  : IFeatureFoundChecker {
 })
 ```
 
-### Get Flag Object by featureId
+### Get Flag Object by `featureId`
 
 To retrieve a config value by its name
 
@@ -147,7 +147,7 @@ flagBuilder.getFeatureByIdAPi(   searchText, object  : IFlagSingle{
 });
 ```
 
-### Create Tait by "keyTrait" and "valueTrait"
+### Create Tait by `keyTrait` and `valueTrait`
 
 ```kotlin
 flagBuilder.createTrait(  key, value, object  : ITraitUpdate {
@@ -163,8 +163,7 @@ flagBuilder.createTrait(  key, value, object  : ITraitUpdate {
 
 ### Get all Traits
 
-To retrieve a trait for a particular identity
-[( See Traits )](https://docs.flagsmith.com/basic-features/managing-identities#identity-traits):
+To retrieve a trait for a particular identity [Traits](../../basic-features/managing-identities.md#identity-traits)
 
 ```kotlin
 flagBuilder.getAllTrait(   object : ITraitArrayResult {
