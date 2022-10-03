@@ -294,8 +294,8 @@ The following table lists the configurable parameters of the chart and their def
 | `databaseExternal.username`                        |                                                                |                                |
 | `databaseExternal.password`                        |                                                                |                                |
 | `databaseExternal.urlFromExistingSecret.enabled`   | Reference an existing secret containing the database URL       |                                |
-| `databaseExternal.name`                            | Name of referenced secret                                      |                                |
-| `databaseExternal.key`                             | Key within the referenced secrt to use                         |                                |
+| `databaseExternal.urlFromExistingSecret.name`      | Name of referenced secret                                      |                                |
+| `databaseExternal.urlFromExistingSecret.key`       | Key within the referenced secrt to use                         |                                |
 | `influxdb.enabled`                                 |                                                                | `true`                         |
 | `influxdb.nameOverride`                            |                                                                | `influxdb`                     |
 | `influxdb.image.repository`                        | docker image repository for influxdb                           | `quay.io/influxdb/influxdb`    |
