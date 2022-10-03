@@ -18,11 +18,22 @@ Example applications for a variety of React, React Native and Next.js can be fou
 
 ### NPM
 
+:::tip
+
+We also have flagsmith-es if you'd prefer to use [ES](https://262.ecma-international.org/6.0/) modules. :::
+
 ```bash
 npm i flagsmith --save
 ```
 
 ### NPM for React Native
+
+:::tip
+
+The ReactNative SDK shares the exact same implementation of Flagsmith, however, the defaults for some underlying
+libraries (e.g. AsyncStorage) use React Native compatible implementations.
+
+:::
 
 ```bash
 npm i react-native-flagsmith --save
