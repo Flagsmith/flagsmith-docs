@@ -13,97 +13,6 @@
                 "tags": [],
                 "summary": "Get flags",
                 "description": "USING THIS ENDPOINT WITH AN IDENTIFIER IS DEPRECATED.\n\n Please use `/identities/?identifier=<identifier>` instead. \n\n Note that when providing the `feature` query argument, this endpoint will return either a single object or a 404 (if the feature does not exist) rather than a list.",
-                "parameters": [
-                    {
-                        "name": "x-environment-key",
-                        "in": "header",
-                        "description": "Environment Key",
-                        "required": true,
-                        "schema": { "type": "string" }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "items": {
-                                        "$ref": "#/components/schemas/Flag"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/identities": {
-            "get": {
-                "tags": [],
-                "summary": "Get identities",
-                "description": " ",
-                "parameters": [
-                    {
-                        "name": "x-environment-key",
-                        "in": "header",
-                        "description": "Environment Key",
-                        "required": true
-                    },
-                    {
-                        "name": "identity-token",
-                        "in": "header",
-                        "description": "Identity Key",
-                        "required": true
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "items": {
-                                        "$ref": "#/components/schemas/Flag"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            },
-            "post": {
-                "tags": [],
-                "summary": "Post identities",
-                "description": " ",
-                "parameters": [
-                    {
-                        "name": "x-environment-key",
-                        "in": "header",
-                        "description": "Environment Key",
-                        "required": true
-                    },
-                    {
-                        "name": "identity-token",
-                        "in": "header",
-                        "description": "Identity Key",
-                        "required": true
-                    }
-                ],
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "items": {
-                                    "$ref": "#/components/schemas/createBodyRequest"
-                                }
-                            }
-                        }
-                    }
-                },
                 "responses": {
                     "200": {
                         "description": "OK",
@@ -120,6 +29,68 @@
                     }
                 }
             }
+        },
+        "/identities": {
+            "get": {
+                "tags": [],
+                "summary": "Get identities",
+                "description": "",
+                "parameters": [
+                    {
+                        "name": "identifier",
+                        "in": "query",
+                        "description": "Identity Key",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "items": {
+                                        "$ref": "#/components/schemas/IdentitiesResponse"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [],
+                "summary": "Post identities",
+                "description": " ",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "items": {
+                                    "$ref": "#/components/schemas/IdentitiesRequestData"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "items": {
+                                        "$ref": "#/components/schemas/IdentitiesResponse"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     },
     "components": {
@@ -129,10 +100,10 @@
         "schemas": {
             "Flag": {
                 "required": [],
-                "type": "object",
+                "type": "array",
                 "properties": {
                     "feature": {
-                        "$ref": "#/components/schemas/Feature"
+                        "$ref": "#/components/schemas/feature"
                     },
                     "feature_state_value": {
                         "$ref": "#/components/schemas/FeatureStateValue"
@@ -147,7 +118,7 @@
                 "type": "object",
                 "description": "Can be any of the following types: string, integer, boolean, float"
             },
-            "Feature": {
+            "feature": {
                 "title": "Feature",
                 "required": ["name"],
                 "type": "object",
@@ -170,31 +141,40 @@
                     }
                 }
             },
-            "createBodyRequest": {
+            "traits": {
+                "title": "Traits",
+                "type": "array",
+                "properties": {
+                    "trait_key": {
+                        "title": "Trait key",
+                        "type": "string"
+                    },
+                    "trait_value": {
+                        "title": "Trait value",
+                        "type": "string"
+                    }
+                }
+            },
+            "IdentitiesResponse": {
+                "required": [],
+                "type": "object",
+                "properties": {
+                    "feature": {
+                        "$ref": "#/components/schemas/Flag"
+                    },
+                    "traits": {
+                        "$ref": "#/components/schemas/traits"
+                    }
+                }
+            },
+            "IdentitiesRequestData": {
                 "title": "object",
                 "required": true,
                 "type": "object",
                 "properties": {
-                    "Identifier": {
-                        "title": "identifier",
-                        "type": "string",
-                        "maxLength": 50
-                    },
-                    "Traits": {
-                        "title": "Traits",
-                        "type": "object",
-                        "properties": {
-                            "Trait key": {
-                                "title": "trait_key",
-                                "type": "string",
-                                "maxLength": 50
-                            },
-                            "Trait Value": {
-                                "title": "trait_value",
-                                "type": "string",
-                                "maxLength": 50
-                            }
-                        }
+                    "identifier": {
+                        "title": "Identifier",
+                        "type": "string"
                     }
                 }
             }
