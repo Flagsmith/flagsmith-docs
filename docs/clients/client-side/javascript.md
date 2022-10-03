@@ -19,7 +19,9 @@ be found here:
 
 :::tip
 
-We also have flagsmith-es if you'd prefer to use [ES](https://262.ecma-international.org/6.0/) modules. :::
+We also have flagsmith-es if you'd prefer to use [ES](https://262.ecma-international.org/6.0/) modules.
+
+:::
 
 ```bash
 npm i flagsmith --save
