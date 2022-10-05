@@ -106,38 +106,32 @@
                         "$ref": "#/components/schemas/Feature"
                     },
                     "feature_state_value": {
-                        "$ref": "#/components/schemas/FeatureStateValue"
+                        "oneOf": [
+                            { "type": "string" },
+                            { "type": "boolean" },
+                            { "type": "integer" },
+                            { "type": "float" }
+                        ],
+                        "description": "Can be any of the following types: string, integer, boolean, float"
                     },
                     "enabled": {
-                        "title": "Enabled",
                         "type": "boolean"
                     }
                 }
             },
-            "FeatureStateValue": {
-                "type": "object",
-                "description": "Can be any of the following types: string, integer, boolean, float"
-            },
             "Feature": {
                 "title": "feature",
-                "required": ["name"],
                 "type": "object",
                 "properties": {
                     "id": {
-                        "title": "ID",
                         "type": "integer",
                         "readOnly": true
                     },
                     "name": {
-                        "title": "Name",
-                        "type": "string",
-                        "maxLength": 2000,
-                        "minLength": 1
+                        "type": "string"
                     },
                     "type": {
-                        "title": "Type",
-                        "type": "string",
-                        "maxLength": 50
+                        "type": "string"
                     }
                 }
             },
@@ -145,11 +139,9 @@
                 "type": "array",
                 "properties": {
                     "trait_key": {
-                        "title": "Trait key",
                         "type": "string"
                     },
                     "trait_value": {
-                        "title": "Trait value",
                         "type": "string"
                     }
                 }
