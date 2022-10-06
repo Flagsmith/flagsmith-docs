@@ -33,7 +33,7 @@
         "/identities": {
             "get": {
                 "tags": [],
-                "summary": "Get identities",
+                "summary": "Get identity flags and traits",
                 "description": "Retrieve the flags and traits for an identity. Note: identity will be lazily created if it does not already exist.",
                 "parameters": [
                     {
@@ -61,7 +61,7 @@
             },
             "post": {
                 "tags": [],
-                "summary": "Post identities",
+                "summary": "Identify user",
                 "description": "Identify a user and retrieve their flags and traits in response.",
                 "requestBody": {
                     "content": {
