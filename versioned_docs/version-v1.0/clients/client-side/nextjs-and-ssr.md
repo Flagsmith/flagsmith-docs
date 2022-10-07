@@ -35,11 +35,11 @@ SDK. The main difference is that Flagsmith should be imported from `flagsmith/is
 The main flow with Next.js and any JavaScript-based SSR can be as follows:
 
 - 1: Fetch the flags on the server, optionally passing an identity to
-  [flagsmith.init({})](http://localhost:3000/clients/javascript#initialisation-options)
+  [flagsmith.init({})](https://docs.flagsmith.com/clients/javascript#initialisation-options)
 - 2: Pass the resulting state to the client with
-  [flagsmith.getState()](http://localhost:3000/clients/javascript#available-functions)
+  [flagsmith.getState()](https://docs.flagsmith.com/clients/javascript#available-functions)
 - 3: Initialise flagsmith on the client with
-  [flagsmith.setState(state)](http://localhost:3000/clients/javascript#available-functions)
+  [flagsmith.setState(state)](https://docs.flagsmith.com/clients/javascript#available-functions)
 
 ### Example: Initialising the SDK with Next.js
 
