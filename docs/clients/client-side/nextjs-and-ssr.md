@@ -117,8 +117,14 @@ export async function middleware(request: NextRequest) {
   identity,
  });
 
- //redirect to an account page based on the multivariate flag
- return NextResponse.redirect(new URL(`/account/${flagsmith.getValue('colour')}`, request.url));
+ // Return a different URL based on a feature flag
+ if (flagsmith.hasFeature('beta')) {
+  return NextResponse.redirect(new URL(`/account-v2/`, request.url));
+ }
+
+ // Return a different URL based on a remote config
+ const theme = flagsmith.getValue('colour');
+ return NextResponse.redirect(new URL(`/account/${theme}`, request.url));
 }
 
 export const config = {
