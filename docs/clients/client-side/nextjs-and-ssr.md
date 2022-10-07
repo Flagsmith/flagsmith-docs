@@ -116,15 +116,14 @@ export async function middleware(request: NextRequest) {
   environmentID: '<YOUR_ENVIRONMENT_ID>',
   identity,
  });
- 
+
  // Return a different URL based on a feature flag
- if(flagsmith.hasFeature('beta')) {
-   return NextResponse.redirect(new URL(`/account-v2/`, request.url));
+ if (flagsmith.hasFeature('beta')) {
+  return NextResponse.redirect(new URL(`/account-v2/`, request.url));
  }
 
-  // Return a different URL based on a remote config
+ // Return a different URL based on a remote config
  const theme = flagsmith.getValue('colour');
- 
  return NextResponse.redirect(new URL(`/account/${theme}`, request.url));
 }
 
