@@ -287,7 +287,7 @@ const flagsmithB = createFlagsmithInstance();
 // now you can use flagsmith as before but in its own instance
 ```
 
-## JSON Feature Values
+## JSON feature values
 
 The Flagsmith JavaScript client supports JSON remote config / feature values. When calling `flagsmith.getValue`,
 specifying `json:true` will attempt to parse the feature value as JSON, it will fallback to `fallback` failing to parse
