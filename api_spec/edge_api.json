@@ -1,0 +1,186 @@
+{
+    "openapi": "3.0.3",
+    "info": { "title": "Edge API", "version": "1" },
+    "servers": [
+        {
+            "url": "https://edge.api.flagsmith.com/api/v1/",
+            "description": "Edge API"
+        }
+    ],
+    "paths": {
+        "/flags": {
+            "get": {
+                "tags": [],
+                "summary": "Get flags",
+                "description": "Retrieve the flags for an environment.",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Flag"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/identities": {
+            "get": {
+                "tags": [],
+                "summary": "Get identity flags and traits",
+                "description": "Retrieve the flags and traits for an identity. Note: identity will be lazily created if it does not already exist.",
+                "parameters": [
+                    {
+                        "name": "identifier",
+                        "in": "query",
+                        "description": "Identity Key",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "items": {
+                                        "$ref": "#/components/schemas/IdentitiesResponse"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [],
+                "summary": "Identify user",
+                "description": "Identify a user and retrieve their flags and traits in response.",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "items": {
+                                    "$ref": "#/components/schemas/IdentitiesRequestData"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "items": {
+                                        "$ref": "#/components/schemas/IdentitiesResponse"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "EnvironmentKeyAuth": { "type": "apiKey", "in": "header", "name": "X-Environment-Key" }
+        },
+        "schemas": {
+            "Flag": {
+                "required": [],
+                "type": "array",
+                "properties": {
+                    "feature": {
+                        "$ref": "#/components/schemas/Feature"
+                    },
+                    "feature_state_value": {
+                        "oneOf": [
+                            { "type": "string" },
+                            { "type": "boolean" },
+                            { "type": "integer" },
+                            { "type": "float" }
+                        ],
+                        "description": "Can be any of the following types: string, integer, boolean, float"
+                    },
+                    "enabled": {
+                        "type": "boolean"
+                    }
+                }
+            },
+            "Feature": {
+                "title": "feature",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "readOnly": true
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "type": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Trait": {
+                "type": "array",
+                "properties": {
+                    "trait_key": {
+                        "type": "string"
+                    },
+                    "trait_value": {
+                        "type": "string"
+                    }
+                }
+            },
+            "IdentitiesResponse": {
+                "required": [],
+                "type": "object",
+                "properties": {
+                    "identifier": {
+                        "type": "string"
+                    },
+                    "flags": {
+                        "$ref": "#/components/schemas/Flag"
+                    },
+                    "traits": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Trait"
+                        }
+                    }
+                }
+            },
+            "IdentitiesRequestData": {
+                "required": true,
+                "type": "object",
+                "properties": {
+                    "traits": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Trait"
+                        }
+                    },
+                    "identifier": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    },
+    "security": [{ "EnvironmentKeyAuth": [] }],
+    "tags": []
+}
