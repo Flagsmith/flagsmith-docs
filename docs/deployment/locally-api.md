@@ -324,7 +324,7 @@ services:
   container_name: flagsmith_postgres
  api:
   build:
-   dockerfile: ../../api/Dockerfile
+   dockerfile: Dockerfile
    context: ../../api
   environment:
    DATABASE_URL: postgres://postgres:password@postgres:5432/flagsmith
