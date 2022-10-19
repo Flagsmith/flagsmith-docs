@@ -299,7 +299,7 @@ the `DJANGO_SECRET_KEY` variable. Django recommends that this key should be at l
 it is up to you to configure the key how you wish. Check the `get_random_secret_key()` method in the Django source code
 if you want more information on what the key should look like.
 
-### StatsD Integration
+### StatsD Integration
 
 The application is run using python's gunicorn. As such, we are able to tell it to send statsd metrics to a given host
 for monitoring purposes. Using our docker image, this can be done and configured by providing the following environment
