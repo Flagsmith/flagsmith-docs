@@ -514,6 +514,10 @@ For example, our SaaS value looks like this (but with our Client ID redacted)
 }
 ```
 
+Should look like this:
+
+<div style={{textAlign: 'center'}}><img width="75%" src="/img/GigHub_OAuth_Flag.png"/></div>
+
 ### `oauth_google`
 
 Create an OAuth application in the Google Developer Console and then provide the following as the Flag value:

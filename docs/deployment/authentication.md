@@ -94,6 +94,39 @@ Here's an example configuration from Google's SAML app creation flow.
 
 <div style={{textAlign: 'center'}}><img width="75%" src="/img/saml-mapping-configuration.png"/></div>
 
+## GitHub SSO
+
+To enable GitHub SSO you will need to set up an entire Flagsmith Feature flag environment locally. We have the detailed
+instructions [here](../deployment/docker.md)
+
+Here's an example of how our Flagsmith on Flagsmith aplication should look like (withouth GitHub SSO).
+
+<div style={{textAlign: 'center'}}><img width="75%" src="/img/Flagsmith_to_Flagsmith.png"/></div>
+
+Sign up and create an organization and a project.
+
+Follow the steps to configure OAuth for GitHub [here](../deployment/overview#oauth_github).
+
+In your `docker-compose.yml` configure the following **Flagsmith on Flagsmith** environment variables:
+
+- `FLAGSMITH_ON_FLAGSMITH_API_KEY`
+- `FLAGSMITH_ON_FLAGSMITH_API_URL`
+- `GITHUB_CLIENT_ID`
+- `GITHUB_CLIENT_SECRET`
+
+As it shows [here](../deployment/overview#running-flagsmith-on-flagsmith).
+
+Make sure that the `oauth_github` feature flag is enabled, recreate the Flagsmith container:
+
+```bash
+docker compose down
+docker-compose up
+```
+
+Now you would be able to see the GitHub SSO option.
+
+<div style={{textAlign: 'center'}}><img width="75%" src="/img/Flagsmith_GitHub_SignUp.png"/></div>
+
 ## LDAP
 
 LDAP Authentication is available in our [Enterprise Edition](../enterprise-edition.md). Please contact us if this is of
