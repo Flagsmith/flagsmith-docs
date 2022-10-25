@@ -494,10 +494,8 @@ The list of the flags and remote config we're currently using in production is b
 
 ### `oauth_github`
 
-To configure OAuth for Github:
+Create an OAuth application in the GitHub Developer Console and then provide the following as the Flag value:
 
-- [Create an OAuth Github application](https://docs.github.com/en/developers/apps/building-oauth-apps/creating-an-oauth-app)
-- For the Authorization callback URL use: `https://<your flagsmith domain name>/oauth/github`
 - Create the Flagsmith on Flagsmith flag as below replacing your `client_id` and `redirect_uri`
 
 ```json
@@ -513,10 +511,6 @@ For example, our SaaS value looks like this (but with our Client ID redacted)
  "url": "https://github.com/login/oauth/authorize?scope=user&client_id=999999999999&redirect_uri=https%3A%2F%2Fapp.flagsmith.com%2Foauth%2Fgithub"
 }
 ```
-
-Should look like this:
-
-<div style={{textAlign: 'center'}}><img width="75%" src="/img/GigHub_OAuth_Flag.png"/></div>
 
 ### `oauth_google`
 
