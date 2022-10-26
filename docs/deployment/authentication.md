@@ -94,6 +94,16 @@ Here's an example configuration from Google's SAML app creation flow.
 
 <div style={{textAlign: 'center'}}><img width="75%" src="/img/saml-mapping-configuration.png"/></div>
 
+
+## OAuth
+
+### Google
+
+To configure OAuth for Google:
+
+- [Setting up OAuth 2.0](https://support.google.com/cloud/answer/6158849?hl=en)
+- Create the Flagsmith on Flagsmith flag as it shows [here](../deployment/overview#oauth_google).
+
 ## LDAP
 
 LDAP Authentication is available in our [Enterprise Edition](../enterprise-edition.md). Please contact us if this is of
