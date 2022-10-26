@@ -494,6 +494,8 @@ The list of the flags and remote config we're currently using in production is b
 
 ### `oauth_github`
 
+Find instructions for GitHub Authentication [here](../deployment/authentication#github).
+
 Create an OAuth application in the GitHub Developer Console and then provide the following as the Flag value:
 
 - Create the Flagsmith on Flagsmith flag as below replacing your `client_id` and `redirect_uri`
