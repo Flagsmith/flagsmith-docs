@@ -159,6 +159,11 @@ the below variables will be ignored.
 - `DJANGO_DB_PASSWORD`: Database password
 - `DJANGO_DB_PORT`: Database port
 
+#### GitHub Auth Environment Variables
+
+- `GITHUB_CLIENT_ID`: Used for GitHub OAuth configuration, provided in your **OAuth Apps** settings.
+- `GITHUB_CLIENT_SECRET`: Used for GitHub OAuth configuration, provided in your **OAuth Apps** settings.
+
 #### Application Environment Variables
 
 - `ENV`: string representing the current running environment, e.g. 'local', 'dev', 'prod'. Defaults to 'local'

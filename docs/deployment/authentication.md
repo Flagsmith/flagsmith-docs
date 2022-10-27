@@ -101,10 +101,8 @@ Here's an example configuration from Google's SAML app creation flow.
 As a pre-requisite for this configuration make sure to have
 [Flagsmith on Flagsmith](../deployment/overview#running-flagsmith-on-flagsmith) set up.
 
-Configure the following **Flagsmith on Flagsmith** environment variables:
+Configure the following environment variables:
 
-- `FLAGSMITH_ON_FLAGSMITH_API_KEY`
-- `FLAGSMITH_ON_FLAGSMITH_API_URL`
 - `GITHUB_CLIENT_ID`
 - `GITHUB_CLIENT_SECRET`
 
