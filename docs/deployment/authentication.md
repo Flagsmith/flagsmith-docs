@@ -94,7 +94,6 @@ Here's an example configuration from Google's SAML app creation flow.
 
 <div style={{textAlign: 'center'}}><img width="75%" src="/img/saml-mapping-configuration.png"/></div>
 
-
 ## OAuth
 
 ### Google
