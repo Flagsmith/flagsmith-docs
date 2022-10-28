@@ -96,6 +96,13 @@ Here's an example configuration from Google's SAML app creation flow.
 
 ## OAuth
 
+### Google
+
+To configure OAuth for Google:
+
+- [Setting up OAuth 2.0](https://support.google.com/cloud/answer/6158849?hl=en)
+- Create the Flagsmith on Flagsmith flag as it shows [here](../deployment/overview#oauth_google).
+
 ### Github
 
 As a pre-requisite for this configuration make sure to have
