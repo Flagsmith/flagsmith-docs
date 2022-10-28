@@ -103,8 +103,6 @@ To configure OAuth for Google:
 - [Setting up OAuth 2.0](https://support.google.com/cloud/answer/6158849?hl=en)
 - Create the Flagsmith on Flagsmith flag as it shows [here](../deployment/overview#oauth_google).
 
-## OAuth
-
 ### Github
 
 As a pre-requisite for this configuration make sure to have
