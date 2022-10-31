@@ -6,7 +6,8 @@ without the asynchronous processor, the flagsmith API will run any asynchronous 
 ## Running the Processor
 
 The task processor can be run using the flagsmith/flagsmith-api image with a slightly different entrypoint. It should be
-pointed to the same database that the API container is using.
+pointed to the same database that the API container is using. To enable the API sending tasks to the processor, you must
+set the `TASK_RUN_METHOD` to `TASK_PROCESSOR` in the flagsmith container running the flagsmith application.
 
 A basic docker-compose setup might look like:
 
@@ -72,13 +73,14 @@ python manage.py checktaskprocessorthreadhealth
 
 The command will exit with either a success exit code (0) or a failure exit code (1).
 
-### API to Task Processor health
+### API to Task Processor health
 
 To monitor that the API can send tasks to the processor and that they are successfully run, there is a custom health
 check which can be enabled on the general health endpoint (`GET /health?format=json`). This health check needs to be
-enabled manually, which can be done by setting the `ENABLE_TASK_PROCESSOR_HEALTH_CHECK` environment variable to `True`.
-Note that this health check is not considered "critical" and hence, the endpoint will return a 200 OK regardless of
-whether the task processor is sucessfully processing tasks or not.
+enabled manually, which can be done by setting the `ENABLE_TASK_PROCESSOR_HEALTH_CHECK` environment variable to `True`
+(in the flagsmith application container, not the task processor). Note that this health check is not considered
+"critical" and hence, the endpoint will return a 200 OK regardless of whether the task processor is sucessfully
+processing tasks or not.
 
 ### Task statistics
 
@@ -87,8 +89,6 @@ by the processor. This endpoint is available at `GET /processor/monitoring`. Thi
 
 ```json
 {
- "waiting": 1,
- "completed": 43,
- "failed": 3
+ "waiting": 1
 }
 ```
