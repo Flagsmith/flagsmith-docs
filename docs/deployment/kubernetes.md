@@ -366,7 +366,7 @@ The following table lists the configurable parameters of the chart and their def
 | `ingress.api.tls`                                  |                                                                | `[]`                           |
 | `api.statsd.enabled`                               | Enable statsd metric reporting from gunicorn.                  | `false`                        |
 | `api.statsd.host`                                  | Host URL to receive statsd metrics                             | `null`                         |
-| `api.statsd.hostFromNodeIp`                        | Set as true to get the host information from the node IP       | `false`                        |
+| `api.statsd.hostFromNodeIp`                        | Set as true to use the node IP as the statsd host instead      | `false`                        |
 | `api.statsd.port`                                  | Host port to receive statsd metrics                            | `8125`                         |
 | `api.statsd.prefix`                                | Prefix to add to metric ids                                    | `flagsmith.api`                |
 
