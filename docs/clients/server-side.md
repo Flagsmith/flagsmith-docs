@@ -743,6 +743,13 @@ To use Local Evaluation mode, you must use a Server Side key.
 
 :::
 
+:::caution
+
+When using local evaluation mode, user overrides will not work. If needed, specific segments can be set up to target
+users.
+
+:::
+
 To achieve Local Evaluation, in most languages, the SDK spawns a separate thread (or equivalent) to poll the API for
 changes to the Environment. In certain languages, you may be required to terminate this thread before cleaning up the
 instance of the Flagsmith client. Languages in which this is necessary are provided below.
