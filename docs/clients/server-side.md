@@ -934,21 +934,6 @@ private static FlagsmithClient flagsmith = FlagsmithClient
     .build();
 ```
 
-### Custom HTTP Headers
-
-Adding custom headers to all HTTP calls:
-
-```java
-final HashMap<String, String> customHeaders = new HashMap(){{
-    put("x-custom-header", "value1");
-    put("x-my-key", "value2");
-}};
-FlagsmithClient flagsmithClient = FlagsmithClient.newBuilder()
-    // other configuration as shown above
-    .withCustomHttpHeaders(customHeaders)
-    .build();
-```
-
 </TabItem>
 <TabItem value="dotnet" label=".NET">
 
