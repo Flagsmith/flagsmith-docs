@@ -91,6 +91,30 @@
                     }
                 }
             }
+        },
+        "/bulk-identities": {
+            "post": {
+                "tags": [],
+                "summary": "Post bulk identities",
+                "description": "Post traits for a given user.",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "items": {
+                                    "$ref": "#/components/schemas/IdentitiesRequestData"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
         }
     },
     "components": {
