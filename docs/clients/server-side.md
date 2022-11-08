@@ -743,6 +743,13 @@ To use Local Evaluation mode, you must use a Server Side key.
 
 :::
 
+:::caution
+
+When using local evaluation mode, user overrides will not work. If needed, specific segments can be set up to target
+users.
+
+:::
+
 To achieve Local Evaluation, in most languages, the SDK spawns a separate thread (or equivalent) to poll the API for
 changes to the Environment. In certain languages, you may be required to terminate this thread before cleaning up the
 instance of the Flagsmith client. Languages in which this is necessary are provided below.
@@ -833,6 +840,9 @@ flagsmith = Flagsmith(
 <TabItem value="java" label="Java">
 
 ```java
+// The configuration for the Java client is currently split across the FlagsmithClient and
+// FlagsmithConfig class, we are working to improve that in a future release.
+
 private static FlagsmithClient flagsmith = FlagsmithClient
     .newBuilder()
     // Your API Token.
@@ -841,69 +851,86 @@ private static FlagsmithClient flagsmith = FlagsmithClient
     // Required.
     .setApiKey(System.getenv("FLAGSMITH_API_KEY"))
 
+    // You can specify default Flag values on initialisation.
+    // Optional
+    .setDefaultFlagValueFunction(HelloController::defaultFlagHandler)
+
     // Controls which mode to run in; local or remote evaluation.
     // See the `SDKs Overview Page` for more info
     // Optional.
     // Defaults to False.
     .withLocalEvaluation(True)
 
-    // Override the default Flagsmith API URL if you are self-hosting.
+    // Add custom headers which will be sent with each network request
+    // to the Flagsmith API.
     // Optional.
-    // Defaults to https://edge.api.flagsmith.com/api/v1/
-    .baseUri("https://api.yourselfhostedflagsmith.com/api/v1/")
+    // Defaults to no custom headers.
+    .withCustomHttpHeaders(new HashMap<string, string>() {{
+        put("header", "value");
+    }})
 
-    // Set environment refresh rate with polling manager.
-    // Only needed when local evaluation is true.
+    // Enable in-memory caching for the Flagsmith API.
     // Optional.
-    // Defaults to 60 seconds
-    .withEnvironmentRefreshIntervalSeconds(Integer seconds)
+    // Defaults to not cache anything.
+    .withCache(FlagsmithCacheConfig.builder().enableEnvLevelCaching("cache-key").build())
 
-    // You can specify default Flag values on initialisation.
-    // Optional
-    .setDefaultFlagValueFunction(HelloController::defaultFlagHandler)
+    .withConfiguration(FlagsmithConfig.builder()
+        // Override the default Flagsmith API URL if you are self-hosting.
+        // Optional.
+        // Defaults to https://edge.api.flagsmith.com/api/v1/
+        .baseUri("https://api.yourselfhostedflagsmith.com/api/v1/")
 
-    // Controls whether Flag Analytics data is sent to the Flagsmith API
-    // See https://docs.flagsmith.com/advanced-use/flag-analytics
-    // Optional
-    // Defaults to False
-    .withEnableAnalytics(Boolean enable)
+        // The network timeout in milliseconds.
+        // See https://square.github.io/okhttp/4.x/okhttp/okhttp3/ for details
+        // Defaults are:
+        //   connect: 2000
+        //   write: 5000
+        //   read: 5000
+        // Optional.
+        .connectTimeout(<millisecond int>)
+        .writeTimeout(<millisecond int>)
+        .readTimeout(<millisecond int>)
 
-    // The network timeout in seconds.
-    // See https://square.github.io/okhttp/4.x/okhttp/okhttp3/ for details
-    // Optional.
-    .connectTimeout(<millisecond int>)
-    .writeTimeout(<millisecond int>)
-    .readTimeout(<millisecond int>)
+        // Override the sslSocketFactory
+        // See https://square.github.io/okhttp/4.x/okhttp/okhttp3/ for details
+        // Optional.
+        .sslSocketFactory(SSLSocketFactory sslSocketFactory, X509TrustManager trustManager)
 
-    // Override the sslSocketFactory
-    // See https://square.github.io/okhttp/4.x/okhttp/okhttp3/ for details
-    // Optional.
-    .sslSocketFactory(SSLSocketFactory sslSocketFactory, X509TrustManager trustManager)
+        // Add a custom HTTP interceptor in the form of an okhttp3.Interceptor
+        // object
+        // Optional
+        .addHttpInterceptor(interceptor)
 
-    // Add a custom HTTP interceptor.
-    // See https://square.github.io/okhttp/4.x/okhttp/okhttp3/ for details
-    // Optional.
-    .addHttpInterceptor(Interceptor interceptor)
+        // Add a custom java.net.Proxy to the OkHttp client
+        // Optional
+        .withProxy(proxy)
 
-    // Add retries for HTTP request to the builder.
-    // Optional.
-    .retries(Retry retries)
+        // Add a custom com.flagsmith.config.Retry object to configure the
+        // backoff / retry configuration
+        // Optional
+        // Defaults to Retry(3)
+        .retries(retries)
 
-    .build();
-```
+        // Enable local evaluation mode
+        // ()
+        // Optional
+        // Defaults to false
+        .withLocalEvaluation(true)
 
-### Custom HTTP Headers
+        // Set environment refresh rate with polling manager.
+        // Only needed when local evaluation is true.
+        // Optional.
+        // Defaults to 60 seconds
+        .withEnvironmentRefreshIntervalSeconds(Integer seconds)
 
-Adding custom headers to all HTTP calls:
+        // Controls whether Flag Analytics data is sent to the Flagsmith API
+        // See https://docs.flagsmith.com/advanced-use/flag-analytics
+        // Optional
+        // Defaults to False
+        .withEnableAnalytics(Boolean enable)
 
-```java
-final HashMap<String, String> customHeaders = new HashMap(){{
-    put("x-custom-header", "value1");
-    put("x-my-key", "value2");
-}};
-FlagsmithClient flagsmithClient = FlagsmithClient.newBuilder()
-    // other configuration as shown above
-    .withCustomHttpHeaders(customHeaders)
+        .build())
+
     .build();
 ```
 

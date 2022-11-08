@@ -156,6 +156,18 @@ This is the only operator that does not require a Trait. You can use the percent
 [A/B tests](/advanced-use/ab-testing) and
 [staged feature rollouts](/guides-and-examples/staged-feature-rollouts#creating-staged-rollouts).
 
+### Modulo Operator
+
+This operator performs [modulo operation](https://en.wikipedia.org/wiki/Modulo_operation). This operator accepts rule
+value in `divisor|remainder` format and is applicable for Traits having `integer` or `float` values. For example:
+
+`userId` `%` `2|0`
+
+This segment rule will include all identities having `int` or `float` `userId` trait and having a remainder equal to 0
+after being divided by 2.
+
+`userId % 2 == 0`
+
 ## Feature Flag and Remote Config Precedence
 
 Feature Flag states and Remote Config values can be defined in 3 different places:
