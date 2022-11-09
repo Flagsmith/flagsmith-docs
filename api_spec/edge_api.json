@@ -68,6 +68,9 @@
                         "application/json": {
                             "schema": {
                                 "type": "object",
+                                "example": {
+                                    "$ref": "#/components/schemas/Sample"
+                                },
                                 "items": {
                                     "$ref": "#/components/schemas/IdentitiesRequestData"
                                 }
@@ -95,13 +98,23 @@
         "/bulk-identities": {
             "post": {
                 "tags": [],
-                "summary": "Bulk-Identities",
-                "description": "Bulk Uploading Identities and Traits",
+                "summary": "Bulk insert identities",
+                "description": "Bulk uploading identities and traits",
                 "requestBody": {
                     "content": {
                         "application/json": {
                             "schema": {
                                 "type": "object",
+                                "example": {
+                                    "data": [
+                                        {
+                                            "$ref": "#/components/schemas/Sample"
+                                        },
+                                        {
+                                            "$ref": "#/components/schemas/Sample"
+                                        }
+                                    ]
+                                },
                                 "items": {
                                     "$ref": "#/components/schemas/BulkIdentitiesData"
                                 }
@@ -131,10 +144,18 @@
                     },
                     "feature_state_value": {
                         "oneOf": [
-                            { "type": "string" },
-                            { "type": "boolean" },
-                            { "type": "integer" },
-                            { "type": "float" }
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "float"
+                            }
                         ],
                         "description": "Can be any of the following types: string, integer, boolean, float"
                     },
@@ -205,22 +226,24 @@
             },
             "BulkIdentitiesData": {
                 "required": true,
+                "default": {
+                    "name": "identifier"
+                },
                 "type": "object",
                 "properties": {
                     "data": {
-                        "type": "array",
-                        "properties": {
-                            "identifier": {
-                                "type": "string"
-                            },
-                            "traits": {
-                                "items": {
-                                    "$ref": "#/components/schemas/Trait"
-                                }
-                            }
-                        }
+                        "$ref": "#/components/schemas/IdentitiesRequestData"
                     }
                 }
+            },
+            "Sample": {
+                "identifier": "identity",
+                "traits": [
+                    {
+                        "trait_key": "foo",
+                        "trait_value": "bar"
+                    }
+                ]
             }
         }
     },
