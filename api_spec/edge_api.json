@@ -95,23 +95,23 @@
         "/bulk-identities": {
             "post": {
                 "tags": [],
-                "summary": "Post bulk identities",
-                "description": "Post traits for a given user.",
+                "summary": "Bulk-Identities",
+                "description": "Bulk Uploading Identities and Traits",
                 "requestBody": {
                     "content": {
                         "application/json": {
                             "schema": {
                                 "type": "object",
                                 "items": {
-                                    "$ref": "#/components/schemas/IdentitiesRequestData"
+                                    "$ref": "#/components/schemas/BulkIdentitiesData"
                                 }
                             }
                         }
                     }
                 },
                 "responses": {
-                    "200": {
-                        "description": "OK"
+                    "202": {
+                        "description": "Accepted"
                     }
                 }
             }
@@ -200,6 +200,25 @@
                     },
                     "identifier": {
                         "type": "string"
+                    }
+                }
+            },
+            "BulkIdentitiesData": {
+                "required": true,
+                "type": "object",
+                "properties": {
+                    "data": {
+                        "type": "array",
+                        "properties": {
+                            "identifier": {
+                                "type": "string"
+                            },
+                            "traits": {
+                                "items": {
+                                    "$ref": "#/components/schemas/Trait"
+                                }
+                            }
+                        }
                     }
                 }
             }
