@@ -69,7 +69,7 @@
                             "schema": {
                                 "type": "object",
                                 "example": {
-                                    "$ref": "#/components/schemas/Sample"
+                                    "$ref": "#/components/examples/PostIdentityExampleData"
                                 },
                                 "items": {
                                     "$ref": "#/components/schemas/IdentitiesRequestData"
@@ -99,7 +99,7 @@
             "post": {
                 "tags": [],
                 "summary": "Bulk insert identities",
-                "description": "Bulk uploading identities and traits",
+                "description": "Bulk uploading identities and traits.\n\n\n:::info INFO\nIt has a limit of 100 identities per request\n\n:::\n\n \n\n",
                 "requestBody": {
                     "content": {
                         "application/json": {
@@ -108,10 +108,7 @@
                                 "example": {
                                     "data": [
                                         {
-                                            "$ref": "#/components/schemas/Sample"
-                                        },
-                                        {
-                                            "$ref": "#/components/schemas/Sample"
+                                            "$ref": "#/components/examples/PostIdentityExampleData"
                                         }
                                     ]
                                 },
@@ -125,6 +122,39 @@
                 "responses": {
                     "202": {
                         "description": "Accepted"
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string",
+                                    "description": "Number of identities must not be more than 100"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string",
+                                    "description": "Environment not found"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string",
+                                    "description": "Organisation is disabled from serving flags."
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -226,17 +256,16 @@
             },
             "BulkIdentitiesData": {
                 "required": true,
-                "default": {
-                    "name": "identifier"
-                },
                 "type": "object",
                 "properties": {
                     "data": {
                         "$ref": "#/components/schemas/IdentitiesRequestData"
                     }
                 }
-            },
-            "Sample": {
+            }
+        },
+        "examples": {
+            "PostIdentityExampleData": {
                 "identifier": "identity",
                 "traits": [
                     {
