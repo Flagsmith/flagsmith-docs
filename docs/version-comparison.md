@@ -12,7 +12,7 @@ Open Source, SaaS hosted and Enterprise plans:
 - The Open Source version has **no** Dashboard User limits - you can have as many team members as you wish.
 - The SaaS and Enterprise versions have [Change Requests and Flag Scheduling](advanced-use/change-requests.md).
 - The SaaS and Enterprise versions have [Role-Based Access Controls](advanced-use/permissions.md).
-- The SaaS and Enterprise versions have additional [Authentication Providers](/enterprise-edition).
+- The SaaS and Enterprise versions have additional [Authentication Providers](/deployment/enterprise-edition).
 
 ## SaaS Benefits
 

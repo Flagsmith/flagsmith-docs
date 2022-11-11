@@ -21,7 +21,7 @@ If you're new to Flagsmith or Feature Flags in general we would recommend:
 
 ## Digging Deeper
 
-- [View our SaaS Features and how SaaS compares to Self Hosted](saas-features.md)
+- [View our SaaS Features and how SaaS compares to Self Hosted](version-comparison.md)
 - [Learn about our globally distributed Edge API](advanced-use/edge-api.md)
 - [Use Flagsmith to run A/B and Multivariate Tests](advanced-use/ab-testing.md)
 - [Integrate with 3rd party applications](integrations/overview.md)
