@@ -125,13 +125,15 @@ Now you would be able to see the GitHub SSO option.
 
 ## LDAP
 
-LDAP Authentication is available in our [Enterprise Edition](../enterprise-edition.md). Please contact us if this is of
-interest. We also support sync-ing of LDAP groups into [Flagsmith RBAC groups](../advanced-use/permissions.md#groups)).
+LDAP Authentication is available in our [Enterprise Edition](/deployment/enterprise-edition.md). Please contact us if
+this is of interest. We also support sync-ing of LDAP groups into
+[Flagsmith RBAC groups](../advanced-use/permissions.md#groups)).
 
 ## AD FS
 
-Active Directory Federation Services Authentication is available in our [Enterprise Edition](../enterprise-edition.md).
+Active Directory Federation Services Authentication is available in our
+[Enterprise Edition](/deployment/enterprise-edition.md).
 
 ## Okta
 
-Okta Integration is available in our [Enterprise Edition](../enterprise-edition.md).
+Okta Integration is available in our [Enterprise Edition](/deployment/enterprise-edition.md).
