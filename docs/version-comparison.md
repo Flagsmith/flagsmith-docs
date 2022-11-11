@@ -5,7 +5,7 @@ sidebar_position: 3
 # Version Comparison
 
 You are free to run the Open Source version of Flagsmith however you see fit! There are some differences between the
-Open Source, SaaS hosted and Enterprise plans:
+Open Source, SaaS hosted and Enterprise versions:
 
 - The Open Source version has **no** API request or Identity limits - you can run as many API instances in a cluster as
   you wish.
