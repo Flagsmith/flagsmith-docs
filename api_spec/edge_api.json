@@ -259,7 +259,12 @@
                 "type": "object",
                 "properties": {
                     "data": {
-                        "$ref": "#/components/schemas/IdentitiesRequestData"
+                        "type": "array",
+                        "properties": {
+                            "items": {
+                                "$ref": "#/components/schemas/IdentitiesRequestData"
+                            }
+                        }
                     }
                 }
             }
