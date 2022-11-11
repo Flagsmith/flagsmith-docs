@@ -32,9 +32,16 @@ Our SaaS platform has a number of benefits:
 You can run our Enterprise version either on-premise, or we can provide private cloud instance dedicated to your
 organisation.
 
-- aaa
+- [Role Based Access Controls](advanced-use/permissions.md).
+- [SAML, LDAP, ADFS and Okta authentication](deployment/authentication.md), as well as the ability to lock
+  authentication to a single provider.
+- Additional database engines: Oracle, SQL Server and MySQL.
+- Additional deployment and orchestration options as detailed below.
 
 ## Open Source Benefits
 
 - Completely Free!
-- Run the entire platform with no API limits whatsoever.
+- The Open Source version has **no** API request or Identity limits - you can run as many API instances in a cluster as
+  you wish.
+- The Open Source version has **no** Dashboard User limits - you can have as many team members as you wish.
+- Deploy with one click to a number of different [IaaS and PaaS providers](deployment/overview#one-click-installers).
