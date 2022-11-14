@@ -67,13 +67,8 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "type": "object",
-                                "example": {
-                                    "$ref": "#/components/examples/PostIdentityExampleData"
-                                },
-                                "items": {
-                                    "$ref": "#/components/schemas/IdentitiesRequestData"
-                                }
+                                "example": {},
+                                "$ref": "#/components/schemas/IdentitiesRequestData"
                             }
                         }
                     }
@@ -105,16 +100,8 @@
                         "application/json": {
                             "schema": {
                                 "type": "object",
-                                "example": {
-                                    "data": [
-                                        {
-                                            "$ref": "#/components/examples/PostIdentityExampleData"
-                                        }
-                                    ]
-                                },
-                                "items": {
-                                    "$ref": "#/components/schemas/BulkIdentitiesData"
-                                }
+                                "example": {},
+                                "$ref": "#/components/schemas/BulkIdentitiesData"
                             }
                         }
                     }
@@ -211,7 +198,7 @@
                 }
             },
             "Trait": {
-                "type": "array",
+                "type": "object",
                 "properties": {
                     "trait_key": {
                         "type": "string"
@@ -256,28 +243,14 @@
             },
             "BulkIdentitiesData": {
                 "required": true,
-                "type": "object",
                 "properties": {
                     "data": {
                         "type": "array",
-                        "properties": {
-                            "items": {
-                                "$ref": "#/components/schemas/IdentitiesRequestData"
-                            }
+                        "items": {
+                            "$ref": "#/components/schemas/IdentitiesRequestData"
                         }
                     }
                 }
-            }
-        },
-        "examples": {
-            "PostIdentityExampleData": {
-                "identifier": "identity",
-                "traits": [
-                    {
-                        "trait_key": "foo",
-                        "trait_value": "bar"
-                    }
-                ]
             }
         }
     },
