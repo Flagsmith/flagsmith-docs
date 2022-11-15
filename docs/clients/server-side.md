@@ -192,7 +192,7 @@ area and should be considered secret.
 from flagsmith import Flagsmith
 
 flagsmith = Flagsmith(
-    environment_key = os.environ.get("<FLAGSMITH_SERVER_SIDE_ENVIRONMENT_KEY>")
+    environment_key = "<FLAGSMITH_SERVER_SIDE_ENVIRONMENT_KEY>"
 )
 ```
 
@@ -574,7 +574,7 @@ def default_flag_handler(feature_name: str) -> DefaultFlag:
     return DefaultFlag(False, None)
 
 flagsmith = Flagsmith(
-    environment_key=os.environ.get("<FLAGSMITH_SERVER_SIDE_ENVIRONMENT_KEY>"),
+    environment_key="<FLAGSMITH_SERVER_SIDE_ENVIRONMENT_KEY>",
     default_flag_handler=default_flag_handler,
 )
 ```
@@ -793,7 +793,7 @@ flagsmith = Flagsmith(
     # Note that this is either the `Environment API` key or the `Server Side SDK Token`
     # depending on if you are using Local or Remote Evaluation
     # Required.
-    environment_key = os.environ.get("FLAGSMITH_SERVER_SIDE_ENVIRONMENT_KEY"),
+    environment_key = "<FLAGSMITH_SERVER_SIDE_ENVIRONMENT_KEY>",
 
     # Controls which mode to run in; local or remote evaluation.
     # See the `SDKs Overview Page` for more info
