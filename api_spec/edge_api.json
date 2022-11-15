@@ -67,10 +67,8 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "type": "object",
-                                "items": {
-                                    "$ref": "#/components/schemas/IdentitiesRequestData"
-                                }
+                                "example": {},
+                                "$ref": "#/components/schemas/IdentitiesRequestData"
                             }
                         }
                     }
@@ -85,6 +83,62 @@
                                     "items": {
                                         "$ref": "#/components/schemas/IdentitiesResponse"
                                     }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/bulk-identities": {
+            "post": {
+                "tags": [],
+                "summary": "Bulk insert identities",
+                "description": "Bulk uploading identities and traits.\n\n\n:::info INFO\nIt has a limit of 100 identities per request\n\n:::\n\n \n\n",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "example": {},
+                                "$ref": "#/components/schemas/BulkIdentitiesData"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "202": {
+                        "description": "Accepted"
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string",
+                                    "description": "Number of identities must not be more than 100"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string",
+                                    "description": "Environment not found"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string",
+                                    "description": "Organisation is disabled from serving flags."
                                 }
                             }
                         }
@@ -107,10 +161,18 @@
                     },
                     "feature_state_value": {
                         "oneOf": [
-                            { "type": "string" },
-                            { "type": "boolean" },
-                            { "type": "integer" },
-                            { "type": "float" }
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "boolean"
+                            },
+                            {
+                                "type": "integer"
+                            },
+                            {
+                                "type": "float"
+                            }
                         ],
                         "description": "Can be any of the following types: string, integer, boolean, float"
                     },
@@ -136,7 +198,7 @@
                 }
             },
             "Trait": {
-                "type": "array",
+                "type": "object",
                 "properties": {
                     "trait_key": {
                         "type": "string"
@@ -176,6 +238,17 @@
                     },
                     "identifier": {
                         "type": "string"
+                    }
+                }
+            },
+            "BulkIdentitiesData": {
+                "required": true,
+                "properties": {
+                    "data": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/IdentitiesRequestData"
+                        }
                     }
                 }
             }
