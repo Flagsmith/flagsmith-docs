@@ -88,6 +88,11 @@ endpoint `edge.api.flagsmith.com` and benefit from global low latency!
 
 ## Things you should know
 
+### Some of the secure Identity endpoints have changed
+
+If you are using our REST API to manipulate/update/list your Identities, some of these endpoints have changed. Please
+get in touch if you need any help related to this.
+
 ### New Identity Overrides will only apply to the Edge API
 
 After the migration, any new Identity Overrides you apply to flag values for specific Identities will only be applied to
