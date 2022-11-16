@@ -16,12 +16,12 @@ In your project path `app/build.gradle` add a new dependence
 
 ```gradle
 //flagsmith
-implementation 'com.github.Flagsmith/flagsmith-kotlin-android-client:0.1.0'
+implementation 'com.github.Flagsmith/flagsmith-kotlin-android-client:1.0.0'
 ```
 
 ### Gradle - Project
 
-In new gradle version 7+ write at file "settings.gradle"
+In the new Gradle version 7+ update your `settings.gradle` file to include JitPack if you haven't already
 
 ```gradle
 repositories {
@@ -32,11 +32,11 @@ repositories {
 }
 ```
 
-## Tutorial
+<!-- ## Tutorial
 
 ### Android App Screens
 
-![Android App Screens](/img/languages/kotlin-java-1.png)
+![Android App Screens](/img/languages/kotlin-java-1.png) -->
 
 ## Basic Usage
 
@@ -44,135 +44,93 @@ The SDK is initialised against a single environment within a project on [https:/
 for example the Development or Production environment. You can find your Client-side Environment Key in the Environment
 settings page.
 
+![Image](/img/api-key.png)
+
 ## Initialization
-
-### Create class `Helper` to set the constant key
-
-- This key generated from Dashboard Website
-- By default, the client uses a default configuration. You can override the configuration as follows Override just the
-  default API URI with your own:
-
-```kotlin
-object Helper {
-
-   var tokenApiKey: String = "a97c6f022fe7b736f7bcf6f99019337a7ff2f7d3"
-   var environmentDevelopmentKey = "DaeCHJMjZtSmNuuzhV9UWy"
-   var identifierUserKey: String = "development_test_user_123456";
-}
-```
 
 ### Within your Activity inside `onCreate()`
 
 ```kotlin
-lateinit var flagBuilder : FlagsmithBuilder
+lateinit var flagsmith : Flagsmith
 
 override fun onCreate(savedInstanceState: Bundle?) {
-    initBuilder();
+    initFlagsmith();
 }
 
-private fun initBuilder() {
-    flagBuilder = FlagsmithBuilder.Builder()
-        .tokenApi( Helper.tokenApiKey)
-        .environmentId(Helper.environmentDevelopmentKey)
-        .identifierUser( Helper.identifierUserKey)
-        .build();
+private fun initFlagsmith() {
+    flagsmith = Flagsmith(environmentKey = FlagsmithConfigHelper.environmentDevelopmentKey, context = context)
 }
 ```
 
 ## Flags
 
-### Flag Object Data
+Now you are all set to retrieve feature flags from your project. For example to list and print all flags:
 
 ```kotlin
-data class ResponseFlagElement (
-    val id: Long,
-    val feature: Feature,
-    val featureStateValue: String,
-    val environment: Long,
-    val identity: Any? = null,
-    val featureSegment: Any? = null,
-    val enabled: Boolean
-)
-
-data class Feature (
-    val id: Long,
-    val name: String,
-    val description: String,
-    val type: String
-)
-```
-
-Now you are all set to retrieve feature flags from your project. For example to list and print all flags
-
-```kotlin
-//listener
-flagBuilder.getAllFlag(
-    object : IFlagArrayResult {
-        override fun success(list: ArrayList<ResponseFlagElement>) {
-        }
-
-    override fun failed(str: String) {
-    }
-});
-```
-
-Check Flag key is found
-
-```kotlin
-flagBuilder.hasFeatureFlag(keyFlag, object  : IFeatureFoundChecker {
-    override fun found() {
-
-    }
-
-    override fun notFound() {
-
-    }
-})
+flagsmith.getFeatureFlags { result ->
+    result.fold(
+        onSuccess = { flagList ->
+            Log.i("Flagsmith", "Current flags:")
+            flagList.forEach { Log.i("Flagsmith", "- ${it.feature.name} - enabled: ${it.enabled} value: ${it.featureStateValue ?: "not set"}") }
+        },
+        onFailure = { err ->
+            Log.e("Flagsmith", "Error getting feature flags", err)
+        })
+}
 ```
 
 ### Get Flag Object by `featureId`
 
-To retrieve a config value by its name
+To retrieve a feature flag boolean value by its name:
 
 ```kotlin
-flagBuilder.getFeatureByIdAPi(   searchText, object  : IFlagSingle{
-    override fun success(flag: ResponseFlagElement) {
-
-    }
-
-    override fun failed(str: String) {
-
-    }
-});
+flagsmith.hasFeatureFlag(forFeatureId = "test_feature1") { result ->
+    val isEnabled = result.getOrDefault(true)
+    Log.i("Flagsmith", "test_feature1 is enabled? $isEnabled")
+}
 ```
 
-### Create Tait by `keyTrait` and `valueTrait`
+### Create a Trait for a user identity
 
 ```kotlin
-flagBuilder.createTrait(  key, value, object  : ITraitUpdate {
-    override fun success(response: ResponseTraitUpdate) {
+flagsmith.setTrait(Trait(key = "set-from-client", value = "12345"), identity = "test@test.com") { result ->
+    result.fold(
+        onSuccess = { _ ->
+            Log.i("Flagsmith", "Successfully set trait")
 
-    }
-
-    override fun failed(str: String) {
-
-    }
-})
+        },
+        onFailure = { err ->
+            Log.e("Flagsmith", "Error setting trait", err)
+        })
+}
 ```
 
 ### Get all Traits
 
-To retrieve a trait for a particular identity [Traits](../../basic-features/managing-identities.md#identity-traits)
+To retrieve a trait for a particular identity as explained here
+[Traits](../../basic-features/managing-identities.md#identity-traits)
 
 ```kotlin
-flagBuilder.getAllTrait(   object : ITraitArrayResult {
-    override fun success(list: ArrayList<Trait>) {
+flagsmith.getTraits(identity = "test@test.com") { result ->
+    result.fold(
+        onSuccess = { traits ->
+            traits.forEach {
+                Log.i("Flagsmith", "Trait - ${it.key} : ${it.value}")
+            }
+        },
+        onFailure = { err ->
+            Log.e("Flagsmith", "Error setting trait", err)
+        })
+}
+```
 
-    }
+## Override the default base URL
 
-    override fun failed(str: String) {
+If you'd like to use your own API URL you can override this like so during initialization:
 
-
-    }
-})
+```kotlin
+        flagsmith = Flagsmith(
+            environmentKey = Helper.environmentDevelopmentKey,
+            context = context,
+            baseUrl = "https://hostedflagsmith.company.com/")
 ```
