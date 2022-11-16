@@ -93,8 +93,62 @@
         "/bulk-identities": {
             "post": {
                 "tags": [],
-                "summary": "Bulk insert identities",
-                "description": "Bulk uploading identities and traits.\n\n\n:::info INFO\nIt has a limit of 100 identities per request\n\n:::\n\n \n\n",
+                "summary": "Bulk insert identities (overwrite)",
+                "description": "Bulk uploading identities and traits. If there is an existing identity, using POST will overwrite the existing identity with the data from the request.\n\n\n:::info INFO\nIt has a limit of 100 identities per request\n\n:::\n\n \n\n",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "example": {},
+                                "$ref": "#/components/schemas/BulkIdentitiesData"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "202": {
+                        "description": "Accepted"
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string",
+                                    "description": "Number of identities must not be more than 100"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string",
+                                    "description": "Environment not found"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "text/plain": {
+                                "schema": {
+                                    "type": "string",
+                                    "description": "Organisation is disabled from serving flags."
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [],
+                "summary": "Bulk insert identities (update)",
+                "description": "Bulk uploading identities and traits. If there is an existing identity, using PUT will update the existing identity with the data from the request.\n\n\n:::info INFO\nIt has a limit of 100 identities per request\n\n:::\n\n \n\n",
                 "requestBody": {
                     "content": {
                         "application/json": {
