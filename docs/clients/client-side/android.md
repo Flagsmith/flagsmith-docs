@@ -14,7 +14,7 @@ This SDK can be used for Android applications written in Kotlin. The source code
 
 In your project path `app/build.gradle` add a new dependence
 
-```gradle
+```groovy
 //flagsmith
 implementation 'com.github.Flagsmith/flagsmith-kotlin-android-client:1.0.0'
 ```
@@ -23,7 +23,7 @@ implementation 'com.github.Flagsmith/flagsmith-kotlin-android-client:1.0.0'
 
 In the new Gradle version 7+ update your `settings.gradle` file to include JitPack if you haven't already
 
-```gradle
+```groovy
 repositories {
     google()
     mavenCentral()
