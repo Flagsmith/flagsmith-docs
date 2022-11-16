@@ -159,6 +159,11 @@ the below variables will be ignored.
 - `DJANGO_DB_PASSWORD`: Database password
 - `DJANGO_DB_PORT`: Database port
 
+#### GitHub Auth Environment Variables
+
+- `GITHUB_CLIENT_ID`: Used for GitHub OAuth configuration, provided in your **OAuth Apps** settings.
+- `GITHUB_CLIENT_SECRET`: Used for GitHub OAuth configuration, provided in your **OAuth Apps** settings.
+
 #### Application Environment Variables
 
 - `ENV`: string representing the current running environment, e.g. 'local', 'dev', 'prod'. Defaults to 'local'
@@ -299,6 +304,60 @@ the `DJANGO_SECRET_KEY` variable. Django recommends that this key should be at l
 it is up to you to configure the key how you wish. Check the `get_random_secret_key()` method in the Django source code
 if you want more information on what the key should look like.
 
+### StatsD Integration
+
+The application is run using python's gunicorn. As such, we are able to tell it to send statsd metrics to a given host
+for monitoring purposes. Using our docker image, this can be done and configured by providing the following environment
+variables.
+
+- `STATSD_HOST`: the URL of the host that will collect the statsd metrics
+- `STATSD_PORT`: optionally define the port on the host which is listening for statsd metrics (default: 8125)
+- `STATSD_PREFIX`: optionally define a prefix for the statsd metrics (default: flagsmith.api)
+
+Below is an example docker compose setup for using statsd with datadog. Note that it's important to set the
+`DD_DOGSTATSD_NON_LOCAL_TRAFFIC` environment variable to `true` to ensure that your datadog agent is able to accept
+metrics from external services.
+
+```yaml
+version: '3'
+services:
+ postgres:
+  image: postgres:11.12-alpine
+  environment:
+   POSTGRES_PASSWORD: password
+   POSTGRES_DB: flagsmith
+  container_name: flagsmith_postgres
+ api:
+  build:
+   dockerfile: Dockerfile
+   context: ../../api
+  environment:
+   DATABASE_URL: postgres://postgres:password@postgres:5432/flagsmith
+   DJANGO_SETTINGS_MODULE: app.settings.local
+   STATSD_HOST: datadog
+  ports:
+   - '8000:8000'
+  depends_on:
+   - postgres
+  links:
+   - postgres
+   - datadog
+ datadog:
+  image: gcr.io/datadoghq/agent:7
+  environment:
+   - DD_API_KEY=<API KEY>
+   - DD_SITE=datadoghq.eu
+   - DD_DOGSTATSD_NON_LOCAL_TRAFFIC=true
+  volumes:
+   - /var/run/docker.sock:/var/run/docker.sock
+   - /proc/:/host/proc/:ro
+   - /sys/fs/cgroup:/host/sys/fs/cgroup:ro
+   - /var/lib/docker/containers:/var/lib/docker/containers:ro
+```
+
+If not running our application via docker, you can find gunicorn's documentation on statsd instrumentation
+[here](https://docs.gunicorn.org/en/stable/instrumentation.html)
+
 ## Running Tests
 
 The application uses pytest for writing(appropritate use of fixtures) and running tests. Before running tests please
@@ -344,6 +403,32 @@ The application makes use of caching in a couple of locations:
 3. Project Segments - the application utilises an in memory cache for returning the segments for a given project. The
    number of seconds this is cached for is configurable using the environment variable
    `"CACHE_PROJECT_SEGMENTS_SECONDS"`.
+4. Flags and Identities endpoint caching - the application provides the ability to cache the responses to the GET /flags
+   and GET /identities endpoints. The application exposes the configuration to allow the caching to be handled in a
+   manner chosen by the developer. The configuration options are explain in more detail below.
+
+### Flags & Identities endpoint caching
+
+To enable caching on the flags and identities endpoints (GET requests only), you must set the following environment
+variables:
+
+| Environment Variable                                               | Description                                                                                                                    | Example value                                          | Default                                       |
+| ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------ | --------------------------------------------- |
+| <code>GET\_[FLAGS&#124;IDENTITIES]\_ENDPOINT_CACHE_SECONDS</code>  | Number of seconds to cache the response to `GET /api/v1/flags`                                                                 | `60`                                                   | `0`                                           |
+| <code>GET\_[FLAGS&#124;IDENTITIES]\_ENDPOINT_CACHE_BACKEND</code>  | Python path to the django cache backend chosen. See documentation [here](https://docs.djangoproject.com/en/3.2/topics/cache/). | `django.core.cache.backends.memcached.PyMemcacheCache` | `django.core.cache.backends.dummy.DummyCache` |
+| <code>GET\_[FLAGS&#124;IDENTITIES]\_ENDPOINT_CACHE_LOCATION</code> | The location for the cache. See documentation [here](https://docs.djangoproject.com/en/3.2/topics/cache/).                     | `127.0.0.1:11211`                                      | `get_flags_endpoint_cache`                    |
+
+An example configuration to cache both flags and identities requests for 30 seconds in a memcached instance hosted at
+`memcached-container`:
+
+```
+GET_FLAGS_ENDPOINT_CACHE_SECONDS: 30
+GET_FLAGS_ENDPOINT_CACHE_BACKEND: django.core.cache.backends.memcached.PyMemcacheCache
+GET_FLAGS_ENDPOINT_CACHE_LOCATION: memcached-container:11211
+GET_IDENTITIES_ENDPOINT_CACHE_SECONDS: 30
+GET_IDENTITIES_ENDPOINT_CACHE_BACKEND: django.core.cache.backends.memcached.PyMemcacheCache
+GET_IDENTITIES_ENDPOINT_CACHE_LOCATION: memcached-container:11211
+```
 
 ## Unified Front End and Back End Build
 

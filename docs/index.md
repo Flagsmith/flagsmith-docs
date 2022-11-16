@@ -21,6 +21,7 @@ If you're new to Flagsmith or Feature Flags in general we would recommend:
 
 ## Digging Deeper
 
+- [View our SaaS Features and how SaaS compares to Self Hosted](version-comparison.md)
 - [Learn about our globally distributed Edge API](advanced-use/edge-api.md)
 - [Use Flagsmith to run A/B and Multivariate Tests](advanced-use/ab-testing.md)
 - [Integrate with 3rd party applications](integrations/overview.md)
@@ -52,12 +53,4 @@ Check out our [Server Side SDK architecture first!](clients/overview.md)
 
 ## Open Source vs SaaS vs Enterprise
 
-You are free to run the Open Source version of Flagsmith however you see fit! There are some differences between the
-Open Source, SaaS hosted and Enterprise plans:
-
-- The Open Source version has **no** API request or Identity limits - you can run as many API instances in a cluster as
-  you wish
-- The Open Source version has **no** Dashboard User limits - you can have as many team members as you wish
-- The SaaS and Enterprise versions have [Change Requests and Flag Scheduling](advanced-use/change-requests.md)
-- The SaaS and Enterprise versions have [Role-Based Access Controls](advanced-use/permissions.md)
-- The SaaS and Enterprise versions have additional [Authentication Providers](/enterprise-edition)
+Learn more about the [different ways you can run Flagsmith](version-comparison.md).

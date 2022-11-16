@@ -14,25 +14,25 @@ of operation due to the differences in their operating environment.
 
 :::tip
 
-Environment Keys come in two different types: Client-side and Server-side keys. Make sure you use the correct key
+**Environment Keys** come in two different types: Client-side and Server-side keys. Make sure you use the correct key
 depending on the SDK you are using.
 
 :::
 
-## Client-Side SDKS
+## Client-side SDKS
 
 Client-side SDKs run in web browsers or on mobile devices. These runtimes execute within _untrusted environments_.
-Anyone using the Javascript SDK in a web browser, for example, can find the Client-Side SDK, create a new Identity, look
+Anyone using the Javascript SDK in a web browser, for example, can find the Client-side SDK, create a new Identity, look
 at their flags and
 [potentially write Traits to the Identity](../advanced-use/system-administration.md#preventing-client-sdks-to-set-traits).
 
-Client-Side SDKs are also limited to the
+Client-side SDKs are also limited to the
 [types of data that they have access to](/guides-and-examples/integration-approaches#segment-and-targeting-rules-are-not-leaked-to-the-client).
 
 Client-side Environment keys are designed to be shared publicly, for example in your HTML/JS code that is sent to a web
 browser.
 
-Client-Side SDKs hit our [Edge API](../advanced-use/edge-api.md) directly to retrieve their flags.
+Client-side SDKs hit our [Edge API](../advanced-use/edge-api.md) directly to retrieve their flags.
 
 Read more about our Client-Side SDKs for your language/platform:
 
@@ -43,9 +43,9 @@ Read more about our Client-Side SDKs for your language/platform:
 - [React & React Native](/clients/react)
 - [Next.js, Svelte and SSR](/clients/next-ssr)
 
-## Server-Side SDKs
+## Server-side SDKs
 
-[Server-Side SDKs](/clients/server-side.md) run within _trusted environments_ - typically the server infrastructure that
+[Server-side SDKs](/clients/server-side.md) run within _trusted environments_ - typically the server infrastructure that
 you have control over. Because of this you need to should not share your Server-side Environment keys publicly - they
 should be treated as secrets.
 
@@ -96,7 +96,7 @@ and wait for a response back from the Flagsmith API.
 
 The SDK has to request all of the data about an Environment in order to run. Because some of this data could be
 sensitive (for example, your Segment Rules), the SDK requires a specific `Server-side Environment Key`. This is
-different to the regular `Client-Side Environment Key`. The `Server-side Environment Key` should _not_ be shared, and
+different to the regular `Client-side Environment Key`. The `Server-side Environment Key` should _not_ be shared, and
 should be considered sensitive data.
 
 :::

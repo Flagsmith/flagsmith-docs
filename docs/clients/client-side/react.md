@@ -18,11 +18,24 @@ Example applications for a variety of React, React Native and Next.js can be fou
 
 ### NPM
 
+:::tip
+
+We also have flagsmith-es if you'd prefer to use [ES](https://262.ecma-international.org/6.0/) modules.
+
+:::
+
 ```bash
 npm i flagsmith --save
 ```
 
 ### NPM for React Native
+
+:::tip
+
+The ReactNative SDK shares the exact same implementation of Flagsmith, however, the defaults for some underlying
+libraries (e.g. AsyncStorage) use React Native compatible implementations.
+
+:::
 
 ```bash
 npm i react-native-flagsmith --save
@@ -63,8 +76,8 @@ Providing options to the Flagsmith provider will initialise the client, the API 
 **Advanced usage: Initialising before rendering the FlagsmithProvider**
 
 If you wish to initialise the Flagsmith client before React rendering (e.g. in redux, or SSR) you can do so by calling
-[flagsmith.init](http://localhost:3000/clients/javascript#example-initialising-the-sdk) and provide no options property
-to the FlagsmithProvider component.
+[flagsmith.init](https://docs.flagsmith.com/clients/javascript#example-initialising-the-sdk) and provide no options
+property to the FlagsmithProvider component.
 
 ### Step 2: Using useFlags to access feature values and enabled state
 

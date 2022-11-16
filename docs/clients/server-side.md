@@ -201,6 +201,13 @@ end
 
 ## Initialise the SDK
 
+:::tip
+
+Server-side SDKs must be initialised with Server-side Environment keys. These can be created in the Environment settings
+area and should be considered secret.
+
+:::
+
 <Tabs groupId="language">
 <TabItem value="py" label="Python">
 
@@ -208,7 +215,7 @@ end
 from flagsmith import Flagsmith
 
 flagsmith = Flagsmith(
-    environment_key = os.environ.get("<FLAGSMITH_ENVIRONMENT_KEY>")
+    environment_key = "<FLAGSMITH_SERVER_SIDE_ENVIRONMENT_KEY>"
 )
 ```
 
@@ -218,7 +225,7 @@ flagsmith = Flagsmith(
 ```java
 private static FlagsmithClient flagsmith = FlagsmithClient
     .newBuilder()
-    .setApiKey(System.getenv("<FLAGSMITH_ENVIRONMENT_KEY>"))
+    .setApiKey(System.getenv("<FLAGSMITH_SERVER_SIDE_ENVIRONMENT_KEY>"))
     .build();
 ```
 
@@ -239,7 +246,7 @@ using Flagsmith;
 
 FlagsmithClient _flagsmithClient;
 
-_flagsmithClient = new("<FLAGSMITH_ENVIRONMENT_KEY>");
+_flagsmithClient = new("<FLAGSMITH_SERVER_SIDE_ENVIRONMENT_KEY>");
 ```
 
 </TabItem>
@@ -249,7 +256,7 @@ _flagsmithClient = new("<FLAGSMITH_ENVIRONMENT_KEY>");
 const Flagsmith = require('flagsmith-nodejs');
 
 const flagsmith = new Flagsmith({
- environmentKey: '<FLAGSMITH_ENVIRONMENT_KEY>',
+ environmentKey: '<FLAGSMITH_SERVER_SIDE_ENVIRONMENT_KEY>',
 });
 ```
 
@@ -260,7 +267,7 @@ const flagsmith = new Flagsmith({
 require "flagsmith"
 
 $flagsmith = Flagsmith::Client.new(
-  environment_key: '<FLAGSMITH_ENVIRONMENT_KEY>'
+  environment_key: '<FLAGSMITH_SERVER_SIDE_ENVIRONMENT_KEY>'
 )
 ```
 
@@ -270,7 +277,7 @@ $flagsmith = Flagsmith::Client.new(
 ```php
 use Flagsmith\Flagsmith;
 
-$flagsmith = new Flagsmith('<FLAGSMITH_ENVIRONMENT_KEY>');
+$flagsmith = new Flagsmith('<FLAGSMITH_SERVER_SIDE_ENVIRONMENT_KEY>');
 ```
 
 </TabItem>
@@ -284,7 +291,7 @@ ctx, cancel := context.WithCancel(context.Background())
 defer cancel()
 
 // Initialise the Flagsmith client
-client := flagsmith.NewClient('<FLAGSMITH_ENVIRONMENT_KEY>', flagsmith.WithContext(ctx),)
+client := flagsmith.NewClient('<FLAGSMITH_SERVER_SIDE_ENVIRONMENT_KEY>', flagsmith.WithContext(ctx),)
 ```
 
 </TabItem>
@@ -296,8 +303,8 @@ use flagsmith::{Flag, Flagsmith, FlagsmithOptions};
 
 let options = FlagsmithOptions {..Default::default()};
 let flagsmith = Flagsmith::new(
-        env::var("FLAGSMITH_ENVIRONMENT_KEY")
-            .expect("FLAGSMITH_ENVIRONMENT_KEY not found in environment"),
+        env::var("FLAGSMITH_SERVER_SIDE_ENVIRONMENT_KEY")
+            .expect("FLAGSMITH_SERVER_SIDE_ENVIRONMENT_KEY not found in environment"),
         options,
     );
 ```
@@ -619,7 +626,7 @@ def default_flag_handler(feature_name: str) -> DefaultFlag:
     return DefaultFlag(False, None)
 
 flagsmith = Flagsmith(
-    environment_key=os.environ.get("<FLAGSMITH_ENVIRONMENT_KEY>"),
+    environment_key="<FLAGSMITH_SERVER_SIDE_ENVIRONMENT_KEY>",
     default_flag_handler=default_flag_handler,
 )
 ```
@@ -631,7 +638,7 @@ flagsmith = Flagsmith(
 private static FlagsmithClient flagsmith = FlagsmithClient
     .newBuilder()
     .setDefaultFlagValueFunction(HelloController::defaultFlagHandler)
-    .setApiKey(System.getenv("<FLAGSMITH_ENVIRONMENT_KEY>"))
+    .setApiKey(System.getenv("<FLAGSMITH_SERVER_SIDE_ENVIRONMENT_KEY>"))
     .build();
 
 private static DefaultFlag defaultFlagHandler(String featureName) {
@@ -681,7 +688,7 @@ fun defaultFlagHandler(featureName: String) : DefaultFlag {
 using Flagsmith;
 
 FlagsmithClient _flagsmithClient;
-_flagsmithClient = new("<FLAGSMITH_ENVIRONMENT_KEY>", defaultFlagHandler: defaultFlagHandler);
+_flagsmithClient = new("<FLAGSMITH_SERVER_SIDE_ENVIRONMENT_KEY>", defaultFlagHandler: defaultFlagHandler);
 
 static Flag defaultFlagHandler(string featureName)
 {
@@ -711,7 +718,7 @@ const flagsmith = new Flagsmith({
 
 ```ruby
 $flagsmith = Flagsmith::Client.new(
-    environment_key: '<FLAGSMITH_ENVIRONMENT_KEY'>,
+    environment_key: '<FLAGSMITH_SERVER_SIDE_ENVIRONMENT_KEY'>,
     default_flag_handler: lambda { |feature_name|
         Flagsmith::Flags::DefaultFlag.new(
             enabled: false, value: {'colour': '#ababab'}.to_json
@@ -724,7 +731,7 @@ $flagsmith = Flagsmith::Client.new(
 <TabItem value="php" label="PHP">
 
 ```php
-$flagsmith = (new Flagsmith('<FLAGSMITH_ENVIRONMENT_KEY>'))
+$flagsmith = (new Flagsmith('<FLAGSMITH_SERVER_SIDE_ENVIRONMENT_KEY>'))
     ->withDefaultFlagHandler(function ($featureName) {
         $defaultFlag = (new DefaultFlag())
             ->withEnabled(false)->withValue(null);
@@ -772,8 +779,8 @@ let options = FlagsmithOptions {
 };
 
 let flagsmith = Flagsmith::new(
-        env::var("FLAGSMITH_ENVIRONMENT_KEY")
-            .expect("FLAGSMITH_ENVIRONMENT_KEY not found in environment"),
+        env::var("FLAGSMITH_SERVER_SIDE_ENVIRONMENT_KEY")
+            .expect("FLAGSMITH_SERVER_SIDE_ENVIRONMENT_KEY not found in environment"),
         options,
     );
 
@@ -821,6 +828,13 @@ To use Local Evaluation mode, you must use a Server Side key.
 
 :::
 
+:::caution
+
+When using local evaluation mode, user overrides will not work. If needed, specific segments can be set up to target
+users.
+
+:::
+
 To achieve Local Evaluation, in most languages, the SDK spawns a separate thread (or equivalent) to poll the API for
 changes to the Environment. In certain languages, you may be required to terminate this thread before cleaning up the
 instance of the Flagsmith client. Languages in which this is necessary are provided below.
@@ -857,7 +871,7 @@ flagsmith = Flagsmith(
     # Note that this is either the `Environment API` key or the `Server Side SDK Token`
     # depending on if you are using Local or Remote Evaluation
     # Required.
-    environment_key = os.environ.get("FLAGSMITH_ENVIRONMENT_KEY"),
+    environment_key = "<FLAGSMITH_SERVER_SIDE_ENVIRONMENT_KEY>",
 
     # Controls which mode to run in; local or remote evaluation.
     # See the `SDKs Overview Page` for more info
@@ -911,6 +925,9 @@ flagsmith = Flagsmith(
 <TabItem value="java" label="Java">
 
 ```java
+// The configuration for the Java client is currently split across the FlagsmithClient and
+// FlagsmithConfig class, we are working to improve that in a future release.
+
 private static FlagsmithClient flagsmith = FlagsmithClient
     .newBuilder()
     // Your API Token.
@@ -919,69 +936,86 @@ private static FlagsmithClient flagsmith = FlagsmithClient
     // Required.
     .setApiKey(System.getenv("FLAGSMITH_API_KEY"))
 
+    // You can specify default Flag values on initialisation.
+    // Optional
+    .setDefaultFlagValueFunction(HelloController::defaultFlagHandler)
+
     // Controls which mode to run in; local or remote evaluation.
     // See the `SDKs Overview Page` for more info
     // Optional.
     // Defaults to False.
     .withLocalEvaluation(True)
 
-    // Override the default Flagsmith API URL if you are self-hosting.
+    // Add custom headers which will be sent with each network request
+    // to the Flagsmith API.
     // Optional.
-    // Defaults to https://edge.api.flagsmith.com/api/v1/
-    .baseUri("https://api.yourselfhostedflagsmith.com/api/v1/")
+    // Defaults to no custom headers.
+    .withCustomHttpHeaders(new HashMap<string, string>() {{
+        put("header", "value");
+    }})
 
-    // Set environment refresh rate with polling manager.
-    // Only needed when local evaluation is true.
+    // Enable in-memory caching for the Flagsmith API.
     // Optional.
-    // Defaults to 60 seconds
-    .withEnvironmentRefreshIntervalSeconds(Integer seconds)
+    // Defaults to not cache anything.
+    .withCache(FlagsmithCacheConfig.builder().enableEnvLevelCaching("cache-key").build())
 
-    // You can specify default Flag values on initialisation.
-    // Optional
-    .setDefaultFlagValueFunction(HelloController::defaultFlagHandler)
+    .withConfiguration(FlagsmithConfig.builder()
+        // Override the default Flagsmith API URL if you are self-hosting.
+        // Optional.
+        // Defaults to https://edge.api.flagsmith.com/api/v1/
+        .baseUri("https://api.yourselfhostedflagsmith.com/api/v1/")
 
-    // Controls whether Flag Analytics data is sent to the Flagsmith API
-    // See https://docs.flagsmith.com/advanced-use/flag-analytics
-    // Optional
-    // Defaults to False
-    .withEnableAnalytics(Boolean enable)
+        // The network timeout in milliseconds.
+        // See https://square.github.io/okhttp/4.x/okhttp/okhttp3/ for details
+        // Defaults are:
+        //   connect: 2000
+        //   write: 5000
+        //   read: 5000
+        // Optional.
+        .connectTimeout(<millisecond int>)
+        .writeTimeout(<millisecond int>)
+        .readTimeout(<millisecond int>)
 
-    // The network timeout in seconds.
-    // See https://square.github.io/okhttp/4.x/okhttp/okhttp3/ for details
-    // Optional.
-    .connectTimeout(<millisecond int>)
-    .writeTimeout(<millisecond int>)
-    .readTimeout(<millisecond int>)
+        // Override the sslSocketFactory
+        // See https://square.github.io/okhttp/4.x/okhttp/okhttp3/ for details
+        // Optional.
+        .sslSocketFactory(SSLSocketFactory sslSocketFactory, X509TrustManager trustManager)
 
-    // Override the sslSocketFactory
-    // See https://square.github.io/okhttp/4.x/okhttp/okhttp3/ for details
-    // Optional.
-    .sslSocketFactory(SSLSocketFactory sslSocketFactory, X509TrustManager trustManager)
+        // Add a custom HTTP interceptor in the form of an okhttp3.Interceptor
+        // object
+        // Optional
+        .addHttpInterceptor(interceptor)
 
-    // Add a custom HTTP interceptor.
-    // See https://square.github.io/okhttp/4.x/okhttp/okhttp3/ for details
-    // Optional.
-    .addHttpInterceptor(Interceptor interceptor)
+        // Add a custom java.net.Proxy to the OkHttp client
+        // Optional
+        .withProxy(proxy)
 
-    // Add retries for HTTP request to the builder.
-    // Optional.
-    .retries(Retry retries)
+        // Add a custom com.flagsmith.config.Retry object to configure the
+        // backoff / retry configuration
+        // Optional
+        // Defaults to Retry(3)
+        .retries(retries)
 
-    .build();
-```
+        // Enable local evaluation mode
+        // ()
+        // Optional
+        // Defaults to false
+        .withLocalEvaluation(true)
 
-### Custom HTTP Headers
+        // Set environment refresh rate with polling manager.
+        // Only needed when local evaluation is true.
+        // Optional.
+        // Defaults to 60 seconds
+        .withEnvironmentRefreshIntervalSeconds(Integer seconds)
 
-Adding custom headers to all HTTP calls:
+        // Controls whether Flag Analytics data is sent to the Flagsmith API
+        // See https://docs.flagsmith.com/advanced-use/flag-analytics
+        // Optional
+        // Defaults to False
+        .withEnableAnalytics(Boolean enable)
 
-```java
-final HashMap<String, String> customHeaders = new HashMap(){{
-    put("x-custom-header", "value1");
-    put("x-my-key", "value2");
-}};
-FlagsmithClient flagsmithClient = FlagsmithClient.newBuilder()
-    // other configuration as shown above
-    .withCustomHttpHeaders(customHeaders)
+        .build())
+
     .build();
 ```
 
@@ -1066,7 +1100,7 @@ _flagsmithClient = new FlagsmithClient(
     # Note that this is either the `Environment API` key or the `Server Side SDK Token`
     # depending on if you are using Local or Remote Evaluation
     # Required.
-    environmentKey: "FLAGSMITH_ENVIRONMENT_KEY",
+    environmentKey: "FLAGSMITH_SERVER_SIDE_ENVIRONMENT_KEY",
 
     # Pass in a default Flag Handler method
     # Optional
@@ -1122,7 +1156,7 @@ $flagsmith = Flagsmith::Client.new(
     # Note that this is either the `Environment API` key or the `Server Side SDK Token`
     # depending on if you are using Local or Remote Evaluation
     # Required.
-    environment_key = "FLAGSMITH_ENVIRONMENT_KEY",
+    environment_key = "FLAGSMITH_SERVER_SIDE_ENVIRONMENT_KEY",
 
     # Controls which mode to run in; local or remote evaluation.
     # See the `SDKs Overview Page` for more info
@@ -1183,7 +1217,7 @@ const flagsmith = new Flagsmith({
     depending on if you are using Local or Remote Evaluation
     Required.
     */
-    environmentKey: '<FLAGSMITH_ENVIRONMENT_KEY>',
+    environmentKey: '<FLAGSMITH_SERVER_SIDE_ENVIRONMENT_KEY>',
 
     /*
     Controls which mode to run in; local or remote evaluation.
@@ -1389,10 +1423,10 @@ let options = FlagsmithOptions {
 // Your API Token.
 // Note that this is either the `Environment API` key or the `Server Side SDK Token`
 // depending on if you are using Local or Remote Evaluation
-let FLAGSMITH_ENVIRONMENT_KEY = "some_key".to_string();
+let FLAGSMITH_SERVER_SIDE_ENVIRONMENT_KEY = "some_key".to_string();
 
 let flagsmith = Flagsmith::new(
-        FLAGSMITH_ENVIRONMENT_KEY,
+        FLAGSMITH_SERVER_SIDE_ENVIRONMENT_KEY,
         options,
     );
 

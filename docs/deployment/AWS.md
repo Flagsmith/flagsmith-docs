@@ -16,6 +16,10 @@ We recommend running Flagsmith on AWS using the following AWS services:
 We have [Pulumi](https://www.pulumi.com/) scripts available for AWS deployments. Please get in touch if these are of
 interest.
 
+## AWS Infrastructure Architecture
+
+![AWS Architecture](/img/ecs-overview.svg)
+
 ## ECS
 
 Unless you have specific requirements, we recommend running the

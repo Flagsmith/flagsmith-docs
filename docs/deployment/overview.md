@@ -488,16 +488,20 @@ The list of the flags and remote config we're currently using in production is b
  {
   "value": "REGEX",
   "label": "Matches regex"
+ },
+ {
+  "value": "MODULO",
+  "label": "Modulo operation"
  }
 ]
 ```
 
 ### `oauth_github`
 
-To configure OAuth for Github:
+Find instructions for GitHub Authentication [here](../deployment/authentication#github).
 
-- [Create an OAuth Github application](https://docs.github.com/en/developers/apps/building-oauth-apps/creating-an-oauth-app)
-- For the Authorization callback URL use: `https://<your flagsmith domain name>/oauth/github`
+Create an OAuth application in the GitHub Developer Console and then provide the following as the Flag value:
+
 - Create the Flagsmith on Flagsmith flag as below replacing your `client_id` and `redirect_uri`
 
 ```json
@@ -521,7 +525,7 @@ Create an OAuth application in the Google Developer Console and then provide the
 ```json
 {
  "clientId": "<Your Google oAuth Client ID>",
- "apiKey": "<Your Google redirect URL>"
+ "apiKey": "<Your Google oAuth Client secret>"
 }
 ```
 

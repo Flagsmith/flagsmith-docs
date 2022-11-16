@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+sidebar_position: 4
 ---
 
 # Enterprise Edition
@@ -302,7 +302,7 @@ LDAP_AUTH_USER_FIELDS=username=sAMAccountName,email=mail,first_name=givenName,la
 
 There are [JMeter](https://jmeter.apache.org/) tests avaiable in our public repo on Github:
 
-https://github.com/Flagsmith/flagsmith/tree/main/jmeter-tests
+https://github.com/Flagsmith/flagsmith/tree/main/api/jmeter-tests
 
 ### wrk
 
