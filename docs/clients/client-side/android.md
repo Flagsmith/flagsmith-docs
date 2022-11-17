@@ -62,6 +62,18 @@ private fun initFlagsmith() {
 }
 ```
 
+## Custom configuration
+
+The Flagsmith SDK has various parameters for initialisation. Most of these are optional, and allow you to configure the
+Flagmsith SDK to your specific needs:
+
+- `environmentKey` Take this API key from the Flagsmith dashboard and pass here
+- `baseUrl` By default we'll connect to the Flagsmith backend, but if you self-host you can configure here
+- `context` The current Context is required to use the Flagsmith Analytics functionality
+- `enableAnalytics` Enable analytics - default true. Disable this if you'd like to avoid the use of Context
+- `analyticsFlushPeriod` The period in seconds between attempts by the Flagsmith SDK to push analytic events to the
+  server
+
 ## Flags
 
 Now you are all set to retrieve feature flags from your project. For example to list and print all flags:
