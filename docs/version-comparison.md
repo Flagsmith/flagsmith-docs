@@ -22,6 +22,7 @@ Our SaaS platform has a number of benefits:
 - Our global [Edge API](advanced-use/edge-api.md) provides global low latency flags. We aim to serve all flag requests
   in < 150ms, globally.
 - Get real-time flag updates to your clients, the moment they are changed in the dashboard.
+- We deal with platform upgrades, security patches, scaling and backups.
 
 ### SaaS Architecture
 
