@@ -259,5 +259,5 @@ final flagsmithClient = FlagsmithClient(
 - If using the package Dio, you may encounter an error saying `Bad state: Future already completed`. There is a bug in
   the Dio package, introduced in 4.0.5 (and as of writing this on 12/09/2022, is unresolved). To resolve, you'll need to
   pin your Dio version in pubspec.yaml to 4.0.4 or earlier. You can track the state of this issue
-  [here](https://github.com/Flagsmith/flagsmith-flutter-client/issues/45) and at the
+  [here within our repo](https://github.com/Flagsmith/flagsmith-flutter-client/issues/45) and also at the
   [dio repo](https://github.com/flutterchina/dio/pull/1550).
