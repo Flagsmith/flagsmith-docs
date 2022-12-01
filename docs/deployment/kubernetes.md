@@ -58,8 +58,8 @@ Then, once any out-of-cluster DNS or CDN changes have been applied, access `http
 #### In a cluster that has an ingress controller, using separate ingresses for frontend and api
 
 Set the following values for flagsmith, with changes as needed to accommodate your ingress controller, and any
-associated DNS changes. Also, set the `API_URL` env-var such that the URL is reachable from a browser accessing the
-frontend.
+associated DNS changes. Also, set the `FLAGSMITH_API_URL` env-var such that the URL is reachable from a browser
+accessing the frontend.
 
 Eg:
 
@@ -81,7 +81,7 @@ ingress:
 
 frontend:
  extraEnv:
-  API_URL: 'https://flagsmith.[MYDOMAIN]/api/v1/'
+  FLAGSMITH_API_URL: 'https://flagsmith.[MYDOMAIN]/api/v1/'
 ```
 
 Then, once any out-of-cluster DNS or CDN changes have been applied, access `https://flagsmith.[MYDOMAIN]` in a browser.
@@ -364,6 +364,11 @@ The following table lists the configurable parameters of the chart and their def
 | `ingress.api.hosts[].host`                         |                                                                | `chart-example.local`          |
 | `ingress.api.hosts[].paths`                        |                                                                | `[]`                           |
 | `ingress.api.tls`                                  |                                                                | `[]`                           |
+| `api.statsd.enabled`                               | Enable statsd metric reporting from gunicorn.                  | `false`                        |
+| `api.statsd.host`                                  | Host URL to receive statsd metrics                             | `null`                         |
+| `api.statsd.hostFromNodeIp`                        | Set as true to use the node IP as the statsd host instead      | `false`                        |
+| `api.statsd.port`                                  | Host port to receive statsd metrics                            | `8125`                         |
+| `api.statsd.prefix`                                | Prefix to add to metric ids                                    | `flagsmith.api`                |
 
 ---
 

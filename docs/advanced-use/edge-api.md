@@ -73,10 +73,10 @@ The Core API will continue to work normally during and following the migration.
 If you have a product like a mobile app, where you cannot immediately force your users to upgrade (as opposed to a web
 app, for example), you will likely generate Identity writes to the old Core API.
 
-Following the migration, if we receive a request to an `Identity` endpoint that results in a write to the core API, we
-will persist the data in the Core API _and replay the request into the Edge API_. You can then update your API
-endpoints/SDKs in your own time to gradually move over the Edge API. This will give you time to migrate your users over
-to the new version of your application.
+Following and during the migration, if we receive a request to an `Identity` endpoint that results in a write to the
+core API, we will persist the data in the Core API _and replay the request into the Edge API_. You can then update your
+API endpoints/SDKs in your own time to gradually move over the Edge API. This will give you time to migrate your users
+over to the new version of your application.
 
 Note that writes to the Core API will still work into the future, but the data will not be synchronised across the two
 platforms (Core and Edge).
@@ -87,6 +87,11 @@ Once your data has been copied onto the Edge API datastore, you can now deploy y
 endpoint `edge.api.flagsmith.com` and benefit from global low latency!
 
 ## Things you should know
+
+### Some of the secure Identity endpoints have changed
+
+If you are using our REST API to manipulate/update/list your Identities, some of these endpoints have changed. Please
+get in touch if you need any help related to this.
 
 ### New Identity Overrides will only apply to the Edge API
 

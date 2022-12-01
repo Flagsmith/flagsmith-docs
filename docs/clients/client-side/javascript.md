@@ -287,6 +287,19 @@ const flagsmithB = createFlagsmithInstance();
 // now you can use flagsmith as before but in its own instance
 ```
 
+## JSON Feature Values
+
+The Flagsmith JavaScript client supports JSON remote config / feature values. When calling `flagsmith.getValue`,
+specifying `json:true` will attempt to parse the feature value as JSON, it will fallback to `fallback` failing to parse
+it.
+
+```javascript
+const json = flagsmith.getValue('json_value', {
+ json: true,
+ fallback: { foo: null, bar: null },
+});
+```
+
 ## TypeScript Support
 
 Flagsmith has full TypeScript support for its JavaScript clients, you can find our main type definition file
@@ -312,6 +325,16 @@ const flagsmith = useFlagsmith<FlagOptions, TraitOptions>(); // enforces flagsmi
 
 // for useFlags this will ensure you only can pass correct keys also
 const flags = useFlags<FlagOptions, TraitOptions>(['font_size'], ['example_trait']);
+
+// for getting JSON values this will type the return
+const json = flagsmith.getValue<{ foo: string | null; bar: string | null }>('json_value', {
+ json: true,
+ fallback: { foo: null, bar: null },
+});
+console.log(json.foo); // typed as {foo: string|null, bar: string|null}
+
+// If a type is not specified for getValue it will asume it from the type of fallback. In this case, a number.
+const font_size = flagsmith.getValue('font_size', { fallback: 12 });
 ```
 
 ## Dynatrace JavaScript SDK Integration
