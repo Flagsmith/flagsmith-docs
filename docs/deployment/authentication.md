@@ -94,13 +94,10 @@ Here's an example configuration from Google's SAML app creation flow.
 
 <div style={{textAlign: 'center'}}><img width="75%" src="/img/saml-mapping-configuration.png"/></div>
 
-
 ## SAML Group Sync
 
-This allows a user to be added or removed from a Flagsmith group on login.
-To use this, you will have to create a group in flagsmith with the same `external_id` as your SAML `group_id`
-that needs to sync.
-
+This allows a user to be added or removed from a Flagsmith group on login. To use this, you will have to create a group
+in flagsmith with the same `external_id` as your SAML `group_id` that needs to sync.
 
 ## OAuth
 
@@ -130,7 +127,6 @@ To configure OAuth for Github:
 Now you would be able to see the GitHub SSO option.
 
 <div style={{textAlign: 'center'}}><img width="75%" src="/img/Flagsmith_GitHub_SignUp.png"/></div>
-
 
 ## LDAP
 
