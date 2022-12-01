@@ -94,6 +94,13 @@ Here's an example configuration from Google's SAML app creation flow.
 
 <div style={{textAlign: 'center'}}><img width="75%" src="/img/saml-mapping-configuration.png"/></div>
 
+## SAML Group Sync
+
+This allows a user to be added or removed from a Flagsmith group on login.
+To use this, you will have to create a group in flagsmith with the same `external_id` as your SAML `group_id`
+that needs to sync.
+
+
 ## LDAP
 
 LDAP Authentication is available in our [Enterprise Edition](../enterprise-edition.md). Please contact us if this is of
