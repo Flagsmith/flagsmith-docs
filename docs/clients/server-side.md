@@ -4,6 +4,8 @@ sidebar_label: Server Side
 sidebar_position: 2
 ---
 
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
+
 # Server Side SDKs
 
 :::tip
@@ -69,8 +71,6 @@ https://github.com/Flagsmith/flagsmith-elixir-client
 </Tabs>
 
 ## Add the Flagsmith package
-
-import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
 
 <Tabs groupId="language">
 <TabItem value="py" label="Python">
