@@ -8,6 +8,8 @@
         "build": "docusaurus build",
         "swizzle": "docusaurus swizzle",
         "deploy": "docusaurus deploy",
+        "prettier": "npx prettier --check docs",
+        "prettier:fix": "npx prettier --write --check docs",
         "postinstall": "husky install",
         "clear": "docusaurus clear",
         "serve": "docusaurus serve",
