@@ -158,8 +158,11 @@ The application relies on the following environment variables to run:
 
 #### Database Environment Variables
 
-- `DATABASE_URL`: required by develop and production environments, should be a standard format database url e.g.
+- `DATABASE_URL`: (required) configure the database to connect to. Should be a standard format database url e.g.
   postgres://user:password@host:port/db_name
+- `REPLICA_DATABASE_URLS`: (optional) configure an optional number of read replicas. Should be a comma separated list of
+  standard format database urls. e.g.
+  postgres://user:password@replica1.db.host/flagsmith,postgres://user:password@replica2.db.host/flagsmith
 
 You can also provide individual variables as below. Note that if a `DATABASE_URL` is defined, it will take precedent and
 the below variables will be ignored.
