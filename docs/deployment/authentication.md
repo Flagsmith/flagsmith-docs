@@ -109,18 +109,18 @@ To configure this, you need to create an equivalent group in flagsmith using the
 e.g: if your SAML attribute looks like the below xml snippet (and you want the `team` group to be synced):
 
 ```xml
-			<saml2:Attribute Name="groups">
-				<saml2:AttributeValue
-					xmlns:xs="http://www.w3.org/2001/XMLSchema"
-					xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:anyType">team
-				</saml2:AttributeValue>
-				<saml2:AttributeValue
-					xmlns:xs="http://www.w3.org/2001/XMLSchema"
-					xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:anyType">for_saml_group_test
-				</saml2:AttributeValue>
-			</saml2:Attribute>
-
-
+...
+<saml2:Attribute Name="groups">
+    <saml2:AttributeValue
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:anyType">team
+    </saml2:AttributeValue>
+    <saml2:AttributeValue
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:anyType">for_saml_group_test
+    </saml2:AttributeValue>
+</saml2:Attribute>
+...
 ```
 
 Then you need to create an equivalent group in the flagsmith that will look like this:
