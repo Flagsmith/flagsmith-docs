@@ -96,20 +96,19 @@ Here's an example configuration from Google's SAML app creation flow.
 
 ## SAML Group Sync
 
-You can configure flagsmith to add or remove a user from a group (on login) based on your SAML response.
+You can configure Flagsmith to add or remove a user from a group (on login) based on your SAML response.
 
-E.g: let's assume you have a group named `team` in your system and whenever a user logs in into flagsmith you want
+E.g: let's assume you have a group named `team` in your system and whenever a user logs in into Flagsmith you want
 either that user to be added (if the group is part of relevant SAML attribute, but the user is not already part of the
-group) to the equivalent flagsmith group or be removed (if the group is not part of the relevant SAML attribute, but the
+group) to the equivalent Flagsmith group or be removed (if the group is not part of the relevant SAML attribute, but the
 user is part of the group) from it.
 
 ### Configuration
 
-To configure this, you need to create an equivalent group in flagsmith using the SAML name of the group as External ID.
-e.g: if your SAML attribute looks like the below xml snippet (and you want the `team` group to be synced):
+To configure this, you need to create an equivalent group in Flagsmith using the SAML name of the group as the External
+ID. e.g: if your SAML attribute looks like the below xml snippet (and you want the `team` group to be synced):
 
 ```xml
-...
 <saml2:Attribute Name="groups">
     <saml2:AttributeValue
         xmlns:xs="http://www.w3.org/2001/XMLSchema"
@@ -120,10 +119,9 @@ e.g: if your SAML attribute looks like the below xml snippet (and you want the `
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="xs:anyType">for_saml_group_test
     </saml2:AttributeValue>
 </saml2:Attribute>
-...
 ```
 
-Then you need to create an equivalent group in the flagsmith that will look like this:
+Then you need to create an equivalent group in the Flagsmith that will look like this:
 
 <div style={{textAlign: 'center'}}><img width="75%" src="/img/saml-group-sync-external-id.png"/></div>
 
