@@ -66,6 +66,20 @@ variable called `DATABASE_URL`. This should be configured in the Heroku-ish appl
 When running the application using Docker, it reads the database configuration from the settings located in
 `app.settings.production`
 
+### Replication
+
+Flagsmith can be set up to handle as many read replicas as needed. To add replicas, you'll need to set the
+`REPLICA_DATABASE_URLS` environment variable with a comma separated list of database urls.
+
+Example:
+
+```
+REPLICA_DATABASE_URLS: postgres://user:password@replica1.database.host:5432/flagsmith,postgres://user:password@replica2.database.host:5432/flagsmith
+```
+
+:::tip Use the `REPLICA_DATABASE_URLS_DELIMITER` environment variable if you are using any `,` characters in your
+passwords. :::
+
 ## Initialising
 
 The application is built using django which comes with a handy set of admin pages available at `/admin/`. To access
@@ -147,8 +161,14 @@ The application relies on the following environment variables to run:
 
 #### Database Environment Variables
 
-- `DATABASE_URL`: required by develop and production environments, should be a standard format database url e.g.
+- `DATABASE_URL`: (required) configure the database to connect to. Should be a standard format database url e.g.
   postgres://user:password@host:port/db_name
+- `REPLICA_DATABASE_URLS`: (optional) configure an optional number of read replicas. Should be a comma separated list of
+  standard format database urls. e.g.
+  postgres://user:password@replica1.db.host/flagsmith,postgres://user:password@replica2.db.host/flagsmith
+- `REPLICA_DATABASE_URLS_DELIMITER`: (optional) set the delimiter to use for separating replica database urls when using
+  `REPLICA_DATABASE_URLS` variable. Defaults to `,`. This is useful if, for example, the comma character appears in one
+  or more passwords.
 
 You can also provide individual variables as below. Note that if a `DATABASE_URL` is defined, it will take precedent and
 the below variables will be ignored.
