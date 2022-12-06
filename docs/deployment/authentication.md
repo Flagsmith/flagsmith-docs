@@ -38,7 +38,14 @@ To set up SAML authentication, we will provide you with a unique name for your S
 enter when prompted by the 'Single Sign on' dialog. We will also provide you with our Service Provider metadata and
 expect your IdP metadata in return.
 
-## SAML - On-premise
+## SAML - Enterprise On-premise
+
+:::tip
+
+SAML authentication is only available as part of our Enterprise Plans. Please
+[get in touch](https://flagsmith.com/contact-us/) if this is something you are interested in!
+
+:::
 
 To allow an Organisation on the Flagsmith platform to login using SAML authentication, you'll need to access the admin
 interface. Instructions on how to access the admin interface can be found
