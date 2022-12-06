@@ -1,6 +1,6 @@
 ---
 title: Flagsmith Android/Kotlin SDK
-sidebar_label: Android
+sidebar_label: Android / Kotlin
 description: Manage your Feature Flags and Remote Config in your Android applications.
 slug: /clients/android
 ---
