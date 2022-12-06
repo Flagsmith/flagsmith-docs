@@ -16,8 +16,11 @@ In your project path `app/build.gradle` add a new dependence
 
 ```groovy
 //flagsmith
-implementation 'com.github.Flagsmith/flagsmith-kotlin-android-client:1.0.0'
+implementation 'com.github.Flagsmith:flagsmith-kotlin-android-client:1.0.1'
 ```
+
+You should be able to find the latest version in the
+[releases section](https://github.com/Flagsmith/flagsmith-kotlin-android-client/releases) of the GitHub repository.
 
 ### Gradle - Project
 
