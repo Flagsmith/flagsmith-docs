@@ -31,11 +31,6 @@ https://github.com/Flagsmith/flagsmith-python-client
 https://github.com/Flagsmith/flagsmith-java-client
 
 </TabItem>
-<TabItem value="kotlin" label="Kotlin">
-
-https://docs.flagsmith.com/clients/android
-
-</TabItem>
 <TabItem value="dotnet" label=".NET">
 
 https://github.com/Flagsmith/flagsmith-dotnet-client
@@ -100,24 +95,6 @@ pip install flagsmith
 
 # Gradle
 implementation 'com.flagsmith:flagsmith-java-client:5.0.0'
-```
-
-</TabItem>
-<TabItem value="kotlin" label="Kotlin">
-
-```xml
-# Check https://search.maven.org/artifact/com.flagsmith/flagsmith-java-client
-# for the latest version!
-
-# Maven
-<dependency>
-    <groupId>com.flagsmith</groupId>
-    <artifactId>flagsmith-kotlin-client</artifactId>
-    <version>5.0.0</version>
-</dependency>
-
-# Gradle
-implementation 'com.flagsmith:flagsmith-kotlin-client:5.0.0'
 ```
 
 </TabItem>
@@ -227,15 +204,6 @@ private static FlagsmithClient flagsmith = FlagsmithClient
     .newBuilder()
     .setApiKey(System.getenv("<FLAGSMITH_SERVER_SIDE_ENVIRONMENT_KEY>"))
     .build();
-```
-
-</TabItem>
-<TabItem value="kotlin" label="Kotlin">
-
-```kotlin
-val flagsmith: FlagsmithClient = FlagsmithClient.Builder()
-    .apiKey("<FLAGSMITH_ENVIRONMENT_KEY>")
-    .build()
 ```
 
 </TabItem>
@@ -357,13 +325,6 @@ Object value = flags.getFeatureValue(featureName);
 ```
 
 </TabItem>
-<TabItem value="kotlin" label="Kotlin">
-
-```kotlin
-val flags: Flags = flagsmith.getEnvironmentFlags();
-```
-
-</TabItem>
 <TabItem value="dotnet" label=".NET">
 
 ```csharp
@@ -470,18 +431,6 @@ traits.put("car_type", "robin_reliant");
 Flags flags = flagsmith.getIdentityFlags(identifier, traits);
 Boolean showButton = flags.isFeatureEnabled(featureName);
 Object value = flags.getFeatureValue(featureName);
-```
-
-</TabItem>
-
-<TabItem value="kotlin" label="Kotlin">
-
-```kotlin
-val identifier = "delboy@trotterstraders.co.uk"
-val traits = hashMapOf("car_type" to "robin_reliant");
-
-// The method below triggers a network request
-val flags: Flags = flagsmith.getIdentityFlags(identifier, traits);
 ```
 
 </TabItem>
@@ -652,31 +601,6 @@ private static DefaultFlag defaultFlagHandler(String featureName) {
     }
 
     return flag;
-}
-```
-
-</TabItem>
-
-<TabItem value="kotlin" label="Kotlin">
-
-```kotlin
-val flagsmith: FlagsmithClient = FlagsmithClient
-    .Builder()
-    .defaultFlagHandler(::defaultFlagHandler)
-    .apiKey(System.getenv("<FLAGSMITH_ENVIRONMENT_KEY>"))
-    .build();
-
-fun defaultFlagHandler(featureName: String) : DefaultFlag {
-    val flag = DefaultFlag()
-    flag.enabled = false
-
-    if (featureName == "secret_button") {
-        flag.value = "{\"colour\": \"#ababab\"}"
-    } else {
-        flag.value = null
-    }
-
-    return flag
 }
 ```
 
@@ -1015,77 +939,6 @@ private static FlagsmithClient flagsmith = FlagsmithClient
         .withEnableAnalytics(Boolean enable)
 
         .build())
-
-    .build();
-```
-
-</TabItem>
-
-<TabItem value="kotlin" label="Kotlin">
-
-```kotlin
-val config: FlagsmithConfig = FlagsmithConfig.Builder()
-
-    // Override the default Flagsmith API URL if you are self-hosting.
-    // Optional.
-    // Defaults to https://edge.api.flagsmith.com/api/v1/
-    .baseUri("https://api.yourselfhostedflagsmith.com/api/v1/")
-
-    // Controls which mode to run in; local or remote evaluation.
-    // See the `SDKs Overview Page` for more info
-    // Optional.
-    // Defaults to False.
-    .withLocalEvaluation(true)
-
-    // Set environment refresh rate with polling manager.
-    // Only needed when local evaluation is true.
-    // Optional.
-    // Defaults to 60 seconds
-    .environmentRefreshIntervalSeconds(seconds: Int)
-
-    // Controls whether Flag Analytics data is sent to the Flagsmith API
-    // See https://docs.flagsmith.com/advanced-use/flag-analytics
-    // Optional
-    // Defaults to False
-    .enableAnalytics(enable: Boolean)
-
-    // The network timeout in seconds.
-    // See https://square.github.io/okhttp/4.x/okhttp/okhttp3/ for details
-    // Optional.
-    .connectTimeout(<millisecond int>)
-    .writeTimeout(<millisecond int>)
-    .readTimeout(<millisecond int>)
-
-    // Override the sslSocketFactory
-    // See https://square.github.io/okhttp/4.x/okhttp/okhttp3/ for details
-    // Optional.
-    .sslSocketFactory(sslSocketFactory: SSLSocketFactory, trustManager: X509TrustManager)
-
-    // Add a custom HTTP interceptor.
-    // See https://square.github.io/okhttp/4.x/okhttp/okhttp3/ for details
-    // Optional.
-    .addHttpInterceptor(interceptor: Interceptor)
-
-    // Add retries for HTTP request to the builder.
-    // Optional.
-    .retries(retries: Retry)
-
-    .build()
-
-val flagsmith: FlagsmithClient = FlagsmithClient
-    .Builder()
-    // Your API Token.
-    // Note that this is either the `Environment API` key or the `Server Side SDK Token`
-    // depending on if you are using Local or Remote Evaluation
-    // Required.
-    .apiKey(System.getenv("FLAGSMITH_API_KEY"))
-
-    // Set your configuration
-    .configuration(config)
-
-    // You can specify default Flag values on initialisation.
-    // Optional
-    .defaultFlagHandler(HomeController()::defaultFlagHandler)
 
     .build();
 ```
