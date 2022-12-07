@@ -35,12 +35,6 @@ repositories {
 }
 ```
 
-<!-- ## Tutorial
-
-### Android App Screens
-
-![Android App Screens](/img/languages/kotlin-java-1.png) -->
-
 ## Basic Usage
 
 The SDK is initialised against a single environment within a project on [https://flagsmith.com](https://flagsmith.com),
