@@ -434,7 +434,6 @@ Object value = flags.getFeatureValue(featureName);
 ```
 
 </TabItem>
-
 <TabItem value="dotnet" label=".NET">
 
 ```csharp
@@ -605,7 +604,6 @@ private static DefaultFlag defaultFlagHandler(String featureName) {
 ```
 
 </TabItem>
-
 <TabItem value="dotnet" label=".NET">
 
 ```csharp
@@ -944,7 +942,6 @@ private static FlagsmithClient flagsmith = FlagsmithClient
 ```
 
 </TabItem>
-
 <TabItem value="dotnet" label=".NET">
 
 ```csharp
@@ -1615,6 +1612,9 @@ https://github.com/Flagsmith/flagsmith-rust-client
 <TabItem value="elixir" label="Elixir">
 
 https://github.com/Flagsmith/flagsmith-elixir-client
+
+</TabItem>
+</Tabs>
 
 </TabItem>
 </Tabs>
