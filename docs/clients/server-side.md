@@ -1615,6 +1615,3 @@ https://github.com/Flagsmith/flagsmith-elixir-client
 
 </TabItem>
 </Tabs>
-
-</TabItem>
-</Tabs>
