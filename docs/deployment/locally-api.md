@@ -77,8 +77,11 @@ Example:
 REPLICA_DATABASE_URLS: postgres://user:password@replica1.database.host:5432/flagsmith,postgres://user:password@replica2.database.host:5432/flagsmith
 ```
 
-:::tip Use the `REPLICA_DATABASE_URLS_DELIMITER` environment variable if you are using any `,` characters in your
-passwords. :::
+:::tip
+
+Use the `REPLICA_DATABASE_URLS_DELIMITER` environment variable if you are using any `,` characters in your passwords.
+
+:::
 
 ## Initialising
 
