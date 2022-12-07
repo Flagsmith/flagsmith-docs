@@ -1,12 +1,5 @@
 # Edge Proxy
 
-:::tip
-
-The Edge Proxy is only available as part of our Enterprise Plans. Please
-[get in touch](https://flagsmith.com/contact-us/) if this is something you are interested in!
-
-:::
-
 The Flagsmith Edge Proxy allows you to run an instance of the Flagsmith Engine close to your servers. If you are running
 Flagsmith within a server-side environment, and you need very low latency response times, the Edge Proxy is for you!
 
@@ -62,13 +55,6 @@ You can configure the Edge Proxy with the following Environment Variables:
 The Edge Proxy runs as a docker container. It is currently available at the
 [Docker Hub](https://hub.docker.com/repository/docker/flagsmith/edge-proxy).
 
-:::tip
-
-The `flagsmith/edge-proxy` image is private - please [get in touch](https://flagsmith.com/contact-us/) if you would like
-access to it.
-
-:::
-
 ### With docker run
 
 ```bash
@@ -110,24 +96,24 @@ instructions above, you could simply do:
 curl "http://localhost:8000/api/v1/flags" -H "x-environment-key: 95DybY5oJoRNhxPZYLrxk4" | jq
 
 [
-  {
-    "enabled": true,
-    "feature_state_value": 5454,
-    "feature": {
-      "name": "feature_1",
-      "id": 2,
-      "type": "MULTIVARIATE"
-    }
-  },
-  {
-    "enabled": true,
-    "feature_state_value": "some_value",
-    "feature": {
-      "name": "feature_2",
-      "id": 9,
-      "type": "STANDARD"
-    }
-  },
+    {
+        "enabled": true,
+        "feature_state_value": 5454,
+        "feature": {
+            "name": "feature_1",
+            "id": 2,
+            "type": "MULTIVARIATE"
+        }
+    },
+    {
+        "enabled": true,
+        "feature_state_value": "some_value",
+        "feature": {
+            "name": "feature_2",
+            "id": 9,
+            "type": "STANDARD"
+        }
+    },
 ]
 ```
 
@@ -159,14 +145,14 @@ curl -X "POST" "http://localhost:8000/api/v1/identities/?identifier=do_it_all_in
      -H 'Content-Type: application/json; charset=utf-8' \
      -d $'{
   "traits": [
-    {
-      "trait_value": 123.5,
-      "trait_key": "my_trait_key"
-    },
-    {
-      "trait_value": true,
-      "trait_key": "my_other_key"
-    }
+      {
+          "trait_value": 123.5,
+          "trait_key": "my_trait_key"
+      },
+      {
+          "trait_value": true,
+          "trait_key": "my_other_key"
+      }
   ],
   "identifier": "do_it_all_in_one_go_identity"
 }'
