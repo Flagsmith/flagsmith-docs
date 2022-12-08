@@ -6,6 +6,8 @@ hide_title: true
 
 ![Dynatrace](/img/integrations/dynatrace/dynatrace-logo.svg)
 
+## Flag Change Events
+
 You can integrate Flagsmith with Dynatrace. Send flag change events from Flagsmith into your Dynatrace event stream.
 
 :::tip
@@ -15,7 +17,7 @@ The Flagsmith Javascript SDK can also talk to the Dynatrace Javascript SDK.
 
 :::
 
-## Integration Setup
+### Integration Setup
 
 1. Log into Dynatrace create a new Access Token with the following permissions:
    - `API v2 scopes` : `Ingest events`
@@ -30,9 +32,14 @@ The Flagsmith Javascript SDK can also talk to the Dynatrace Javascript SDK.
    [Check the Dynatrace Docs](https://www.dynatrace.com/support/help/dynatrace-api/environment-api/entity-v2/entity-selector)
    for more information on those.
 
-## How It Works
+### How It Works
 
 Once the setup is complete, try changing a Flag value in the Environment you configured during setup. Then look at one
 of the Dynatrace Entities defined in the `Entity Selector`. You will see Deployment Events show up in the Events panel.
 
 ![Dynatrace Events](/img/integrations/dynatrace/dynatrace-events-panel.png)
+
+## Javascript to Javascript SDK
+
+You can also send Identity flag values from Flagsmith to Dynatrace using our
+[Javascript Integration](../clients/client-side/javascript.md#dynatrace-javascript-sdk-integration).
