@@ -88,6 +88,8 @@ The full set of Flagsmith rule operators are as follows:
 - `Contains`
 - `Does Not Contain`
 - `Matches Regex`
+- `Is Set` (if the Trait property exists)
+- `Is Not Set` (if the Trait property does not exist)
 
 All of the operators act as you would expect. Some of the operators also have special powers!
 
