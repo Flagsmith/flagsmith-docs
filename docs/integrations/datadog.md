@@ -20,7 +20,8 @@ IMG
 
 The video below will walk you through the steps of adding the integration:
 
-VIDEO
+<div class="wistia_responsive_padding"><div class="wistia_responsive_wrapper"><iframe src="https://fast.wistia.net/embed/iframe/76558s9yj7?videoFoam=true" title="datadog Video" allow="autoplay; fullscreen" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" msallowfullscreen width="100%" height="450"></iframe></div></div>
+<script src="https://fast.wistia.net/assets/external/E-v1.js" async></script>
 
 ## 2. Send Flag Change events to Datadog
 
