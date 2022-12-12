@@ -560,9 +560,44 @@ Create a private Slack app. You will then need to provide the following environm
 
 You can retrieve these values from Slack. You will also need to add the following scopes:
 
-- channels:read
-- chat:write
-- chat:write.public
+- `channels:read`
+- `chat:write`
+- `chat:write.public`
+
+You will also need to set up the redirect URLs for your application. For more information on this see Slack's docs on
+creating your own app, and the OAuth flow that goes along with that. The production Flagsmith App Manifest reads as
+follows and can be used as a template:
+
+```json
+{
+ "display_information": {
+  "name": "Flagsmith Bot",
+  "description": "Get notified in Slack whenever changes are made to your Flagsmith Environments",
+  "background_color": "#000000",
+  "long_description": "Use our application for Slack to receive Flagsmith state changes directly in your Slack channels. Whenever you create, update or delete a Flag within Flagsmith, our application for Slack will send a message into a Slack channel of your choosing.\r\n\r\nFlagsmith is an open source, fully featured, Feature Flag and Remote Config service. Use our hosted API, deploy to your own private cloud, or run on-premise."
+ },
+ "features": {
+  "bot_user": {
+   "display_name": "Flagsmith Bot",
+   "always_online": false
+  }
+ },
+ "oauth_config": {
+  "redirect_urls": [
+   "https://api.flagsmith.com/api/v1/environments",
+   "https://api-staging.flagsmith.com/api/v1/environments"
+  ],
+  "scopes": {
+   "bot": ["channels:read", "chat:write", "chat:write.public"]
+  }
+ },
+ "settings": {
+  "org_deploy_enabled": false,
+  "socket_mode_enabled": false,
+  "token_rotation_enabled": false
+ }
+}
+```
 
 ## Manual Installation
 
