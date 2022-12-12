@@ -8,12 +8,23 @@ hide_title: true
 
 You can integrate Flagsmith with Datadog in two ways:
 
-1. Integrate Flagsmith Flags into your Datadog Dashboard
+1. Integrate Flagsmith into your Datadog Dashboard
 2. Send flag change events from Flagsmith into your Datadog event stream.
 
-## 1. Integrate Flagsmith Flags into your Datadog Dashboard
+## 1. Integrate Flagsmith into your Datadog Dashboard
+
+This integration lets you add a Flagsmith widget into your Datadog Dashboard so you can view and manage your flags
+without having to leave the Datadog application.
+
+IMG
+
+The video below will walk you through the steps of adding the integration:
+
+VIDEO
 
 ## 2. Send Flag Change events to Datadog
+
+The second type of integration allows you to send Flag change events in Flagsmith into your Datadog event stream.
 
 ![Datadog](/img/integrations/datadog/datadog-3.png)
 
