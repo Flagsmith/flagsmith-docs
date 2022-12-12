@@ -492,6 +492,16 @@ The list of the flags and remote config we're currently using in production is b
  {
   "value": "MODULO",
   "label": "Modulo operation"
+ },
+ {
+  "value": "IS_SET",
+  "label": "Is set",
+  "hideValue": true
+ },
+ {
+  "value": "IS_NOT_SET",
+  "label": "Is not set",
+  "hideValue": true
  }
 ]
 ```
