@@ -4,6 +4,8 @@ sidebar_label: Datadog
 hide_title: true
 ---
 
+import ReactPlayer from 'react-player'
+
 ![Datadog](/img/integrations/datadog/datadog-logo.svg)
 
 You can integrate Flagsmith with Datadog in two ways:
@@ -20,8 +22,12 @@ IMG
 
 The video below will walk you through the steps of adding the integration:
 
-<div class="wistia_responsive_padding"><div class="wistia_responsive_wrapper"><iframe src="https://fast.wistia.net/embed/iframe/76558s9yj7?videoFoam=true" title="datadog Video" allow="autoplay; fullscreen" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" msallowfullscreen width="100%" height="450"></iframe></div></div>
-<script src="https://fast.wistia.net/assets/external/E-v1.js" async></script>
+<ReactPlayer
+    playing
+    controls
+    width="100%"
+    height="460px"
+    url='https://getleda.wistia.com/medias/76558s9yj7' />
 
 ## 2. Send Flag Change events to Datadog
 
