@@ -194,19 +194,19 @@ TODO: create a pod-disruption-budget
 
 ### Deployment strategy
 
-For each of the deployments, can set `deploymentStrategy`. By default
-this is unset, meaning you get the default Kubernetes behaviour, but
-you can set this to an object to adjust this. See
+For each of the deployments, you can set `deploymentStrategy`. By default this is unset, meaning you get the default
+Kubernetes behaviour, but you can set this to an object to adjust this. See
 https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#strategy.
 
 For example:
+
 ```yaml
 api:
-  deploymentStrategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxUnavailable: 1
-      maxSurge: '50%'
+ deploymentStrategy:
+  type: RollingUpdate
+  rollingUpdate:
+   maxUnavailable: 1
+   maxSurge: '50%'
 ```
 
 ### InfluxDB
@@ -244,7 +244,7 @@ requests are handled by the API deployment.
 The following table lists the configurable parameters of the chart and their default values.
 
 | Parameter                                          | Description                                                    | Default                        |
-|----------------------------------------------------|----------------------------------------------------------------|--------------------------------|
+| -------------------------------------------------- | -------------------------------------------------------------- | ------------------------------ |
 | `api.image.repository`                             | docker image repository for flagsmith api                      | `flagsmith/flagsmith-api`      |
 | `api.image.tag`                                    | docker image tag for flagsmith api                             | appVersion                     |
 | `api.image.imagePullPolicy`                        |                                                                | `IfNotPresent`                 |
