@@ -192,6 +192,23 @@ TODO: consider some autoscaling options.
 
 TODO: create a pod-disruption-budget
 
+### Deployment strategy
+
+For each of the deployments, can set `deploymentStrategy`. By default
+this is unset, meaning you get the default Kubernetes behaviour, but
+you can set this to an object to adjust this. See
+https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#strategy.
+
+For example:
+```yaml
+api:
+  deploymentStrategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: '50%'
+```
+
 ### InfluxDB
 
 By default, Flagsmith uses InfluxDB to store time series data. Currently this is used to measure:
@@ -227,13 +244,14 @@ requests are handled by the API deployment.
 The following table lists the configurable parameters of the chart and their default values.
 
 | Parameter                                          | Description                                                    | Default                        |
-| -------------------------------------------------- | -------------------------------------------------------------- | ------------------------------ |
+|----------------------------------------------------|----------------------------------------------------------------|--------------------------------|
 | `api.image.repository`                             | docker image repository for flagsmith api                      | `flagsmith/flagsmith-api`      |
 | `api.image.tag`                                    | docker image tag for flagsmith api                             | appVersion                     |
 | `api.image.imagePullPolicy`                        |                                                                | `IfNotPresent`                 |
 | `api.image.imagePullSecrets`                       |                                                                | `[]`                           |
 | `api.separateApiAndFrontend`                       | Set to false if using flagsmith/flagsmith image for the api    | `true`                         |
 | `api.replicacount`                                 | number of replicas for the flagsmith api, `null` to unset      | 1                              |
+| `api.deploymentStrategy`                           | See "Deployment strategy" above                                |                                |
 | `api.resources`                                    | resources per pod for the flagsmith api                        | `{}`                           |
 | `api.podLabels`                                    | additional labels to apply to pods for the flagsmith api       | `{}`                           |
 | `api.extraEnv`                                     | extra environment variables to set for the flagsmith api       | `{}`                           |
@@ -262,6 +280,7 @@ The following table lists the configurable parameters of the chart and their def
 | `frontend.image.imagePullPolicy`                   |                                                                | `IfNotPresent`                 |
 | `frontend.image.imagePullSecrets`                  |                                                                | `[]`                           |
 | `frontend.replicacount`                            | number of replicas for the flagsmith frontend, `null` to unset | 1                              |
+| `frontend.deploymentStrategy`                      | See "Deployment strategy" above                                |                                |
 | `frontend.resources`                               | resources per pod for the flagsmith frontend                   | `{}`                           |
 | `frontend.apiProxy.enabled`                        | proxy API requests to the API service within the cluster       | `true`                         |
 | `frontend.extraEnv`                                | extra environment variables to set for the flagsmith frontend  | `{}`                           |
@@ -326,6 +345,7 @@ The following table lists the configurable parameters of the chart and their def
 | `pgbouncer.image.imagePullPolicy`                  |                                                                | `IfNotPresent`                 |
 | `pgbouncer.image.imagePullSecrets`                 |                                                                | `[]`                           |
 | `pgbouncer.replicaCount`                           | number of replicas for pgbouncer, `null` to unset              | 1                              |
+| `pgbouncer.deploymentStrategy`                     | See "Deployment strategy" above                                |                                |
 | `pgbouncer.podAnnotations`                         |                                                                | `{}`                           |
 | `pgbouncer.resources`                              |                                                                | `{}`                           |
 | `pgbouncer.podLabels`                              |                                                                | `{}`                           |
