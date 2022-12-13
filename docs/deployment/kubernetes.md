@@ -233,7 +233,7 @@ The following table lists the configurable parameters of the chart and their def
 | `api.image.imagePullPolicy`                        |                                                                | `IfNotPresent`                 |
 | `api.image.imagePullSecrets`                       |                                                                | `[]`                           |
 | `api.separateApiAndFrontend`                       | Set to false if using flagsmith/flagsmith image for the api    | `true`                         |
-| `api.replicacount`                                 | number of replicas for the flagsmith api                       | 1                              |
+| `api.replicacount`                                 | number of replicas for the flagsmith api, `null` to unset      | 1                              |
 | `api.resources`                                    | resources per pod for the flagsmith api                        | `{}`                           |
 | `api.podLabels`                                    | additional labels to apply to pods for the flagsmith api       | `{}`                           |
 | `api.extraEnv`                                     | extra environment variables to set for the flagsmith api       | `{}`                           |
@@ -261,7 +261,7 @@ The following table lists the configurable parameters of the chart and their def
 | `frontend.image.tag`                               | docker image tag for flagsmith frontend                        | appVersion                     |
 | `frontend.image.imagePullPolicy`                   |                                                                | `IfNotPresent`                 |
 | `frontend.image.imagePullSecrets`                  |                                                                | `[]`                           |
-| `frontend.replicacount`                            | number of replicas for the flagsmith frontend                  | 1                              |
+| `frontend.replicacount`                            | number of replicas for the flagsmith frontend, `null` to unset | 1                              |
 | `frontend.resources`                               | resources per pod for the flagsmith frontend                   | `{}`                           |
 | `frontend.apiProxy.enabled`                        | proxy API requests to the API service within the cluster       | `true`                         |
 | `frontend.extraEnv`                                | extra environment variables to set for the flagsmith frontend  | `{}`                           |
@@ -325,7 +325,7 @@ The following table lists the configurable parameters of the chart and their def
 | `pgbouncer.image.tag`                              |                                                                | `1.16.0`                       |
 | `pgbouncer.image.imagePullPolicy`                  |                                                                | `IfNotPresent`                 |
 | `pgbouncer.image.imagePullSecrets`                 |                                                                | `[]`                           |
-| `pgbouncer.replicaCount`                           |                                                                | 1                              |
+| `pgbouncer.replicaCount`                           | number of replicas for pgbouncer, `null` to unset              | 1                              |
 | `pgbouncer.podAnnotations`                         |                                                                | `{}`                           |
 | `pgbouncer.resources`                              |                                                                | `{}`                           |
 | `pgbouncer.podLabels`                              |                                                                | `{}`                           |
