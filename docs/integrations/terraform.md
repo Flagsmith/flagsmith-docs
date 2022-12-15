@@ -37,7 +37,7 @@ Organisation Administrator permission is required to generate Terraform API Key.
 Once you have the Terraform Provider key you can go ahead and create a Terraform config file, which will look something
 like this:
 
-```terraform
+```hcl
 terraform {
   required_providers {
     flagsmith = {
@@ -55,12 +55,11 @@ provider "flagsmith" {
 # the feature that you want to manage
 resource "flagsmith_flag" "feature_1_prod" {
   enabled         = false
-  environment_key = "some_enviroment_key"
+  environment_key = "your_environment_key"
   feature_name    = "test_feature"
   feature_state_value = {
     type         = "unicode"
     string_value = "I_am_a_test_feature"
-
   }
 }
 
