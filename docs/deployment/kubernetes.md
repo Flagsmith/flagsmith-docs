@@ -172,6 +172,9 @@ It's important to define a [`secretKey`](https://docs.djangoproject.com/en/4.1/r
 value in your helm chart when running in Kubernetes. Use a password manager to generate a random hash and set this so
 that all the API nodes are running with an identical `DJANGO_SECRET_KEY`.
 
+If you are using our Helm charts and don't provide a `secretKey`, one will be generated for you and shared across the
+running pods, but this will change upon redeployment, which you probably don't want to happen.
+
 :::
 
 The chart handles most environment variables required, but see the
