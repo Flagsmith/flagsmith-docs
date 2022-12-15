@@ -166,6 +166,15 @@ databaseExternal:
 
 ### Environment variables
 
+:::caution
+
+It's important to define a
+[`DJANGO_SECRET_KEY`](https://docs.djangoproject.com/en/4.1/ref/settings/#std-setting-SECRET_KEY) environment variable
+when running in Kubernetes. Use a password manager to generate a random hash and set this so that all the API nodes are
+running with an identical `DJANGO_SECRET_KEY`.
+
+:::
+
 The chart handles most environment variables required, but see the
 [API readme](https://docs.flagsmith.com/deployment/locally-api#environment-variables) for all available configuration
 options. These can be set using `api.extraEnv`, eg:
