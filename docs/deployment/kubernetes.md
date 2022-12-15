@@ -166,6 +166,14 @@ databaseExternal:
 
 ### Environment variables
 
+:::caution
+
+It's important to define a [`secretKey`](https://docs.djangoproject.com/en/4.1/ref/settings/#std-setting-SECRET_KEY)
+value in your helm chart when running in Kubernetes. Use a password manager to generate a random hash and set this so
+that all the API nodes are running with an identical `DJANGO_SECRET_KEY`.
+
+:::
+
 The chart handles most environment variables required, but see the
 [API readme](https://docs.flagsmith.com/deployment/locally-api#environment-variables) for all available configuration
 options. These can be set using `api.extraEnv`, eg:
@@ -191,6 +199,23 @@ TODO: recommend some defaults.
 TODO: consider some autoscaling options.
 
 TODO: create a pod-disruption-budget
+
+### Deployment strategy
+
+For each of the deployments, you can set `deploymentStrategy`. By default this is unset, meaning you get the default
+Kubernetes behaviour, but you can set this to an object to adjust this. See
+https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#strategy.
+
+For example:
+
+```yaml
+api:
+ deploymentStrategy:
+  type: RollingUpdate
+  rollingUpdate:
+   maxUnavailable: 1
+   maxSurge: '50%'
+```
 
 ### InfluxDB
 
@@ -233,7 +258,8 @@ The following table lists the configurable parameters of the chart and their def
 | `api.image.imagePullPolicy`                        |                                                                | `IfNotPresent`                 |
 | `api.image.imagePullSecrets`                       |                                                                | `[]`                           |
 | `api.separateApiAndFrontend`                       | Set to false if using flagsmith/flagsmith image for the api    | `true`                         |
-| `api.replicacount`                                 | number of replicas for the flagsmith api                       | 1                              |
+| `api.replicacount`                                 | number of replicas for the flagsmith api, `null` to unset      | 1                              |
+| `api.deploymentStrategy`                           | See "Deployment strategy" above                                |                                |
 | `api.resources`                                    | resources per pod for the flagsmith api                        | `{}`                           |
 | `api.podLabels`                                    | additional labels to apply to pods for the flagsmith api       | `{}`                           |
 | `api.extraEnv`                                     | extra environment variables to set for the flagsmith api       | `{}`                           |
@@ -261,7 +287,8 @@ The following table lists the configurable parameters of the chart and their def
 | `frontend.image.tag`                               | docker image tag for flagsmith frontend                        | appVersion                     |
 | `frontend.image.imagePullPolicy`                   |                                                                | `IfNotPresent`                 |
 | `frontend.image.imagePullSecrets`                  |                                                                | `[]`                           |
-| `frontend.replicacount`                            | number of replicas for the flagsmith frontend                  | 1                              |
+| `frontend.replicacount`                            | number of replicas for the flagsmith frontend, `null` to unset | 1                              |
+| `frontend.deploymentStrategy`                      | See "Deployment strategy" above                                |                                |
 | `frontend.resources`                               | resources per pod for the flagsmith frontend                   | `{}`                           |
 | `frontend.apiProxy.enabled`                        | proxy API requests to the API service within the cluster       | `true`                         |
 | `frontend.extraEnv`                                | extra environment variables to set for the flagsmith frontend  | `{}`                           |
@@ -325,7 +352,8 @@ The following table lists the configurable parameters of the chart and their def
 | `pgbouncer.image.tag`                              |                                                                | `1.16.0`                       |
 | `pgbouncer.image.imagePullPolicy`                  |                                                                | `IfNotPresent`                 |
 | `pgbouncer.image.imagePullSecrets`                 |                                                                | `[]`                           |
-| `pgbouncer.replicaCount`                           |                                                                | 1                              |
+| `pgbouncer.replicaCount`                           | number of replicas for pgbouncer, `null` to unset              | 1                              |
+| `pgbouncer.deploymentStrategy`                     | See "Deployment strategy" above                                |                                |
 | `pgbouncer.podAnnotations`                         |                                                                | `{}`                           |
 | `pgbouncer.resources`                              |                                                                | `{}`                           |
 | `pgbouncer.podLabels`                              |                                                                | `{}`                           |

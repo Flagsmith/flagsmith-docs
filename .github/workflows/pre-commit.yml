@@ -25,3 +25,6 @@ jobs:
               run: npm install --include=dev
             - name: Run Husky
               run: npx prettier --check docs
+            - name: Run docusuarus build to check for broken links etc
+              if: github.event_name == 'pull_request'
+              run: npm run build

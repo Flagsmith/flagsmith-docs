@@ -59,6 +59,13 @@ to use a [server-side SDK and server-side Key](../clients/overview.md).
 
 This is a per-Environment setting.
 
+## Environment Banners
+
+You can optionally provide a coloured banner for your Environments in each Environment Settings page. This helps you
+identify sensitive Environments before toggling flags!
+
+![Environment Banners](/img/environment-banner.png)
+
 ## Audit Logs
 
 Every action taken within the Flagsmith administration application is tracked and logged. This allows you to easily

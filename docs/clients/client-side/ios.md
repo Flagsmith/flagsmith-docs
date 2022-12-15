@@ -1,6 +1,6 @@
 ---
 title: Flagsmith iOS SDK
-sidebar_label: iOS
+sidebar_label: iOS / Swift
 description: Manage your Feature Flags and Remote Config in your iOS applications.
 slug: /clients/ios
 ---
