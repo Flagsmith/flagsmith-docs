@@ -25,7 +25,7 @@ that flag. Archiving the flag helps to keep your main list of flags under contro
 ## Case Sensitive Flags
 
 By default, Flagsmith stores flags with lower case characters in order to minimise human error. If you want to store
-flags in a case-sensitive manner you can do this from the Project Settings page.
+flags in a case-sensitive manner you can do this as a Project-wide setting from the Project Settings page.
 
 ## Flag Owners
 
