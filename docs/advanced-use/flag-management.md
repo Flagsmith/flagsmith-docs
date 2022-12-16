@@ -22,6 +22,11 @@ Archived flags are often used when you have customers running older versions of 
 finished with a flag, but you cant remove it as there are still some older versions of your app out there that depend on
 that flag. Archiving the flag helps to keep your main list of flags under control.
 
+## Case Sensitive Flags
+
+By default, Flagsmith stores flags with lower case characters in order to minimise human error. If you want to store
+flags in a case-sensitive manner you can do this as a Project-wide setting from the Project Settings page.
+
 ## Flag Owners
 
 You can specify members of your team as owners of individual Flags. This helps in larger teams when you need to identify
