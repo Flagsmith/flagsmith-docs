@@ -42,7 +42,7 @@ terraform {
   required_providers {
     flagsmith = {
       source = "Flagsmith/flagsmith"
-      version = "0.1.0" # or whatever the latest version is
+      version = "0.3.0" # or whatever the latest version is
     }
   }
 }
@@ -53,20 +53,16 @@ provider "flagsmith" {
 }
 
 # the feature that you want to manage
-resource "flagsmith_flag" "feature_1_prod" {
-  enabled         = false
-  environment_key = "your_environment_key"
-  feature_name    = "test_feature"
-  feature_state_value = {
-    type         = "unicode"
-    string_value = "I_am_a_test_feature"
-  }
+resource "flagsmith_feature" "new_standard_feature" {
+  feature_name = "new_standard_feature"
+  project_uuid = "10421b1f-5f29-4da9-abe2-30f88c07c9e8"
+  description  = "This is a new standard feature"
+  type         = "STANDARD"
 }
 
 ```
 
-To bring a Flagsmith feature into Terraform (and start tracking it's state) you can go ahead and
-[import](https://registry.terraform.io/providers/Flagsmith/flagsmith/latest/docs/resources/flag#import) it.
+Now, to create/update/delete the feature all we have to do is run `terraform apply`.
 
-Once that is done, you can just simply update its value (i.e: `feature_state_value` or `enabled`) and do
-`terraform apply` to apply those changes.
+To bring an existing Flagsmith feature into Terraform (and start tracking it's state) you can go ahead and
+[import](https://registry.terraform.io/providers/Flagsmith/flagsmith/latest/docs/resources/feature#import) it.
