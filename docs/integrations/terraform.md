@@ -62,6 +62,11 @@ resource "flagsmith_feature" "new_standard_feature" {
 
 ```
 
+:::note We are [working](https://github.com/Flagsmith/flagsmith/issues/1740) on adding a json view to our objects but
+for now we need to inspect the network calls to get the uuid.
+
+For example: ![Image](/img/feature-uuid.png) :::
+
 Now, to create/update/delete the feature all we have to do is run `terraform apply`.
 
 To bring an existing Flagsmith feature into Terraform (and start tracking it's state) you can go ahead and
