@@ -62,12 +62,11 @@ resource "flagsmith_feature" "new_standard_feature" {
 
 ```
 
-:::note We are [working](https://github.com/Flagsmith/flagsmith/issues/1740) on adding a json view to our objects but
-for now we need to inspect the network calls to get the uuid.
-
-For example: ![Image](/img/feature-uuid.png)
+:::note We are [working](https://github.com/Flagsmith/flagsmith/issues/1740) on adding a json view to our objects
 
 :::
+
+For now we need to inspect the network calls to get the uuid. For example: ![Image](/img/feature-uuid.png)
 
 Now, to create the feature all you have to do is run `terraform apply`.
 
@@ -103,14 +102,11 @@ flagsmith_feature.new_standard_feature: Creating...
 flagsmith_feature.new_standard_feature: Creation complete after 2s
 
 Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
-
-
 ```
 
 Next, let's say you want to update the description of the feature:
 
-```terraform
-....
+```hcl
 # the feature that you want to manage
 resource "flagsmith_feature" "new_standard_feature" {
   feature_name = "new_standard_feature"
@@ -118,10 +114,9 @@ resource "flagsmith_feature" "new_standard_feature" {
   description  = "New description"
   type         = "STANDARD"
 }
-....
 ```
 
-Now, to apply the changes just run `terraform apply`
+Now, to apply the changes just run `terraform apply`:
 
 ```bash
 Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
