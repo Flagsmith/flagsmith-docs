@@ -48,7 +48,7 @@ We have 2 different Enterprise Edition Images. You can choose to use either imag
 
 This image tracks our SaaS build and includes additional packages:
 
-- SAML and LDAP authentication
+- SAML
 - Workflows (Change Requests and Flag Scheduling)
 
 This image also bundles the front end into the python application, meaning you don't need to run a separate front end
@@ -61,6 +61,7 @@ This image includes additions from the SaaS image above:
 - Oracle Support
 - MySQL Support
 - Appdynamics Integration
+- LDAP authentication
 
 ## Environment Variables
 
@@ -181,9 +182,8 @@ as per the documentation.
 
 **Prerequisites**
 
-You will likely need to install the Oracle client on the machine running the Flagsmith API  
-application. The instructions to do so are
-[here](https://cx-oracle.readthedocs.io/en/latest/user_guide/installation.html).
+You will likely need to install the Oracle client on the machine running the Flagsmith API application. The instructions
+to do so are [here](https://cx-oracle.readthedocs.io/en/latest/user_guide/installation.html).
 
 :::
 
