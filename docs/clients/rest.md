@@ -4,8 +4,6 @@ sidebar_label: REST
 sidebar_position: 2
 ---
 
-import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
-
 # Direct API Access
 
 Flagsmith is built around a client/server architecture. The REST API server is accessible from SDK clients as well as
@@ -90,8 +88,7 @@ You can find a complete list of endpoints via the Swagger REST API at
 
 Below are some simple examples for achieving certain actions with the REST API, using python.
 
-<Tabs groupId="restExamples">
-<TabItem value="create-feature" label="Create a feature">
+#### Create a feature
 
 ```python
 import os
@@ -111,8 +108,7 @@ data = {"name": FEATURE_NAME}
 response = session.post(create_feature_url, json=data)
 ```
 
-</TabItem>
-<TabItem value="update-environment-fs" label="Update the value / state of a feature in an environment">
+#### Update the value / state of a feature in an environment
 
 ```python
 import json
@@ -144,9 +140,7 @@ update_feature_state_response = session.patch(
 )
 ```
 
-</TabItem>
-
-<TabItem value="create-segment-and-override" label="Create segment and segment override">
+#### Create a segment and segment override
 
 ```python
 import os
@@ -228,6 +222,41 @@ create_feature_state_response = session.post(create_segment_override_url, json=f
 assert create_feature_state_response.status_code == 201
 ```
 
-</TabItem>
+#### Update a segment's rules
 
-</Tabs>
+```python
+import os
+
+from requests import Session
+
+API_URL = os.environ.get("API_URL", "https://api.flagsmith.com/api/v1")  # update this if self-hosting
+PROJECT_ID = os.environ["PROJECT_ID"]  # obtain this from the URL on your dashboard
+TOKEN = os.environ["API_TOKEN"]  # obtain this from the account page in your dashboard
+SEGMENT_ID = os.environ.get("SEGMENT_ID")  # obtain this from the URL on your dashboard when viewing a segment
+
+SEGMENT_RULES_DEFINITION = {
+    "rules": [
+        {
+            "type": "ALL",
+            "rules": [
+                {
+                    "type": "ANY",
+                    "conditions": [  # add as many conditions here to build up a segment
+                        {
+                            "property": "my_trait",  # specify a trait key that you want to match on, e.g. organisationId
+                            "operator": "EQUAL",  # specify the operator you want to use (one of EQUAL, NOT_EQUAL, GREATER_THAN, LESS_THAN, GREATER_THAN_INCLUSIVE, LESS_THAN_INCLUSIVE, CONTAINS, NOT_CONTAINS, REGEX, PERCENTAGE_SPLIT, IS_SET, IS_NOT_SET)
+                            "value": "my-value"  # the value to match against, e.g. 103
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+
+session = Session()
+session.headers.update({"Authorization": f"Token {TOKEN}"})
+
+update_segment_url = f"{API_URL}/projects/{PROJECT_ID}/segments/{SEGMENT_ID}/"
+session.patch(update_segment_url, json=SEGMENT_RULES_DEFINITION)
+```
