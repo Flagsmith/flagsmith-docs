@@ -29,7 +29,7 @@ Publicly accessible API calls need to have an environment key supplied with each
 header, with the name `X-Environment-Key` and the value of the Environment Key that you can find within the Flagsmith
 administrative area.
 
-### Curl Examples
+## Curl Examples
 
 These are the two main endpoints that you need to consume the SDK aspect of the API.
 
@@ -84,11 +84,31 @@ curl 'https://api.flagsmith.com/api/v1/environments/' \
 You can find a complete list of endpoints via the Swagger REST API at
 [https://api.flagsmith.com/api/v1/docs/](https://api.flagsmith.com/api/v1/docs/).
 
-### Code Examples
+## Code Examples
 
-#### Update the value / state of a feature in an environment
+Below are some simple examples for achieving certain actions with the REST API, using python.
 
-Here is a simple python example for updating the value of a feature state in a particular environment.
+### Create a feature
+
+```python
+import os
+
+from requests import Session
+
+API_URL = os.environ.get("API_URL", "https://api.flagsmith.com/api/v1")  # update this if self-hosting
+PROJECT_ID = os.environ["PROJECT_ID"]  # obtain this from the URL on your dashboard
+TOKEN = os.environ["API_TOKEN"]  # obtain this from the account page in your dashboard
+FEATURE_NAME = os.environ["FEATURE_NAME"]  # name of the feature to create
+
+session = Session()
+session.headers.update({"Authorization": f"Token {TOKEN}"})
+
+create_feature_url = f"{API_URL}/projects/{PROJECT_ID}/features/"
+data = {"name": FEATURE_NAME}
+response = session.post(create_feature_url, json=data)
+```
+
+### Update the value / state of a feature in an environment
 
 ```python
 import json
@@ -118,4 +138,125 @@ data = {"enabled": True, "feature_state_value": "new value"}  # `feature_state_v
 update_feature_state_response = session.patch(
     f"{FEATURE_STATES_URL}/{feature_state_id}/", data=json.dumps(data)
 )
+```
+
+### Create a segment and segment override
+
+```python
+import os
+
+from requests import Session
+
+API_URL = os.environ.get("API_URL", "https://api.flagsmith.com/api/v1")  # update this if self-hosting
+SEGMENT_NAME = os.environ["SEGMENT_NAME"]  # define the name of the segment here
+PROJECT_ID = os.environ["PROJECT_ID"]  # obtain this from the URL on your dashboard
+TOKEN = os.environ["API_TOKEN"]  # obtain this from the account page in your dashboard
+FEATURE_ID = os.environ.get("FEATURE_ID")  # obtain this from the URL on your dashboard when viewing a feature
+IS_FEATURE_SPECIFIC = os.environ.get("IS_FEATURE_SPECIFIC", default=False) == "True"  # set this to True to create a feature specific segment
+ENVIRONMENT_ID = os.environ["ENVIRONMENT_ID"]  # must (currently) be obtained by inspecting the request to /api/v1/environments in the network console
+
+# set these values to create a segment override for the segment, feature, environment combination
+ENABLE_FOR_SEGMENT = os.environ.get("ENABLE_FOR_SEGMENT", default=False) == "True"
+VALUE_FOR_SEGMENT = os.environ.get("VALUE_FOR_SEGMENT")
+
+SEGMENT_DEFINITION = {
+    "name": SEGMENT_NAME,
+    "feature": FEATURE_ID if IS_FEATURE_SPECIFIC else None,
+    "project": PROJECT_ID,
+    "rules": [
+        {
+            "type": "ALL",
+            "rules": [  # add extra rules here to build up 'AND' logic
+                {
+                    "type": "ANY",
+                    "conditions": [  # add extra conditions here to build up 'OR' logic
+                        {
+                            "property": "my_trait",  # specify a trait key that you want to match on, e.g. organisationId
+                            "operator": "EQUAL",  # specify the operator you want to use (one of EQUAL, NOT_EQUAL, GREATER_THAN, LESS_THAN, GREATER_THAN_INCLUSIVE, LESS_THAN_INCLUSIVE, CONTAINS, NOT_CONTAINS, REGEX, PERCENTAGE_SPLIT, IS_SET, IS_NOT_SET)
+                            "value": "my-value"  # the value to match against, e.g. 103
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+
+session = Session()
+session.headers.update({"Authorization": f"Token {TOKEN}"})
+
+# first let's create the segment
+create_segment_url = f"{API_URL}/projects/{PROJECT_ID}/segments/"
+create_segment_response = session.post(create_segment_url, json=SEGMENT_DEFINITION)
+assert create_segment_response.status_code == 201
+segment_id = create_segment_response.json()["id"]
+
+if not any(key in os.environ for key in ("ENABLE_FOR_SEGMENT", "VALUE_FOR_SEGMENT")):
+    print("Segment created! Not creating an override as no state / value defined.")
+    exit(0)
+
+# next we need to create a feature segment (a flagsmith internal entity)
+create_feature_segment_url = f"{API_URL}/features/feature-segments/"
+feature_segment_data = {
+    "feature": FEATURE_ID,
+    "segment": segment_id,
+    "environment": ENVIRONMENT_ID
+}
+create_feature_segment_response = session.post(create_feature_segment_url, json=feature_segment_data)
+assert create_feature_segment_response.status_code == 201
+feature_segment_id = create_feature_segment_response.json()["id"]
+
+# finally, we can create the segment override
+create_segment_override_url = f"{API_URL}/features/featurestates/"
+feature_state_data = {
+    "feature": FEATURE_ID,
+    "feature_segment": feature_segment_id,
+    "environment": ENVIRONMENT_ID,
+    "enabled": ENABLE_FOR_SEGMENT,
+    "feature_state_value": {
+        "type": "unicode",
+        "string_value": VALUE_FOR_SEGMENT
+    }
+}
+create_feature_state_response = session.post(create_segment_override_url, json=feature_state_data)
+assert create_feature_state_response.status_code == 201
+```
+
+### Update a segment's rules
+
+```python
+import os
+
+from requests import Session
+
+API_URL = os.environ.get("API_URL", "https://api.flagsmith.com/api/v1")  # update this if self-hosting
+PROJECT_ID = os.environ["PROJECT_ID"]  # obtain this from the URL on your dashboard
+TOKEN = os.environ["API_TOKEN"]  # obtain this from the account page in your dashboard
+SEGMENT_ID = os.environ.get("SEGMENT_ID")  # obtain this from the URL on your dashboard when viewing a segment
+
+SEGMENT_RULES_DEFINITION = {
+    "rules": [
+        {
+            "type": "ALL",
+            "rules": [
+                {
+                    "type": "ANY",
+                    "conditions": [  # add as many conditions here to build up a segment
+                        {
+                            "property": "my_trait",  # specify a trait key that you want to match on, e.g. organisationId
+                            "operator": "EQUAL",  # specify the operator you want to use (one of EQUAL, NOT_EQUAL, GREATER_THAN, LESS_THAN, GREATER_THAN_INCLUSIVE, LESS_THAN_INCLUSIVE, CONTAINS, NOT_CONTAINS, REGEX, PERCENTAGE_SPLIT, IS_SET, IS_NOT_SET)
+                            "value": "my-value"  # the value to match against, e.g. 103
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+
+session = Session()
+session.headers.update({"Authorization": f"Token {TOKEN}"})
+
+update_segment_url = f"{API_URL}/projects/{PROJECT_ID}/segments/{SEGMENT_ID}/"
+session.patch(update_segment_url, json=SEGMENT_RULES_DEFINITION)
 ```
