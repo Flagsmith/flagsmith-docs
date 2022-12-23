@@ -29,7 +29,7 @@ Publicly accessible API calls need to have an environment key supplied with each
 header, with the name `X-Environment-Key` and the value of the Environment Key that you can find within the Flagsmith
 administrative area.
 
-### Curl Examples
+## Curl Examples
 
 These are the two main endpoints that you need to consume the SDK aspect of the API.
 
@@ -84,11 +84,11 @@ curl 'https://api.flagsmith.com/api/v1/environments/' \
 You can find a complete list of endpoints via the Swagger REST API at
 [https://api.flagsmith.com/api/v1/docs/](https://api.flagsmith.com/api/v1/docs/).
 
-### Code Examples
+## Code Examples
 
 Below are some simple examples for achieving certain actions with the REST API, using python.
 
-#### Create a feature
+### Create a feature
 
 ```python
 import os
@@ -108,7 +108,7 @@ data = {"name": FEATURE_NAME}
 response = session.post(create_feature_url, json=data)
 ```
 
-#### Update the value / state of a feature in an environment
+### Update the value / state of a feature in an environment
 
 ```python
 import json
@@ -140,7 +140,7 @@ update_feature_state_response = session.patch(
 )
 ```
 
-#### Create a segment and segment override
+### Create a segment and segment override
 
 ```python
 import os
@@ -222,7 +222,7 @@ create_feature_state_response = session.post(create_segment_override_url, json=f
 assert create_feature_state_response.status_code == 201
 ```
 
-#### Update a segment's rules
+### Update a segment's rules
 
 ```python
 import os
