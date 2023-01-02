@@ -93,6 +93,8 @@ Env Var: **FLAGSMITH** Value example: 4vfqhypYjcPoGGu8ByrBaj Description: The `e
 | **LDAP_AUTH_FORMAT_SEARCH_FILTERS**        | custom_auth.ldap.login_group_search_filter                                                               | Path to a callable used to add search filters to login to restrict login to a certain group                                                                                                                                                                                                                                                        | django_python3_ldap.utils.format_search_filters            |
 | **LDAP_SYNCED_GROUPS**                     | CN=Readers,CN=Roles,CN=webapp01,<br/>dc=admin,dc=com:CN=Marvel,CN=Roles,<br/>CN=webapp01,dc=admin,dc=com | colon(:) seperated list of DN's of ldap group that will be copied over to flagmsith(lazily, i.e: On user login we will create the group(s) and add the current user to the group(s) if the user is a part of them). Note: please make sure to set `LDAP_AUTH_SYNC_USER_RELATIONS` to `custom_auth.ldap.sync_user_groups` inorder for this to work. | []                                                         |
 | **LDAP_LOGIN_GROUP**                       | CN=Readers,CN=Roles,CN=webapp01,<br/>dc=admin,dc=com                                                     | DN of the user allowed login user group. Note: Please make sure to set `LDAP_AUTH_FORMAT_SEARCH_FILTERS` to `custom_auth.ldap.login_group_search_filter` in order for this to work.                                                                                                                                                                | None                                                       |
+| **LDAP_SYNC_USER_USERNAME**                | john                                                                                                     | Username used by [sync_ldap_users_and_groups](#sync-ldap-users-groups) in order to connect to the server.                                                                                                                                                                                                                                          | None                                                       |
+| **LDAP_SYNC_USER_PASSWORD**                | password                                                                                                 | Password used by [sync_ldap_users_and_groups](#sync-ldap-users-groups) in order to connect to the server.                                                                                                                                                                                                                                          | None                                                       |
 
 ### Version Tags
 
@@ -293,8 +295,33 @@ Depending on how your Active Directory server is configured, the following addit
 better than the defaults used by django-python3-ldap:
 
 ```txt
-LDAP_AUTH_USER_FIELDS=username=sAMAccountName,email=mail,first_name=givenName,last_name=sn LDAP_AUTH_OBJECT_CLASS="user"
+LDAP_AUTH_USER_FIELDS=username=sAMAccountName,email=mail,first_name=givenName,last_name=sn
+LDAP_AUTH_OBJECT_CLASS="user"
 ```
+
+#### Sync LDAP Users Groups
+
+You can synchronies Flagsmith user and groups with your LDAP(Directory) users and groups by running the following
+command
+
+```bash
+python manage.py sync_ldap_users_and_groups
+```
+
+Running this command will:
+
+- Remove users from Flagsmith if they are removed from Directory
+- Remove groups from Flagsmith if they are removed from Directory
+- Remove user from group if they no longer belong to that group in Directory
+- Add user to group if they belong to a new group in Directory
+
+:::note Before running this command please make sure to set the following environment variables:
+
+- LDAP_SYNC_USER_USERNAME
+- LDAP_SYNC_USER_PASSWORD
+- LDAP_SYNCED_GROUPS
+- LDAP_AUTH_SYNC_USER_RELATIONS
+- LDAP_DEFAULT_FLAGSMITH_ORGANISATION_ID :::
 
 ## Load testing
 
