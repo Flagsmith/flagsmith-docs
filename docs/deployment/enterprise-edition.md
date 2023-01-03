@@ -310,10 +310,10 @@ python manage.py sync_ldap_users_and_groups
 
 Running this command will:
 
-- Remove users from Flagsmith if they are removed from Directory
-- Remove groups from Flagsmith if they are removed from Directory
-- Remove user from group if they no longer belong to that group in Directory
-- Add user to group if they belong to a new group in Directory
+- Remove users from Flagsmith if they have been removed from Directory
+- Remove groups from Flagsmith if they have been removed from Directory
+- Remove users from group if they no longer belong to that group in Directory
+- Add users to group if they belong to a new group in Directory
 
 :::note Before running this command please make sure to set the following environment variables:
 
