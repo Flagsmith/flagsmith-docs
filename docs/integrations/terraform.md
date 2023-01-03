@@ -17,7 +17,12 @@ You can find the latest Hashicorp docs for using the Flagsmith provider
 
 :::
 
-The process is as follows:
+:::tip
+
+Some API actions require object UUIDs/IDs to be referenced. You can enable the [JSON View](../clients/rest.md#json-view)
+from your account settings page which will help you access these variables.
+
+:::
 
 ## Prerequisite
 

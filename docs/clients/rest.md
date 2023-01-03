@@ -6,6 +6,13 @@ sidebar_position: 2
 
 # Direct API Access
 
+:::tip
+
+Some API actions require object UUIDs/IDs to be referenced. You can enable the [JSON View](#json-view) from your account
+settings page which will help you access these variables.
+
+:::
+
 Flagsmith is built around a client/server architecture. The REST API server is accessible from SDK clients as well as
 the administration front end. This decoupling means that you can programmatically access the entire API if you wish.
 
@@ -83,6 +90,13 @@ curl 'https://api.flagsmith.com/api/v1/environments/' \
 
 You can find a complete list of endpoints via the Swagger REST API at
 [https://api.flagsmith.com/api/v1/docs/](https://api.flagsmith.com/api/v1/docs/).
+
+## JSON View
+
+You can enable the JSON view in your account settings page. This will then give you access to relevant object meta data
+in the Flag area of the dashboard:
+
+![JSON View](/img/json-view.png)
 
 ## Code Examples
 
