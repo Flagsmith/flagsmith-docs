@@ -18,6 +18,8 @@ You can integrate Flagsmith with Datadog in two ways:
 This integration lets you add a Flagsmith widget into your Datadog Dashboard so you can view and manage your flags
 without having to leave the Datadog application.
 
+![Datadog Dashboard Widget](/img/integrations/datadog/datadog-dashboard-widget.png)
+
 The video below will walk you through the steps of adding the integration:
 
 <ReactPlayer
