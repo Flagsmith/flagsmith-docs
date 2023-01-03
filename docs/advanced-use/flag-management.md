@@ -27,6 +27,11 @@ that flag. Archiving the flag helps to keep your main list of flags under contro
 By default, Flagsmith stores flags with lower case characters in order to minimise human error. If you want to store
 flags in a case-sensitive manner you can do this as a Project-wide setting from the Project Settings page.
 
+## Feature Name Regular Expressions
+
+You can enforce feature name String formatting by way of a regular expression in the Project Settings area. If you want
+flags to always be lower case, or camel case, or whatever your preference, you can set it here.
+
 ## Flag Owners
 
 You can specify members of your team as owners of individual Flags. This helps in larger teams when you need to identify
