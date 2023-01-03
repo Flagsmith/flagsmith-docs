@@ -301,8 +301,8 @@ LDAP_AUTH_OBJECT_CLASS="user"
 
 #### Sync LDAP Users Groups
 
-You can synchronies Flagsmith user and groups with your LDAP(Directory) users and groups by running the following
-command
+You can synchronise Flagsmith users and groups with your LDAP (Directory) users and groups by running the following
+command:
 
 ```bash
 python manage.py sync_ldap_users_and_groups
