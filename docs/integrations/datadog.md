@@ -18,8 +18,6 @@ You can integrate Flagsmith with Datadog in two ways:
 This integration lets you add a Flagsmith widget into your Datadog Dashboard so you can view and manage your flags
 without having to leave the Datadog application.
 
-todo: add image!
-
 The video below will walk you through the steps of adding the integration:
 
 <ReactPlayer
@@ -35,10 +33,11 @@ The second type of integration allows you to send Flag change events in Flagsmit
 
 ![Datadog](/img/integrations/datadog/datadog-3.png)
 
-1. Log into Datadog and go to Integrations > API
-2. Generate an API key
+1. Log into Datadog and go to Organization Settings > Access > API
+2. Generate a new API key
 3. Add the Datadog API key into Flagsmith (Integrations > Add Datadog Integration)
-4. Add the Datadog URL into Flagsmith - (This is either `https://api.datadoghq.com/` or `https://api.datadoghq.eu/`)
+4. Add the Datadog URL into Flagsmith as the Base URL - (This is either `https://api.datadoghq.com/` or
+   `https://api.datadoghq.eu/`)
 
 ![Datadog](/img/integrations/datadog/datadog-1.png)
 
