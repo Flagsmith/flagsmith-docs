@@ -451,3 +451,12 @@ the browser, an onChange event will be fired immediately with the local storage 
 
 By default, these flags will be persisted indefinitely, you can clear this by removing `"BULLET_TRAIN_DB"` from
 `localStorage`.
+
+**Why am I seeing `ReferenceError: XMLHttpRequest is not defined`?**
+
+The Flagsmith JavaScript client uses the [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
+API to handle REST calls. Some frameworks such as Manifest and Nuxt do not support this out of the box.
+
+In order to resolve this issue, you can provide a custom fetch implementation to the Flagsmith SDK. An example of this
+can be found
+[here](https://github.com/Flagsmith/flagsmith-js-client/blob/main/examples/nuxt/plugins/flagsmith-plugin.ts#L9).
