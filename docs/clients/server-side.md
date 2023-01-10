@@ -740,22 +740,18 @@ The Server Side SDKS share the same network behaviour across the different langu
 
 ### Local Evaluation Mode Network Behaviour
 
-- When the SDK is initialised, it will make an asnchronous network request to retrieve details about the Environment.
-- Every 60 seconds (by default), it will repeat this aysnchronous request to ensure that the Environment information it
-  has is up to date.
+:::info
 
-:::caution
+When using Local Evaluation, it's important to read up on the
+[Pros, Cons and Caveats](overview.md#pros-cons-and-caveats).
 
 To use Local Evaluation mode, you must use a Server Side key.
 
 :::
 
-:::caution
-
-When using local evaluation mode, user overrides will not work. If needed, specific segments can be set up to target
-users.
-
-:::
+- When the SDK is initialised, it will make an asnchronous network request to retrieve details about the Environment.
+- Every 60 seconds (by default), it will repeat this aysnchronous request to ensure that the Environment information it
+  has is up to date.
 
 To achieve Local Evaluation, in most languages, the SDK spawns a separate thread (or equivalent) to poll the API for
 changes to the Environment. In certain languages, you may be required to terminate this thread before cleaning up the
