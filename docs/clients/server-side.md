@@ -836,6 +836,11 @@ flagsmith = Flagsmith(
     # response
     # Optional
     default_flag_handler = lambda feature_name: return DefaultFlag(enabled=False, value=None)
+
+    # (Available in 3.2.0+) Pass a mapping of protocol to proxy URL as per
+    # https://requests.readthedocs.io/en/latest/api/#requests.Session.proxies
+    # Optional
+    proxies: typing.Dict[str, str] = None
 )
 ```
 
