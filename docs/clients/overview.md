@@ -125,14 +125,17 @@ running in `Local Evaluation` mode.
 ### Remote Evaluation Mode
 
 - Identities are persisted within the Flagsmith Datastore.
-- Identity overrides specified within the Dashboard
+- Identity overrides specified within the Dashboard.
 - All Integrations work as designed.
 
 ### Local Evaluation Mode
 
 - Identities are _not_ sent to the API and so are not persisted in the datastore.
+- Because Local mode does not connect to the datastore for each Flag request, it is not able to read the Trait data of
+  Identities from the API. This means that you have to provide the full complement of Traits when requesting the Flags
+  for a particular Identity. Our SDKs all provide relevant methods to achieve this.
 - [Identity overrides](../basic-features/managing-identities#identity-overrides) do not operate at all.
-- Integrations do not run.
+- Analytics-based Integrations do not run.
 
 The benefit of running in Local Evaluation mode is that you can process flag evaluations much more efficiently as they
 are all computed locally.
