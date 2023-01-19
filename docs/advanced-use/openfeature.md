@@ -13,3 +13,10 @@ involved! We will be adding to this page of our docs as the project progresses.
 
 Our goal, and that of OpenFeature, is to recommend using OpenFeature as the default SDK interface for Flagsmith
 projects.
+
+## Flagsmith OpenFeature Providers
+
+We currently offer [OpenFeature Providers](https://docs.openfeature.dev/docs/reference/concepts/provider) for the
+following languages:
+
+- [Java](https://github.com/open-feature/java-sdk-contrib/tree/main/providers/flagsmith)
