@@ -368,7 +368,7 @@ traits are sent to Datadog via ``datadogRum.setUser()````.
 
 ```typescript
 import { datadogRum } from '@datadog/browser-rum';
-...
+
 // Initialize the Flagsmith SDK
 flagsmith.init({
     datadogRum: {
