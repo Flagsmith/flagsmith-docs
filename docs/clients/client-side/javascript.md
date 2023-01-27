@@ -340,9 +340,11 @@ const font_size = flagsmith.getValue('font_size', { fallback: 12 });
 
 ## Datadog RUM JavaScript SDK Integration
 
-The Flagsmith JavaScript SDK can be configured so that feature enabled state and remote config can be stored as Datadog
-RUM feature flags and user traits can be stored as session user traits. The integration requires an initialised Datadog
-`datadogRum` client.
+The Flagsmith JavaScript SDK can be configured so that feature enabled state and remote config can be stored as
+[Datadog RUM feature flags](https://docs.datadoghq.com/real_user_monitoring/guide/setup-feature-flag-data-collection/?tab=npm#analyze-your-feature-flag-performance-in-rum)
+and user traits can be stored as
+[Datadog user session properties](https://docs.datadoghq.com/real_user_monitoring/browser/modifying_data_and_context/?tab=npm#addoverride-user-session-property).
+The integration requires an initialised Datadog `datadogRum` client.
 
 ### Step 1: Initialise your Datadog RUM SDK with the feature_flags experimental feature
 
