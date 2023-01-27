@@ -338,6 +338,47 @@ console.log(json.foo); // typed as {foo: string|null, bar: string|null}
 const font_size = flagsmith.getValue('font_size', { fallback: 12 });
 ```
 
+## Datadog RUM JavaScript SDK Integration
+
+The Flagsmith JavaScript SDK can be configured so that feature enabled state and remote config can be stored as
+[Datadog RUM feature flags](https://docs.datadoghq.com/real_user_monitoring/guide/setup-feature-flag-data-collection/?tab=npm#analyze-your-feature-flag-performance-in-rum)
+and user traits can be stored as
+[Datadog user session properties](https://docs.datadoghq.com/real_user_monitoring/browser/modifying_data_and_context/?tab=npm#addoverride-user-session-property).
+The integration requires an initialised Datadog `datadogRum` client.
+
+### Step 1: Initialise your Datadog RUM SDK with the feature_flags experimental feature
+
+To start collecting feature flag data, initialize the Datadog RUM SDK and configure the enableExperimentalFeatures
+initialization parameter with ["feature_flags"].
+
+```typescript
+import { datadogRum } from '@datadog/browser-rum';
+
+// Initialize Datadog Browser SDK
+datadogRum.init({
+    enableExperimentalFeatures: ["feature_flags"],
+    ...
+});
+```
+
+### Step 2: Initialise the Flagsmith SDK with configuring
+
+Initialise the Flagsmith SDK with the datadogRum option. Optionally, you can configure the client so that Flagsmith
+traits are sent to Datadog via ``datadogRum.setUser()````.
+
+```typescript
+import { datadogRum } from '@datadog/browser-rum';
+...
+// Initialize the Flagsmith SDK
+flagsmith.init({
+    datadogRum: {
+        client: datadogRum,
+        trackTraits: true,
+    },
+    ...
+})
+```
+
 ## Dynatrace JavaScript SDK Integration
 
 The Flagsmith JavaScript SDK can be configured so that feature enabled state, remote config and user traits can be
@@ -350,6 +391,7 @@ In order to configure the JavaScript SDK, you need to pass in an instance of
 [dtrum](https://www.dynatrace.com/support/help/how-to-use-dynatrace/real-user-monitoring/basic-concepts/js-tag-api).
 
 ```javascript
+// Initialize the Flagsmith SDK
 flagsmith.init({
  //...Initialisation properties,
  enableDynatrace: true,
