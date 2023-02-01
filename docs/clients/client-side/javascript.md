@@ -379,6 +379,12 @@ flagsmith.init({
 })
 ```
 
+### Step 3: What happens next
+
+- Whenever flag values are _evaluated_ in your code, they will be sent to Datadog as user events.
+- If the option to send Traits is enabled, the Trait key/value pairs will be sent to Datadog when the SDK receives its
+  Flags.
+
 ## Dynatrace JavaScript SDK Integration
 
 The Flagsmith JavaScript SDK can be configured so that feature enabled state, remote config and user traits can be
