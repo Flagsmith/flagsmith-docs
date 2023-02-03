@@ -1040,7 +1040,7 @@ $flagsmith = Flagsmith::Client.new(
     # Controls whether Flag Analytics data is sent to the Flagsmith API
     # See https://docs.flagsmith.com/advanced-use/flag-analytics
     # Optional
-    # Defaults to Fflse
+    # Defaults to False
     enable_analytics = false,
 
     # You can pass custom headers to the Flagsmith API with this Dictionary.
@@ -1386,8 +1386,8 @@ Flagsmith uses [Caffeine](https://github.com/ben-manes/caffeine), a high perform
 If you enable caching on the Flagsmith client without setting any values (as shown below), the following default values
 will be set for you:
 
-- maxSize(10)
-- expireAfterWrite(5, TimeUnit.MINUTES)
+- `maxSize(10)`
+- `expireAfterWrite(5, TimeUnit.MINUTES)`
 - project level caching will be disabled by default (i.e. only enabled if you configure a caching key)
 
 ```java
