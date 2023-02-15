@@ -11,6 +11,10 @@ users.
 Segments for Flags and Config are overridden at the Environment level, meaning that different Environments can define
 their own Segment overrides.
 
+Segments **_only_** come into effect if you are getting the Flags for a particular Identity. If you are just retrieving
+the flags for an Environment without passing in an Identity, your user will **_never_** be applied to a Segment as there
+is no context to use.
+
 :::tip
 
 Segments are _not_ sent back to client SDKs. They are used to override flag values within the dashboard, but they are
