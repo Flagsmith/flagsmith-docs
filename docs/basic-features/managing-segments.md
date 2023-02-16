@@ -164,7 +164,7 @@ This is the only operator that does not require a Trait. You can use the percent
 
 When you use a percentage split operator in a segment that is overriding a feature, each user will be placed into the
 same 'bucket' whenever that feature is evaluated for that user, and hence they will always receive the same value.
-Different users will recieve different values depending on your split percentage.
+Different users will receive different values depending on your split percentage.
 
 ### Modulo Operator
 
