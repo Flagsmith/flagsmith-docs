@@ -134,6 +134,8 @@ Released **8 July 2022**
 - Add manage Segments permissions
 - Show Segment Identity Sampling
 - Prevent null feature type
+- (Enterprise only) Add LDAP username/password
+- (Enterprise only) LDAP permission group syncing fixes
 
 ## v2.27
 
