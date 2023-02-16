@@ -162,6 +162,10 @@ This is the only operator that does not require a Trait. You can use the percent
 [A/B tests](/advanced-use/ab-testing) and
 [staged feature rollouts](/guides-and-examples/staged-feature-rollouts#creating-staged-rollouts).
 
+When you use a percentage split operator in a segment that is overriding a feature, each user will be placed into the
+same 'bucket' whenever that feature is evaluated for that user, and hence they will always receive the same value.
+Different users will recieve different values depending on your split percentage.
+
 ### Modulo Operator
 
 This operator performs [modulo operation](https://en.wikipedia.org/wiki/Modulo_operation). This operator accepts rule
