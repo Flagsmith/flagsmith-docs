@@ -11,6 +11,110 @@ We have a fairly simple tagging strategy:
 
 Please look out our [Github Releases](https://github.com/Flagsmith/flagsmith/releases) page for detailed updates.
 
+## v2.41
+
+Released **4 January 2022**
+
+- Add ability to validate feature names using regex
+- Add View identities permission
+- Fix security issue creating unauthorised Terraform API keys
+
+## v2.40
+
+Released **20 December 2022**
+
+- Add 'Manage user groups' permission
+- Add setting to allow upper case characters to be used in feature names
+- Display traits with a float value correctly in UI
+
+## v2.39
+
+Released **6 December 2022**
+
+- Add option to add DB read replicas
+- Add description field to segment condition
+- Expire user cookies after 30 days of inactivity
+
+## v2.38
+
+Released **29 November 2022**
+
+- Fix misssing invite users button
+
+## v2.37
+
+Released **22 November 2022**
+
+- Add segment support for Terraform integration
+- Add ability to rotate personal API tokens
+- Performance optimnisations for retrieving segments for an identity
+- UI improvements for settings
+
+## v2.36
+
+Released **11 November 2022**
+
+- Add read only view for features
+- Performance optimisations for updating identity traits
+- Prevent invite links creation in the API
+- Make master API keys read only
+
+## v2.35
+
+Released **8 November 2022**
+
+- Add option to hide invite links
+- Add SAML group sync (SaaS / Private cloud only)
+- Multivariate feature management fixes
+- Add more tag colours
+
+## v2.34
+
+Released **25 October 2022**
+
+- Add functionality to include a permission group when inviting users via email
+- Performance optimisations for update-traits endpoint
+- Remove user traits panel from dashboard
+- Add ability to invalidate / regenerate invite links
+- Performance optimisations for listing segments
+- Performance optimisations for /traits/bulk endpoint
+- Add expiring cache options for flags and identities endpoints
+
+## v2.33
+
+Released **20 October 2022**
+
+- Add functionality to support adding users to a default user group on joining an organisation
+- Add new index to identites to improve dashboard performance
+- IS_SET and IS_NOT_SET segment operators
+- Add statsd metrics
+
+## v2.32
+
+Released **6 October 2022**
+
+- Mixpanel integration payload fix
+- Add fix for testing webhooks in UI when webhook has basic authentication
+- Add MV options support for Terraform
+
+## v2.31
+
+Released **29 September 2022**
+
+- Permissions fix for identity feature states view
+- Percentage split operator fix for 0 value
+- Added modulo operator for segment engine
+- create / approve change request permissions
+
+## v2.30
+
+Released **13 September 2022**
+
+- Add support for managing project features in Terraform
+- Feature specific segments
+- Add audit log records for Change Requests
+- Add setting to prevent flag defaults being set in all environments when creating a feature
+
 ## v2.29
 
 Released **8 August 2022**
@@ -30,6 +134,8 @@ Released **8 July 2022**
 - Add manage Segments permissions
 - Show Segment Identity Sampling
 - Prevent null feature type
+- (Enterprise only) Add LDAP username/password
+- (Enterprise only) LDAP permission group syncing fixes
 
 ## v2.27
 
