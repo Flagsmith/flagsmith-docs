@@ -64,3 +64,17 @@ but are happy to take pull requests!
 ### Per-Identity overrides do not trigger an update
 
 ### Identity Trait updates do not trigger an update
+
+## How it works under the hood
+
+When realtime streaming is enabled within the SDK, the client will try to connect to:
+`eventSourceUrl + "sse/environments/" + environmentID + "/stream"`. The streaming services is built on top of
+[Server Sent Events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events), _not_ Websockets!
+
+By default, this eventSourceUrl is set to `https://realtime.flagsmith.com/`
+
+Every time flags are fetched (via identify, get flags, set traits etc) via the REST API, we update a timestamp
+internally within the SDK, storing how fresh the flags are.
+
+Whilst connected to the streaming service, the client will receive an environment_updated event every 1000ms with an
+updated_at timestamp, if that update_at value is greater than our internal timestamp we refetch the flags.
