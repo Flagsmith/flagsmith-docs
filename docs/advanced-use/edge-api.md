@@ -136,9 +136,5 @@ request using a Lambda function running in an AWS data-centre near your client. 
 
 We store state within our API - both related to the Environments for your Projects, but also for the Identities within
 those Environments. Our Edge design sees us write this data through to DynamoDB global tables, which are replicated
-globally.
-
-Currently we are writing through Environment data only (see Caveat below) but we plan on writing through Identities
-soon.
-
-Our Lambda functions then connect to the nearest DynamoDB table to retrieve both Environment and Identity data.
+globally. Our Lambda functions then connect to the nearest DynamoDB table to retrieve both Environment and Identity
+data.
