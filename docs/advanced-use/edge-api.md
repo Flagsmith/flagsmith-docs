@@ -123,6 +123,16 @@ flag.identity
 flag.feature_segment
 ```
 
+## Architecture
+
+### Core API Only
+
+![Image](/img/core-api-now.svg)
+
+### Core and Edge API
+
+![Image](/img/edge-api-now.svg)
+
 ## How It Works
 
 ### Lambda@Edge
