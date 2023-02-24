@@ -24,7 +24,8 @@ our real-time infrastructure. This connection will remain open for the duration 
 from our API.
 
 When an Environment is updated in some way, either via the Flagsmith dashboard or our API, all the clients connected to
-that Environment stream will receive a message telling them to refresh their flags, which they will go ahead and do.
+that Environment stream will receive a message (actually an epoch timestamp) that alerts them to refresh their flags,
+which they will go ahead and do.
 
 It is then up to you, as part of the SDK integration, to reflect that new flag state within your application.
 
@@ -73,8 +74,9 @@ When realtime streaming is enabled within the SDK, the client will try to connec
 
 By default, this `eventSourceUrl` is set to `https://realtime.flagsmith.com/`.
 
-Every time flags are fetched (via identify, get flags, set traits etc) via the REST API, we update a timestamp
+Every time flags are fetched (via identify, get flags, set traits etc) via the REST API, we update an epoch timestamp
 internally within the SDK, storing how fresh the flags are.
 
-Whilst connected to the streaming service, the client will receive an `environment_updated` event every 1000 ms with an
-`updated_at` timestamp. If that `update_at` value is greater than our internal timestamp we refetch the flags.
+Whilst connected to the streaming service, the client will receive a new epoch timestamp event if the Flagsmith
+Environment state has changed. If that epoch timestamp value is greater (as in more recent) than our internal timestamp
+we refetch the flags.
