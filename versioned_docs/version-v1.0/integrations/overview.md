@@ -62,10 +62,3 @@ You can integrate Flagsmith with New Relic. Send flag change events from Flagsmi
 
 You can integrate Flagsmith with AppDynamics. Send flag change events from Flagsmith into your AppDynamics event stream.
 [Learn more](/integrations/appdynamics)
-
-## Chat / Messaging Platforms
-
-<a href="/integrations/slack" alt="Slack"><img width="30%" src="/img/integrations/slack/slack-logo.svg"/></a>
-
-You can integrate Flagsmith with Slack. Send flag change events from Flagsmith into your Slack channels.
-[Learn more](/integrations/slack)
