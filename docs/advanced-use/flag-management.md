@@ -19,8 +19,8 @@ for your Environment, but by default they are hidden from the main list of flags
 You can set a Flag as Archived from the Flag settings tab.
 
 Archived flags are often used when you have customers running older versions of your mobile app. You may well have
-finished with a flag, but you can't remove it as there are still some older versions of your app out there that depend on
-that flag. Archiving the flag helps to keep your main list of flags under control.
+finished with a flag, but you can't remove it as there are still some older versions of your app out there that depend
+on that flag. Archiving the flag helps to keep your main list of flags under control.
 
 ## Case Sensitive Flags
 
