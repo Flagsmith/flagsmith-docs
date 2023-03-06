@@ -67,12 +67,6 @@ resource "flagsmith_feature" "new_standard_feature" {
 
 ```
 
-:::note We are [working](https://github.com/Flagsmith/flagsmith/issues/1740) on adding a json view to our objects
-
-:::
-
-For now we need to inspect the network calls to get the uuid. For example: ![Image](/img/feature-uuid.png)
-
 Now, to create the feature all you have to do is run `terraform apply`.
 
 ```bash
