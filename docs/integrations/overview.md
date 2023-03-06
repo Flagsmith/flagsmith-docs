@@ -76,3 +76,21 @@ You can integrate Flagsmith with AppDynamics. Send flag change events from Flags
 
 You can integrate Flagsmith with Slack. Send flag change events from Flagsmith into your Slack channels.
 [Learn more](/integrations/slack)
+
+## Authentication Providers / IDPs
+
+### OAUTH
+
+You can authenticate Flagsmith with oAuth providers. [Learn more](/deployment/authentication#oauth)
+
+### SAML
+
+You can authenticate Flagsmith with SAML providers. [Learn more](/deployment/authentication#saml---saas)
+
+### LDAP
+
+You can authenticate Flagsmith with LDAP providers. [Learn more](/deployment/authentication#ldap)
+
+### Okta
+
+You can authenticate Flagsmith with Okta. [Learn more](/deployment/authentication#okta)
