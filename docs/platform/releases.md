@@ -11,9 +11,52 @@ We have a fairly simple tagging strategy:
 
 Please look out our [Github Releases](https://github.com/Flagsmith/flagsmith/releases) page for detailed updates.
 
+## v2.47
+
+Released **6 March 2023**
+
+- Upgrade to Python 3.11
+
+## v2.46
+
+Released **3 March 2023**
+
+- Add ability to store usage data in Postgres
+
+## v2.45
+
+Released **2 March 2023**
+
+- Real time flags
+- Scheduled Change requests split out from regular Change Requests
+- Generic meta-data to entity models - backend implemented
+
+## v2.44
+
+Released **1 March 2023**
+
+- Bug fixes for multivariate flag values
+- Permission tweaks
+- Bug fixes soft-delete edge cases
+
+## v2.43
+
+Released **20 February 2023**
+
+- Improve caching
+- Security patches
+
+## v2.42
+
+Released **20 February 2023**
+
+- Big Audit Log refactor
+- Datadog Dashboard Widget
+- Add soft delete to core model entities
+
 ## v2.41
 
-Released **4 January 2022**
+Released **4 January 2023**
 
 - Add ability to validate feature names using regex
 - Add View identities permission
@@ -39,7 +82,7 @@ Released **6 December 2022**
 
 Released **29 November 2022**
 
-- Fix misssing invite users button
+- Fix missing invite users button
 
 ## v2.37
 
@@ -47,7 +90,7 @@ Released **22 November 2022**
 
 - Add segment support for Terraform integration
 - Add ability to rotate personal API tokens
-- Performance optimnisations for retrieving segments for an identity
+- Performance optimisations for retrieving segments for an identity
 - UI improvements for settings
 
 ## v2.36
@@ -209,7 +252,7 @@ Released **24 March 2022**
 
 Released **15 February 2022**
 
-- Serverside SDK keys Frontend developed
+- Server-side SDK keys Frontend developed
 - Improved Segment Rules evaluation
 - Multiple Dependency Updates
 
@@ -218,7 +261,7 @@ Released **15 February 2022**
 Released **8 February 2022**
 
 - Webhook Analytics Integration
-- Audit Log Search is now Serverside
+- Audit Log Search is now Server-side
 - Improvements to Flag Value Text Editor
 
 ## v2.16
