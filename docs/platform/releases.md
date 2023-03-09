@@ -1,15 +1,13 @@
 # Releases
 
-## Docker Image Tags
-
 We have a fairly simple tagging strategy:
 
-- Commits to the `main` branch trigger Docker image builds tagged `latest`.
-- Git tags (e.g. `2.7.1`) will trigger Docker image builds tagged:
-  - 2.7.1
-  - 2.7
+- Git tags created from the `main` branch trigger Docker image builds tagged `latest`.
+- Git tags e.g. `2.7.1` will trigger Docker image builds tagged:
+  - `2.7.1`
+  - `2.7`
 
-Please look out our [Github Releases](https://github.com/Flagsmith/flagsmith/releases) page for detailed updates.
+Please look out our [Github Releases](https://github.com/Flagsmith/flagsmith/releases) page for detailed change logs.
 
 ## v2.47
 
