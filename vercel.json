@@ -167,6 +167,10 @@
         {
             "source": "/clients/elixir",
             "destination": "/clients/server-side"
+        },
+        {
+            "source": "/deployment/migrating-from-self-hosted-to-cloud",
+            "destination": "/deployment/importing-and-exporting"
         }
     ]
 }
