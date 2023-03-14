@@ -84,12 +84,12 @@ The API can also optionally make use of the following 3rd party services:
 
 ## Flag Analytics
 
-Flagsmith stores time series data for 2 core use cases:
+Flagsmith stores time series data for two use cases:
 
 1. Flag Analytics
 2. API traffic reporting
 
-Flagsmith can be configured to manage this data in 1 of three ways:
+Flagsmith can be configured to store and process this data in one of three ways:
 
 1. To store it in Postgres
 2. To store it in InfluxDB
@@ -102,9 +102,14 @@ We recommend option 1.
 Add the following environment variables to the Flagsmith API service:
 
 ```bash
-ANALYTICS_DATABASE_URL (e.g. postgresql://postgres:password@postgres:5432/flagsmith)
+# Set Postgres to store the data
+USE_POSTGRES_FOR_ANALYTICS=True
 
-# or
+
+# Configure the postgres datastore:
+# Either
+ANALYTICS_DATABASE_URL (e.g. postgresql://postgres:password@postgres:5432/flagsmith)
+# Or
 DJANGO_DB_HOST_ANALYTICS (e.g. postgres.db)
 DJANGO_DB_NAME_ANALYTICS (e.g. flagsmith)
 DJANGO_DB_USER_ANALYTICS (e.g. postgres_user)
@@ -112,9 +117,10 @@ DJANGO_DB_PASSWORD_ANALYTICS (e.g. postgres_password)
 DJANGO_DB_PORT_ANALYTICS (e.g. 5432)
 ```
 
-And to enable Postgres to store analytics data, set: `USE_POSTGRES_FOR_ANALYTICS=True`
-
 Note that you don't have to use the same database or database server as the core Flagsmith DB.
+
+You will also need to be running the [Task Processor](https://docs.flagsmith.com/deployment/task-processor) for
+downsampling to work and the stats to start showing up in the dashboard. This process can take up to 1 hour.
 
 ### Time series data via InfluxDB
 
