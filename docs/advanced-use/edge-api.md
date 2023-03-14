@@ -14,6 +14,17 @@ point of failure in the event of an AWS region-wide outage.
 The Edge API solves both of these issues. It provides a datastore and Edge compute API that is replicated across 8 AWS
 regions, with latency-based routing and global failover in the event of a region outage.
 
+The Edge API provides API service from the following AWS regions:
+
+- Europe (London) - eu-west-2
+- US East (Ohio) - us-east-2
+- US West (N. California) - us-west-1
+- Asia Pacific (Mumbai) - ap-south-1
+- Asia Pacific (Sydney) - ap-southeast-2
+- South America (São Paulo) - sa-east-1
+- Asia Pacific (Seoul) - ap-northeast-2
+- Asia Pacific (Singapore) - ap-southeast-1
+
 ## Enabling the Edge API
 
 :::tip
