@@ -105,7 +105,6 @@ Add the following environment variables to the Flagsmith API service:
 # Set Postgres to store the data
 USE_POSTGRES_FOR_ANALYTICS=True
 
-
 # Configure the postgres datastore:
 # Either
 ANALYTICS_DATABASE_URL (e.g. postgresql://postgres:password@postgres:5432/flagsmith)
