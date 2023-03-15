@@ -9,6 +9,16 @@ We have a fairly simple tagging strategy:
 
 Please look out our [Github Releases](https://github.com/Flagsmith/flagsmith/releases) page for detailed change logs.
 
+## v2.48
+
+Released **14 March 2023**
+
+- Feature name validation
+- Show 'last logged in' on users area
+- Hide disabled Flags per Environment
+- Rename Users > Identities in the nav for consistency
+- Various bug fixes
+
 ## v2.47
 
 Released **6 March 2023**
