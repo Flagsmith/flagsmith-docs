@@ -49,7 +49,7 @@ SAML authentication is only available as part of our Enterprise Plans. Please
 
 To allow an Organisation on the Flagsmith platform to login using SAML authentication, you'll need to access the admin
 interface. Instructions on how to access the admin interface can be found
-[here](https://docs.flagsmith.com/deployment/django-admin).
+[here](https://docs.flagsmith.com/deployment/configuration/django-admin).
 
 Once you've logged into the django admin interface, you'll need to click on the 'Saml Configurations' option in the menu
 on the left. From here, you should see a list of existing SAML configuration entities. To create a new one, click on the
@@ -139,12 +139,12 @@ Then you need to create an equivalent group in the Flagsmith that will look like
 To configure OAuth for Google:
 
 - [Setting up OAuth 2.0](https://support.google.com/cloud/answer/6158849?hl=en)
-- Create the Flagsmith on Flagsmith flag as it shows [here](../deployment/overview#oauth_google).
+- Create the Flagsmith on Flagsmith flag as it shows [here](/deployment/overview#oauth_google).
 
 ### Github
 
 As a pre-requisite for this configuration make sure to have
-[Flagsmith on Flagsmith](../deployment/overview#running-flagsmith-on-flagsmith) set up.
+[Flagsmith on Flagsmith](/deployment/overview#running-flagsmith-on-flagsmith) set up.
 
 Configure the following environment variables:
 
@@ -155,7 +155,7 @@ To configure OAuth for Github:
 
 - [Create an OAuth Github application](https://docs.github.com/en/developers/apps/building-oauth-apps/creating-an-oauth-app)
 - For the Authorization callback URL use: `https://<your flagsmith domain name>/oauth/github`
-- Create the Flagsmith on Flagsmith flag as it shows [here](../deployment/overview#oauth_github).
+- Create the Flagsmith on Flagsmith flag as it shows [here](/deployment/overview#oauth_github).
 
 Now you would be able to see the GitHub SSO option.
 
@@ -163,15 +163,15 @@ Now you would be able to see the GitHub SSO option.
 
 ## LDAP
 
-LDAP Authentication is available in our [Enterprise Edition](/deployment/enterprise-edition.md). Please contact us if
-this is of interest. We also support sync-ing of LDAP groups into
-[Flagsmith RBAC groups](../advanced-use/permissions.md#groups)).
+LDAP Authentication is available in our [Enterprise Edition](/deployment/configuration/enterprise-edition.md). Please
+contact us if this is of interest. We also support sync-ing of LDAP groups into
+[Flagsmith RBAC groups](/advanced-use/permissions.md#groups)).
 
 ## AD FS
 
 Active Directory Federation Services Authentication is available in our
-[Enterprise Edition](/deployment/enterprise-edition.md).
+[Enterprise Edition](/deployment/configuration/enterprise-edition.md).
 
 ## Okta
 
-Okta Integration is available in our [Enterprise Edition](/deployment/enterprise-edition.md).
+Okta Integration is available in our [Enterprise Edition](/deployment/configuration/enterprise-edition.md).

@@ -21,7 +21,7 @@ order to set up the base environment variables. Further environment variables ar
 [described here](locally-api.md#environment-variables).
 
 Run a single Cloud Run service with at least two container instances running for failover. For more info on sizing, see
-our [scaling page](/deployment/sizing-and-scaling). We recommend running with at least
+our [scaling page](/deployment/configuration/sizing-and-scaling). We recommend running with at least
 [2 minimum instances](https://cloud.google.com/run/docs/configuring/min-instances) to avoid cold starts particularly in
 order to serve low-latency requests to the SDKs.
 

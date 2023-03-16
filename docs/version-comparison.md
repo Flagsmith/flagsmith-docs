@@ -12,7 +12,8 @@ Open Source, SaaS hosted and Enterprise versions:
 - The Open Source version has **no** Dashboard User limits - you can have as many team members as you wish.
 - The SaaS and Enterprise versions have [Change Requests and Flag Scheduling](advanced-use/change-requests.md).
 - The SaaS and Enterprise versions have [Role-Based Access Controls](advanced-use/permissions.md).
-- The SaaS and Enterprise versions have additional [Authentication Providers](/deployment/enterprise-edition):
+- The SaaS and Enterprise versions have additional
+  [Authentication Providers](/deployment/configuration/enterprise-edition):
   - Okta
   - LDAP
   - SAML
@@ -38,7 +39,7 @@ You can run our Enterprise version either on-premise, or we can provide private 
 organisation.
 
 - [Role Based Access Controls](advanced-use/permissions.md).
-- [SAML, LDAP, ADFS and Okta authentication](deployment/authentication.md), as well as the ability to lock
+- [SAML, LDAP, ADFS and Okta authentication](deployment/configuration/authentication.md), as well as the ability to lock
   authentication to a single provider.
 - Additional database engines: Oracle, SQL Server and MySQL.
 - Additional deployment and orchestration options as detailed below.

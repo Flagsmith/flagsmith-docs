@@ -43,8 +43,8 @@ The export process involves running a command from a terminal window. This must 
 in your self hosted deployment or, alternatively, you can run a separate container that can connect to the same database
 as your deployed fleet of flagsmith instances. To run the command, you'll also need to find the id of your organisation.
 You can do this through the django admin interface. Information about accessing the admin interface can be found
-[here](/deployment/django-admin.md). Once you've obtained access to the admin interface, if you browse to the
-'Organisations' menu item on the left, you should see something along the lines of the following:
+[here](/deployment/configuration/django-admin.md). Once you've obtained access to the admin interface, if you browse to
+the 'Organisations' menu item on the left, you should see something along the lines of the following:
 
 ![](/img/organisations-admin.png)
 

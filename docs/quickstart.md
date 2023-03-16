@@ -17,7 +17,7 @@ Let's get up and running in 5 minutes. We're going to run through the following 
 :::tip
 
 To get up and running quickly, we're going to use the hosted service at flagsmith.com, but you can easily run the
-[platform locally via Docker](deployment/docker.md).
+[platform locally via Docker](/deployment/hosting/docker.md).
 
 :::
 

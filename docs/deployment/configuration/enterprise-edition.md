@@ -8,7 +8,7 @@ Flagsmith is also provided as an "Enterprise Edition" which has additional featu
 Source product:
 
 - [Role Based Access Controls](advanced-use/permissions.md)
-- [SAML, LDAP, ADFS and Okta authentication](deployment/authentication.md), as well as the ability to lock
+- [SAML, LDAP, ADFS and Okta authentication](deployment/configuration/authentication.md), as well as the ability to lock
   authentication to a single provider
 - Additional database engines: Oracle, SQL Server and MySQL
 - Additional deployment and orchestration options as detailed below
@@ -232,7 +232,8 @@ The application can be run using SAML2 as an authentication backend. You should 
 the startup of the application to use SAML2, however, once the application is running, you will need to create the
 relevant configuration entities for any organisations on your installation that require SAML2 authentication. This can
 currently only be done via the Django admin console, via the 'Saml Configurations' section on the 'Organisation' page.
-Further information on how to access the django admin console can be found [here](/deployment/django-admin).
+Further information on how to access the django admin console can be found
+[here](/deployment/configuration/django-admin).
 
 The SAML configuration requires the following parameters:
 

@@ -178,8 +178,8 @@ running pods, but this will change upon redeployment, which you probably don't w
 :::
 
 The chart handles most environment variables required, but see the
-[API readme](https://docs.flagsmith.com/deployment/locally-api#environment-variables) for all available configuration
-options. These can be set using `api.extraEnv`, eg:
+[API readme](https://docs.flagsmith.com/deployment/hosting/locally-api#environment-variables) for all available
+configuration options. These can be set using `api.extraEnv`, eg:
 
 ```yaml
 api:
