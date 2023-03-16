@@ -18,4 +18,4 @@ suggesting the next steps.
 
 ## Code Formatting/Linting
 
-Please check our [pre-commit setup](/deployment/locally-api#pre-commit).
+Please check our [pre-commit setup](/deployment/hosting/locally-api#pre-commit).

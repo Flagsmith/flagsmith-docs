@@ -97,7 +97,7 @@ Once you've created the super user, you can use the details to log in at `/admin
 organisation and either create another user or simply assign the organisation to your admin user to begin using the
 application.
 
-Further information on the admin pages can be found [here](/deployment/django-admin).
+Further information on the admin pages can be found [here](/deployment/configuration/django-admin).
 
 ## Deploying
 

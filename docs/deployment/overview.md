@@ -57,8 +57,9 @@ You will need to run through the following steps to get set up:
 
 ## Deployment Options
 
-We recommend running Flagsmith with [Docker](/deployment/docker). We have options to run within
-[Docker](/deployment/docker), [Kubernetes](/deployment/kubernetes) or [RedHat OpenShift](/deployment/openshift).
+We recommend running Flagsmith with [Docker](/deployment/hosting/docker). We have options to run within
+[Docker](/deployment/hosting/docker), [Kubernetes](/deployment/hosting/kubernetes) or
+[RedHat OpenShift](/deployment/hosting/openshift).
 
 ## Architecture
 
@@ -553,7 +554,7 @@ The list of the flags and remote config we're currently using in production is b
 
 ### `oauth_github`
 
-Find instructions for GitHub Authentication [here](../deployment/authentication#github).
+Find instructions for GitHub Authentication [here](../deployment/configuration/authentication#github).
 
 Create an OAuth application in the GitHub Developer Console and then provide the following as the Flag value:
 

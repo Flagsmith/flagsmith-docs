@@ -115,7 +115,7 @@ Once you've created the super user, you can use the details to log in at `/admin
 organisation and either create another user or simply assign the organisation to your admin user to begin using the
 application.
 
-Further information on the admin pages can be found [here](/deployment/django-admin).
+Further information on the admin pages can be found [here](/deployment/configuration/django-admin).
 
 ## Deploying
 
@@ -243,7 +243,7 @@ the below variables will be ignored.
   String. Connection string to set up Flagsmith to send telemetry to Azure Application Insights.
 - [`OPENCENSUS_SAMPLING_RATE`](https://opencensus.io/tracing/sampling/probabilistic/): Float. The tracer sample rate.
 - `RESTRICT_ORG_CREATE_TO_SUPERUSERS`: Restricts all users from creating organisations unless they are
-  [marked as a superuser](/deployment/django-admin#Authentication).
+  [marked as a superuser](/deployment/configuration/django-admin#Authentication).
 - `FLAGSMITH_CORS_EXTRA_ALLOW_HEADERS`: Comma separated list of extra headers to allow when operating across domains.
   e.g. `'my-custom-header-1,my-custom-header-2'`. Defaults to `'sentry-trace,'`.
 

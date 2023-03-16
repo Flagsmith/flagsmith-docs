@@ -82,7 +82,7 @@
         },
         {
             "source": "/kubernetes",
-            "destination": "/deployment/kubernetes"
+            "destination": "/deployment/hosting/kubernetes"
         },
         {
             "source": "/managing-identities",
