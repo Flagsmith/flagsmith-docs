@@ -391,6 +391,22 @@ flagsmith.init({
 - If the option to send Traits is enabled, the Trait key/value pairs will be sent to Datadog when the SDK receives its
   Flags.
 
+This will track remote config and feature enabled states as feature flags in the following format
+
+```bash
+flagsmith_value_<FEATURE_NAME> // remote config
+flagsmith_enabled_<FEATURE_NAME> // enabled state
+```
+
+Additionally, the integration will also store Flagsmith traits against the Datadog user in the following format:
+
+```bash
+flagsmith_trait_<FEATURE_NAME> // remote config
+```
+
+You can find an example of this integration
+[here](https://github.com/Flagsmith/flagsmith-js-client/blob/main/examples/datadog-realtime-user-monitoring/src/index.tsx).
+
 ## Dynatrace JavaScript SDK Integration
 
 The Flagsmith JavaScript SDK can be configured so that feature enabled state, remote config and user traits can be
