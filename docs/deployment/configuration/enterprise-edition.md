@@ -8,7 +8,7 @@ Flagsmith is also provided as an "Enterprise Edition" which has additional featu
 Source product:
 
 - [Role Based Access Controls](advanced-use/permissions.md)
-- [SAML, LDAP, ADFS and Okta authentication](deployment/authentication.md), as well as the ability to lock
+- [SAML, LDAP, ADFS and Okta authentication](deployment/configuration/authentication.md), as well as the ability to lock
   authentication to a single provider
 - Additional database engines: Oracle, SQL Server and MySQL
 - Additional deployment and orchestration options as detailed below
@@ -48,7 +48,7 @@ We have 2 different Enterprise Edition Images. You can choose to use either imag
 
 This image tracks our SaaS build and includes additional packages:
 
-- SAML and LDAP authentication
+- SAML
 - Workflows (Change Requests and Flag Scheduling)
 
 This image also bundles the front end into the python application, meaning you don't need to run a separate front end
@@ -61,6 +61,7 @@ This image includes additions from the SaaS image above:
 - Oracle Support
 - MySQL Support
 - Appdynamics Integration
+- LDAP authentication
 
 ## Environment Variables
 
@@ -92,6 +93,8 @@ Env Var: **FLAGSMITH** Value example: 4vfqhypYjcPoGGu8ByrBaj Description: The `e
 | **LDAP_AUTH_FORMAT_SEARCH_FILTERS**        | custom_auth.ldap.login_group_search_filter                                                               | Path to a callable used to add search filters to login to restrict login to a certain group                                                                                                                                                                                                                                                        | django_python3_ldap.utils.format_search_filters            |
 | **LDAP_SYNCED_GROUPS**                     | CN=Readers,CN=Roles,CN=webapp01,<br/>dc=admin,dc=com:CN=Marvel,CN=Roles,<br/>CN=webapp01,dc=admin,dc=com | colon(:) seperated list of DN's of ldap group that will be copied over to flagmsith(lazily, i.e: On user login we will create the group(s) and add the current user to the group(s) if the user is a part of them). Note: please make sure to set `LDAP_AUTH_SYNC_USER_RELATIONS` to `custom_auth.ldap.sync_user_groups` inorder for this to work. | []                                                         |
 | **LDAP_LOGIN_GROUP**                       | CN=Readers,CN=Roles,CN=webapp01,<br/>dc=admin,dc=com                                                     | DN of the user allowed login user group. Note: Please make sure to set `LDAP_AUTH_FORMAT_SEARCH_FILTERS` to `custom_auth.ldap.login_group_search_filter` in order for this to work.                                                                                                                                                                | None                                                       |
+| **LDAP_SYNC_USER_USERNAME**                | john                                                                                                     | Username used by [sync_ldap_users_and_groups](#sync-ldap-users-groups) in order to connect to the server.                                                                                                                                                                                                                                          | None                                                       |
+| **LDAP_SYNC_USER_PASSWORD**                | password                                                                                                 | Password used by [sync_ldap_users_and_groups](#sync-ldap-users-groups) in order to connect to the server.                                                                                                                                                                                                                                          | None                                                       |
 
 ### Version Tags
 
@@ -181,9 +184,8 @@ as per the documentation.
 
 **Prerequisites**
 
-You will likely need to install the Oracle client on the machine running the Flagsmith API  
-application. The instructions to do so are
-[here](https://cx-oracle.readthedocs.io/en/latest/user_guide/installation.html).
+You will likely need to install the Oracle client on the machine running the Flagsmith API application. The instructions
+to do so are [here](https://cx-oracle.readthedocs.io/en/latest/user_guide/installation.html).
 
 :::
 
@@ -230,7 +232,8 @@ The application can be run using SAML2 as an authentication backend. You should 
 the startup of the application to use SAML2, however, once the application is running, you will need to create the
 relevant configuration entities for any organisations on your installation that require SAML2 authentication. This can
 currently only be done via the Django admin console, via the 'Saml Configurations' section on the 'Organisation' page.
-Further information on how to access the django admin console can be found [here](/deployment/django-admin).
+Further information on how to access the django admin console can be found
+[here](/deployment/configuration/django-admin).
 
 The SAML configuration requires the following parameters:
 
@@ -293,8 +296,35 @@ Depending on how your Active Directory server is configured, the following addit
 better than the defaults used by django-python3-ldap:
 
 ```txt
-LDAP_AUTH_USER_FIELDS=username=sAMAccountName,email=mail,first_name=givenName,last_name=sn LDAP_AUTH_OBJECT_CLASS="user"
+LDAP_AUTH_USER_FIELDS=username=sAMAccountName,email=mail,first_name=givenName,last_name=sn
+LDAP_AUTH_OBJECT_CLASS="user"
 ```
+
+#### Sync LDAP Users Groups
+
+You can synchronise Flagsmith users and groups with your LDAP (Directory) users and groups by running the following
+command:
+
+```bash
+python manage.py sync_ldap_users_and_groups
+```
+
+Running this command will:
+
+- Remove users from Flagsmith if they have been removed from Directory
+- Remove groups from Flagsmith if they have been removed from Directory
+- Remove users from group if they no longer belong to that group in Directory
+- Add users to group if they belong to a new group in Directory
+
+:::note Before running this command please make sure to set the following environment variables:
+
+- LDAP_SYNC_USER_USERNAME
+- LDAP_SYNC_USER_PASSWORD
+- LDAP_SYNCED_GROUPS
+- LDAP_AUTH_SYNC_USER_RELATIONS
+- LDAP_DEFAULT_FLAGSMITH_ORGANISATION_ID
+
+:::
 
 ## Load testing
 

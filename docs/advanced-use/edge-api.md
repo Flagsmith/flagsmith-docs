@@ -14,6 +14,17 @@ point of failure in the event of an AWS region-wide outage.
 The Edge API solves both of these issues. It provides a datastore and Edge compute API that is replicated across 8 AWS
 regions, with latency-based routing and global failover in the event of a region outage.
 
+The Edge API provides API service from the following AWS regions:
+
+- Europe (London) - eu-west-2
+- US East (Ohio) - us-east-2
+- US West (N. California) - us-west-1
+- Asia Pacific (Mumbai) - ap-south-1
+- Asia Pacific (Sydney) - ap-southeast-2
+- South America (São Paulo) - sa-east-1
+- Asia Pacific (Seoul) - ap-northeast-2
+- Asia Pacific (Singapore) - ap-southeast-1
+
 ## Enabling the Edge API
 
 :::tip
@@ -123,6 +134,16 @@ flag.identity
 flag.feature_segment
 ```
 
+## Architecture
+
+### Core API Only
+
+![Image](/img/core-api-now.svg)
+
+### Core and Edge API
+
+![Image](/img/edge-api-now.svg)
+
 ## How It Works
 
 ### Lambda@Edge
@@ -136,9 +157,5 @@ request using a Lambda function running in an AWS data-centre near your client. 
 
 We store state within our API - both related to the Environments for your Projects, but also for the Identities within
 those Environments. Our Edge design sees us write this data through to DynamoDB global tables, which are replicated
-globally.
-
-Currently we are writing through Environment data only (see Caveat below) but we plan on writing through Identities
-soon.
-
-Our Lambda functions then connect to the nearest DynamoDB table to retrieve both Environment and Identity data.
+globally. Our Lambda functions then connect to the nearest DynamoDB table to retrieve both Environment and Identity
+data.

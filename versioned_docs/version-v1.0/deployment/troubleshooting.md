@@ -24,5 +24,5 @@ Make sure you have a `DATABASE_URL` environment variable set within the API appl
 ## Frontend > API DNS Setup
 
 If you are running the API and the Front end as separate applications, you need to make sure that the Front end is
-pointing to the API. Check the [Front end environment variables](/deployment/locally-frontend#environment-variables),
-particularly `API_URL`.
+pointing to the API. Check the
+[Front end environment variables](/deployment/hosting/locally-frontend#environment-variables), particularly `API_URL`.

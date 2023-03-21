@@ -19,8 +19,18 @@ for your Environment, but by default they are hidden from the main list of flags
 You can set a Flag as Archived from the Flag settings tab.
 
 Archived flags are often used when you have customers running older versions of your mobile app. You may well have
-finished with a flag, but you cant remove it as there are still some older versions of your app out there that depend on
-that flag. Archiving the flag helps to keep your main list of flags under control.
+finished with a flag, but you can't remove it as there are still some older versions of your app out there that depend
+on that flag. Archiving the flag helps to keep your main list of flags under control.
+
+## Case Sensitive Flags
+
+By default, Flagsmith stores flags with lower case characters in order to minimise human error. If you want to store
+flags in a case-sensitive manner you can do this as a Project-wide setting from the Project Settings page.
+
+## Feature Name Regular Expressions
+
+You can enforce feature name String formatting by way of a regular expression in the Project Settings area. If you want
+flags to always be lower case, or camel case, or whatever your preference, you can set it here.
 
 ## Flag Owners
 

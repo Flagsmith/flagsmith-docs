@@ -14,8 +14,8 @@ pages at certain times.
 
 The admin pages are only available to uses that are designated as 'super users'. This can only be done when first
 setting up the platform or via the database. If you're just starting out, you can follow the instructions
-[here](/deployment/locally-api#Initialising), otherwise, you need to set the `is_staff` and `is_superuser` flags against
-any of the users in your database.
+[here](/deployment/hosting/locally-api#Initialising), otherwise, you need to set the `is_staff` and `is_superuser` flags
+against any of the users in your database.
 
 Once you have a user, you can access the django admin pages at `/admin`. You will be prompted to log in with the
 credentials of any of your super users.

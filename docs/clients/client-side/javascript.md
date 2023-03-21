@@ -249,21 +249,22 @@ All function and property types can be seen
 
 ### Available Functions
 
-| Property                                                                                                          |                                                                                                                                Description                                                                                                                                |
-| ----------------------------------------------------------------------------------------------------------------- | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-| <code>init(initialisationOptions)=> Promise&lt;void&gt;</code>                                                    |                                                                                                            Initialise the sdk against a particular environment                                                                                                            |
-| <code>hasFeature(key:string)=> boolean</code>                                                                     |                                                                                       Get the value of a particular feature e.g. `flagsmith.hasFeature("powerUserFeature") // true`                                                                                       |
-| <code>getValue(key:string)=> string&#124;number&#124;boolean</code>                                               |                                                                                            Get the value of a particular feature e.g. `flagsmith.getValue("font_size") // 10`                                                                                             |
-| <code>getTrait(key:string)=> string&#124;number&#124;boolean</code>                                               |                                                               Once used with an identified user you can get the value of any trait that is set for them e.g. `flagsmith.getTrait("accepted_cookie_policy")`                                                               |
-| <code>getState()=>IState</code>                                                                                   |                                                                               Retrieves the current state of flagsmith, useful in NextJS / isomorphic applications. `flagsmith.getState()`                                                                                |
-| <code>setTrait(key:string, value:string&#124;number&#124;boolean)=> Promise&lt;IFlags&gt;</code>                  |                                                              Once used with an identified user you can set the value of any trait relevant to them e.g. `flagsmith.setTrait("accepted_cookie_policy", true)`                                                              |
-| <code>setTraits(values:Record<string, string&#124;number&#124;boolean>)=> Promise&lt;IFlags&gt;</code>            |                                                           Set multiple traits e.g. `flagsmith.setTraits({foo:"bar",numericProp:1,boolProp:true})`. Setting a value of null for a trait will remove that trait.                                                            |
-| <code>incrementTrait(key:string, value:number)=> Promise&lt;IFlags&gt;</code>                                     |                                                                                You can also increment/decrement a particular trait them e.g. `flagsmith.incrementTrait("click_count", 1)`                                                                                 |
-| <code>startListening(ticks=1000:number)=>void</code>                                                              |                                                                                                               Poll the api for changes every x milliseconds                                                                                                               |
-| <code>stopListening()=>void</code>                                                                                |                                                                                                                           Stop polling the api                                                                                                                            |
-| <code>getFlags()=> Promise&lt;IFlags&gt;</code>                                                                   |                                                         Trigger a manual fetch of the environment features, if a user is identified it will fetch their features. Resolves a promise when the flags are updated.                                                          |
-| <code>identify(userId:string, traits?:Record<string, string or number or boolean>)=> Promise&lt;IFlags&gt;</code> | Identify as a user, optionally with traits e.g. `{foo:"bar",numericProp:1,boolProp:true}`. This will create a user for your environment in the dashboard if they don't exist, it will also trigger a call to `getFlags()`, resolves a promise when the flags are updated. |
-| <code>logout()=>Promise&lt;IFlags&gt;</code>                                                                      |                                                                                                   Stop identifying as a user, this will trigger a call to `getFlags()`                                                                                                    |
+| Property                                                                                                                                        |                                                                                                                                Description                                                                                                                                |
+| ----------------------------------------------------------------------------------------------------------------------------------------------- | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+| <code>init(initialisationOptions)=> Promise&lt;void&gt;</code>                                                                                  |                                                                                                            Initialise the sdk against a particular environment                                                                                                            |
+| <code>hasFeature(key:string)=> boolean</code>                                                                                                   |                                                                                       Get the value of a particular feature e.g. `flagsmith.hasFeature("powerUserFeature") // true`                                                                                       |
+| <code>getValue<T=string&#124;number&#124;boolean&#124;null>(key:string,{ json?:boolean, fallback?:T })=> string&#124;number&#124;boolean</code> |                                                  Get the value of a particular feature e.g. `flagsmith.getValue("font_size", { fallback: 12 }) // 10`, specifying json:true will automatically parse the value as JSON.                                                   |
+| <code>getTrait(key:string)=> string&#124;number&#124;boolean</code>                                                                             |                                                               Once used with an identified user you can get the value of any trait that is set for them e.g. `flagsmith.getTrait("accepted_cookie_policy")`                                                               |
+| <code>getAllTraits()=> Record&lt;string,string&#124;number&#124;boolean&gt;</code>                                                              |                                                                      Once used with an identified user you can get a key value pair of all traits that are set for them e.g. `flagsmith.getTraits()`                                                                      |
+| <code>getState()=>IState</code>                                                                                                                 |                                                                               Retrieves the current state of flagsmith, useful in NextJS / isomorphic applications. `flagsmith.getState()`                                                                                |
+| <code>setTrait(key:string, value:string&#124;number&#124;boolean)=> Promise&lt;IFlags&gt;</code>                                                |                                                              Once used with an identified user you can set the value of any trait relevant to them e.g. `flagsmith.setTrait("accepted_cookie_policy", true)`                                                              |
+| <code>setTraits(values:Record<string, string&#124;number&#124;boolean>)=> Promise&lt;IFlags&gt;</code>                                          |                                                           Set multiple traits e.g. `flagsmith.setTraits({foo:"bar",numericProp:1,boolProp:true})`. Setting a value of null for a trait will remove that trait.                                                            |
+| <code>incrementTrait(key:string, value:number)=> Promise&lt;IFlags&gt;</code>                                                                   |                                                                                You can also increment/decrement a particular trait them e.g. `flagsmith.incrementTrait("click_count", 1)`                                                                                 |
+| <code>startListening(ticks=1000:number)=>void</code>                                                                                            |                                                                                                               Poll the api for changes every x milliseconds                                                                                                               |
+| <code>stopListening()=>void</code>                                                                                                              |                                                                                                                           Stop polling the api                                                                                                                            |
+| <code>getFlags()=> Promise&lt;IFlags&gt;</code>                                                                                                 |                                                         Trigger a manual fetch of the environment features, if a user is identified it will fetch their features. Resolves a promise when the flags are updated.                                                          |
+| <code>identify(userId:string, traits?:Record<string, string or number or boolean>)=> Promise&lt;IFlags&gt;</code>                               | Identify as a user, optionally with traits e.g. `{foo:"bar",numericProp:1,boolProp:true}`. This will create a user for your environment in the dashboard if they don't exist, it will also trigger a call to `getFlags()`, resolves a promise when the flags are updated. |
+| <code>logout()=>Promise&lt;IFlags&gt;</code>                                                                                                    |                                                                                                   Stop identifying as a user, this will trigger a call to `getFlags()`                                                                                                    |
 
 ## Multiple SDK Instances
 
@@ -337,6 +338,75 @@ console.log(json.foo); // typed as {foo: string|null, bar: string|null}
 const font_size = flagsmith.getValue('font_size', { fallback: 12 });
 ```
 
+## Datadog RUM JavaScript SDK Integration
+
+:::caution
+
+This feature is still in beta with Datadog. Contact your Datadog representative before enabling the integration below.
+
+:::
+
+The Flagsmith JavaScript SDK can be configured so that feature enabled state and remote config can be stored as
+[Datadog RUM feature flags](https://docs.datadoghq.com/real_user_monitoring/guide/setup-feature-flag-data-collection/?tab=npm#analyze-your-feature-flag-performance-in-rum)
+and user traits can be stored as
+[Datadog user session properties](https://docs.datadoghq.com/real_user_monitoring/browser/modifying_data_and_context/?tab=npm#addoverride-user-session-property).
+The integration requires an initialised Datadog `datadogRum` client.
+
+### Step 1: Initialise your Datadog RUM SDK with the feature_flags experimental feature
+
+To start collecting feature flag data, initialize the Datadog RUM SDK and configure the enableExperimentalFeatures
+initialization parameter with ["feature_flags"].
+
+```typescript
+import { datadogRum } from '@datadog/browser-rum';
+
+// Initialize Datadog Browser SDK
+datadogRum.init({
+    enableExperimentalFeatures: ["feature_flags"],
+    ...
+});
+```
+
+### Step 2: Initialise the Flagsmith SDK with configuring
+
+Initialise the Flagsmith SDK with the datadogRum option. Optionally, you can configure the client so that Flagsmith
+traits are sent to Datadog via ``datadogRum.setUser()````.
+
+```typescript
+import { datadogRum } from '@datadog/browser-rum';
+...
+// Initialize the Flagsmith SDK
+flagsmith.init({
+    datadogRum: {
+        client: datadogRum,
+        trackTraits: true,
+    },
+    ...
+})
+```
+
+### Step 3: What happens next
+
+- Whenever flag values are _evaluated_ in your code, they will be sent to Datadog as user events.
+- If the option to send Traits is enabled, the Trait key/value pairs will be sent to Datadog when the SDK receives its
+  Flags.
+
+This will track remote config and feature enabled states as feature flags in the following format
+
+```bash
+flagsmith_value_<FEATURE_NAME> // remote config
+flagsmith_enabled_<FEATURE_NAME> // enabled state
+```
+
+Additionally, the integration will also store Flagsmith traits against the Datadog user in the following format:
+
+```bash
+flagsmith_trait_<FEATURE_NAME> // remote config
+```
+
+You can find an example of this integration
+[here](https://github.com/Flagsmith/flagsmith-js-client/blob/main/examples/datadog-realtime-user-monitoring/src/index.tsx).
+
 ## Dynatrace JavaScript SDK Integration
 
 The Flagsmith JavaScript SDK can be configured so that feature enabled state, remote config and user traits can be
@@ -349,6 +419,7 @@ In order to configure the JavaScript SDK, you need to pass in an instance of
 [dtrum](https://www.dynatrace.com/support/help/how-to-use-dynatrace/real-user-monitoring/basic-concepts/js-tag-api).
 
 ```javascript
+// Initialize the Flagsmith SDK
 flagsmith.init({
  //...Initialisation properties,
  enableDynatrace: true,
@@ -450,3 +521,12 @@ the browser, an onChange event will be fired immediately with the local storage 
 
 By default, these flags will be persisted indefinitely, you can clear this by removing `"BULLET_TRAIN_DB"` from
 `localStorage`.
+
+**Why am I seeing `ReferenceError: XMLHttpRequest is not defined`?**
+
+The Flagsmith JavaScript client uses the [fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
+API to handle REST calls. Some frameworks such as Manifest and Nuxt do not support this out of the box.
+
+In order to resolve this issue, you can provide a custom fetch implementation to the Flagsmith SDK. An example of this
+can be found
+[here](https://github.com/Flagsmith/flagsmith-js-client/blob/main/examples/nuxt/plugins/flagsmith-plugin.ts#L9).

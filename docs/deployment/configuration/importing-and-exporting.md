@@ -1,5 +1,5 @@
 ---
-title: Migrating from Self Hosted to Cloud
+title: Importing and Exporting
 sidebar_position: 110
 ---
 
@@ -9,10 +9,10 @@ You need to be running Flagsmith version `2.28.2` or greater to be able to expor
 
 :::
 
-Flagsmith offers some helpful utilities if you want to migrate your application from your self hosted instance to our
-cloud offering.
+Flagsmith offers some helpful utilities if you want to migrate your application from one Flagsmith instance to another.
 
-The process looks something like:
+If, for example, you wanted to move from self hosting Flagsmith to our SaaS version, the process looks something like
+this:
 
 - **Step 1.** Contact Flagsmith support to confirm you would like to migrate from self hosted to cloud
 - **Step 2.** Generate a JSON file from your self hosted instance (more information below)
@@ -43,8 +43,8 @@ The export process involves running a command from a terminal window. This must 
 in your self hosted deployment or, alternatively, you can run a separate container that can connect to the same database
 as your deployed fleet of flagsmith instances. To run the command, you'll also need to find the id of your organisation.
 You can do this through the django admin interface. Information about accessing the admin interface can be found
-[here](/deployment/django-admin.md). Once you've obtained access to the admin interface, if you browse to the
-'Organisations' menu item on the left, you should see something along the lines of the following:
+[here](/deployment/configuration/django-admin.md). Once you've obtained access to the admin interface, if you browse to
+the 'Organisations' menu item on the left, you should see something along the lines of the following:
 
 ![](/img/organisations-admin.png)
 

@@ -56,8 +56,9 @@ You will need to run through the following steps to get set up:
 
 ## Deployment Options
 
-We recommend running Flagsmith with [Docker](/deployment/docker). We have options to run within
-[Docker](/deployment/docker), [Kubernetes](/deployment/kubernetes) or [RedHat OpenShift](/deployment/openshift).
+We recommend running Flagsmith with [Docker](/deployment/hosting/docker). We have options to run within
+[Docker](/deployment/hosting/docker), [Kubernetes](/deployment/hosting/kubernetes) or
+[RedHat OpenShift](/deployment/hosting/openshift).
 
 ## Architecture
 
@@ -177,7 +178,7 @@ The list of the flags and remote config we're currently using in production is b
 | Flag Name              | Description                                                                   | Text Value                                                                                                     |
 | ---------------------- | ----------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
 | `try_it`               | Whether to show the try it buttons                                            | None                                                                                                           |
-| `butter_bar`           | html to show at the top of the dashboard page                                 | None                                                                                                           |
+| `butter_bar`           | markdown to show at the top of the dashboard page                             | None                                                                                                           |
 | `disable_create_org`   | Turning this on will prevent users from creating any additional organisations | None                                                                                                           |
 | `scaleup_audit`        | Disables audit log for anyone under scale-up plan                             | None                                                                                                           |
 | `integration_data`     | Configures integrations                                                       | [See Below](#integration_data)                                                                                 |

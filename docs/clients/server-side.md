@@ -4,6 +4,8 @@ sidebar_label: Server Side
 sidebar_position: 2
 ---
 
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
+
 # Server Side SDKs
 
 :::tip
@@ -69,8 +71,6 @@ https://github.com/Flagsmith/flagsmith-elixir-client
 </Tabs>
 
 ## Add the Flagsmith package
-
-import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
 
 <Tabs groupId="language">
 <TabItem value="py" label="Python">
@@ -740,22 +740,18 @@ The Server Side SDKS share the same network behaviour across the different langu
 
 ### Local Evaluation Mode Network Behaviour
 
-- When the SDK is initialised, it will make an asnchronous network request to retrieve details about the Environment.
-- Every 60 seconds (by default), it will repeat this aysnchronous request to ensure that the Environment information it
-  has is up to date.
+:::info
 
-:::caution
+When using Local Evaluation, it's important to read up on the
+[Pros, Cons and Caveats](overview.md#pros-cons-and-caveats).
 
 To use Local Evaluation mode, you must use a Server Side key.
 
 :::
 
-:::caution
-
-When using local evaluation mode, user overrides will not work. If needed, specific segments can be set up to target
-users.
-
-:::
+- When the SDK is initialised, it will make an asnchronous network request to retrieve details about the Environment.
+- Every 60 seconds (by default), it will repeat this aysnchronous request to ensure that the Environment information it
+  has is up to date.
 
 To achieve Local Evaluation, in most languages, the SDK spawns a separate thread (or equivalent) to poll the API for
 changes to the Environment. In certain languages, you may be required to terminate this thread before cleaning up the
@@ -840,6 +836,11 @@ flagsmith = Flagsmith(
     # response
     # Optional
     default_flag_handler = lambda feature_name: return DefaultFlag(enabled=False, value=None)
+
+    # (Available in 3.2.0+) Pass a mapping of protocol to proxy URL as per
+    # https://requests.readthedocs.io/en/latest/api/#requests.Session.proxies
+    # Optional
+    proxies: typing.Dict[str, str] = None
 )
 ```
 
@@ -1039,7 +1040,7 @@ $flagsmith = Flagsmith::Client.new(
     # Controls whether Flag Analytics data is sent to the Flagsmith API
     # See https://docs.flagsmith.com/advanced-use/flag-analytics
     # Optional
-    # Defaults to Fflse
+    # Defaults to False
     enable_analytics = false,
 
     # You can pass custom headers to the Flagsmith API with this Dictionary.
@@ -1385,8 +1386,8 @@ Flagsmith uses [Caffeine](https://github.com/ben-manes/caffeine), a high perform
 If you enable caching on the Flagsmith client without setting any values (as shown below), the following default values
 will be set for you:
 
-- maxSize(10)
-- expireAfterWrite(5, TimeUnit.MINUTES)
+- `maxSize(10)`
+- `expireAfterWrite(5, TimeUnit.MINUTES)`
 - project level caching will be disabled by default (i.e. only enabled if you configure a caching key)
 
 ```java

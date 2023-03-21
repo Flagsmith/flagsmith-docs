@@ -73,7 +73,7 @@ Environment:
    "feature": {
     "created_date": "2021-02-10T20:03:43.348556Z",
     "default_enabled": false,
-    "description": "Show html in a butter bar for certain users",
+    "description": "Show markdown in a butter bar for certain users",
     "id": 7168,
     "initial_value": null,
     "name": "butter_bar",
@@ -97,7 +97,7 @@ Environment:
    "feature": {
     "created_date": "2021-02-10T20:03:43.348556Z",
     "default_enabled": false,
-    "description": "Show html in a butter bar for certain users",
+    "description": "Show markdown in a butter bar for certain users",
     "id": 7168,
     "initial_value": null,
     "name": "butter_bar",

@@ -17,7 +17,12 @@ You can find the latest Hashicorp docs for using the Flagsmith provider
 
 :::
 
-The process is as follows:
+:::tip
+
+Some API actions require object UUIDs/IDs to be referenced. You can enable the [JSON View](../clients/rest.md#json-view)
+from your account settings page which will help you access these variables.
+
+:::
 
 ## Prerequisite
 
@@ -37,12 +42,12 @@ Organisation Administrator permission is required to generate Terraform API Key.
 Once you have the Terraform Provider key you can go ahead and create a Terraform config file, which will look something
 like this:
 
-```terraform
+```hcl
 terraform {
   required_providers {
     flagsmith = {
       source = "Flagsmith/flagsmith"
-      version = "0.1.0" # or whatever the latest version is
+      version = "0.3.0" # or whatever the latest version is
     }
   }
 }
@@ -53,21 +58,91 @@ provider "flagsmith" {
 }
 
 # the feature that you want to manage
-resource "flagsmith_flag" "feature_1_prod" {
-  enabled         = false
-  environment_key = "some_enviroment_key"
-  feature_name    = "test_feature"
-  feature_state_value = {
-    type         = "unicode"
-    string_value = "I_am_a_test_feature"
-
-  }
+resource "flagsmith_feature" "new_standard_feature" {
+  feature_name = "new_standard_feature"
+  project_uuid = "10421b1f-5f29-4da9-abe2-30f88c07c9e8"
+  description  = "This is a new standard feature"
+  type         = "STANDARD"
 }
 
 ```
 
-To bring a Flagsmith feature into Terraform (and start tracking it's state) you can go ahead and
-[import](https://registry.terraform.io/providers/Flagsmith/flagsmith/latest/docs/resources/flag#import) it.
+Now, to create the feature all you have to do is run `terraform apply`.
 
-Once that is done, you can just simply update its value (i.e: `feature_state_value` or `enabled`) and do
-`terraform apply` to apply those changes.
+```bash
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # flagsmith_feature.new_standard_feature will be created
+  + resource "flagsmith_feature" "new_standard_feature" {
+      + default_enabled = (known after apply)
+      + description     = "This is a new standard feature"
+      + feature_name    = "new_standard_feature"
+      + id              = (known after apply)
+      + initial_value   = (known after apply)
+      + is_archived     = (known after apply)
+      + project_id      = (known after apply)
+      + project_uuid    = "10421b1f-5f29-4da9-abe2-30f88c07c9e8"
+      + type            = "STANDARD"
+      + uuid            = (known after apply)
+    }
+
+Plan: 1 to add, 0 to change, 0 to destroy.
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+flagsmith_feature.new_standard_feature: Creating...
+flagsmith_feature.new_standard_feature: Creation complete after 2s
+
+Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
+```
+
+Next, let's say you want to update the description of the feature:
+
+```hcl
+# the feature that you want to manage
+resource "flagsmith_feature" "new_standard_feature" {
+  feature_name = "new_standard_feature"
+  project_uuid = "10421b1f-5f29-4da9-abe2-30f88c07c9e8"
+  description  = "New description"
+  type         = "STANDARD"
+}
+```
+
+Now, to apply the changes just run `terraform apply`:
+
+```bash
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  ~ update in-place
+
+Terraform will perform the following actions:
+
+  # flagsmith_feature.new_standard_feature will be updated in-place
+  ~ resource "flagsmith_feature" "new_standard_feature" {
+      ~ description     = "This is a new standard feature" -> "New description"
+        id              = 574
+        # (7 unchanged attributes hidden)
+    }
+
+Plan: 0 to add, 1 to change, 0 to destroy.
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+flagsmith_feature.new_standard_feature: Modifying...
+flagsmith_feature.new_standard_feature: Modifications complete after 1s
+
+Apply complete! Resources: 0 added, 1 changed, 0 destroyed.
+```
+
+To bring an existing Flagsmith feature into Terraform (and start tracking it's state) you can go ahead and
+[import](https://registry.terraform.io/providers/Flagsmith/flagsmith/latest/docs/resources/feature#import) it.

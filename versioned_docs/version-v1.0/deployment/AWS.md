@@ -26,7 +26,7 @@ order to set up the base environment variables. Further environment variables ar
 [described here](locally-api.md#environment-variables).
 
 Run a single ECS service with at least two Fargate instances running for failover. For more info on Fargate sizes, see
-our [scaling page](/deployment/sizing-and-scaling).
+our [scaling page](/deployment/configuration/sizing-and-scaling).
 
 If you are using health-checks, make sure to use `/health` as the health-check endpoint.
 

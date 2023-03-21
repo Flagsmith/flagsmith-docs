@@ -71,6 +71,6 @@ by hand. However, it's pretty simple!
    that environment within your caching infrastructure.
 3. You can set up a [Web Hook](/advanced-use/system-administration.md#web-hooks) within Flagsmith that sends flag change
    events to your server infrastructure.
-4. Write an API endpoint within your infrastructure that receives flag change events and stores then in your local
+4. Write an API endpoint within your infrastructure that receives flag change events and stores them in your local
    cache.
 5. You can now rely on your local cache to get up to date flags.

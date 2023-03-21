@@ -11,6 +11,10 @@ users.
 Segments for Flags and Config are overridden at the Environment level, meaning that different Environments can define
 their own Segment overrides.
 
+Segments **_only_** come into effect if you are getting the Flags for a particular Identity. If you are just retrieving
+the flags for an Environment without passing in an Identity, your user will **_never_** be applied to a Segment as there
+is no context to use.
+
 :::tip
 
 Segments are _not_ sent back to client SDKs. They are used to override flag values within the dashboard, but they are
@@ -88,6 +92,8 @@ The full set of Flagsmith rule operators are as follows:
 - `Contains`
 - `Does Not Contain`
 - `Matches Regex`
+- `Is Set` (if the Trait property exists)
+- `Is Not Set` (if the Trait property does not exist)
 
 All of the operators act as you would expect. Some of the operators also have special powers!
 
@@ -155,6 +161,10 @@ included in the percentage split segment.
 This is the only operator that does not require a Trait. You can use the percentage split operator to drive
 [A/B tests](/advanced-use/ab-testing) and
 [staged feature rollouts](/guides-and-examples/staged-feature-rollouts#creating-staged-rollouts).
+
+When you use a percentage split operator in a segment that is overriding a feature, each user will be placed into the
+same 'bucket' whenever that feature is evaluated for that user, and hence they will always receive the same value.
+Different users will receive different values depending on your split percentage.
 
 ### Modulo Operator
 

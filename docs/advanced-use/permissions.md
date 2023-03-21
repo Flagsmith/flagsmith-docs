@@ -46,6 +46,7 @@ Team Members and Groups can be given individual roles at a Project level.
 | Create Environment | Can create new Environments within the Project                                             |
 | Create Feature     | Can create a new Feature / Remote Config                                                   |
 | Delete Feature     | Can remove an existing Feature / Remote Config entirely from the Project                   |
+| Manage Segments    | Can create, delete and edit Segments within the Project                                    |
 
 ![Image](/img/project-permissions.png)
 
@@ -53,9 +54,14 @@ Team Members and Groups can be given individual roles at a Project level.
 
 Team Members and Groups can be given individual roles at an Environment level.
 
-| **Role**         | **Ability**                                               |
-| ---------------- | --------------------------------------------------------- |
-| Administrator    | Can modify Feature Flag, Remote Config and Segment values |
-| View Environment | Can see the Environment within their account              |
+| **Role**               | **Ability**                                               |
+| ---------------------- | --------------------------------------------------------- |
+| Administrator          | Can modify Feature Flag, Remote Config and Segment values |
+| View Environment       | Can see the Environment within their account              |
+| Update Feature State   | Update the state or value for a given feature             |
+| Manage Identities      | View and update Identities                                |
+| Create Change Request  | Creating a new Change Request                             |
+| Approve Change Request | Approving or denying existing Change Requests             |
+| View Identities        | Viewing Identities                                        |
 
 ![Image](/img/environment-permissions.png)

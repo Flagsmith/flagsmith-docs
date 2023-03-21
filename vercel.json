@@ -82,7 +82,7 @@
         },
         {
             "source": "/kubernetes",
-            "destination": "/deployment/kubernetes"
+            "destination": "/deployment/hosting/kubernetes"
         },
         {
             "source": "/managing-identities",
@@ -167,6 +167,66 @@
         {
             "source": "/clients/elixir",
             "destination": "/clients/server-side"
+        },
+        {
+            "source": "/deployment/migrating-from-self-hosted-to-cloud",
+            "destination": "/deployment/importing-and-exporting"
+        },
+        {
+            "source": "/deployment/locally-api",
+            "destination": "/deployment/hosting/locally-api"
+        },
+        {
+            "source": "/deployment/locally-frontend",
+            "destination": "/deployment/hosting/locally-frontend"
+        },
+        {
+            "source": "/deployment/docker",
+            "destination": "/deployment/hosting/docker"
+        },
+        {
+            "source": "/deployment/kubernetes",
+            "destination": "/deployment/hosting/kubernetes"
+        },
+        {
+            "source": "/deployment/openshift",
+            "destination": "/deployment/hosting/openshift"
+        },
+        {
+            "source": "/deployment/aws",
+            "destination": "/deployment/hosting/aws"
+        },
+        {
+            "source": "/deployment/google-cloud",
+            "destination": "/deployment/hosting/google-cloud"
+        },
+        {
+            "source": "/deployment/enterprise-edition",
+            "destination": "/deployment/configuration/enterprise-edition"
+        },
+        {
+            "source": "/deployment/authentication",
+            "destination": "/deployment/configuration/authentication"
+        },
+        {
+            "source": "/deployment/sizing-and-scaling",
+            "destination": "/deployment/configuration/sizing-and-scaling"
+        },
+        {
+            "source": "/deployment/troubleshooting",
+            "destination": "/deployment/configuration/troubleshooting"
+        },
+        {
+            "source": "/deployment/django-admin",
+            "destination": "/deployment/configuration/django-admin"
+        },
+        {
+            "source": "/deployment/importing-and-exporting",
+            "destination": "/deployment/configuration/importing-and-exporting"
+        },
+        {
+            "source": "/deployment/task-processor",
+            "destination": "/deployment/configuration/task-processor"
         }
     ]
 }
