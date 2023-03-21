@@ -22,7 +22,7 @@ jobs:
           cache: 'npm'
 
       - name: npm install
-        run: npm install --include=dev
+        run: npm ci --include=dev --ignore-scripts
       - name: Run Husky
         run: npx prettier --check docs
       - name: Run docusuarus build to check for broken links etc
