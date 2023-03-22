@@ -274,3 +274,34 @@ session.headers.update({"Authorization": f"Token {TOKEN}"})
 update_segment_url = f"{API_URL}/projects/{PROJECT_ID}/segments/{SEGMENT_ID}/"
 session.patch(update_segment_url, json=SEGMENT_RULES_DEFINITION)
 ```
+
+### Iterate over Identities
+
+Sometimes it can be useful to iterate over your Identities to check things like Segment overrides.
+
+```python
+import os
+
+import requests
+
+TOKEN = os.environ.get("API_TOKEN")  # obtained from Account section in dashboard
+ENV_KEY = os.environ.get("ENV_KEY")  # obtained from Environment settings in dashboard
+BASE_URL = "https://api.flagsmith.com/api/v1"  # update this if self hosting
+IDENTITIES_PAGE_URL = f"{BASE_URL}/environments/{ENV_KEY}/edge-identities/?page_size=20"
+
+session = requests.Session()
+session.headers.update(
+    {"Authorization": f"Token {TOKEN}", "Content-Type": "application/json"}
+)
+
+# get the existing feature state id based on the feature name
+page_of_identities = session.get(f"{IDENTITIES_PAGE_URL}")
+print(page_of_identities.json())
+
+for identity in page_of_identities.json()['results']:
+    print(str(identity))
+    IDENTITY_UUID = identity['identity_uuid']
+    IDENTITY_URL = f"{BASE_URL}/environments/{ENV_KEY}/edge-identities/{IDENTITY_UUID}/edge-featurestates/all/"
+    identity_data = session.get(f"{IDENTITY_URL}")
+    print(identity_data.json())
+```
