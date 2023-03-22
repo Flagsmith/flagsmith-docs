@@ -130,7 +130,7 @@ import os
 
 import requests
 
-TOKEN = os.environ.get("API_TOKEN")  # ontained from Account section in dashboard
+TOKEN = os.environ.get("API_TOKEN")  # obtained from Account section in dashboard
 ENV_KEY = os.environ.get("ENV_KEY")  # obtained from environment settings in dashboard
 BASE_URL = "https://api.flagsmith.com/api/v1"  # update this if self hosting
 FEATURE_STATES_URL = f"{BASE_URL}/environments/{ENV_KEY}/featurestates"
