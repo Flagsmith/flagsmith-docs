@@ -71,6 +71,9 @@ redirected to on a successful SAML authentication.
 
 For now, we'll leave **Idp metadata xml** empty.
 
+If you require the ability to initiate authentication requests from your IdP (IdP initiated), you'll need to check the
+box next to **Allow IdP-initiated (unsolicited) login**.
+
 Once you've completed these fields, hit the **Save** button to create the SAML configuration.
 
 Now, we need to grab the Flagsmith service provider metadata to configure the integration on your IDP. To do this, open
