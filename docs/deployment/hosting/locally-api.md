@@ -382,40 +382,6 @@ services:
 If not running our application via docker, you can find gunicorn's documentation on statsd instrumentation
 [here](https://docs.gunicorn.org/en/stable/instrumentation.html)
 
-## Running Tests
-
-The application uses pytest for writing(appropritate use of fixtures) and running tests. Before running tests please
-make sure that `DJANGO_SETTINGS_MODULE` env var is pointing to the right module, e.g. `app.settings.test`.
-
-To run tests:
-
-```bash
-DJANGO_SETTINGS_MODULE=app.settings.test pytest
-```
-
-## Pre commit
-
-The application uses pre-commit configuration ( `.pre-commit-config.yaml` ) to run `black`, `flake8` and `isort`
-formatting before commits.
-
-To install pre-commit:
-
-```bash
-# From the repository root
-pip install pre-commit
-pre-commit install
-```
-
-You can also manually run all the checks across the entire codebase with:
-
-```bash
-pre-commit run --all-files
-```
-
-## Adding dependencies
-
-To add a python dependency, add it to requirements.txt / requirements-dev.txt with it's current version number.
-
 ## Caching
 
 The application makes use of caching in a couple of locations:
