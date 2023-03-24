@@ -461,11 +461,11 @@ On each request using the X-Environment-Key header, the flagsmith application re
 relevant caching. This can be configured using environment variables to create a shared cache with a longer timeout. The
 cache will be cleared automatically by certain actions in the platform when the environment changes.
 
-| Environment Variable                    | Description                                                                                                                    | Example value                                          | Default                                       |
-| --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------ | --------------------------------------------- |
-| <code>ENVIRONMENT_CACHE_SECONDS</code>  | Number of seconds to cache the environment for                                                                                 | `60`                                                   | `86400` ( = 24h)                              |
-| <code>ENVIRONMENT_CACHE_BACKEND</code>  | Python path to the django cache backend chosen. See documentation [here](https://docs.djangoproject.com/en/3.2/topics/cache/). | `django.core.cache.backends.memcached.PyMemcacheCache` | `django.core.cache.backends.dummy.DummyCache` |
-| <code>ENVIRONMENT_CACHE_LOCATION</code> | The location for the cache. See documentation [here](https://docs.djangoproject.com/en/3.2/topics/cache/).                     | `127.0.0.1:11211`                                      | `environment-objects`                         |
+| Environment Variable         | Description                                                                                                                    | Example value                                          | Default                                       |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------ | --------------------------------------------- |
+| `ENVIRONMENT_CACHE_SECONDS`  | Number of seconds to cache the environment for                                                                                 | `60`                                                   | `86400` ( = 24h)                              |
+| `ENVIRONMENT_CACHE_BACKEND`  | Python path to the django cache backend chosen. See documentation [here](https://docs.djangoproject.com/en/3.2/topics/cache/). | `django.core.cache.backends.memcached.PyMemcacheCache` | `django.core.cache.backends.dummy.DummyCache` |
+| `ENVIRONMENT_CACHE_LOCATION` | The location for the cache. See documentation [here](https://docs.djangoproject.com/en/3.2/topics/cache/).                     | `127.0.0.1:11211`                                      | `environment-objects`                         |
 
 ## Unified Front End and Back End Build
 
