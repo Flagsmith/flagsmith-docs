@@ -420,8 +420,9 @@ To add a python dependency, add it to requirements.txt / requirements-dev.txt wi
 
 The application makes use of caching in a couple of locations:
 
-1. Environment authentication - the application utilises an in memory cache for the environment object on all endpoints
-   that use the X-Environment-Key header.
+1. Environment authentication - the application utilises caching for the environment object on all endpoints that use
+   the X-Environment-Key header. By default, this is configured to use an in-memory cache. This can be configured using
+   the options defined below.
 2. Environment flags - the application utilises an in memory cache for the flags returned when calling /flags. The
    number of seconds this is cached for is configurable using the environment variable `"CACHE_FLAGS_SECONDS"`
 3. Project Segments - the application utilises an in memory cache for returning the segments for a given project. The
@@ -429,7 +430,7 @@ The application makes use of caching in a couple of locations:
    `"CACHE_PROJECT_SEGMENTS_SECONDS"`.
 4. Flags and Identities endpoint caching - the application provides the ability to cache the responses to the GET /flags
    and GET /identities endpoints. The application exposes the configuration to allow the caching to be handled in a
-   manner chosen by the developer. The configuration options are explain in more detail below.
+   manner chosen by the developer. The configuration options are explained in more detail below.
 
 ### Flags & Identities endpoint caching
 
@@ -453,6 +454,18 @@ GET_IDENTITIES_ENDPOINT_CACHE_SECONDS: 30
 GET_IDENTITIES_ENDPOINT_CACHE_BACKEND: django.core.cache.backends.memcached.PyMemcacheCache
 GET_IDENTITIES_ENDPOINT_CACHE_LOCATION: memcached-container:11211
 ```
+
+### Environment authentication caching
+
+On each request using the X-Environment-Key header, the flagsmith application retrieves the environment to perform the
+relevant caching. This can be configured using environment variables to create a shared cache with a longer timeout. The
+cache will be cleared automatically by certain actions in the platform when the environment changes.
+
+| Environment Variable         | Description                                                                                                                    | Example value                                          | Default                                       |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------ | --------------------------------------------- |
+| `ENVIRONMENT_CACHE_SECONDS`  | Number of seconds to cache the environment for                                                                                 | `60`                                                   | `86400` ( = 24h)                              |
+| `ENVIRONMENT_CACHE_BACKEND`  | Python path to the django cache backend chosen. See documentation [here](https://docs.djangoproject.com/en/3.2/topics/cache/). | `django.core.cache.backends.memcached.PyMemcacheCache` | `django.core.cache.backends.dummy.DummyCache` |
+| `ENVIRONMENT_CACHE_LOCATION` | The location for the cache. See documentation [here](https://docs.djangoproject.com/en/3.2/topics/cache/).                     | `127.0.0.1:11211`                                      | `environment-objects`                         |
 
 ## Unified Front End and Back End Build
 
