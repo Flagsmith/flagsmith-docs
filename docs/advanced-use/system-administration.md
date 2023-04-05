@@ -59,12 +59,18 @@ to use a [server-side SDK and server-side Key](../clients/overview.md).
 
 This is a per-Environment setting.
 
-## Environment Banners
+## API Usage
 
-You can optionally provide a coloured banner for your Environments in each Environment Settings page. This helps you
-identify sensitive Environments before toggling flags!
+Flagsmith will track API calls made by the SDKS and store them in its data-store. You can view this data by going to the
+Organisation settings page and clicking on **Usage**. You can also drill down into Projects and Environments. Flagsmith
+tracks the following request types:
 
-![Environment Banners](/img/environment-banner.png)
+1. Get Flags
+2. Get Identity Flags
+3. Set Identity Traits
+4. Get Environment Document (for local evaluation SDKs)
+
+![API Usage](/img/api-usage.png)
 
 ## Audit Logs
 
@@ -206,3 +212,10 @@ expected_signature = hmac.new(
 received_signature = request["headers"]["x-flagsmith-signature"]
 hmac.compare_digest(expected_signature, received_signature) is True
 ```
+
+## Environment Banners
+
+You can optionally provide a coloured banner for your Environments in each Environment Settings page. This helps you
+identify sensitive Environments before toggling flags!
+
+![Environment Banners](/img/environment-banner.png)
