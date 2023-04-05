@@ -16,7 +16,7 @@ suggesting the next steps.
 - If your PR involves a lot of commits, squash them using `git rebase -i` as this makes it easier for us to review.
 - Keep lines under 80 characters.
 
-## Pre commit
+## Pre-commit
 
 The application uses pre-commit configuration ( `.pre-commit-config.yaml` ) to run `black`, `flake8` and `isort`
 formatting before commits.
@@ -46,6 +46,9 @@ To run tests:
 DJANGO_SETTINGS_MODULE=app.settings.test pytest
 ```
 
-## Adding dependencies
+## Adding Dependencies
 
-To add a python dependency, add it to requirements.txt / requirements-dev.txt with it's current version number.
+To add a python dependency:
+
+- Add to `requirements.in` or `requirements-dev.in`
+- Run `pip-compile` or `pip-compile requirements-dev.in`
