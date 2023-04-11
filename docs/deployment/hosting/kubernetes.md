@@ -220,15 +220,6 @@ api:
    maxSurge: '50%'
 ```
 
-### InfluxDB
-
-By default, Flagsmith uses InfluxDB to store time series data. Currently this is used to measure:
-
-- SDK API traffic
-- SDK Flag Evaluations
-
-[You need to perform some additional steps to configure InfluxDB.](/deployment/overview#influxdb).
-
 ### PgBouncer
 
 By default, Flagsmith connects directly to the database - either in-cluster, or external. Can enable PgBouncer with
@@ -402,6 +393,15 @@ The following table lists the configurable parameters of the chart and their def
 | `api.statsd.prefix`                                | Prefix to add to metric ids                                    | `flagsmith.api`                |
 
 ---
+
+### InfluxDB
+
+By default, Flagsmith uses Postgres to store time series data. You can alternatively use Influx to track:
+
+- SDK API traffic
+- SDK Flag Evaluations
+
+[You need to perform some additional steps to configure InfluxDB.](/deployment/overview#influxdb).
 
 ## Development and contributing
 
