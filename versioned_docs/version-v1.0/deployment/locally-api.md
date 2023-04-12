@@ -22,12 +22,6 @@ python manage.py runserver --nostatic
 You can now visit `http://<your-server-domain:8000>/api/v1/users/config/init/` to create an initial Superuser and
 provide DNS settings for your installation.
 
-If you want to load some sample data into your database:
-
-```bash
-python manage.py loaddata app/fixtures/init_data.yaml
-```
-
 Note: if you're running on on MacOS and you find some issues installing the dependencies (specifically around pyre2),
 you may need to run the following:
 
