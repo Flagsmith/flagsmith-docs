@@ -240,6 +240,7 @@ the below variables will be ignored.
   [marked as a superuser](/deployment/configuration/django-admin#Authentication).
 - `FLAGSMITH_CORS_EXTRA_ALLOW_HEADERS`: Comma separated list of extra headers to allow when operating across domains.
   e.g. `'my-custom-header-1,my-custom-header-2'`. Defaults to `'sentry-trace,'`.
+- `FLAGSMITH_DOMAIN`: A custom domain for URLs pointing to your Flagsmith instance in email notifications.
 
 #### Security Environment Variables
 
