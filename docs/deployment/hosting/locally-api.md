@@ -97,19 +97,23 @@ Once the app has been deployed, you can initialise your installation by accessin
 will show a page with a basic form to set up some initial data for the platform. Each of the parameters in the form are
 described below.
 
-| Parameter name | Description                                                                                                                      |
-| -------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| Username       | A unique username to give the installation super user                                                                            |
-| Email          | The email address to give the installation super user                                                                            |
-| Password       | The password to give the installation super user                                                                                 |
-| Site name      | A human readable name for the site, e.g. 'Flagsmith'                                                                             |
-| Site domain    | The domain that the FE of the site will be running on, e.g. app.flagsmith.com. This will be used for e.g. password reset emails. |
+| Parameter name  | Description                                                                                                                      |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| Username        | A unique username to give the installation super user                                                                            |
+| Email           | The email address to give the installation super user                                                                            |
+| Password        | The password to give the installation super user                                                                                 |
+| Site name       | A human readable name for the site, e.g. 'Flagsmith'                                                                             |
+| Site domain[^1] | The domain that the FE of the site will be running on, e.g. app.flagsmith.com. This will be used for e.g. password reset emails. |
 
 Once you've created the super user, you can use the details to log in at `/admin/`. From here, you can create an
 organisation and either create another user or simply assign the organisation to your admin user to begin using the
 application.
 
 Further information on the admin pages can be found [here](/deployment/configuration/django-admin).
+
+[^1]:
+    Your Flagsmith's domain can also be configured via the `FLAGSMITH_DOMAIN` environment variable. See the
+    [full list](#application-environment-variables) of variables used for configuration.
 
 ## Deploying
 
@@ -240,7 +244,9 @@ the below variables will be ignored.
   [marked as a superuser](/deployment/configuration/django-admin#Authentication).
 - `FLAGSMITH_CORS_EXTRA_ALLOW_HEADERS`: Comma separated list of extra headers to allow when operating across domains.
   e.g. `'my-custom-header-1,my-custom-header-2'`. Defaults to `'sentry-trace,'`.
-- `FLAGSMITH_DOMAIN`: A custom domain for URLs pointing to your Flagsmith instance in email notifications.
+- `FLAGSMITH_DOMAIN`: A custom domain for URLs pointing to your Flagsmith instance in email notifications. Note: if set,
+  the domain provided during [initial configuration](#environments-with-no-direct-console-access-eg-heroku-ecs) will be
+  ignored.
 
 #### Security Environment Variables
 
